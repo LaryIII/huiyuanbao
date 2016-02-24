@@ -71,11 +71,11 @@
     tabBarController.tabBar.items = @[homeItem, clazzItem, lifeItem, mineItem];
     for (RDVTabBarItem *item in [[tabBarController tabBar] items]) {
         item.selectedTitleAttributes = @{
-                                         NSFontAttributeName: [UIFont systemFontOfSize:15],
-                                         NSForegroundColorAttributeName: RGB(125, 0, 0),
+                                         NSFontAttributeName: [UIFont systemFontOfSize:10],
+                                         NSForegroundColorAttributeName: MAIN_COLOR,
                                          };
         item.unselectedTitleAttributes = @{
-                                           NSFontAttributeName: [UIFont systemFontOfSize:15],NSForegroundColorAttributeName: RGB(0, 0, 0),
+                                           NSFontAttributeName: [UIFont systemFontOfSize:10],NSForegroundColorAttributeName: RGB(102, 102, 102),
                                            };
     }
     self.navigationController = [[UINavigationController alloc] initWithRootViewController:tabBarController];

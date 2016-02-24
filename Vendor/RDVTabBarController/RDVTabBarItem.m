@@ -138,14 +138,14 @@
             
             [image drawInRect:CGRectMake(roundf(frameSize.width / 2 - imageSize.width / 2) +
                                          _imagePositionAdjustment.horizontal,
-                                         imageStartingY + _imagePositionAdjustment.vertical,
+                                         imageStartingY + _imagePositionAdjustment.vertical-3.0f,
                                          imageSize.width, imageSize.height)];
             
             CGContextSetFillColorWithColor(context, [titleAttributes[NSForegroundColorAttributeName] CGColor]);
             
             [_title drawInRect:CGRectMake(roundf(frameSize.width / 2 - titleSize.width / 2) +
                                           _titlePositionAdjustment.horizontal,
-                                          imageStartingY + imageSize.height*3/4 + _titlePositionAdjustment.vertical,
+                                          imageStartingY + imageSize.height*3/4 + _titlePositionAdjustment.vertical+3.0f,
                                           titleSize.width, titleSize.height)
                 withAttributes:titleAttributes];
         } else {

@@ -164,7 +164,7 @@
 - (RDVTabBar *)tabBar {
     if (!_tabBar) {
         _tabBar = [[RDVTabBar alloc] init];
-        [_tabBar setBackgroundColor:RGB(235, 235, 235)];
+        [_tabBar setBackgroundColor:RGB(255, 255, 255)];
         [_tabBar setAutoresizingMask:(UIViewAutoresizingFlexibleWidth|
                                       UIViewAutoresizingFlexibleTopMargin|
                                       UIViewAutoresizingFlexibleLeftMargin|
@@ -197,7 +197,7 @@
         CGFloat tabBarHeight = CGRectGetHeight([[weakSelf tabBar] frame]);
         
         if (!tabBarHeight) {
-            tabBarHeight = 60;
+            tabBarHeight = 50;
         }
         
         if (!hidden) {

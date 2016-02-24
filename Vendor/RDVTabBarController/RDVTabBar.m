@@ -57,7 +57,7 @@
 }
 
 - (void)commonInitialization {
-    [self setBackgroundColor:RGB(235, 235, 235)];
+    [self setBackgroundColor:RGB(255, 255, 255)];
     _backgroundView = [[UIView alloc] init];
     [self addSubview:_backgroundView];
     sepratorLine = [[UIView alloc] initWithFrame:CGRectZero];
@@ -174,7 +174,7 @@
 //                                                         blue:245/255.0
 //                                                        alpha:alpha]];
 
-    [_backgroundView setBackgroundColor:RGB(235, 235, 235)];
+    [_backgroundView setBackgroundColor:RGB(255, 255, 255)];
 }
 
 @end
