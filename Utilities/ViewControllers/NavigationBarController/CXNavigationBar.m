@@ -136,22 +136,22 @@ static const CGFloat kCXNavigationBarButtonMaxWidth = 86.0f; // 左右按钮最�
         UIView *view = [[UIView alloc] initWithFrame:self.bounds];
      //   view.backgroundColor = [UIColor colorWithRed:79.0f/255.0f green:84.0f/255.0f blue:89.0f/255.0f alpha:1.0f];
       //  view.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"navBarBack"]];
-        view.backgroundColor = RGB(255, 255, 255);
+        view.backgroundColor = MAIN_COLOR;
 
         view.autoresizingMask = UIViewAutoresizingFlexibleWidth;
         self.backgroundView = view;
     }
     [self addSubview:self.backgroundView];
     
-    if (!_bottomLineView) {
-        UIView *view =  [[UIView alloc] initWithFrame:CGRectMake(0.0f, CGRectGetHeight(self.bounds) - 0.5F, CGRectGetWidth(self.bounds), 0.5F)];
-        view.backgroundColor = RGB(227, 227, 227);
-        view.autoresizingMask = UIViewAutoresizingFlexibleWidth;
-        
-        self.bottomLineView = view;
-    }
+//    if (!_bottomLineView) {
+//        UIView *view =  [[UIView alloc] initWithFrame:CGRectMake(0.0f, CGRectGetHeight(self.bounds) - 0.5F, CGRectGetWidth(self.bounds), 0.5F)];
+//        view.backgroundColor = RGB(227, 227, 227);
+//        view.autoresizingMask = UIViewAutoresizingFlexibleWidth;
+//        
+//        self.bottomLineView = view;
+//    }
     // 1.1.0版本去掉了该线条
-    [self.backgroundView addSubview:self.bottomLineView];
+//    [self.backgroundView addSubview:self.bottomLineView];
     
     if (!_titleView) {
         CGRect labelFrame = CGRectMake(0.0F, 0.0F, CGRectGetWidth(self.backgroundView.bounds), CGRectGetHeight(self.backgroundView.bounds));
@@ -159,8 +159,8 @@ static const CGFloat kCXNavigationBarButtonMaxWidth = 86.0f; // 左右按钮最�
         UILabel *label = [[UILabel alloc] initWithFrame:labelFrame];
         label.autoresizingMask = UIViewAutoresizingFlexibleWidth;
         label.backgroundColor = [UIColor clearColor];
-        label.font = [UIFont systemFontOfSize:15];
-        label.textColor = RGB(15, 15, 15);
+        label.font = [UIFont systemFontOfSize:17];
+        label.textColor = RGB(255, 255, 255);
         label.textAlignment = NSTextAlignmentCenter;
         label.lineBreakMode = NSLineBreakByTruncatingTail;
         

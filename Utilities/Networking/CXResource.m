@@ -460,26 +460,25 @@ NSString * const CXResourceErrorDomain = @"cx.resource.request.error.response";
     
     NSArray *allKeys = (NSArray *)[responseObject allKeys];
     
-    if (([allKeys containsObject:@"respCode"] || [allKeys containsObject:@"errCode"] || [allKeys containsObject:@"errMsg"])|| [allKeys containsObject:@"response"])
+    if (([allKeys containsObject:@"resultStatus"] || [allKeys containsObject:@"msg"])|| [allKeys containsObject:@"result"])
     {
-        id respCode = responseObject[@"respCode"];
-        id errCode = responseObject[@"errCode"];
-        id errMsg = responseObject[@"errMsg"];
-        id response = [responseObject objectForKey:@"response"];
+        id resultStatus = responseObject[@"resultStatus"];
+        id msg = responseObject[@"msg"];
+        id result = [responseObject objectForKey:@"result"];
         
-        if ([respCode integerValue] == HttpResponseCodeSuccess) {
+        if ([resultStatus integerValue] == HttpResponseCodeSuccess) {
             self.isAccessNetworkData = YES;
             if (isCanSave) {
-                if ([response isKindOfClass:[NSArray class]]){
+                if ([result isKindOfClass:[NSArray class]]){
                     [self saveValues:responseObject parameters:parameters];
                 }else{
-                    [self saveValues:response parameters:parameters];
+                    [self saveValues:result parameters:parameters];
                 }
             }
-            if ([response isKindOfClass:[NSArray class]] || [response isKindOfClass:[NSString class]]){
+            if ([result isKindOfClass:[NSArray class]] || [result isKindOfClass:[NSString class]]){
                 [self setValues:responseObject];
             }else{
-                [self setValues:response];
+                [self setValues:result];
             }
             
             self.loadingStatus = ResourceStatusProcessed;//attention
@@ -489,24 +488,24 @@ NSString * const CXResourceErrorDomain = @"cx.resource.request.error.response";
             
             [userInfo setValue:@"Request error response" forKey:NSLocalizedDescriptionKey];
             
-            if (errCode && errMsg) {
-                [userInfo setValue:[NSString stringWithFormat:@"%@", errMsg] forKey:NSLocalizedFailureReasonErrorKey];
+            if (msg) {
+                [userInfo setValue:[NSString stringWithFormat:@"%@", msg] forKey:NSLocalizedFailureReasonErrorKey];
             }
             else {
                 [userInfo setValue:[NSString stringWithFormat:@"Response Data: %@", responseObject] forKey:NSLocalizedFailureReasonErrorKey];
             }
             
-            NSError *error = [[NSError alloc] initWithDomain:CXResourceErrorDomain code:[respCode integerValue] userInfo:userInfo];
+//            NSError *error = [[NSError alloc] initWithDomain:CXResourceErrorDomain code:[respCode integerValue] userInfo:userInfo];
             
-            if ([errCode isEqualToString:@"E_INVALID_TOKEN"]) {
-                self.error = error;
-                
-                self.loadingStatus = ResourceStatusNotProcessed;
-                
-                [GVUserDefaults standardUserDefaults].token = nil;
-                [GVUserDefaults standardUserDefaults].refreshToken = nil;
-                [GVUserDefaults standardUserDefaults].expire = nil;
-                
+//            if ([errCode isEqualToString:@"E_INVALID_TOKEN"]) {
+//                self.error = error;
+//                
+//                self.loadingStatus = ResourceStatusNotProcessed;
+//                
+//                [GVUserDefaults standardUserDefaults].token = nil;
+//                [GVUserDefaults standardUserDefaults].refreshToken = nil;
+//                [GVUserDefaults standardUserDefaults].expire = nil;
+            
 //                AppDelegate* app = (AppDelegate*)[UIApplication sharedApplication].delegate;
                 
 //                AJLoginController *loginController = [[AJLoginController alloc] init];
@@ -519,11 +518,11 @@ NSString * const CXResourceErrorDomain = @"cx.resource.request.error.response";
 //                UINavigationController *navigationController = [[UINavigationController alloc] initWithRootViewController:loginController];
 //                [app.window.rootViewController presentViewController:navigationController animated:YES completion:^{
 //                }];
-            }
-            else {
-                DDLogDebug(@"Loading %@ failed: %@", self.resourcePath, error);
-                [self loadFailWithError:error parameters:parameters];
-            }
+//            }
+//            else {
+//                DDLogDebug(@"Loading %@ failed: %@", self.resourcePath, error);
+//                [self loadFailWithError:error parameters:parameters];
+//            }
         }
     }
     else {

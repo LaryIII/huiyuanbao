@@ -20,10 +20,10 @@
     self = [super initWithFrame:frame];
     if (self) {
         //可根据自己的需要随意调整
-        self.titleLabel.textAlignment = NSTextAlignmentRight;
-        self.titleLabel.font =[UIFont systemFontOfSize:15.0];
-        self.titleLabel.textColor = RGB(15, 15, 15);
-        self.imageView.contentMode = UIViewContentModeLeft;
+        self.titleLabel.textAlignment = NSTextAlignmentLeft;
+        self.titleLabel.font =[UIFont systemFontOfSize:14.0];
+        self.titleLabel.textColor = RGB(255, 255, 255);
+        self.imageView.contentMode = UIViewContentModeRight;
     }
     return self ;
 }
@@ -31,9 +31,9 @@
 //更具button的rect设定并返回文本label的rect
 - (CGRect)titleRectForContentRect:(CGRect)contentRect
 {
-    CGFloat titleW = contentRect.size.width-34+8;
+    CGFloat titleW = contentRect.size.width-32+8;
     CGFloat titleH = contentRect.size.height;
-    CGFloat titleX = 0;
+    CGFloat titleX = 10.0f;
     CGFloat titleY = 0;
     contentRect = (CGRect){{titleX,titleY},{titleW,titleH}};
     return contentRect;
