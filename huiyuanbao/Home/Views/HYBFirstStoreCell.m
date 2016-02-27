@@ -84,7 +84,7 @@ static const CGFloat innerMargin = 7.0f;
         lineView.backgroundColor = RGB(204, 204, 204);
         [firstView addSubview:lineView];
         [lineView makeConstraints:^(MASConstraintMaker *make) {
-            make.top.equalTo(headerView.bottom).offset(0);
+            make.top.equalTo(headerView.bottom).offset(-0.5);
             make.left.equalTo(headerView.left).offset(0);
             make.right.equalTo(headerView.right).offset(0);
             make.height.mas_equalTo(0.5f);
