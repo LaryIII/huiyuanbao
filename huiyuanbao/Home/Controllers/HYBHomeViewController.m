@@ -8,12 +8,14 @@
 
 #import "HYBHomeViewController.h"
 #import "ZButton.h"
+#import "RDVTabBarController.h"
 #import "HYBAdvertisement.h"
 #import "HYBBannersCell.h"
 #import "HYBFirstStoreCell.h"
 #import "HYBFirstStore.h"
 #import "HYBStore.h"
 #import "HYBStoreCell.h"
+#import "HYBSelectCityViewController.h"
 
 @interface HYBHomeViewController ()<UICollectionViewDelegate, UICollectionViewDataSource,HYBBannersCellDelegate,HYBFirstStoreCellDelegate,HYBStoreCellDelegate>
 @property (nonatomic, strong) UICollectionView *collectionView;
@@ -102,7 +104,9 @@ static const CGFloat heightWidthRatio = 7.0f / 16.0f;
 
 - (void)leftButtonTapped:(id)sender
 {
-    //TODO
+    [[self rdv_tabBarController] setTabBarHidden:YES animated:YES];
+    HYBSelectCityViewController *pushController = [[HYBSelectCityViewController alloc] init];
+    [self.navigationController pushViewController:pushController animated:YES];
 }
 
 - (void)rightButtonTapped:(id)sender
@@ -275,6 +279,13 @@ static const CGFloat heightWidthRatio = 7.0f / 16.0f;
 - (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath {
     NSMutableArray *array = self.dataArray[indexPath.section];
     id object = array[indexPath.row];
+}
+
+- (void)viewWillAppear:(BOOL)animated
+{
+    [super viewWillAppear:animated];
+    [[self rdv_tabBarController] setTabBarHidden:NO animated:NO];
+//    [self refreshData];
 }
 
 

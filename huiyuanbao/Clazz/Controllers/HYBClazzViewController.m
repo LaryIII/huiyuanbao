@@ -8,6 +8,7 @@
 
 #import "HYBClazzViewController.h"
 #import "ZButton.h"
+#import "RDVTabBarController.h"
 #import "HYBStore2.h"
 #import "HYBStore2Cell.h"
 #import "masonry.h"
@@ -331,6 +332,17 @@
 - (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath {
     NSMutableArray *array = self.dataArray[indexPath.section];
     id object = array[indexPath.row];
+}
+
+- (void)viewWillAppear:(BOOL)animated
+{
+    [super viewWillAppear:animated];
+    [[self rdv_tabBarController] setTabBarHidden:NO animated:NO];
+//    [self refreshData];
+}
+
+- (void)search{
+    
 }
 
 

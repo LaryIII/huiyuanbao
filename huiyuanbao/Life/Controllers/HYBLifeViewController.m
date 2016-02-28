@@ -9,6 +9,10 @@
 #import "HYBLifeViewController.h"
 #import "masonry.h"
 #import "ZButton.h"
+#import "RDVTabBarController.h"
+#import "HYBPhoneChargeViewController.h"
+#import "HYBShihuaChargeViewController.h"
+#import "HYBQQChargeViewController.h"
 
 @interface HYBLifeViewController ()
 
@@ -217,6 +221,37 @@
     //TODO
 }
 
+-(void)phone{
+    [[self rdv_tabBarController] setTabBarHidden:YES animated:YES];
+    HYBPhoneChargeViewController *pushController = [[HYBPhoneChargeViewController alloc] init];
+    [self.navigationController pushViewController:pushController animated:YES];
+}
 
+-(void)shihua{
+    [[self rdv_tabBarController] setTabBarHidden:YES animated:YES];
+    HYBShihuaChargeViewController *pushController = [[HYBShihuaChargeViewController alloc] init];
+    [self.navigationController pushViewController:pushController animated:YES];
+}
+
+-(void)shiyou{
+    
+}
+
+-(void)qq{
+    [[self rdv_tabBarController] setTabBarHidden:YES animated:YES];
+    HYBQQChargeViewController *pushController = [[HYBQQChargeViewController alloc] init];
+    [self.navigationController pushViewController:pushController animated:YES];
+}
+
+-(void)tel{
+    
+}
+
+- (void)viewWillAppear:(BOOL)animated
+{
+    [super viewWillAppear:animated];
+    [[self rdv_tabBarController] setTabBarHidden:NO animated:NO];
+    //    [self refreshData];
+}
 
 @end

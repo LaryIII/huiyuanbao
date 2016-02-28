@@ -136,7 +136,7 @@ static const float kNavigationBarDefaultHeight = 38.0F;
     [self.view addSubview:self.navigationBar];
     
     if ([self.navigationController.viewControllers indexOfObject:self] != 0) {
-        CGRect backButtonFrame = CGRectMake(10.0f, 0.0f, 21.0f+30.0, _navigationBarHeight);
+        CGRect backButtonFrame = CGRectMake(10.0f, 0.0f, 66.0f, _navigationBarHeight);
         
         UIButton *backButton = [[UIButton alloc] initWithFrame:backButtonFrame];
         backButton.backgroundColor = [UIColor clearColor];

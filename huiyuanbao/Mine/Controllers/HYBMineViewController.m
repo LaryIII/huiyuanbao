@@ -7,8 +7,10 @@
 //
 
 #import "HYBMineViewController.h"
+#import "RDVTabBarController.h"
 #import "masonry.h"
 #import "ZButton.h"
+#import "HYBSetPasswordViewController.h"
 
 @interface HYBMineViewController ()
 
@@ -213,7 +215,7 @@
     
     // 菜单 预订记录 消费记录 充值记录 积分记录
     UIView *view1 = UIView.new;
-    UITapGestureRecognizer* singleTap1 = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(gotoMyProjects:)];
+    UITapGestureRecognizer* singleTap1 = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(orderRecords)];
     [view1 addGestureRecognizer:singleTap1];
     [topView addSubview:view1];
     [view1 makeConstraints:^(MASConstraintMaker *make) {
@@ -223,7 +225,7 @@
         make.height.mas_equalTo(topHeight/4);
     }];
     UIView *view2 = UIView.new;
-    UITapGestureRecognizer* singleTap2 = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(gotoMyFollows:)];
+    UITapGestureRecognizer* singleTap2 = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(xiaofeiRecords)];
     [view2 addGestureRecognizer:singleTap2];
     [topView addSubview:view2];
     [view2 makeConstraints:^(MASConstraintMaker *make) {
@@ -233,7 +235,7 @@
         make.height.mas_equalTo(topHeight/4);
     }];
     UIView *view3 = UIView.new;
-    UITapGestureRecognizer* singleTap3 = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(gotoMyInvites:)];
+    UITapGestureRecognizer* singleTap3 = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(chargeRecords)];
     [view3 addGestureRecognizer:singleTap3];
     [topView addSubview:view3];
     [view3 makeConstraints:^(MASConstraintMaker *make) {
@@ -243,7 +245,7 @@
         make.height.mas_equalTo(topHeight/4);
     }];
     UIView *view4 = UIView.new;
-    UITapGestureRecognizer* singleTap4 = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(gotoMyCards:)];
+    UITapGestureRecognizer* singleTap4 = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(scoreRecords)];
     [view4 addGestureRecognizer:singleTap4];
     [topView addSubview:view4];
     [view4 makeConstraints:^(MASConstraintMaker *make) {
@@ -389,9 +391,9 @@
     }];
     
     
-    // 菜单 预订记录 消费记录 充值记录 积分记录
+    // 菜单 设置支付密码 在线客服 意见反馈
     UIView *view5 = UIView.new;
-    UITapGestureRecognizer* singleTap5 = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(gotoMyProjects:)];
+    UITapGestureRecognizer* singleTap5 = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(setPassword)];
     [view5 addGestureRecognizer:singleTap5];
     [bottomView addSubview:view5];
     [view5 makeConstraints:^(MASConstraintMaker *make) {
@@ -401,7 +403,7 @@
         make.height.mas_equalTo(bottomHeight/3);
     }];
     UIView *view6 = UIView.new;
-    UITapGestureRecognizer* singleTap6 = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(gotoMyFollows:)];
+    UITapGestureRecognizer* singleTap6 = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(kefu)];
     [view6 addGestureRecognizer:singleTap6];
     [bottomView addSubview:view6];
     [view6 makeConstraints:^(MASConstraintMaker *make) {
@@ -411,7 +413,7 @@
         make.height.mas_equalTo(bottomHeight/3);
     }];
     UIView *view7 = UIView.new;
-    UITapGestureRecognizer* singleTap7 = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(gotoMyInvites:)];
+    UITapGestureRecognizer* singleTap7 = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(feedback)];
     [view7 addGestureRecognizer:singleTap7];
     [bottomView addSubview:view7];
     [view7 makeConstraints:^(MASConstraintMaker *make) {
@@ -583,6 +585,63 @@
 - (void)rightButtonTapped:(id)sender
 {
     //TODO
+}
+
+- (void)editAvater{
+    
+}
+
+-(void)card{
+    
+}
+
+-(void)quan{
+    
+}
+
+-(void)msg{
+    
+}
+
+-(void)orderRecords{
+    
+}
+
+-(void)xiaofeiRecords{
+    
+}
+
+-(void)chargeRecords{
+    
+}
+
+-(void)scoreRecords{
+    
+}
+
+-(void)setPassword{
+    [[self rdv_tabBarController] setTabBarHidden:YES animated:YES];
+    HYBSetPasswordViewController *pushController = [[HYBSetPasswordViewController alloc] init];
+    [self.navigationController pushViewController:pushController animated:YES];
+}
+
+-(void)kefu{
+    
+}
+
+-(void)feedback{
+    
+}
+
+-(void)logouts{
+    
+}
+
+- (void)viewWillAppear:(BOOL)animated
+{
+    [super viewWillAppear:animated];
+    [[self rdv_tabBarController] setTabBarHidden:NO animated:NO];
+    //    [self refreshData];
 }
 
 @end
