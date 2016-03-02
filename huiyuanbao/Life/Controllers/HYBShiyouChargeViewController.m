@@ -1,23 +1,23 @@
 //
-//  HYBShihuaChargeViewController.m
+//  HYBShiyouChargeViewController.m
 //  huiyuanbao
 //
 //  Created by zhouhai on 16/2/28.
 //  Copyright © 2016年 huiyuanbao. All rights reserved.
 //
 
-#import "HYBShihuaChargeViewController.h"
+#import "HYBShiyouChargeViewController.h"
 #import "masonry.h"
 
-@interface HYBShihuaChargeViewController ()
+@interface HYBShiyouChargeViewController ()
 
 @end
 
-@implementation HYBShihuaChargeViewController
+@implementation HYBShiyouChargeViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    self.navigationBar.title = @"中石化加油卡充值";
+    self.navigationBar.title = @"中石油加油卡充值";
     self.view.backgroundColor = RGB(240, 240, 240);
     CGFloat width = CGRectGetWidth(self.view.bounds);
     CGFloat top = self.navigationBarHeight;

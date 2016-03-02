@@ -13,6 +13,7 @@
 #import "HYBPhoneChargeViewController.h"
 #import "HYBShihuaChargeViewController.h"
 #import "HYBQQChargeViewController.h"
+#import "HYBShiyouChargeViewController.h"
 
 @interface HYBLifeViewController ()
 
@@ -234,7 +235,9 @@
 }
 
 -(void)shiyou{
-    
+    [[self rdv_tabBarController] setTabBarHidden:YES animated:YES];
+    HYBShiyouChargeViewController *pushController = [[HYBShiyouChargeViewController alloc] init];
+    [self.navigationController pushViewController:pushController animated:YES];
 }
 
 -(void)qq{

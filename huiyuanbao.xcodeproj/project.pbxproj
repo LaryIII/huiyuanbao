@@ -152,6 +152,7 @@
 		B988F4CF1C834967006BBD8B /* HYBShihuaChargeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B988F4CE1C834967006BBD8B /* HYBShihuaChargeViewController.m */; };
 		B988F4D21C8349AE006BBD8B /* HYBQQChargeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B988F4D11C8349AE006BBD8B /* HYBQQChargeViewController.m */; };
 		B988F4D51C834B16006BBD8B /* HYBSelectCityViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B988F4D41C834B16006BBD8B /* HYBSelectCityViewController.m */; };
+		B988F4D81C874B68006BBD8B /* HYBShiyouChargeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B988F4D71C874B68006BBD8B /* HYBShiyouChargeViewController.m */; };
 		B9E9323C1C7DD5960068E620 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = B9E9323B1C7DD5960068E620 /* main.m */; };
 		B9E9323F1C7DD5960068E620 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = B9E9323E1C7DD5960068E620 /* AppDelegate.m */; };
 		B9E9324A1C7DD5960068E620 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B9E932491C7DD5960068E620 /* Assets.xcassets */; };
@@ -457,6 +458,8 @@
 		B988F4D11C8349AE006BBD8B /* HYBQQChargeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = HYBQQChargeViewController.m; path = Life/Controllers/HYBQQChargeViewController.m; sourceTree = "<group>"; };
 		B988F4D31C834B16006BBD8B /* HYBSelectCityViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = HYBSelectCityViewController.h; path = Home/Controllers/HYBSelectCityViewController.h; sourceTree = "<group>"; };
 		B988F4D41C834B16006BBD8B /* HYBSelectCityViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = HYBSelectCityViewController.m; path = Home/Controllers/HYBSelectCityViewController.m; sourceTree = "<group>"; };
+		B988F4D61C874B68006BBD8B /* HYBShiyouChargeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = HYBShiyouChargeViewController.h; path = Life/Controllers/HYBShiyouChargeViewController.h; sourceTree = "<group>"; };
+		B988F4D71C874B68006BBD8B /* HYBShiyouChargeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = HYBShiyouChargeViewController.m; path = Life/Controllers/HYBShiyouChargeViewController.m; sourceTree = "<group>"; };
 		B9E932371C7DD5960068E620 /* huiyuanbao.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = huiyuanbao.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B9E9323B1C7DD5960068E620 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		B9E9323D1C7DD5960068E620 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -1546,6 +1549,8 @@
 				B988F4CE1C834967006BBD8B /* HYBShihuaChargeViewController.m */,
 				B988F4D01C8349AE006BBD8B /* HYBQQChargeViewController.h */,
 				B988F4D11C8349AE006BBD8B /* HYBQQChargeViewController.m */,
+				B988F4D61C874B68006BBD8B /* HYBShiyouChargeViewController.h */,
+				B988F4D71C874B68006BBD8B /* HYBShiyouChargeViewController.m */,
 			);
 			name = Controllers;
 			sourceTree = "<group>";
@@ -2108,6 +2113,7 @@
 				B9E9357A1C7DE2B40068E620 /* DDAbstractDatabaseLogger.m in Sources */,
 				B9E9358E1C7DE2B40068E620 /* UIScrollView+SVInfiniteScrolling.m in Sources */,
 				B988F3ED1C8180FF006BBD8B /* HYBStore2.m in Sources */,
+				B988F4D81C874B68006BBD8B /* HYBShiyouChargeViewController.m in Sources */,
 				B9E935B31C7DE2B40068E620 /* ZHAreaPickerView.m in Sources */,
 				B9E9357D1C7DE2B40068E620 /* DDFileLogger.m in Sources */,
 				B9E935701C7DE2B40068E620 /* AFURLResponseSerialization.m in Sources */,

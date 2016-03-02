@@ -141,8 +141,8 @@
         btn.layer.borderWidth = 1;
         btn.layer.cornerRadius = 5.0;
         btn.tag = 20001+i;
-        [btn addTarget:self action:@selector(btn1clicked:) forControlEvents:UIControlEventTouchUpInside];
-        [btn1s addSubview:btn];
+        [btn addTarget:self action:@selector(btn2clicked:) forControlEvents:UIControlEventTouchUpInside];
+        [btn2s addSubview:btn];
         int btnw = (width-30-20)/3;
         if(i<3){
             [btn makeConstraints:^(MASConstraintMaker *make) {

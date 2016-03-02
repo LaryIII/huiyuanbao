@@ -85,7 +85,7 @@
     [btn1 setTitleColor:RGB(0, 0, 0) forState:UIControlStateNormal];
     btn1.layer.borderColor = RGB(232, 232, 232).CGColor;
     btn1.layer.borderWidth = 0.5;
-    [btn1 addTarget:self action:@selector(denys) forControlEvents:UIControlEventTouchUpInside];
+    [btn1 addTarget:self action:@selector(filters) forControlEvents:UIControlEventTouchUpInside];
     [filterbar addSubview:btn1];
     btn1.backgroundColor = [UIColor whiteColor];
     
@@ -110,7 +110,7 @@
     [btn2 setTitleColor:RGB(0, 0, 0) forState:UIControlStateNormal];
     btn2.layer.borderColor = RGB(232, 232, 232).CGColor;
     btn2.layer.borderWidth = 0.5;
-    [btn2 addTarget:self action:@selector(accepts) forControlEvents:UIControlEventTouchUpInside];
+    [btn2 addTarget:self action:@selector(orders) forControlEvents:UIControlEventTouchUpInside];
     [filterbar addSubview:btn2];
     btn2.backgroundColor = [UIColor whiteColor];
     
@@ -342,6 +342,14 @@
 }
 
 - (void)search{
+    
+}
+
+- (void)filters{
+    
+}
+
+-(void)orders{
     
 }
 
