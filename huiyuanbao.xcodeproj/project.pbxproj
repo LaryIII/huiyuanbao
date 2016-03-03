@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		3D5BF0040909B727744B1E5F /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = FDCCB340312BD400544476E3 /* libPods.a */; };
+		B9213E7E1C88347B00B8373A /* HYBLifeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B9213E7D1C88347B00B8373A /* HYBLifeViewController.m */; };
+		B9757B341C88112000781AB4 /* HYBQRCodeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B9757B331C88112000781AB4 /* HYBQRCodeViewController.m */; };
 		B988F3B41C8144C0006BBD8B /* first_store@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = B988F3A51C8144C0006BBD8B /* first_store@2x.png */; };
 		B988F3B51C8144C0006BBD8B /* first_store@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = B988F3A61C8144C0006BBD8B /* first_store@3x.png */; };
 		B988F3B61C8144C0006BBD8B /* location@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = B988F3A71C8144C0006BBD8B /* location@2x.png */; };
@@ -245,7 +247,6 @@
 		B9E935B71C7DE2B40068E620 /* ZHScrollView.m in Sources */ = {isa = PBXBuildFile; fileRef = B9E935671C7DE2B40068E620 /* ZHScrollView.m */; };
 		B9E935BE1C7DFDD90068E620 /* HYBHomeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B9E935BD1C7DFDD90068E620 /* HYBHomeViewController.m */; };
 		B9E935C51C7DFE360068E620 /* HYBClazzViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B9E935C41C7DFE360068E620 /* HYBClazzViewController.m */; };
-		B9E935CC1C7DFEA00068E620 /* HYBLifeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B9E935CB1C7DFEA00068E620 /* HYBLifeViewController.m */; };
 		B9E935D31C7DFEE60068E620 /* HYBMineViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B9E935D21C7DFEE60068E620 /* HYBMineViewController.m */; };
 		B9E935E51C7DFF360068E620 /* class@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = B9E935D51C7DFF360068E620 /* class@2x.png */; };
 		B9E935E61C7DFF360068E620 /* class@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = B9E935D61C7DFF360068E620 /* class@3x.png */; };
@@ -300,6 +301,10 @@
 /* Begin PBXFileReference section */
 		123DF5E81F7FBA31611304D4 /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
 		8D1015F1809C086BA1C403C3 /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
+		B9213E7C1C88347B00B8373A /* HYBLifeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = HYBLifeViewController.h; path = Life/Controllers/HYBLifeViewController.h; sourceTree = "<group>"; };
+		B9213E7D1C88347B00B8373A /* HYBLifeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = HYBLifeViewController.m; path = Life/Controllers/HYBLifeViewController.m; sourceTree = "<group>"; };
+		B9757B321C88112000781AB4 /* HYBQRCodeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = HYBQRCodeViewController.h; path = Home/Controllers/HYBQRCodeViewController.h; sourceTree = "<group>"; };
+		B9757B331C88112000781AB4 /* HYBQRCodeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = HYBQRCodeViewController.m; path = Home/Controllers/HYBQRCodeViewController.m; sourceTree = "<group>"; };
 		B988F3A51C8144C0006BBD8B /* first_store@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "first_store@2x.png"; sourceTree = "<group>"; };
 		B988F3A61C8144C0006BBD8B /* first_store@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "first_store@3x.png"; sourceTree = "<group>"; };
 		B988F3A71C8144C0006BBD8B /* location@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "location@2x.png"; sourceTree = "<group>"; };
@@ -648,8 +653,6 @@
 		B9E935BD1C7DFDD90068E620 /* HYBHomeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = HYBHomeViewController.m; path = Home/Controllers/HYBHomeViewController.m; sourceTree = "<group>"; };
 		B9E935C31C7DFE360068E620 /* HYBClazzViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = HYBClazzViewController.h; path = Clazz/Controllers/HYBClazzViewController.h; sourceTree = "<group>"; };
 		B9E935C41C7DFE360068E620 /* HYBClazzViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = HYBClazzViewController.m; path = Clazz/Controllers/HYBClazzViewController.m; sourceTree = "<group>"; };
-		B9E935CA1C7DFEA00068E620 /* HYBLifeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = HYBLifeViewController.h; path = Life/Controllers/HYBLifeViewController.h; sourceTree = "<group>"; };
-		B9E935CB1C7DFEA00068E620 /* HYBLifeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = HYBLifeViewController.m; path = Life/Controllers/HYBLifeViewController.m; sourceTree = "<group>"; };
 		B9E935D11C7DFEE60068E620 /* HYBMineViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = HYBMineViewController.h; path = Mine/Controllers/HYBMineViewController.h; sourceTree = "<group>"; };
 		B9E935D21C7DFEE60068E620 /* HYBMineViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = HYBMineViewController.m; path = Mine/Controllers/HYBMineViewController.m; sourceTree = "<group>"; };
 		B9E935D51C7DFF360068E620 /* class@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "class@2x.png"; sourceTree = "<group>"; };
@@ -1487,6 +1490,8 @@
 				B9E935BD1C7DFDD90068E620 /* HYBHomeViewController.m */,
 				B988F4D31C834B16006BBD8B /* HYBSelectCityViewController.h */,
 				B988F4D41C834B16006BBD8B /* HYBSelectCityViewController.m */,
+				B9757B321C88112000781AB4 /* HYBQRCodeViewController.h */,
+				B9757B331C88112000781AB4 /* HYBQRCodeViewController.m */,
 			);
 			name = Controllers;
 			sourceTree = "<group>";
@@ -1541,8 +1546,6 @@
 		B9E935C71C7DFE4C0068E620 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
-				B9E935CA1C7DFEA00068E620 /* HYBLifeViewController.h */,
-				B9E935CB1C7DFEA00068E620 /* HYBLifeViewController.m */,
 				B988F4CA1C834925006BBD8B /* HYBPhoneChargeViewController.h */,
 				B988F4CB1C834925006BBD8B /* HYBPhoneChargeViewController.m */,
 				B988F4CD1C834967006BBD8B /* HYBShihuaChargeViewController.h */,
@@ -1551,6 +1554,8 @@
 				B988F4D11C8349AE006BBD8B /* HYBQQChargeViewController.m */,
 				B988F4D61C874B68006BBD8B /* HYBShiyouChargeViewController.h */,
 				B988F4D71C874B68006BBD8B /* HYBShiyouChargeViewController.m */,
+				B9213E7C1C88347B00B8373A /* HYBLifeViewController.h */,
+				B9213E7D1C88347B00B8373A /* HYBLifeViewController.m */,
 			);
 			name = Controllers;
 			sourceTree = "<group>";
@@ -1756,7 +1761,7 @@
 				TargetAttributes = {
 					B9E932361C7DD5960068E620 = {
 						CreatedOnToolsVersion = 7.2.1;
-						DevelopmentTeam = Y6EWAP52J8;
+						DevelopmentTeam = MG3A2G9YM3;
 					};
 					B9E932521C7DD5960068E620 = {
 						CreatedOnToolsVersion = 7.2.1;
@@ -2064,6 +2069,7 @@
 				B9E935A41C7DE2B40068E620 /* PinyinFormatter.m in Sources */,
 				B9E9358F1C7DE2B40068E620 /* UIScrollView+SVPullToRefresh.m in Sources */,
 				B9E935A11C7DE2B40068E620 /* ChineseToPinyinResource.m in Sources */,
+				B9757B341C88112000781AB4 /* HYBQRCodeViewController.m in Sources */,
 				B9E935991C7DE2B40068E620 /* UIColor+CXExtensions.m in Sources */,
 				B9E933A11C7DD8590068E620 /* HYBCommonTool.m in Sources */,
 				B9E935AA1C7DE2B40068E620 /* CXNavigationBar.m in Sources */,
@@ -2098,7 +2104,6 @@
 				B9E9323C1C7DD5960068E620 /* main.m in Sources */,
 				B9E9356C1C7DE2B40068E620 /* AFURLSessionManager.m in Sources */,
 				B9E935831C7DE2B40068E620 /* EGOCache.m in Sources */,
-				B9E935CC1C7DFEA00068E620 /* HYBLifeViewController.m in Sources */,
 				B9E9356F1C7DE2B40068E620 /* AFURLRequestSerialization.m in Sources */,
 				B9E935B11C7DE2B40068E620 /* CXWebView.m in Sources */,
 				B9E933A01C7DD8590068E620 /* HYBLaunchViewController.m in Sources */,
@@ -2130,6 +2135,7 @@
 				B988F3E41C8158C9006BBD8B /* HYBFirstStoreCell.m in Sources */,
 				B9E935751C7DE2B40068E620 /* UIImageView+AFNetworking.m in Sources */,
 				B9E935981C7DE2B40068E620 /* NSURL+CXExtensions.m in Sources */,
+				B9213E7E1C88347B00B8373A /* HYBLifeViewController.m in Sources */,
 				B9E9358A1C7DE2B40068E620 /* Reachability.m in Sources */,
 				B9E935691C7DE2B40068E620 /* AFHTTPRequestOperationManager.m in Sources */,
 				B988F3DB1C81501C006BBD8B /* HYBStoreCell.m in Sources */,
@@ -2185,7 +2191,8 @@
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				CODE_SIGN_IDENTITY = "iPhone Developer: sunzhiqiang@minszx.com (6A77U2PM4C)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: sun zhiqiang (BWGLG4MHW8)";
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = dwarf;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
@@ -2209,6 +2216,7 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 9.2;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
+				PROVISIONING_PROFILE = "e08e172d-ba49-4755-8ae7-476a2062efd0";
 				SDKROOT = iphoneos;
 			};
 			name = Debug;
@@ -2230,6 +2238,7 @@
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer: sunzhiqiang@minszx.com (6A77U2PM4C)";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
@@ -2247,6 +2256,7 @@
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.2;
 				MTL_ENABLE_DEBUG_INFO = NO;
+				PROVISIONING_PROFILE = "e08e172d-ba49-4755-8ae7-476a2062efd0";
 				SDKROOT = iphoneos;
 				VALIDATE_PRODUCT = YES;
 			};
@@ -2257,14 +2267,14 @@
 			baseConfigurationReference = 8D1015F1809C086BA1C403C3 /* Pods.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_IDENTITY = "";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				GCC_PREFIX_HEADER = "$(SRCROOT)/huiyuanbao/HYB-prefix.pch";
 				INFOPLIST_FILE = huiyuanbao/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				LIBRARY_SEARCH_PATHS = "$(inherited)";
-				PRODUCT_BUNDLE_IDENTIFIER = com.huiyuanbao.huiyuanbao;
+				PRODUCT_BUNDLE_IDENTIFIER = com.minszx.huiyuanbao;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 			};
@@ -2275,14 +2285,14 @@
 			baseConfigurationReference = 123DF5E81F7FBA31611304D4 /* Pods.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_IDENTITY = "";
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				GCC_PREFIX_HEADER = "$(SRCROOT)/huiyuanbao/HYB-prefix.pch";
 				INFOPLIST_FILE = huiyuanbao/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				LIBRARY_SEARCH_PATHS = "$(inherited)";
-				PRODUCT_BUNDLE_IDENTIFIER = com.huiyuanbao.huiyuanbao;
+				PRODUCT_BUNDLE_IDENTIFIER = com.minszx.huiyuanbao;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 			};
@@ -2294,7 +2304,7 @@
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				INFOPLIST_FILE = huiyuanbaoTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.huiyuanbao.huiyuanbaoTests;
+				PRODUCT_BUNDLE_IDENTIFIER = com.minszx.huiyuanbaoTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/huiyuanbao.app/huiyuanbao";
 			};
@@ -2306,7 +2316,7 @@
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				INFOPLIST_FILE = huiyuanbaoTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.huiyuanbao.huiyuanbaoTests;
+				PRODUCT_BUNDLE_IDENTIFIER = com.minszx.huiyuanbaoTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/huiyuanbao.app/huiyuanbao";
 			};
@@ -2317,7 +2327,7 @@
 			buildSettings = {
 				INFOPLIST_FILE = huiyuanbaoUITests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.huiyuanbao.huiyuanbaoUITests;
+				PRODUCT_BUNDLE_IDENTIFIER = com.minszx.huiyuanbaoUITests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TEST_TARGET_NAME = huiyuanbao;
 				USES_XCTRUNNER = YES;
@@ -2329,7 +2339,7 @@
 			buildSettings = {
 				INFOPLIST_FILE = huiyuanbaoUITests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.huiyuanbao.huiyuanbaoUITests;
+				PRODUCT_BUNDLE_IDENTIFIER = com.minszx.huiyuanbaoUITests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TEST_TARGET_NAME = huiyuanbao;
 				USES_XCTRUNNER = YES;

@@ -16,10 +16,15 @@
 #import "HYBStore.h"
 #import "HYBStoreCell.h"
 #import "HYBSelectCityViewController.h"
+#import "HYBQRCodeViewController.h"
+#import "QRCodeReader.h"
+#import "QRCodeReaderViewController.h"
 
-@interface HYBHomeViewController ()<UICollectionViewDelegate, UICollectionViewDataSource,HYBBannersCellDelegate,HYBFirstStoreCellDelegate,HYBStoreCellDelegate>
+@interface HYBHomeViewController ()<UICollectionViewDelegate, UICollectionViewDataSource,HYBBannersCellDelegate,HYBFirstStoreCellDelegate,HYBStoreCellDelegate, QRCodeReaderDelegate>
 @property (nonatomic, strong) UICollectionView *collectionView;
 @property (nonatomic, strong) NSMutableArray *dataArray;
+
+@property (nonatomic, strong) QRCodeReaderViewController *vc;
 @end
 
 static const CGFloat heightWidthRatio = 7.0f / 16.0f;
@@ -75,6 +80,20 @@ static const CGFloat heightWidthRatio = 7.0f / 16.0f;
     HYBStore *store = HYBStore.new;
     [storeList addObject:store];
     [self.dataArray[2] addObject:storeList];
+    
+    
+    // Create the reader object
+    QRCodeReader *reader = [QRCodeReader readerWithMetadataObjectTypes:@[AVMetadataObjectTypeQRCode]];
+    // Instantiate the view controller
+    _vc = [QRCodeReaderViewController readerWithCancelButtonTitle:@"取消" codeReader:reader startScanningAtLoad:YES showSwitchCameraButton:YES showTorchButton:YES];
+    // Set the presentation style
+    _vc.modalPresentationStyle = UIModalPresentationFormSheet;
+    // Define the delegate receiver
+    _vc.delegate = self;
+    // Or use blocks
+    [reader setCompletionWithBlock:^(NSString *resultAsString) {
+        NSLog(@"%@", resultAsString);
+    }];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -111,7 +130,11 @@ static const CGFloat heightWidthRatio = 7.0f / 16.0f;
 
 - (void)rightButtonTapped:(id)sender
 {
-    //TODO
+//    [[self rdv_tabBarController] setTabBarHidden:YES animated:YES];
+//    HYBQRCodeViewController *pushController = [[HYBQRCodeViewController alloc] init];
+//    [self.navigationController pushViewController:pushController animated:YES];
+    
+    [self presentViewController:_vc animated:YES completion:NULL];
 }
 
 #pragma mark  UICollectionViewDataSource
@@ -286,6 +309,20 @@ static const CGFloat heightWidthRatio = 7.0f / 16.0f;
     [super viewWillAppear:animated];
     [[self rdv_tabBarController] setTabBarHidden:NO animated:NO];
 //    [self refreshData];
+}
+
+#pragma mark - QRCodeReader Delegate Methods
+
+- (void)reader:(QRCodeReaderViewController *)reader didScanResult:(NSString *)result
+{
+    [self dismissViewControllerAnimated:YES completion:^{
+        NSLog(@"%@", result);
+    }];
+}
+
+- (void)readerDidCancel:(QRCodeReaderViewController *)reader
+{
+    [self dismissViewControllerAnimated:YES completion:NULL];
 }
 
 

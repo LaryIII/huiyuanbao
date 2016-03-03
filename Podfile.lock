@@ -1,10 +1,13 @@
 PODS:
   - Masonry (0.6.4)
+  - QRCodeReaderViewController (4.0.1)
 
 DEPENDENCIES:
   - Masonry
+  - QRCodeReaderViewController (~> 4.0.1)
 
 SPEC CHECKSUMS:
   Masonry: 281802d04d787ea2973179ee8bcb50500579ede2
+  QRCodeReaderViewController: 6538745c8f4ffa9407a26bd7f9489ea01739e7b0
 
 COCOAPODS: 0.39.0

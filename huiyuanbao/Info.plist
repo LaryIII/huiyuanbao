@@ -7,9 +7,9 @@
 	<key>CFBundleExecutable</key>
 	<string>$(EXECUTABLE_NAME)</string>
 	<key>CFBundleIdentifier</key>
-	<string>com.huiyuanbao</string>
+	<string>com.minszx.huiyuanbaox</string>
 	<key>CFBundleInfoDictionaryVersion</key>
-	<string>8.0</string>
+	<string>7.0</string>
 	<key>CFBundleName</key>
 	<string>惠员包</string>
 	<key>CFBundlePackageType</key>
