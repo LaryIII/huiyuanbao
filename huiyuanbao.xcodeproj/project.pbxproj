@@ -155,6 +155,11 @@
 		B988F4D21C8349AE006BBD8B /* HYBQQChargeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B988F4D11C8349AE006BBD8B /* HYBQQChargeViewController.m */; };
 		B988F4D51C834B16006BBD8B /* HYBSelectCityViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B988F4D41C834B16006BBD8B /* HYBSelectCityViewController.m */; };
 		B988F4D81C874B68006BBD8B /* HYBShiyouChargeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B988F4D71C874B68006BBD8B /* HYBShiyouChargeViewController.m */; };
+		B9AC1F341C88886B003D462F /* phonebook@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = B9AC1F301C88886B003D462F /* phonebook@3x.png */; };
+		B9AC1F351C88886B003D462F /* phonebook@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = B9AC1F311C88886B003D462F /* phonebook@2x.png */; };
+		B9AC1F361C88886B003D462F /* dot@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = B9AC1F321C88886B003D462F /* dot@3x.png */; };
+		B9AC1F371C88886B003D462F /* dot@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = B9AC1F331C88886B003D462F /* dot@2x.png */; };
+		B9AC1F3D1C888DB0003D462F /* HYBXiaofeiRecordsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B9AC1F3C1C888DB0003D462F /* HYBXiaofeiRecordsViewController.m */; };
 		B9E9323C1C7DD5960068E620 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = B9E9323B1C7DD5960068E620 /* main.m */; };
 		B9E9323F1C7DD5960068E620 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = B9E9323E1C7DD5960068E620 /* AppDelegate.m */; };
 		B9E9324A1C7DD5960068E620 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B9E932491C7DD5960068E620 /* Assets.xcassets */; };
@@ -465,6 +470,12 @@
 		B988F4D41C834B16006BBD8B /* HYBSelectCityViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = HYBSelectCityViewController.m; path = Home/Controllers/HYBSelectCityViewController.m; sourceTree = "<group>"; };
 		B988F4D61C874B68006BBD8B /* HYBShiyouChargeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = HYBShiyouChargeViewController.h; path = Life/Controllers/HYBShiyouChargeViewController.h; sourceTree = "<group>"; };
 		B988F4D71C874B68006BBD8B /* HYBShiyouChargeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = HYBShiyouChargeViewController.m; path = Life/Controllers/HYBShiyouChargeViewController.m; sourceTree = "<group>"; };
+		B9AC1F301C88886B003D462F /* phonebook@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "phonebook@3x.png"; sourceTree = "<group>"; };
+		B9AC1F311C88886B003D462F /* phonebook@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "phonebook@2x.png"; sourceTree = "<group>"; };
+		B9AC1F321C88886B003D462F /* dot@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "dot@3x.png"; sourceTree = "<group>"; };
+		B9AC1F331C88886B003D462F /* dot@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "dot@2x.png"; sourceTree = "<group>"; };
+		B9AC1F3B1C888DB0003D462F /* HYBXiaofeiRecordsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = HYBXiaofeiRecordsViewController.h; path = Mine/Controllers/HYBXiaofeiRecordsViewController.h; sourceTree = "<group>"; };
+		B9AC1F3C1C888DB0003D462F /* HYBXiaofeiRecordsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = HYBXiaofeiRecordsViewController.m; path = Mine/Controllers/HYBXiaofeiRecordsViewController.m; sourceTree = "<group>"; };
 		B9E932371C7DD5960068E620 /* huiyuanbao.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = huiyuanbao.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B9E9323B1C7DD5960068E620 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		B9E9323D1C7DD5960068E620 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -743,6 +754,10 @@
 		B988F3F21C818CE4006BBD8B /* life */ = {
 			isa = PBXGroup;
 			children = (
+				B9AC1F301C88886B003D462F /* phonebook@3x.png */,
+				B9AC1F311C88886B003D462F /* phonebook@2x.png */,
+				B9AC1F321C88886B003D462F /* dot@3x.png */,
+				B9AC1F331C88886B003D462F /* dot@2x.png */,
 				B988F3F31C818CE4006BBD8B /* phone@2x.png */,
 				B988F3F41C818CE4006BBD8B /* phone@3x.png */,
 				B988F3F51C818CE4006BBD8B /* qq@2x.png */,
@@ -1591,6 +1606,8 @@
 				B9E935D21C7DFEE60068E620 /* HYBMineViewController.m */,
 				B988F45E1C83375E006BBD8B /* HYBSetPasswordViewController.h */,
 				B988F45F1C83375E006BBD8B /* HYBSetPasswordViewController.m */,
+				B9AC1F3B1C888DB0003D462F /* HYBXiaofeiRecordsViewController.h */,
+				B9AC1F3C1C888DB0003D462F /* HYBXiaofeiRecordsViewController.m */,
 			);
 			name = Controllers;
 			sourceTree = "<group>";
@@ -1810,6 +1827,7 @@
 				B988F44B1C819428006BBD8B /* quan_disabled_bottom@3x.png in Resources */,
 				B988F44F1C819428006BBD8B /* quan_finished_bottom@3x.png in Resources */,
 				B988F45D1C819428006BBD8B /* xiaofei_record@3x.png in Resources */,
+				B9AC1F351C88886B003D462F /* phonebook@2x.png in Resources */,
 				B988F43C1C819428006BBD8B /* feedback@2x.png in Resources */,
 				B988F3CE1C814555006BBD8B /* search_close@2x.png in Resources */,
 				B988F3FE1C818CE4006BBD8B /* phone@3x.png in Resources */,
@@ -1865,6 +1883,7 @@
 				B988F4C01C833F2C006BBD8B /* tab_default@2x.png in Resources */,
 				B9E934941C7DDFFA0068E620 /* banner_default@2x.png in Resources */,
 				B988F3B71C8144C0006BBD8B /* location@3x.png in Resources */,
+				B9AC1F341C88886B003D462F /* phonebook@3x.png in Resources */,
 				B9E936301C7E016E0068E620 /* back@3x.png in Resources */,
 				B9E935EE1C7DFF360068E620 /* life@3x.png in Resources */,
 				B9E936331C7E016E0068E620 /* boot1@2x.png in Resources */,
@@ -1915,6 +1934,7 @@
 				B988F43E1C819428006BBD8B /* hui_default@2x.png in Resources */,
 				B988F4401C819428006BBD8B /* kefu@2x.png in Resources */,
 				B988F4BE1C833F2C006BBD8B /* tab_current@2x.png in Resources */,
+				B9AC1F361C88886B003D462F /* dot@3x.png in Resources */,
 				B988F4C51C833F2C006BBD8B /* verify2@3x.png in Resources */,
 				B988F49E1C833F2C006BBD8B /* bottom_bg@2x.png in Resources */,
 				B988F4B21C833F2C006BBD8B /* order@2x.png in Resources */,
@@ -1957,6 +1977,7 @@
 				B988F3BE1C8144C0006BBD8B /* store@3x.png in Resources */,
 				B988F4531C819428006BBD8B /* quan_normal_bottom@3x.png in Resources */,
 				B9E9362D1C7E016E0068E620 /* avatar-default@2x.png in Resources */,
+				B9AC1F371C88886B003D462F /* dot@2x.png in Resources */,
 				B988F4A51C833F2C006BBD8B /* default_bg@3x.png in Resources */,
 				B9E934221C7DDFFA0068E620 /* area.plist in Resources */,
 				B988F4481C819428006BBD8B /* quan@2x.png in Resources */,
@@ -2117,6 +2138,7 @@
 				B9E935A91C7DE2B40068E620 /* TSWValidateRules.m in Sources */,
 				B9E9357A1C7DE2B40068E620 /* DDAbstractDatabaseLogger.m in Sources */,
 				B9E9358E1C7DE2B40068E620 /* UIScrollView+SVInfiniteScrolling.m in Sources */,
+				B9AC1F3D1C888DB0003D462F /* HYBXiaofeiRecordsViewController.m in Sources */,
 				B988F3ED1C8180FF006BBD8B /* HYBStore2.m in Sources */,
 				B988F4D81C874B68006BBD8B /* HYBShiyouChargeViewController.m in Sources */,
 				B9E935B31C7DE2B40068E620 /* ZHAreaPickerView.m in Sources */,

@@ -11,6 +11,7 @@
 #import "masonry.h"
 #import "ZButton.h"
 #import "HYBSetPasswordViewController.h"
+#import "HYBXiaofeiRecordsViewController.h"
 
 @interface HYBMineViewController ()
 
@@ -165,7 +166,7 @@
     msgLabel.textAlignment = NSTextAlignmentCenter;
     msgLabel.textColor = RGB(51, 51, 51);
     msgLabel.font = [UIFont systemFontOfSize:14.0f];
-    msgLabel.text = @"优惠券";
+    msgLabel.text = @"消息";
     [msg addSubview:msgLabel];
     [msgLabel makeConstraints:^(MASConstraintMaker *make) {
         make.top.equalTo(msgView.bottom).offset(15);
@@ -608,7 +609,9 @@
 }
 
 -(void)xiaofeiRecords{
-    
+    [[self rdv_tabBarController] setTabBarHidden:YES animated:YES];
+    HYBXiaofeiRecordsViewController *pushController = [[HYBXiaofeiRecordsViewController alloc] init];
+    [self.navigationController pushViewController:pushController animated:YES];
 }
 
 -(void)chargeRecords{
