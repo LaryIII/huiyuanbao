@@ -19,6 +19,7 @@
 #import "HYBQRCodeViewController.h"
 #import "QRCodeReader.h"
 #import "QRCodeReaderViewController.h"
+#import "HYBStoreDetailViewController.h"
 
 @interface HYBHomeViewController ()<UICollectionViewDelegate, UICollectionViewDataSource,HYBBannersCellDelegate,HYBFirstStoreCellDelegate,HYBStoreCellDelegate, QRCodeReaderDelegate>
 @property (nonatomic, strong) UICollectionView *collectionView;
@@ -323,6 +324,18 @@ static const CGFloat heightWidthRatio = 7.0f / 16.0f;
 - (void)readerDidCancel:(QRCodeReaderViewController *)reader
 {
     [self dismissViewControllerAnimated:YES completion:NULL];
+}
+
+-(void) gotoStoreDetail:(HYBStoreCell *)cell withStore:(HYBStore *)store{
+    [[self rdv_tabBarController] setTabBarHidden:YES animated:YES];
+    HYBStoreDetailViewController *pushController = [[HYBStoreDetailViewController alloc] init];
+    [self.navigationController pushViewController:pushController animated:YES];
+}
+
+-(void) gotoFirstStoreDetail:(HYBFirstStoreCell *)cell withStore:(HYBFirstStore *)store{
+    [[self rdv_tabBarController] setTabBarHidden:YES animated:YES];
+    HYBStoreDetailViewController *pushController = [[HYBStoreDetailViewController alloc] init];
+    [self.navigationController pushViewController:pushController animated:YES];
 }
 
 

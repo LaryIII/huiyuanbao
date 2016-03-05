@@ -226,6 +226,16 @@
 		B9A828C21C8AE4F1007403D2 /* HYBScoreRecord.m in Sources */ = {isa = PBXBuildFile; fileRef = B9A828C11C8AE4F1007403D2 /* HYBScoreRecord.m */; };
 		B9A828C51C8AE4FF007403D2 /* HYBScoreRecordList.m in Sources */ = {isa = PBXBuildFile; fileRef = B9A828C41C8AE4FF007403D2 /* HYBScoreRecordList.m */; };
 		B9A828C81C8AE527007403D2 /* HYBScoreRecordCell.m in Sources */ = {isa = PBXBuildFile; fileRef = B9A828C71C8AE527007403D2 /* HYBScoreRecordCell.m */; };
+		B9A828CB1C8AFEB7007403D2 /* HYBStoreDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B9A828CA1C8AFEB7007403D2 /* HYBStoreDetailViewController.m */; };
+		B9A828CE1C8B0557007403D2 /* HYBStoreBaseInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = B9A828CD1C8B0557007403D2 /* HYBStoreBaseInfo.m */; };
+		B9A828D11C8B057E007403D2 /* HYBStoreBaseInfoCell.m in Sources */ = {isa = PBXBuildFile; fileRef = B9A828D01C8B057E007403D2 /* HYBStoreBaseInfoCell.m */; };
+		B9A828D41C8B0C58007403D2 /* HYBStoreProduct.m in Sources */ = {isa = PBXBuildFile; fileRef = B9A828D31C8B0C58007403D2 /* HYBStoreProduct.m */; };
+		B9A828D71C8B0C6E007403D2 /* HYBStoreProductList.m in Sources */ = {isa = PBXBuildFile; fileRef = B9A828D61C8B0C6E007403D2 /* HYBStoreProductList.m */; };
+		B9A828DA1C8B0C8F007403D2 /* HYBStoreProductCell.m in Sources */ = {isa = PBXBuildFile; fileRef = B9A828D91C8B0C8F007403D2 /* HYBStoreProductCell.m */; };
+		B9A828DD1C8B166D007403D2 /* HYBSearchCityViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B9A828DC1C8B166D007403D2 /* HYBSearchCityViewController.m */; };
+		B9A828E01C8B1A87007403D2 /* HYBCity.m in Sources */ = {isa = PBXBuildFile; fileRef = B9A828DF1C8B1A87007403D2 /* HYBCity.m */; };
+		B9A828E31C8B1A93007403D2 /* HYBCityList.m in Sources */ = {isa = PBXBuildFile; fileRef = B9A828E21C8B1A93007403D2 /* HYBCityList.m */; };
+		B9A828E61C8B1AD9007403D2 /* HYBCityCell.m in Sources */ = {isa = PBXBuildFile; fileRef = B9A828E51C8B1AD9007403D2 /* HYBCityCell.m */; };
 		B9AC1F341C88886B003D462F /* phonebook@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = B9AC1F301C88886B003D462F /* phonebook@3x.png */; };
 		B9AC1F351C88886B003D462F /* phonebook@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = B9AC1F311C88886B003D462F /* phonebook@2x.png */; };
 		B9AC1F361C88886B003D462F /* dot@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = B9AC1F321C88886B003D462F /* dot@3x.png */; };
@@ -639,6 +649,26 @@
 		B9A828C41C8AE4FF007403D2 /* HYBScoreRecordList.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = HYBScoreRecordList.m; path = Mine/Models/HYBScoreRecordList.m; sourceTree = "<group>"; };
 		B9A828C61C8AE527007403D2 /* HYBScoreRecordCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = HYBScoreRecordCell.h; path = Mine/Views/HYBScoreRecordCell.h; sourceTree = "<group>"; };
 		B9A828C71C8AE527007403D2 /* HYBScoreRecordCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = HYBScoreRecordCell.m; path = Mine/Views/HYBScoreRecordCell.m; sourceTree = "<group>"; };
+		B9A828C91C8AFEB7007403D2 /* HYBStoreDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = HYBStoreDetailViewController.h; path = Home/Controllers/HYBStoreDetailViewController.h; sourceTree = "<group>"; };
+		B9A828CA1C8AFEB7007403D2 /* HYBStoreDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = HYBStoreDetailViewController.m; path = Home/Controllers/HYBStoreDetailViewController.m; sourceTree = "<group>"; };
+		B9A828CC1C8B0557007403D2 /* HYBStoreBaseInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = HYBStoreBaseInfo.h; path = Home/Models/HYBStoreBaseInfo.h; sourceTree = "<group>"; };
+		B9A828CD1C8B0557007403D2 /* HYBStoreBaseInfo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = HYBStoreBaseInfo.m; path = Home/Models/HYBStoreBaseInfo.m; sourceTree = "<group>"; };
+		B9A828CF1C8B057E007403D2 /* HYBStoreBaseInfoCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = HYBStoreBaseInfoCell.h; path = Home/Views/HYBStoreBaseInfoCell.h; sourceTree = "<group>"; };
+		B9A828D01C8B057E007403D2 /* HYBStoreBaseInfoCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = HYBStoreBaseInfoCell.m; path = Home/Views/HYBStoreBaseInfoCell.m; sourceTree = "<group>"; };
+		B9A828D21C8B0C58007403D2 /* HYBStoreProduct.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = HYBStoreProduct.h; path = Home/Models/HYBStoreProduct.h; sourceTree = "<group>"; };
+		B9A828D31C8B0C58007403D2 /* HYBStoreProduct.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = HYBStoreProduct.m; path = Home/Models/HYBStoreProduct.m; sourceTree = "<group>"; };
+		B9A828D51C8B0C6E007403D2 /* HYBStoreProductList.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = HYBStoreProductList.h; path = Home/Models/HYBStoreProductList.h; sourceTree = "<group>"; };
+		B9A828D61C8B0C6E007403D2 /* HYBStoreProductList.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = HYBStoreProductList.m; path = Home/Models/HYBStoreProductList.m; sourceTree = "<group>"; };
+		B9A828D81C8B0C8F007403D2 /* HYBStoreProductCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = HYBStoreProductCell.h; path = Home/Views/HYBStoreProductCell.h; sourceTree = "<group>"; };
+		B9A828D91C8B0C8F007403D2 /* HYBStoreProductCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = HYBStoreProductCell.m; path = Home/Views/HYBStoreProductCell.m; sourceTree = "<group>"; };
+		B9A828DB1C8B166D007403D2 /* HYBSearchCityViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = HYBSearchCityViewController.h; path = Home/Controllers/HYBSearchCityViewController.h; sourceTree = "<group>"; };
+		B9A828DC1C8B166D007403D2 /* HYBSearchCityViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = HYBSearchCityViewController.m; path = Home/Controllers/HYBSearchCityViewController.m; sourceTree = "<group>"; };
+		B9A828DE1C8B1A87007403D2 /* HYBCity.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = HYBCity.h; path = Home/Models/HYBCity.h; sourceTree = "<group>"; };
+		B9A828DF1C8B1A87007403D2 /* HYBCity.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = HYBCity.m; path = Home/Models/HYBCity.m; sourceTree = "<group>"; };
+		B9A828E11C8B1A93007403D2 /* HYBCityList.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = HYBCityList.h; path = Home/Models/HYBCityList.h; sourceTree = "<group>"; };
+		B9A828E21C8B1A93007403D2 /* HYBCityList.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = HYBCityList.m; path = Home/Models/HYBCityList.m; sourceTree = "<group>"; };
+		B9A828E41C8B1AD9007403D2 /* HYBCityCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = HYBCityCell.h; path = Home/Views/HYBCityCell.h; sourceTree = "<group>"; };
+		B9A828E51C8B1AD9007403D2 /* HYBCityCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = HYBCityCell.m; path = Home/Views/HYBCityCell.m; sourceTree = "<group>"; };
 		B9AC1F301C88886B003D462F /* phonebook@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "phonebook@3x.png"; sourceTree = "<group>"; };
 		B9AC1F311C88886B003D462F /* phonebook@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "phonebook@2x.png"; sourceTree = "<group>"; };
 		B9AC1F321C88886B003D462F /* dot@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "dot@3x.png"; sourceTree = "<group>"; };
@@ -1700,6 +1730,12 @@
 				B988F3DA1C81501C006BBD8B /* HYBStoreCell.m */,
 				B988F3E21C8158C9006BBD8B /* HYBFirstStoreCell.h */,
 				B988F3E31C8158C9006BBD8B /* HYBFirstStoreCell.m */,
+				B9A828CF1C8B057E007403D2 /* HYBStoreBaseInfoCell.h */,
+				B9A828D01C8B057E007403D2 /* HYBStoreBaseInfoCell.m */,
+				B9A828D81C8B0C8F007403D2 /* HYBStoreProductCell.h */,
+				B9A828D91C8B0C8F007403D2 /* HYBStoreProductCell.m */,
+				B9A828E41C8B1AD9007403D2 /* HYBCityCell.h */,
+				B9A828E51C8B1AD9007403D2 /* HYBCityCell.m */,
 			);
 			name = Views;
 			sourceTree = "<group>";
@@ -1715,6 +1751,16 @@
 				B988F3E01C81520B006BBD8B /* HYBStoreList.m */,
 				B988F3E51C815CFF006BBD8B /* HYBFirstStore.h */,
 				B988F3E61C815CFF006BBD8B /* HYBFirstStore.m */,
+				B9A828CC1C8B0557007403D2 /* HYBStoreBaseInfo.h */,
+				B9A828CD1C8B0557007403D2 /* HYBStoreBaseInfo.m */,
+				B9A828D21C8B0C58007403D2 /* HYBStoreProduct.h */,
+				B9A828D31C8B0C58007403D2 /* HYBStoreProduct.m */,
+				B9A828D51C8B0C6E007403D2 /* HYBStoreProductList.h */,
+				B9A828D61C8B0C6E007403D2 /* HYBStoreProductList.m */,
+				B9A828DE1C8B1A87007403D2 /* HYBCity.h */,
+				B9A828DF1C8B1A87007403D2 /* HYBCity.m */,
+				B9A828E11C8B1A93007403D2 /* HYBCityList.h */,
+				B9A828E21C8B1A93007403D2 /* HYBCityList.m */,
 			);
 			name = Models;
 			sourceTree = "<group>";
@@ -1728,6 +1774,10 @@
 				B988F4D41C834B16006BBD8B /* HYBSelectCityViewController.m */,
 				B9757B321C88112000781AB4 /* HYBQRCodeViewController.h */,
 				B9757B331C88112000781AB4 /* HYBQRCodeViewController.m */,
+				B9A828C91C8AFEB7007403D2 /* HYBStoreDetailViewController.h */,
+				B9A828CA1C8AFEB7007403D2 /* HYBStoreDetailViewController.m */,
+				B9A828DB1C8B166D007403D2 /* HYBSearchCityViewController.h */,
+				B9A828DC1C8B166D007403D2 /* HYBSearchCityViewController.m */,
 			);
 			name = Controllers;
 			sourceTree = "<group>";
@@ -2377,7 +2427,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B9A828E01C8B1A87007403D2 /* HYBCity.m in Sources */,
 				B9A8285A1C8AD760007403D2 /* HYBChargeRecordCell.m in Sources */,
+				B9A828DA1C8B0C8F007403D2 /* HYBStoreProductCell.m in Sources */,
 				B9E935A01C7DE2B40068E620 /* pinyin.c in Sources */,
 				B9E9357E1C7DE2B40068E620 /* DDLog.m in Sources */,
 				B9A8282A1C8A9C4D007403D2 /* HYBMsgsViewController.m in Sources */,
@@ -2401,6 +2453,7 @@
 				B9E935931C7DE2B40068E620 /* TPKeyboardAvoidingTableView.m in Sources */,
 				B9E935C51C7DFE360068E620 /* HYBClazzViewController.m in Sources */,
 				B988F3EA1C8180EE006BBD8B /* HYBStore2Cell.m in Sources */,
+				B9A828CB1C8AFEB7007403D2 /* HYBStoreDetailViewController.m in Sources */,
 				B9E935921C7DE2B40068E620 /* TPKeyboardAvoidingScrollView.m in Sources */,
 				B9A828211C8A9111007403D2 /* HYBScoreRecordsViewController.m in Sources */,
 				B9E935B71C7DE2B40068E620 /* ZHScrollView.m in Sources */,
@@ -2427,7 +2480,9 @@
 				B9E9359F1C7DE2B40068E620 /* ChineseString.m in Sources */,
 				B9E935A61C7DE2B40068E620 /* PinyinHelper.m in Sources */,
 				B9E9323F1C7DD5960068E620 /* AppDelegate.m in Sources */,
+				B9A828DD1C8B166D007403D2 /* HYBSearchCityViewController.m in Sources */,
 				B9A8283F1C8AA8C4007403D2 /* HYBCardCell.m in Sources */,
+				B9A828D11C8B057E007403D2 /* HYBStoreBaseInfoCell.m in Sources */,
 				B9E935721C7DE2B40068E620 /* UIActivityIndicatorView+AFNetworking.m in Sources */,
 				B9A8283C1C8AA895007403D2 /* HYBCardList.m in Sources */,
 				B988F3E11C81520B006BBD8B /* HYBStoreList.m in Sources */,
@@ -2440,6 +2495,8 @@
 				B9E935711C7DE2B40068E620 /* AFNetworkActivityIndicatorManager.m in Sources */,
 				B988F4CC1C834925006BBD8B /* HYBPhoneChargeViewController.m in Sources */,
 				B9E935901C7DE2B40068E620 /* SZTextView.m in Sources */,
+				B9A828CE1C8B0557007403D2 /* HYBStoreBaseInfo.m in Sources */,
+				B9A828E31C8B1A93007403D2 /* HYBCityList.m in Sources */,
 				B9A828271C8A9B4D007403D2 /* HYBQuansViewController.m in Sources */,
 				B9A828361C8AA58C007403D2 /* HYBOrderRecordList.m in Sources */,
 				B9A828301C8A9E3D007403D2 /* HYBOrderRecordCell.m in Sources */,
@@ -2452,6 +2509,7 @@
 				B9E935681C7DE2B40068E620 /* AFHTTPRequestOperation.m in Sources */,
 				B9E933A21C7DD8590068E620 /* GVUserDefaults+HYBProperties.m in Sources */,
 				B988F4D21C8349AE006BBD8B /* HYBQQChargeViewController.m in Sources */,
+				B9A828D71C8B0C6E007403D2 /* HYBStoreProductList.m in Sources */,
 				B9A828241C8A9AAD007403D2 /* HYBCardsViewController.m in Sources */,
 				B9E935A21C7DE2B40068E620 /* HanyuPinyinOutputFormat.m in Sources */,
 				B988F3D51C8148C1006BBD8B /* HYBBannersCell.m in Sources */,
@@ -2461,6 +2519,7 @@
 				B9E935831C7DE2B40068E620 /* EGOCache.m in Sources */,
 				B9A828541C8AD6FD007403D2 /* HYBChargeRecord.m in Sources */,
 				B9E9356F1C7DE2B40068E620 /* AFURLRequestSerialization.m in Sources */,
+				B9A828D41C8B0C58007403D2 /* HYBStoreProduct.m in Sources */,
 				B9E935B11C7DE2B40068E620 /* CXWebView.m in Sources */,
 				B9E933A01C7DD8590068E620 /* HYBLaunchViewController.m in Sources */,
 				B9E935FD1C7E00C60068E620 /* RDVTabBarController.m in Sources */,
@@ -2476,6 +2535,7 @@
 				B9E9357A1C7DE2B40068E620 /* DDAbstractDatabaseLogger.m in Sources */,
 				B9E9358E1C7DE2B40068E620 /* UIScrollView+SVInfiniteScrolling.m in Sources */,
 				B9AC1F3D1C888DB0003D462F /* HYBXiaofeiRecordsViewController.m in Sources */,
+				B9A828E61C8B1AD9007403D2 /* HYBCityCell.m in Sources */,
 				B988F3ED1C8180FF006BBD8B /* HYBStore2.m in Sources */,
 				B988F4D81C874B68006BBD8B /* HYBShiyouChargeViewController.m in Sources */,
 				B9E935B31C7DE2B40068E620 /* ZHAreaPickerView.m in Sources */,
