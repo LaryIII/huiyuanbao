@@ -12,6 +12,8 @@
 #import "HYBStore2.h"
 #import "HYBStore2Cell.h"
 #import "masonry.h"
+#import "HYBStoreDetailViewController.h"
+#import "HYBSelectCityViewController.h"
 
 @interface HYBClazzViewController ()<UICollectionViewDelegate, UICollectionViewDataSource,HYBStore2CellDelegate>
 @property (nonatomic, strong) UICollectionView *collectionView;
@@ -189,7 +191,9 @@
 }
 - (void)leftButtonTapped:(id)sender
 {
-    //TODO
+    [[self rdv_tabBarController] setTabBarHidden:YES animated:YES];
+    HYBSelectCityViewController *pushController = [[HYBSelectCityViewController alloc] init];
+    [self.navigationController pushViewController:pushController animated:YES];
 }
 
 #pragma mark  UICollectionViewDataSource
@@ -203,35 +207,6 @@
     return [array count];
 }
 
-
-//- (UICollectionReusableView *)collectionView:(UICollectionView *)collectionView viewForSupplementaryElementOfKind:(NSString *)kind atIndexPath:(NSIndexPath *)indexPath
-//{
-//    //    if ([kind isEqualToString:UICollectionElementKindSectionHeader]) {
-//    //        if (indexPath.section == 2) {
-//    //            AJCompositeHeaderView *headView = [collectionView dequeueReusableSupplementaryViewOfKind:UICollectionElementKindSectionHeader withReuseIdentifier:@"AJCompositeHeaderView" forIndexPath:indexPath];
-//    //            UITapGestureRecognizer *singleTap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(handleRecommendComposite:)];
-//    //            singleTap.delaysTouchesBegan = YES;
-//    //            singleTap.numberOfTapsRequired = 1;
-//    //            [headView addGestureRecognizer:singleTap];
-//    //
-//    //            return headView;
-//    //        }
-//    //        else if (indexPath.section == 3) {
-//    //            AJSummaryHeaderReusableView *headView = [collectionView dequeueReusableSupplementaryViewOfKind:UICollectionElementKindSectionHeader withReuseIdentifier:@"AJSummaryHeaderReusableView" forIndexPath:indexPath];
-//    //            UITapGestureRecognizer *singleTap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(handleMoreSingles:)];
-//    //            singleTap.delaysTouchesBegan = YES;
-//    //            singleTap.numberOfTapsRequired = 1;
-//    //            [headView addGestureRecognizer:singleTap];
-//    //
-//    //            return headView;
-//    //        }
-//    //        else {
-//    //            return nil;
-//    //        }
-//    //    }
-//    //    else {
-//    return nil;
-//}
 
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath
 {
@@ -351,6 +326,12 @@
 
 -(void)orders{
     
+}
+
+-(void) gotoStoreDetail:(HYBStore2Cell *)cell withStore:(HYBStore2 *)store{
+    [[self rdv_tabBarController] setTabBarHidden:YES animated:YES];
+    HYBStoreDetailViewController *pushController = [[HYBStoreDetailViewController alloc] init];
+    [self.navigationController pushViewController:pushController animated:YES];
 }
 
 

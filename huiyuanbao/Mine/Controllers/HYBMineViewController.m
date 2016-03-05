@@ -19,9 +19,13 @@
 #import "HYBMsgsViewController.h"
 #import "HYBOrderRecordsViewController.h"
 #import "HYBGateViewController.h"
+#import "HYBSelectCityViewController.h"
+#import "HYBQRCodeViewController.h"
+#import "QRCodeReader.h"
+#import "QRCodeReaderViewController.h"
 
-@interface HYBMineViewController ()
-
+@interface HYBMineViewController ()<QRCodeReaderDelegate>
+@property (nonatomic, strong) QRCodeReaderViewController *vc;
 @end
 
 @implementation HYBMineViewController
@@ -559,6 +563,19 @@
     [container makeConstraints:^(MASConstraintMaker *make) {
         make.bottom.equalTo(view7.bottom).offset(70);
     }];
+    
+    // Create the reader object
+    QRCodeReader *reader = [QRCodeReader readerWithMetadataObjectTypes:@[AVMetadataObjectTypeQRCode]];
+    // Instantiate the view controller
+    _vc = [QRCodeReaderViewController readerWithCancelButtonTitle:@"取消" codeReader:reader startScanningAtLoad:YES showSwitchCameraButton:YES showTorchButton:YES];
+    // Set the presentation style
+    _vc.modalPresentationStyle = UIModalPresentationFormSheet;
+    // Define the delegate receiver
+    _vc.delegate = self;
+    // Or use blocks
+    [reader setCompletionWithBlock:^(NSString *resultAsString) {
+        NSLog(@"%@", resultAsString);
+    }];
 }
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
@@ -587,12 +604,14 @@
 
 - (void)leftButtonTapped:(id)sender
 {
-    //TODO
+    [[self rdv_tabBarController] setTabBarHidden:YES animated:YES];
+    HYBSelectCityViewController *pushController = [[HYBSelectCityViewController alloc] init];
+    [self.navigationController pushViewController:pushController animated:YES];
 }
 
 - (void)rightButtonTapped:(id)sender
 {
-    //TODO
+//    [self presentViewController:_vc animated:YES completion:NULL];
 }
 
 - (void)editAvater{

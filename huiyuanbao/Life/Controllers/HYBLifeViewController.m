@@ -14,6 +14,7 @@
 #import "HYBShihuaChargeViewController.h"
 #import "HYBQQChargeViewController.h"
 #import "HYBShiyouChargeViewController.h"
+#import "HYBSelectCityViewController.h"
 
 @interface HYBLifeViewController ()
 
@@ -219,7 +220,9 @@
 }
 - (void)leftButtonTapped:(id)sender
 {
-    //TODO
+    [[self rdv_tabBarController] setTabBarHidden:YES animated:YES];
+    HYBSelectCityViewController *pushController = [[HYBSelectCityViewController alloc] init];
+    [self.navigationController pushViewController:pushController animated:YES];
 }
 
 -(void)phone{
