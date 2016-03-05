@@ -155,6 +155,21 @@
 		B988F4D21C8349AE006BBD8B /* HYBQQChargeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B988F4D11C8349AE006BBD8B /* HYBQQChargeViewController.m */; };
 		B988F4D51C834B16006BBD8B /* HYBSelectCityViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B988F4D41C834B16006BBD8B /* HYBSelectCityViewController.m */; };
 		B988F4D81C874B68006BBD8B /* HYBShiyouChargeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B988F4D71C874B68006BBD8B /* HYBShiyouChargeViewController.m */; };
+		B9A8281E1C8A909B007403D2 /* HYBChargeRecordsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B9A8281D1C8A909B007403D2 /* HYBChargeRecordsViewController.m */; };
+		B9A828211C8A9111007403D2 /* HYBScoreRecordsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B9A828201C8A9111007403D2 /* HYBScoreRecordsViewController.m */; };
+		B9A828241C8A9AAD007403D2 /* HYBCardsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B9A828231C8A9AAD007403D2 /* HYBCardsViewController.m */; };
+		B9A828271C8A9B4D007403D2 /* HYBQuansViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B9A828261C8A9B4D007403D2 /* HYBQuansViewController.m */; };
+		B9A8282A1C8A9C4D007403D2 /* HYBMsgsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B9A828291C8A9C4D007403D2 /* HYBMsgsViewController.m */; };
+		B9A8282D1C8A9CBF007403D2 /* HYBOrderRecordsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B9A8282C1C8A9CBF007403D2 /* HYBOrderRecordsViewController.m */; };
+		B9A828301C8A9E3D007403D2 /* HYBOrderRecordCell.m in Sources */ = {isa = PBXBuildFile; fileRef = B9A8282F1C8A9E3D007403D2 /* HYBOrderRecordCell.m */; };
+		B9A828331C8AA2B6007403D2 /* HYBOrderRecord.m in Sources */ = {isa = PBXBuildFile; fileRef = B9A828321C8AA2B6007403D2 /* HYBOrderRecord.m */; };
+		B9A828361C8AA58C007403D2 /* HYBOrderRecordList.m in Sources */ = {isa = PBXBuildFile; fileRef = B9A828351C8AA58C007403D2 /* HYBOrderRecordList.m */; };
+		B9A828391C8AA885007403D2 /* HYBCard.m in Sources */ = {isa = PBXBuildFile; fileRef = B9A828381C8AA885007403D2 /* HYBCard.m */; };
+		B9A8283C1C8AA895007403D2 /* HYBCardList.m in Sources */ = {isa = PBXBuildFile; fileRef = B9A8283B1C8AA895007403D2 /* HYBCardList.m */; };
+		B9A8283F1C8AA8C4007403D2 /* HYBCardCell.m in Sources */ = {isa = PBXBuildFile; fileRef = B9A8283E1C8AA8C4007403D2 /* HYBCardCell.m */; };
+		B9A828421C8AADE7007403D2 /* HYBMsg.m in Sources */ = {isa = PBXBuildFile; fileRef = B9A828411C8AADE7007403D2 /* HYBMsg.m */; };
+		B9A828451C8AADF7007403D2 /* HYBMsgList.m in Sources */ = {isa = PBXBuildFile; fileRef = B9A828441C8AADF7007403D2 /* HYBMsgList.m */; };
+		B9A828481C8AAE1E007403D2 /* HYBMsgCell.m in Sources */ = {isa = PBXBuildFile; fileRef = B9A828471C8AAE1E007403D2 /* HYBMsgCell.m */; };
 		B9AC1F341C88886B003D462F /* phonebook@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = B9AC1F301C88886B003D462F /* phonebook@3x.png */; };
 		B9AC1F351C88886B003D462F /* phonebook@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = B9AC1F311C88886B003D462F /* phonebook@2x.png */; };
 		B9AC1F361C88886B003D462F /* dot@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = B9AC1F321C88886B003D462F /* dot@3x.png */; };
@@ -470,6 +485,36 @@
 		B988F4D41C834B16006BBD8B /* HYBSelectCityViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = HYBSelectCityViewController.m; path = Home/Controllers/HYBSelectCityViewController.m; sourceTree = "<group>"; };
 		B988F4D61C874B68006BBD8B /* HYBShiyouChargeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = HYBShiyouChargeViewController.h; path = Life/Controllers/HYBShiyouChargeViewController.h; sourceTree = "<group>"; };
 		B988F4D71C874B68006BBD8B /* HYBShiyouChargeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = HYBShiyouChargeViewController.m; path = Life/Controllers/HYBShiyouChargeViewController.m; sourceTree = "<group>"; };
+		B9A8281C1C8A909B007403D2 /* HYBChargeRecordsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = HYBChargeRecordsViewController.h; path = Mine/Controllers/HYBChargeRecordsViewController.h; sourceTree = "<group>"; };
+		B9A8281D1C8A909B007403D2 /* HYBChargeRecordsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = HYBChargeRecordsViewController.m; path = Mine/Controllers/HYBChargeRecordsViewController.m; sourceTree = "<group>"; };
+		B9A8281F1C8A9111007403D2 /* HYBScoreRecordsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = HYBScoreRecordsViewController.h; path = Mine/Controllers/HYBScoreRecordsViewController.h; sourceTree = "<group>"; };
+		B9A828201C8A9111007403D2 /* HYBScoreRecordsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = HYBScoreRecordsViewController.m; path = Mine/Controllers/HYBScoreRecordsViewController.m; sourceTree = "<group>"; };
+		B9A828221C8A9AAD007403D2 /* HYBCardsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = HYBCardsViewController.h; path = Mine/Controllers/HYBCardsViewController.h; sourceTree = "<group>"; };
+		B9A828231C8A9AAD007403D2 /* HYBCardsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = HYBCardsViewController.m; path = Mine/Controllers/HYBCardsViewController.m; sourceTree = "<group>"; };
+		B9A828251C8A9B4D007403D2 /* HYBQuansViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = HYBQuansViewController.h; path = Mine/Controllers/HYBQuansViewController.h; sourceTree = "<group>"; };
+		B9A828261C8A9B4D007403D2 /* HYBQuansViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = HYBQuansViewController.m; path = Mine/Controllers/HYBQuansViewController.m; sourceTree = "<group>"; };
+		B9A828281C8A9C4D007403D2 /* HYBMsgsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = HYBMsgsViewController.h; path = Mine/Controllers/HYBMsgsViewController.h; sourceTree = "<group>"; };
+		B9A828291C8A9C4D007403D2 /* HYBMsgsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = HYBMsgsViewController.m; path = Mine/Controllers/HYBMsgsViewController.m; sourceTree = "<group>"; };
+		B9A8282B1C8A9CBF007403D2 /* HYBOrderRecordsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = HYBOrderRecordsViewController.h; path = Mine/Controllers/HYBOrderRecordsViewController.h; sourceTree = "<group>"; };
+		B9A8282C1C8A9CBF007403D2 /* HYBOrderRecordsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = HYBOrderRecordsViewController.m; path = Mine/Controllers/HYBOrderRecordsViewController.m; sourceTree = "<group>"; };
+		B9A8282E1C8A9E3D007403D2 /* HYBOrderRecordCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = HYBOrderRecordCell.h; path = Mine/Views/HYBOrderRecordCell.h; sourceTree = "<group>"; };
+		B9A8282F1C8A9E3D007403D2 /* HYBOrderRecordCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = HYBOrderRecordCell.m; path = Mine/Views/HYBOrderRecordCell.m; sourceTree = "<group>"; };
+		B9A828311C8AA2B6007403D2 /* HYBOrderRecord.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = HYBOrderRecord.h; path = Mine/Models/HYBOrderRecord.h; sourceTree = "<group>"; };
+		B9A828321C8AA2B6007403D2 /* HYBOrderRecord.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = HYBOrderRecord.m; path = Mine/Models/HYBOrderRecord.m; sourceTree = "<group>"; };
+		B9A828341C8AA58C007403D2 /* HYBOrderRecordList.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = HYBOrderRecordList.h; path = Mine/Models/HYBOrderRecordList.h; sourceTree = "<group>"; };
+		B9A828351C8AA58C007403D2 /* HYBOrderRecordList.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = HYBOrderRecordList.m; path = Mine/Models/HYBOrderRecordList.m; sourceTree = "<group>"; };
+		B9A828371C8AA885007403D2 /* HYBCard.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = HYBCard.h; path = Mine/Models/HYBCard.h; sourceTree = "<group>"; };
+		B9A828381C8AA885007403D2 /* HYBCard.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = HYBCard.m; path = Mine/Models/HYBCard.m; sourceTree = "<group>"; };
+		B9A8283A1C8AA895007403D2 /* HYBCardList.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = HYBCardList.h; path = Mine/Models/HYBCardList.h; sourceTree = "<group>"; };
+		B9A8283B1C8AA895007403D2 /* HYBCardList.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = HYBCardList.m; path = Mine/Models/HYBCardList.m; sourceTree = "<group>"; };
+		B9A8283D1C8AA8C4007403D2 /* HYBCardCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = HYBCardCell.h; path = Mine/Views/HYBCardCell.h; sourceTree = "<group>"; };
+		B9A8283E1C8AA8C4007403D2 /* HYBCardCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = HYBCardCell.m; path = Mine/Views/HYBCardCell.m; sourceTree = "<group>"; };
+		B9A828401C8AADE7007403D2 /* HYBMsg.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = HYBMsg.h; path = Mine/Models/HYBMsg.h; sourceTree = "<group>"; };
+		B9A828411C8AADE7007403D2 /* HYBMsg.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = HYBMsg.m; path = Mine/Models/HYBMsg.m; sourceTree = "<group>"; };
+		B9A828431C8AADF7007403D2 /* HYBMsgList.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = HYBMsgList.h; path = Mine/Models/HYBMsgList.h; sourceTree = "<group>"; };
+		B9A828441C8AADF7007403D2 /* HYBMsgList.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = HYBMsgList.m; path = Mine/Models/HYBMsgList.m; sourceTree = "<group>"; };
+		B9A828461C8AAE1E007403D2 /* HYBMsgCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = HYBMsgCell.h; path = Mine/Views/HYBMsgCell.h; sourceTree = "<group>"; };
+		B9A828471C8AAE1E007403D2 /* HYBMsgCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = HYBMsgCell.m; path = Mine/Views/HYBMsgCell.m; sourceTree = "<group>"; };
 		B9AC1F301C88886B003D462F /* phonebook@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "phonebook@3x.png"; sourceTree = "<group>"; };
 		B9AC1F311C88886B003D462F /* phonebook@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "phonebook@2x.png"; sourceTree = "<group>"; };
 		B9AC1F321C88886B003D462F /* dot@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "dot@3x.png"; sourceTree = "<group>"; };
@@ -1608,6 +1653,18 @@
 				B988F45F1C83375E006BBD8B /* HYBSetPasswordViewController.m */,
 				B9AC1F3B1C888DB0003D462F /* HYBXiaofeiRecordsViewController.h */,
 				B9AC1F3C1C888DB0003D462F /* HYBXiaofeiRecordsViewController.m */,
+				B9A8281C1C8A909B007403D2 /* HYBChargeRecordsViewController.h */,
+				B9A8281D1C8A909B007403D2 /* HYBChargeRecordsViewController.m */,
+				B9A8281F1C8A9111007403D2 /* HYBScoreRecordsViewController.h */,
+				B9A828201C8A9111007403D2 /* HYBScoreRecordsViewController.m */,
+				B9A828221C8A9AAD007403D2 /* HYBCardsViewController.h */,
+				B9A828231C8A9AAD007403D2 /* HYBCardsViewController.m */,
+				B9A828251C8A9B4D007403D2 /* HYBQuansViewController.h */,
+				B9A828261C8A9B4D007403D2 /* HYBQuansViewController.m */,
+				B9A828281C8A9C4D007403D2 /* HYBMsgsViewController.h */,
+				B9A828291C8A9C4D007403D2 /* HYBMsgsViewController.m */,
+				B9A8282B1C8A9CBF007403D2 /* HYBOrderRecordsViewController.h */,
+				B9A8282C1C8A9CBF007403D2 /* HYBOrderRecordsViewController.m */,
 			);
 			name = Controllers;
 			sourceTree = "<group>";
@@ -1615,6 +1672,18 @@
 		B9E935CF1C7DFEB20068E620 /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				B9A828311C8AA2B6007403D2 /* HYBOrderRecord.h */,
+				B9A828321C8AA2B6007403D2 /* HYBOrderRecord.m */,
+				B9A828341C8AA58C007403D2 /* HYBOrderRecordList.h */,
+				B9A828351C8AA58C007403D2 /* HYBOrderRecordList.m */,
+				B9A828371C8AA885007403D2 /* HYBCard.h */,
+				B9A828381C8AA885007403D2 /* HYBCard.m */,
+				B9A8283A1C8AA895007403D2 /* HYBCardList.h */,
+				B9A8283B1C8AA895007403D2 /* HYBCardList.m */,
+				B9A828401C8AADE7007403D2 /* HYBMsg.h */,
+				B9A828411C8AADE7007403D2 /* HYBMsg.m */,
+				B9A828431C8AADF7007403D2 /* HYBMsgList.h */,
+				B9A828441C8AADF7007403D2 /* HYBMsgList.m */,
 			);
 			name = Models;
 			sourceTree = "<group>";
@@ -1622,6 +1691,12 @@
 		B9E935D01C7DFEBB0068E620 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				B9A8282E1C8A9E3D007403D2 /* HYBOrderRecordCell.h */,
+				B9A8282F1C8A9E3D007403D2 /* HYBOrderRecordCell.m */,
+				B9A8283D1C8AA8C4007403D2 /* HYBCardCell.h */,
+				B9A8283E1C8AA8C4007403D2 /* HYBCardCell.m */,
+				B9A828461C8AAE1E007403D2 /* HYBMsgCell.h */,
+				B9A828471C8AAE1E007403D2 /* HYBMsgCell.m */,
 			);
 			name = Views;
 			sourceTree = "<group>";
@@ -2060,6 +2135,7 @@
 			files = (
 				B9E935A01C7DE2B40068E620 /* pinyin.c in Sources */,
 				B9E9357E1C7DE2B40068E620 /* DDLog.m in Sources */,
+				B9A8282A1C8A9C4D007403D2 /* HYBMsgsViewController.m in Sources */,
 				B9E935AB1C7DE2B40068E620 /* CXNavigationBarController.m in Sources */,
 				B9E935FE1C7E00C60068E620 /* RDVTabBarItem.m in Sources */,
 				B9E935801C7DE2B40068E620 /* DDContextFilterLogFormatter.m in Sources */,
@@ -2080,6 +2156,7 @@
 				B9E935C51C7DFE360068E620 /* HYBClazzViewController.m in Sources */,
 				B988F3EA1C8180EE006BBD8B /* HYBStore2Cell.m in Sources */,
 				B9E935921C7DE2B40068E620 /* TPKeyboardAvoidingScrollView.m in Sources */,
+				B9A828211C8A9111007403D2 /* HYBScoreRecordsViewController.m in Sources */,
 				B9E935B71C7DE2B40068E620 /* ZHScrollView.m in Sources */,
 				B9E935761C7DE2B40068E620 /* UIProgressView+AFNetworking.m in Sources */,
 				B9E9358D1C7DE2B40068E620 /* SVProgressHUD.m in Sources */,
@@ -2088,10 +2165,12 @@
 				B9E935731C7DE2B40068E620 /* UIAlertView+AFNetworking.m in Sources */,
 				B9E9359A1C7DE2B40068E620 /* UIImage+CXExtensions.m in Sources */,
 				B9E935A41C7DE2B40068E620 /* PinyinFormatter.m in Sources */,
+				B9A828451C8AADF7007403D2 /* HYBMsgList.m in Sources */,
 				B9E9358F1C7DE2B40068E620 /* UIScrollView+SVPullToRefresh.m in Sources */,
 				B9E935A11C7DE2B40068E620 /* ChineseToPinyinResource.m in Sources */,
 				B9757B341C88112000781AB4 /* HYBQRCodeViewController.m in Sources */,
 				B9E935991C7DE2B40068E620 /* UIColor+CXExtensions.m in Sources */,
+				B9A8281E1C8A909B007403D2 /* HYBChargeRecordsViewController.m in Sources */,
 				B9E933A11C7DD8590068E620 /* HYBCommonTool.m in Sources */,
 				B9E935AA1C7DE2B40068E620 /* CXNavigationBar.m in Sources */,
 				B9E935851C7DE2B40068E620 /* GVUserDefaults.m in Sources */,
@@ -2101,16 +2180,22 @@
 				B9E9359F1C7DE2B40068E620 /* ChineseString.m in Sources */,
 				B9E935A61C7DE2B40068E620 /* PinyinHelper.m in Sources */,
 				B9E9323F1C7DD5960068E620 /* AppDelegate.m in Sources */,
+				B9A8283F1C8AA8C4007403D2 /* HYBCardCell.m in Sources */,
 				B9E935721C7DE2B40068E620 /* UIActivityIndicatorView+AFNetworking.m in Sources */,
+				B9A8283C1C8AA895007403D2 /* HYBCardList.m in Sources */,
 				B988F3E11C81520B006BBD8B /* HYBStoreList.m in Sources */,
 				B9E935D31C7DFEE60068E620 /* HYBMineViewController.m in Sources */,
 				B9E9359E1C7DE2B40068E620 /* CXResource.m in Sources */,
 				B9E9357C1C7DE2B40068E620 /* DDASLLogger.m in Sources */,
 				B9E935911C7DE2B40068E620 /* TPKeyboardAvoidingCollectionView.m in Sources */,
+				B9A828481C8AAE1E007403D2 /* HYBMsgCell.m in Sources */,
 				B9E9356A1C7DE2B40068E620 /* AFURLConnectionOperation.m in Sources */,
 				B9E935711C7DE2B40068E620 /* AFNetworkActivityIndicatorManager.m in Sources */,
 				B988F4CC1C834925006BBD8B /* HYBPhoneChargeViewController.m in Sources */,
 				B9E935901C7DE2B40068E620 /* SZTextView.m in Sources */,
+				B9A828271C8A9B4D007403D2 /* HYBQuansViewController.m in Sources */,
+				B9A828361C8AA58C007403D2 /* HYBOrderRecordList.m in Sources */,
+				B9A828301C8A9E3D007403D2 /* HYBOrderRecordCell.m in Sources */,
 				B9E935791C7DE2B40068E620 /* CLIColor.m in Sources */,
 				B9E935941C7DE2B40068E620 /* UIScrollView+TPKeyboardAvoidingAdditions.m in Sources */,
 				B9E935AD1C7DE2B40068E620 /* CXWebViewController.m in Sources */,
@@ -2120,10 +2205,12 @@
 				B9E935681C7DE2B40068E620 /* AFHTTPRequestOperation.m in Sources */,
 				B9E933A21C7DD8590068E620 /* GVUserDefaults+HYBProperties.m in Sources */,
 				B988F4D21C8349AE006BBD8B /* HYBQQChargeViewController.m in Sources */,
+				B9A828241C8A9AAD007403D2 /* HYBCardsViewController.m in Sources */,
 				B9E935A21C7DE2B40068E620 /* HanyuPinyinOutputFormat.m in Sources */,
 				B988F3D51C8148C1006BBD8B /* HYBBannersCell.m in Sources */,
 				B9E9323C1C7DD5960068E620 /* main.m in Sources */,
 				B9E9356C1C7DE2B40068E620 /* AFURLSessionManager.m in Sources */,
+				B9A828391C8AA885007403D2 /* HYBCard.m in Sources */,
 				B9E935831C7DE2B40068E620 /* EGOCache.m in Sources */,
 				B9E9356F1C7DE2B40068E620 /* AFURLRequestSerialization.m in Sources */,
 				B9E935B11C7DE2B40068E620 /* CXWebView.m in Sources */,
@@ -2147,7 +2234,9 @@
 				B9E935B01C7DE2B40068E620 /* RFSegmentView.m in Sources */,
 				B9E935821C7DE2B40068E620 /* DDMultiFormatter.m in Sources */,
 				B9E935AE1C7DE2B40068E620 /* HDWRefreshView.m in Sources */,
+				B9A828331C8AA2B6007403D2 /* HYBOrderRecord.m in Sources */,
 				B9E935B51C7DE2B40068E620 /* ZHLocation.m in Sources */,
+				B9A828421C8AADE7007403D2 /* HYBMsg.m in Sources */,
 				B988F4CF1C834967006BBD8B /* HYBShihuaChargeViewController.m in Sources */,
 				B9E935A51C7DE2B40068E620 /* PinYinForObjc.m in Sources */,
 				B9E935961C7DE2B40068E620 /* CXImageCache.m in Sources */,
@@ -2157,6 +2246,7 @@
 				B988F3E41C8158C9006BBD8B /* HYBFirstStoreCell.m in Sources */,
 				B9E935751C7DE2B40068E620 /* UIImageView+AFNetworking.m in Sources */,
 				B9E935981C7DE2B40068E620 /* NSURL+CXExtensions.m in Sources */,
+				B9A8282D1C8A9CBF007403D2 /* HYBOrderRecordsViewController.m in Sources */,
 				B9213E7E1C88347B00B8373A /* HYBLifeViewController.m in Sources */,
 				B9E9358A1C7DE2B40068E620 /* Reachability.m in Sources */,
 				B9E935691C7DE2B40068E620 /* AFHTTPRequestOperationManager.m in Sources */,

@@ -12,6 +12,12 @@
 #import "ZButton.h"
 #import "HYBSetPasswordViewController.h"
 #import "HYBXiaofeiRecordsViewController.h"
+#import "HYBChargeRecordsViewController.h"
+#import "HYBScoreRecordsViewController.h"
+#import "HYBCardsViewController.h"
+#import "HYBQuansViewController.h"
+#import "HYBMsgsViewController.h"
+#import "HYBOrderRecordsViewController.h"
 
 @interface HYBMineViewController ()
 
@@ -593,19 +599,27 @@
 }
 
 -(void)card{
-    
+    [[self rdv_tabBarController] setTabBarHidden:YES animated:YES];
+    HYBCardsViewController *pushController = [[HYBCardsViewController alloc] init];
+    [self.navigationController pushViewController:pushController animated:YES];
 }
 
 -(void)quan{
-    
+    [[self rdv_tabBarController] setTabBarHidden:YES animated:YES];
+    HYBQuansViewController *pushController = [[HYBQuansViewController alloc] init];
+    [self.navigationController pushViewController:pushController animated:YES];
 }
 
 -(void)msg{
-    
+    [[self rdv_tabBarController] setTabBarHidden:YES animated:YES];
+    HYBMsgsViewController *pushController = [[HYBMsgsViewController alloc] init];
+    [self.navigationController pushViewController:pushController animated:YES];
 }
 
 -(void)orderRecords{
-    
+    [[self rdv_tabBarController] setTabBarHidden:YES animated:YES];
+    HYBOrderRecordsViewController *pushController = [[HYBOrderRecordsViewController alloc] init];
+    [self.navigationController pushViewController:pushController animated:YES];
 }
 
 -(void)xiaofeiRecords{
@@ -615,11 +629,15 @@
 }
 
 -(void)chargeRecords{
-    
+    [[self rdv_tabBarController] setTabBarHidden:YES animated:YES];
+    HYBChargeRecordsViewController *pushController = [[HYBChargeRecordsViewController alloc] init];
+    [self.navigationController pushViewController:pushController animated:YES];
 }
 
 -(void)scoreRecords{
-    
+    [[self rdv_tabBarController] setTabBarHidden:YES animated:YES];
+    HYBScoreRecordsViewController *pushController = [[HYBScoreRecordsViewController alloc] init];
+    [self.navigationController pushViewController:pushController animated:YES];
 }
 
 -(void)setPassword{
