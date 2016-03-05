@@ -241,6 +241,26 @@
 		B9AC1F361C88886B003D462F /* dot@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = B9AC1F321C88886B003D462F /* dot@3x.png */; };
 		B9AC1F371C88886B003D462F /* dot@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = B9AC1F331C88886B003D462F /* dot@2x.png */; };
 		B9AC1F3D1C888DB0003D462F /* HYBXiaofeiRecordsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B9AC1F3C1C888DB0003D462F /* HYBXiaofeiRecordsViewController.m */; };
+		B9DD34101C8B270E0008290A /* HYBGateViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B9DD340F1C8B270E0008290A /* HYBGateViewController.m */; };
+		B9DD34201C8B29A50008290A /* inner_logo@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = B9DD34121C8B29A50008290A /* inner_logo@2x.png */; };
+		B9DD34211C8B29A50008290A /* inner_logo@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = B9DD34131C8B29A50008290A /* inner_logo@3x.png */; };
+		B9DD34221C8B29A50008290A /* u_checkbox_normal@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = B9DD34141C8B29A50008290A /* u_checkbox_normal@2x.png */; };
+		B9DD34231C8B29A50008290A /* u_checkbox_normal@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = B9DD34151C8B29A50008290A /* u_checkbox_normal@3x.png */; };
+		B9DD34241C8B29A50008290A /* u_checkbox_selected@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = B9DD34161C8B29A50008290A /* u_checkbox_selected@2x.png */; };
+		B9DD34251C8B29A50008290A /* u_checkbox_selected@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = B9DD34171C8B29A50008290A /* u_checkbox_selected@3x.png */; };
+		B9DD34261C8B29A50008290A /* u_email@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = B9DD34181C8B29A50008290A /* u_email@2x.png */; };
+		B9DD34271C8B29A50008290A /* u_email@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = B9DD34191C8B29A50008290A /* u_email@3x.png */; };
+		B9DD34281C8B29A50008290A /* u_phone@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = B9DD341A1C8B29A50008290A /* u_phone@2x.png */; };
+		B9DD34291C8B29A50008290A /* u_phone@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = B9DD341B1C8B29A50008290A /* u_phone@3x.png */; };
+		B9DD342A1C8B29A50008290A /* u_psw@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = B9DD341C1C8B29A50008290A /* u_psw@2x.png */; };
+		B9DD342B1C8B29A50008290A /* u_psw@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = B9DD341D1C8B29A50008290A /* u_psw@3x.png */; };
+		B9DD342C1C8B29A50008290A /* user_bg@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = B9DD341E1C8B29A50008290A /* user_bg@2x.png */; };
+		B9DD342D1C8B29A50008290A /* user_bg@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = B9DD341F1C8B29A50008290A /* user_bg@3x.png */; };
+		B9DD34301C8B2A9C0008290A /* HYBLoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B9DD342F1C8B2A9C0008290A /* HYBLoginViewController.m */; };
+		B9DD34331C8B2AA90008290A /* HYBRegViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B9DD34321C8B2AA90008290A /* HYBRegViewController.m */; };
+		B9DD34361C8B2B900008290A /* HYBChangePhoneViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B9DD34351C8B2B900008290A /* HYBChangePhoneViewController.m */; };
+		B9DD34391C8B2B9D0008290A /* HYBChangeNumViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B9DD34381C8B2B9D0008290A /* HYBChangeNumViewController.m */; };
+		B9DD343C1C8B2BBD0008290A /* HYBSetPwdViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B9DD343B1C8B2BBD0008290A /* HYBSetPwdViewController.m */; };
 		B9E9323C1C7DD5960068E620 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = B9E9323B1C7DD5960068E620 /* main.m */; };
 		B9E9323F1C7DD5960068E620 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = B9E9323E1C7DD5960068E620 /* AppDelegate.m */; };
 		B9E9324A1C7DD5960068E620 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B9E932491C7DD5960068E620 /* Assets.xcassets */; };
@@ -675,6 +695,32 @@
 		B9AC1F331C88886B003D462F /* dot@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "dot@2x.png"; sourceTree = "<group>"; };
 		B9AC1F3B1C888DB0003D462F /* HYBXiaofeiRecordsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = HYBXiaofeiRecordsViewController.h; path = Mine/Controllers/HYBXiaofeiRecordsViewController.h; sourceTree = "<group>"; };
 		B9AC1F3C1C888DB0003D462F /* HYBXiaofeiRecordsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = HYBXiaofeiRecordsViewController.m; path = Mine/Controllers/HYBXiaofeiRecordsViewController.m; sourceTree = "<group>"; };
+		B9DD340E1C8B270E0008290A /* HYBGateViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = HYBGateViewController.h; path = User/Controllers/HYBGateViewController.h; sourceTree = "<group>"; };
+		B9DD340F1C8B270E0008290A /* HYBGateViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = HYBGateViewController.m; path = User/Controllers/HYBGateViewController.m; sourceTree = "<group>"; };
+		B9DD34121C8B29A50008290A /* inner_logo@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "inner_logo@2x.png"; sourceTree = "<group>"; };
+		B9DD34131C8B29A50008290A /* inner_logo@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "inner_logo@3x.png"; sourceTree = "<group>"; };
+		B9DD34141C8B29A50008290A /* u_checkbox_normal@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "u_checkbox_normal@2x.png"; sourceTree = "<group>"; };
+		B9DD34151C8B29A50008290A /* u_checkbox_normal@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "u_checkbox_normal@3x.png"; sourceTree = "<group>"; };
+		B9DD34161C8B29A50008290A /* u_checkbox_selected@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "u_checkbox_selected@2x.png"; sourceTree = "<group>"; };
+		B9DD34171C8B29A50008290A /* u_checkbox_selected@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "u_checkbox_selected@3x.png"; sourceTree = "<group>"; };
+		B9DD34181C8B29A50008290A /* u_email@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "u_email@2x.png"; sourceTree = "<group>"; };
+		B9DD34191C8B29A50008290A /* u_email@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "u_email@3x.png"; sourceTree = "<group>"; };
+		B9DD341A1C8B29A50008290A /* u_phone@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "u_phone@2x.png"; sourceTree = "<group>"; };
+		B9DD341B1C8B29A50008290A /* u_phone@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "u_phone@3x.png"; sourceTree = "<group>"; };
+		B9DD341C1C8B29A50008290A /* u_psw@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "u_psw@2x.png"; sourceTree = "<group>"; };
+		B9DD341D1C8B29A50008290A /* u_psw@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "u_psw@3x.png"; sourceTree = "<group>"; };
+		B9DD341E1C8B29A50008290A /* user_bg@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "user_bg@2x.png"; sourceTree = "<group>"; };
+		B9DD341F1C8B29A50008290A /* user_bg@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "user_bg@3x.png"; sourceTree = "<group>"; };
+		B9DD342E1C8B2A9C0008290A /* HYBLoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = HYBLoginViewController.h; path = User/Controllers/HYBLoginViewController.h; sourceTree = "<group>"; };
+		B9DD342F1C8B2A9C0008290A /* HYBLoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = HYBLoginViewController.m; path = User/Controllers/HYBLoginViewController.m; sourceTree = "<group>"; };
+		B9DD34311C8B2AA90008290A /* HYBRegViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = HYBRegViewController.h; path = User/Controllers/HYBRegViewController.h; sourceTree = "<group>"; };
+		B9DD34321C8B2AA90008290A /* HYBRegViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = HYBRegViewController.m; path = User/Controllers/HYBRegViewController.m; sourceTree = "<group>"; };
+		B9DD34341C8B2B900008290A /* HYBChangePhoneViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = HYBChangePhoneViewController.h; path = User/Controllers/HYBChangePhoneViewController.h; sourceTree = "<group>"; };
+		B9DD34351C8B2B900008290A /* HYBChangePhoneViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = HYBChangePhoneViewController.m; path = User/Controllers/HYBChangePhoneViewController.m; sourceTree = "<group>"; };
+		B9DD34371C8B2B9D0008290A /* HYBChangeNumViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = HYBChangeNumViewController.h; path = User/Controllers/HYBChangeNumViewController.h; sourceTree = "<group>"; };
+		B9DD34381C8B2B9D0008290A /* HYBChangeNumViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = HYBChangeNumViewController.m; path = User/Controllers/HYBChangeNumViewController.m; sourceTree = "<group>"; };
+		B9DD343A1C8B2BBD0008290A /* HYBSetPwdViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = HYBSetPwdViewController.h; path = User/Controllers/HYBSetPwdViewController.h; sourceTree = "<group>"; };
+		B9DD343B1C8B2BBD0008290A /* HYBSetPwdViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = HYBSetPwdViewController.m; path = User/Controllers/HYBSetPwdViewController.m; sourceTree = "<group>"; };
 		B9E932371C7DD5960068E620 /* huiyuanbao.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = huiyuanbao.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B9E9323B1C7DD5960068E620 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		B9E9323D1C7DD5960068E620 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -1131,6 +1177,54 @@
 			path = detail;
 			sourceTree = "<group>";
 		};
+		B9DD340C1C8B26BE0008290A /* User */ = {
+			isa = PBXGroup;
+			children = (
+				B9DD340D1C8B26C60008290A /* Controllers */,
+			);
+			name = User;
+			sourceTree = "<group>";
+		};
+		B9DD340D1C8B26C60008290A /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				B9DD340E1C8B270E0008290A /* HYBGateViewController.h */,
+				B9DD340F1C8B270E0008290A /* HYBGateViewController.m */,
+				B9DD342E1C8B2A9C0008290A /* HYBLoginViewController.h */,
+				B9DD342F1C8B2A9C0008290A /* HYBLoginViewController.m */,
+				B9DD34311C8B2AA90008290A /* HYBRegViewController.h */,
+				B9DD34321C8B2AA90008290A /* HYBRegViewController.m */,
+				B9DD34341C8B2B900008290A /* HYBChangePhoneViewController.h */,
+				B9DD34351C8B2B900008290A /* HYBChangePhoneViewController.m */,
+				B9DD34371C8B2B9D0008290A /* HYBChangeNumViewController.h */,
+				B9DD34381C8B2B9D0008290A /* HYBChangeNumViewController.m */,
+				B9DD343A1C8B2BBD0008290A /* HYBSetPwdViewController.h */,
+				B9DD343B1C8B2BBD0008290A /* HYBSetPwdViewController.m */,
+			);
+			name = Controllers;
+			sourceTree = "<group>";
+		};
+		B9DD34111C8B29A50008290A /* user */ = {
+			isa = PBXGroup;
+			children = (
+				B9DD34121C8B29A50008290A /* inner_logo@2x.png */,
+				B9DD34131C8B29A50008290A /* inner_logo@3x.png */,
+				B9DD34141C8B29A50008290A /* u_checkbox_normal@2x.png */,
+				B9DD34151C8B29A50008290A /* u_checkbox_normal@3x.png */,
+				B9DD34161C8B29A50008290A /* u_checkbox_selected@2x.png */,
+				B9DD34171C8B29A50008290A /* u_checkbox_selected@3x.png */,
+				B9DD34181C8B29A50008290A /* u_email@2x.png */,
+				B9DD34191C8B29A50008290A /* u_email@3x.png */,
+				B9DD341A1C8B29A50008290A /* u_phone@2x.png */,
+				B9DD341B1C8B29A50008290A /* u_phone@3x.png */,
+				B9DD341C1C8B29A50008290A /* u_psw@2x.png */,
+				B9DD341D1C8B29A50008290A /* u_psw@3x.png */,
+				B9DD341E1C8B29A50008290A /* user_bg@2x.png */,
+				B9DD341F1C8B29A50008290A /* user_bg@3x.png */,
+			);
+			path = user;
+			sourceTree = "<group>";
+		};
 		B9E9322E1C7DD5960068E620 = {
 			isa = PBXGroup;
 			children = (
@@ -1159,6 +1253,7 @@
 		B9E932391C7DD5960068E620 /* huiyuanbao */ = {
 			isa = PBXGroup;
 			children = (
+				B9DD340C1C8B26BE0008290A /* User */,
 				B9E935CD1C7DFEA50068E620 /* Mine */,
 				B9E935C61C7DFE400068E620 /* Life */,
 				B9E935BF1C7DFDF30068E620 /* Clazz */,
@@ -1225,6 +1320,7 @@
 		B9E933A61C7DDFFA0068E620 /* images */ = {
 			isa = PBXGroup;
 			children = (
+				B9DD34111C8B29A50008290A /* user */,
 				B9A8285B1C8ADEC9007403D2 /* detail */,
 				B988F4651C833F2C006BBD8B /* other */,
 				B988F4071C819428006BBD8B /* mine */,
@@ -2169,6 +2265,7 @@
 				B988F4A41C833F2C006BBD8B /* default_bg@2x.png in Resources */,
 				B9E935E61C7DFF360068E620 /* class@3x.png in Resources */,
 				B988F3F11C818B18006BBD8B /* filter_arrow@2x.png in Resources */,
+				B9DD34211C8B29A50008290A /* inner_logo@3x.png in Resources */,
 				B988F4AF1C833F2C006BBD8B /* name2@3x.png in Resources */,
 				B988F4A91C833F2C006BBD8B /* input_normal@3x.png in Resources */,
 				B9A828A01C8ADEC9007403D2 /* minus_disabled@2x.png in Resources */,
@@ -2177,12 +2274,15 @@
 				B9E936321C7E016E0068E620 /* bgnone@3x.png in Resources */,
 				B988F3C01C8144C0006BBD8B /* store_default@3x.png in Resources */,
 				B9E935F01C7DFF360068E620 /* life_active@3x.png in Resources */,
+				B9DD34231C8B29A50008290A /* u_checkbox_normal@3x.png in Resources */,
 				B988F4B11C833F2C006BBD8B /* online_pay@3x.png in Resources */,
 				B9A828B21C8ADEC9007403D2 /* yuepay@2x.png in Resources */,
 				B9E936311C7E016E0068E620 /* bgnone@2x.png in Resources */,
 				B988F4001C818CE4006BBD8B /* qq@3x.png in Resources */,
 				B988F4BD1C833F2C006BBD8B /* store_xiaofei@3x.png in Resources */,
+				B9DD34201C8B29A50008290A /* inner_logo@2x.png in Resources */,
 				B988F4641C833CF9006BBD8B /* password2@2x.png in Resources */,
+				B9DD34241C8B29A50008290A /* u_checkbox_selected@2x.png in Resources */,
 				B988F4B31C833F2C006BBD8B /* order@3x.png in Resources */,
 				B9E935EB1C7DFF360068E620 /* home_active@2x.png in Resources */,
 				B988F4AD1C833F2C006BBD8B /* minus_normal@3x.png in Resources */,
@@ -2203,6 +2303,7 @@
 				B9A8288F1C8ADEC9007403D2 /* d_checkbox_normal@3x.png in Resources */,
 				B9A828901C8ADEC9007403D2 /* d_checkbox_selected@2x.png in Resources */,
 				B9E935A71C7DE2B40068E620 /* unicode_to_hanyu_pinyin.txt in Resources */,
+				B9DD34271C8B29A50008290A /* u_email@3x.png in Resources */,
 				B988F49D1C833F2C006BBD8B /* address@3x.png in Resources */,
 				B988F4541C819428006BBD8B /* quan_normal_top@2x.png in Resources */,
 				B9A828951C8ADEC9007403D2 /* d_tel@3x.png in Resources */,
@@ -2229,10 +2330,12 @@
 				B9E936331C7E016E0068E620 /* boot1@2x.png in Resources */,
 				B988F3CD1C814555006BBD8B /* search_close@3x.png in Resources */,
 				B988F4391C819428006BBD8B /* charge_record@2x.png in Resources */,
+				B9DD34261C8B29A50008290A /* u_email@2x.png in Resources */,
 				B988F44C1C819428006BBD8B /* quan_disabled_top@2x.png in Resources */,
 				B988F4451C819428006BBD8B /* order_record@3x.png in Resources */,
 				B988F4B81C833F2C006BBD8B /* phone2@2x.png in Resources */,
 				B9A8289F1C8ADEC9007403D2 /* gray_verifycode@3x.png in Resources */,
+				B9DD342D1C8B29A50008290A /* user_bg@3x.png in Resources */,
 				B988F4571C819428006BBD8B /* red@3x.png in Resources */,
 				B9A828AD1C8ADEC9007403D2 /* plus_normal@3x.png in Resources */,
 				B988F4C61C833F2C006BBD8B /* yuepay@2x.png in Resources */,
@@ -2255,17 +2358,21 @@
 				B9A828A61C8ADEC9007403D2 /* pay_checkbox_normal@2x.png in Resources */,
 				B9E936351C7E016E0068E620 /* boot2@2x.png in Resources */,
 				B988F43A1C819428006BBD8B /* charge_record@3x.png in Resources */,
+				B9DD34281C8B29A50008290A /* u_phone@2x.png in Resources */,
 				B9E9324A1C7DD5960068E620 /* Assets.xcassets in Resources */,
 				B988F3B61C8144C0006BBD8B /* location@2x.png in Resources */,
 				B9A828971C8ADEC9007403D2 /* float_bg@3x.png in Resources */,
 				B988F4C91C833F2C006BBD8B /* zhifubao@3x.png in Resources */,
 				B988F4A81C833F2C006BBD8B /* input_normal@2x.png in Resources */,
+				B9DD34221C8B29A50008290A /* u_checkbox_normal@2x.png in Resources */,
 				B988F44E1C819428006BBD8B /* quan_finished_bottom@2x.png in Resources */,
 				B988F4AA1C833F2C006BBD8B /* minus_disabled@2x.png in Resources */,
 				B9A828941C8ADEC9007403D2 /* d_tel@2x.png in Resources */,
 				B9A828A91C8ADEC9007403D2 /* pay_checkbox_selected@3x.png in Resources */,
+				B9DD34251C8B29A50008290A /* u_checkbox_selected@3x.png in Resources */,
 				B9E935F21C7DFF360068E620 /* mine@3x.png in Resources */,
 				B9A8289B1C8ADEC9007403D2 /* gray_phone@3x.png in Resources */,
+				B9DD342A1C8B29A50008290A /* u_psw@2x.png in Resources */,
 				B9E936341C7E016E0068E620 /* boot1@3x.png in Resources */,
 				B9E9362F1C7E016E0068E620 /* back@2x.png in Resources */,
 				B988F4361C819428006BBD8B /* bao_record_bg@3x.png in Resources */,
@@ -2315,6 +2422,7 @@
 				B988F4331C819428006BBD8B /* arrow_r@2x.png in Resources */,
 				B988F4AE1C833F2C006BBD8B /* name2@2x.png in Resources */,
 				B988F49B1C833F2C006BBD8B /* add_normal@3x.png in Resources */,
+				B9DD34291C8B29A50008290A /* u_phone@3x.png in Resources */,
 				B9E936361C7E016E0068E620 /* boot2@3x.png in Resources */,
 				B9A8288B1C8ADEC9007403D2 /* charge_default@3x.png in Resources */,
 				B9A828A51C8ADEC9007403D2 /* num_area@3x.png in Resources */,
@@ -2331,12 +2439,14 @@
 				B988F4011C818CE4006BBD8B /* shihua@2x.png in Resources */,
 				B988F3BD1C8144C0006BBD8B /* store@2x.png in Resources */,
 				B988F4561C819428006BBD8B /* red@2x.png in Resources */,
+				B9DD342C1C8B29A50008290A /* user_bg@2x.png in Resources */,
 				B988F4421C819428006BBD8B /* msg@2x.png in Resources */,
 				B9E933921C7DD8300068E620 /* Default-568h@2x.png in Resources */,
 				B988F4351C819428006BBD8B /* bao_record_bg@2x.png in Resources */,
 				B9A828AC1C8ADEC9007403D2 /* plus_normal@2x.png in Resources */,
 				B9A8288E1C8ADEC9007403D2 /* d_checkbox_normal@2x.png in Resources */,
 				B988F4C11C833F2C006BBD8B /* tab_default@3x.png in Resources */,
+				B9DD342B1C8B29A50008290A /* u_psw@3x.png in Resources */,
 				B988F4431C819428006BBD8B /* msg@3x.png in Resources */,
 				B988F4381C819428006BBD8B /* card@3x.png in Resources */,
 				B988F4371C819428006BBD8B /* card@2x.png in Resources */,
@@ -2435,6 +2545,8 @@
 				B9A8282A1C8A9C4D007403D2 /* HYBMsgsViewController.m in Sources */,
 				B9A828B91C8AE282007403D2 /* HYBXiaofeiRecordList.m in Sources */,
 				B9E935AB1C7DE2B40068E620 /* CXNavigationBarController.m in Sources */,
+				B9DD34331C8B2AA90008290A /* HYBRegViewController.m in Sources */,
+				B9DD34391C8B2B9D0008290A /* HYBChangeNumViewController.m in Sources */,
 				B9E935FE1C7E00C60068E620 /* RDVTabBarItem.m in Sources */,
 				B9E935801C7DE2B40068E620 /* DDContextFilterLogFormatter.m in Sources */,
 				B9E935811C7DE2B40068E620 /* DDDispatchQueueLogFormatter.m in Sources */,
@@ -2453,6 +2565,7 @@
 				B9E935931C7DE2B40068E620 /* TPKeyboardAvoidingTableView.m in Sources */,
 				B9E935C51C7DFE360068E620 /* HYBClazzViewController.m in Sources */,
 				B988F3EA1C8180EE006BBD8B /* HYBStore2Cell.m in Sources */,
+				B9DD34361C8B2B900008290A /* HYBChangePhoneViewController.m in Sources */,
 				B9A828CB1C8AFEB7007403D2 /* HYBStoreDetailViewController.m in Sources */,
 				B9E935921C7DE2B40068E620 /* TPKeyboardAvoidingScrollView.m in Sources */,
 				B9A828211C8A9111007403D2 /* HYBScoreRecordsViewController.m in Sources */,
@@ -2471,6 +2584,7 @@
 				B9757B341C88112000781AB4 /* HYBQRCodeViewController.m in Sources */,
 				B9E935991C7DE2B40068E620 /* UIColor+CXExtensions.m in Sources */,
 				B9A8281E1C8A909B007403D2 /* HYBChargeRecordsViewController.m in Sources */,
+				B9DD34101C8B270E0008290A /* HYBGateViewController.m in Sources */,
 				B9E933A11C7DD8590068E620 /* HYBCommonTool.m in Sources */,
 				B9E935AA1C7DE2B40068E620 /* CXNavigationBar.m in Sources */,
 				B9E935851C7DE2B40068E620 /* GVUserDefaults.m in Sources */,
@@ -2492,6 +2606,7 @@
 				B9E935911C7DE2B40068E620 /* TPKeyboardAvoidingCollectionView.m in Sources */,
 				B9A828481C8AAE1E007403D2 /* HYBMsgCell.m in Sources */,
 				B9E9356A1C7DE2B40068E620 /* AFURLConnectionOperation.m in Sources */,
+				B9DD343C1C8B2BBD0008290A /* HYBSetPwdViewController.m in Sources */,
 				B9E935711C7DE2B40068E620 /* AFNetworkActivityIndicatorManager.m in Sources */,
 				B988F4CC1C834925006BBD8B /* HYBPhoneChargeViewController.m in Sources */,
 				B9E935901C7DE2B40068E620 /* SZTextView.m in Sources */,
@@ -2510,6 +2625,7 @@
 				B9E933A21C7DD8590068E620 /* GVUserDefaults+HYBProperties.m in Sources */,
 				B988F4D21C8349AE006BBD8B /* HYBQQChargeViewController.m in Sources */,
 				B9A828D71C8B0C6E007403D2 /* HYBStoreProductList.m in Sources */,
+				B9DD34301C8B2A9C0008290A /* HYBLoginViewController.m in Sources */,
 				B9A828241C8A9AAD007403D2 /* HYBCardsViewController.m in Sources */,
 				B9E935A21C7DE2B40068E620 /* HanyuPinyinOutputFormat.m in Sources */,
 				B988F3D51C8148C1006BBD8B /* HYBBannersCell.m in Sources */,

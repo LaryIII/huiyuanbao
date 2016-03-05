@@ -18,6 +18,7 @@
 #import "HYBQuansViewController.h"
 #import "HYBMsgsViewController.h"
 #import "HYBOrderRecordsViewController.h"
+#import "HYBGateViewController.h"
 
 @interface HYBMineViewController ()
 
@@ -655,7 +656,12 @@
 }
 
 -(void)logouts{
-    
+    HYBGateViewController *gateController = [[HYBGateViewController alloc] init];
+//    gateController.delegate = self;
+    UINavigationController *navigationController = [[UINavigationController alloc] initWithRootViewController:gateController];
+    self.navigationController.navigationBarHidden = YES;
+    [self presentViewController:navigationController animated:YES completion:^{
+    }];
 }
 
 - (void)viewWillAppear:(BOOL)animated
