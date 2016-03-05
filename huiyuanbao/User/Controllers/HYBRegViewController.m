@@ -9,8 +9,10 @@
 #import "HYBRegViewController.h"
 #import "masonry.h"
 #import "HYBSetPwdViewController.h"
+#import "HYBSMSCode.h"
 
 @interface HYBRegViewController ()
+@property (nonatomic, strong) HYBSMSCode *smscode;
 @property (nonatomic, strong) UITextField *phonefield;
 @property (nonatomic, strong) UITextField *psdfield;
 @property (nonatomic, strong) UITextField *emailfield;
@@ -19,6 +21,10 @@
 @end
 
 @implementation HYBRegViewController
+
+- (void) dealloc{
+    [_smscode removeObserver:self forKeyPath:kResourceLoadingStatusKeyPath];
+}
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -227,11 +233,37 @@
         make.width.mas_equalTo(198.0f);
     }];
     
+    self.smscode = [[HYBSMSCode alloc] initWithBaseURL:HYB_API_BASE_URL path:SMS_CODE cachePolicyType:kCachePolicyTypeNone];
+    
+    [self.smscode addObserver:self
+                   forKeyPath:kResourceLoadingStatusKeyPath
+                      options:NSKeyValueObservingOptionNew
+                      context:nil];
+    
 }
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+
+#pragma mark Key-value observing
+- (void)observeValueForKeyPath:(NSString *)keyPath
+                      ofObject:(id)object
+                        change:(NSDictionary *)change
+                       context:(void *)context
+{
+    if ([keyPath isEqualToString:kResourceLoadingStatusKeyPath]) {
+        if (object == _smscode) {
+            if (_smscode.isLoaded) {
+                // [self hideLoadingView];
+//                [self.validate startTime];
+            }
+            else if (_smscode.error) {
+                [self showErrorMessage:[_smscode.error localizedFailureReason]];
+            }
+        }
+    }
 }
 
 - (void)hideKeyBoard{
@@ -258,7 +290,8 @@
     
 }
 -(void)getCode{
-    
+//    [self.smscode loadDataWithRequestMethodType:kHttpRequestMethodTypeGet parameters:@{@"phoneno":@"13236567035",@"type":@1,@"uuid":@"54f5558da0cf601d42c34d4ca726cbed7c1b666b",@"cpuid":@"00000000-113a-8e7d-21d0-61980885d8da",@"timeStamp":@"1452916561019"}];
+    [self.smscode loadDataWithRequestMethodType:kHttpRequestMethodTypeGet parameters:@{}];
 }
 
 @end

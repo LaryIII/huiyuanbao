@@ -261,6 +261,7 @@
 		B9DD34361C8B2B900008290A /* HYBChangePhoneViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B9DD34351C8B2B900008290A /* HYBChangePhoneViewController.m */; };
 		B9DD34391C8B2B9D0008290A /* HYBChangeNumViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B9DD34381C8B2B9D0008290A /* HYBChangeNumViewController.m */; };
 		B9DD343C1C8B2BBD0008290A /* HYBSetPwdViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B9DD343B1C8B2BBD0008290A /* HYBSetPwdViewController.m */; };
+		B9DD34411C8B40960008290A /* HYBSMSCode.m in Sources */ = {isa = PBXBuildFile; fileRef = B9DD34401C8B40960008290A /* HYBSMSCode.m */; };
 		B9E9323C1C7DD5960068E620 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = B9E9323B1C7DD5960068E620 /* main.m */; };
 		B9E9323F1C7DD5960068E620 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = B9E9323E1C7DD5960068E620 /* AppDelegate.m */; };
 		B9E9324A1C7DD5960068E620 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B9E932491C7DD5960068E620 /* Assets.xcassets */; };
@@ -721,6 +722,8 @@
 		B9DD34381C8B2B9D0008290A /* HYBChangeNumViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = HYBChangeNumViewController.m; path = User/Controllers/HYBChangeNumViewController.m; sourceTree = "<group>"; };
 		B9DD343A1C8B2BBD0008290A /* HYBSetPwdViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = HYBSetPwdViewController.h; path = User/Controllers/HYBSetPwdViewController.h; sourceTree = "<group>"; };
 		B9DD343B1C8B2BBD0008290A /* HYBSetPwdViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = HYBSetPwdViewController.m; path = User/Controllers/HYBSetPwdViewController.m; sourceTree = "<group>"; };
+		B9DD343F1C8B40960008290A /* HYBSMSCode.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = HYBSMSCode.h; path = User/Models/HYBSMSCode.h; sourceTree = "<group>"; };
+		B9DD34401C8B40960008290A /* HYBSMSCode.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = HYBSMSCode.m; path = User/Models/HYBSMSCode.m; sourceTree = "<group>"; };
 		B9E932371C7DD5960068E620 /* huiyuanbao.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = huiyuanbao.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B9E9323B1C7DD5960068E620 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		B9E9323D1C7DD5960068E620 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -1180,6 +1183,8 @@
 		B9DD340C1C8B26BE0008290A /* User */ = {
 			isa = PBXGroup;
 			children = (
+				B9DD343E1C8B40600008290A /* Views */,
+				B9DD343D1C8B405A0008290A /* Models */,
 				B9DD340D1C8B26C60008290A /* Controllers */,
 			);
 			name = User;
@@ -1223,6 +1228,22 @@
 				B9DD341F1C8B29A50008290A /* user_bg@3x.png */,
 			);
 			path = user;
+			sourceTree = "<group>";
+		};
+		B9DD343D1C8B405A0008290A /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				B9DD343F1C8B40960008290A /* HYBSMSCode.h */,
+				B9DD34401C8B40960008290A /* HYBSMSCode.m */,
+			);
+			name = Models;
+			sourceTree = "<group>";
+		};
+		B9DD343E1C8B40600008290A /* Views */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Views;
 			sourceTree = "<group>";
 		};
 		B9E9322E1C7DD5960068E620 = {
@@ -2669,6 +2690,7 @@
 				B988F4CF1C834967006BBD8B /* HYBShihuaChargeViewController.m in Sources */,
 				B9E935A51C7DE2B40068E620 /* PinYinForObjc.m in Sources */,
 				B9A828511C8AC887007403D2 /* HYBQuanCell.m in Sources */,
+				B9DD34411C8B40960008290A /* HYBSMSCode.m in Sources */,
 				B9E935961C7DE2B40068E620 /* CXImageCache.m in Sources */,
 				B9E9357F1C7DE2B40068E620 /* DDTTYLogger.m in Sources */,
 				B9E935AC1C7DE2B40068E620 /* CXViewController.m in Sources */,
