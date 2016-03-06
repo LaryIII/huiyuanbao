@@ -18,6 +18,15 @@
 @interface HYBClazzViewController ()<UICollectionViewDelegate, UICollectionViewDataSource,HYBStore2CellDelegate>
 @property (nonatomic, strong) UICollectionView *collectionView;
 @property (nonatomic, strong) NSMutableArray *dataArray;
+
+@property (nonatomic, strong) UIView *sortArea;
+@property (nonatomic, assign) BOOL isSortAreaDisplay;
+@property (nonatomic, strong) NSString *selectedSort;
+
+@property (nonatomic, strong) UIView *filterArea;
+@property (nonatomic, assign) BOOL isFilterAreaDisplay;
+
+@property (nonatomic, strong) NSString *selectedFilter;
 @end
 
 @implementation HYBClazzViewController
@@ -112,7 +121,7 @@
     [btn2 setTitleColor:RGB(0, 0, 0) forState:UIControlStateNormal];
     btn2.layer.borderColor = RGB(232, 232, 232).CGColor;
     btn2.layer.borderWidth = 0.5;
-    [btn2 addTarget:self action:@selector(orders) forControlEvents:UIControlEventTouchUpInside];
+    [btn2 addTarget:self action:@selector(sorts) forControlEvents:UIControlEventTouchUpInside];
     [filterbar addSubview:btn2];
     btn2.backgroundColor = [UIColor whiteColor];
     
@@ -172,6 +181,12 @@
     HYBStore2 *store = HYBStore2.new;
     [storeList addObject:store];
     [self.dataArray[0] addObject:storeList];
+    
+    [self addSelectSort];
+    [self addSelectFilter];
+    [self.view bringSubviewToFront:self.navigationBar];
+    [self.view bringSubviewToFront:searchBox];
+    [self.view bringSubviewToFront:filterbar];
 }
 
 - (void)addLeftNavigatorButton
@@ -183,6 +198,161 @@
     [leftButton addTarget:self action:@selector(leftButtonTapped:) forControlEvents:UIControlEventTouchUpInside];
     //    [self.navigationBar addSubview :rightButton];
     [self.navigationBar setLeftButton:leftButton];
+}
+
+- (void)addSelectSort{
+    CGFloat width = CGRectGetWidth(self.view.bounds);
+    self.sortArea = [[UIView alloc ]initWithFrame:CGRectMake(0.0f, self.navigationBarHeight-132.0f-44.0f-46.0f, width, 132.0f)];
+    self.sortArea.backgroundColor = [UIColor whiteColor];
+    
+    NSArray *citys = @[@"智能排序",@"离我最近",@"人气最高"];
+    for (int i=0; i<citys.count; i++) {
+        UIButton *btn = UIButton.new;
+        btn.backgroundColor = [UIColor whiteColor];
+        btn.layer.borderColor = RGB(207, 207, 207).CGColor;
+        btn.layer.borderWidth = 0.5;
+        [btn setTitle:citys[i] forState:UIControlStateNormal];
+        [btn setTitleColor:RGB(51, 51, 51) forState:UIControlStateNormal];
+        [btn.titleLabel setFont:[UIFont systemFontOfSize:15.0f]];
+//        btn.contentHorizontalAlignment = UIControlContentHorizontalAlignmentLeft;
+        [btn addTarget:self action:@selector(gotoSort:) forControlEvents:UIControlEventTouchUpInside];
+        [self.sortArea addSubview:btn];
+        [btn makeConstraints:^(MASConstraintMaker *make) {
+            make.top.equalTo(_sortArea.top).offset(44*i);
+            make.left.equalTo(_sortArea.left);
+            make.right.equalTo(_sortArea.right);
+            make.height.mas_equalTo(44);
+        }];
+    }
+    
+    [self.view addSubview:self.sortArea];
+}
+
+- (void)addSelectFilter{
+    CGFloat width = CGRectGetWidth(self.view.bounds);
+    self.filterArea = [[UIView alloc ]initWithFrame:CGRectMake(0.0f, self.navigationBarHeight-44.0f*6-44.0f-46.0f, width, 44.0f*6)];
+    self.filterArea.backgroundColor = [UIColor whiteColor];
+    
+    NSArray *citys = @[@"全部",@"美食",@"酒店",@"电影",@"购物",@"汽车"];
+    for (int i=0; i<citys.count; i++) {
+        UIButton *btn = UIButton.new;
+        btn.backgroundColor = [UIColor whiteColor];
+        [btn setTitle:citys[i] forState:UIControlStateNormal];
+        [btn setTitleColor:RGB(51, 51, 51) forState:UIControlStateNormal];
+        [btn.titleLabel setFont:[UIFont systemFontOfSize:15.0f]];
+//        btn.contentHorizontalAlignment = UIControlContentHorizontalAlignmentLeft;
+        [btn addTarget:self action:@selector(gotoFilter:) forControlEvents:UIControlEventTouchUpInside];
+        [self.filterArea addSubview:btn];
+        [btn makeConstraints:^(MASConstraintMaker *make) {
+            make.top.equalTo(_filterArea.top).offset(44*i);
+            make.left.equalTo(_filterArea.left);
+            make.width.mas_equalTo(width/2);
+            make.height.mas_equalTo(44);
+        }];
+    }
+    
+    UIScrollView *level2menu = UIScrollView.new;
+    level2menu.backgroundColor = RGB(240, 240, 240);
+    [self.filterArea addSubview:level2menu];
+    [level2menu makeConstraints:^(MASConstraintMaker *make) {
+        make.top.equalTo(self.filterArea.top);
+        make.left.equalTo(self.filterArea.left).offset(width/2);
+        make.right.equalTo(self.filterArea.right);
+        make.bottom.equalTo(self.filterArea.bottom);
+    }];
+    
+    UIView *container = UIView.new;
+    [self.filterArea addSubview:container];
+    [container makeConstraints:^(MASConstraintMaker *make) {
+        make.edges.equalTo(level2menu);
+        make.width.equalTo(level2menu.width);
+    }];
+    
+    [self.view addSubview:self.filterArea];
+}
+
+-(void)gotoSort:(id)sender{
+    
+}
+
+-(void)gotoFilter:(id)sender{
+    
+}
+
+- (void) pullSortArea{
+    CGFloat width = CGRectGetWidth(self.view.bounds);
+    //打印动画块的位置
+    NSLog(@"动画执行之前的位置：%@",NSStringFromCGPoint(self.sortArea.center));
+    //首尾式动画
+    [UIView beginAnimations:nil context:nil];
+    //执行动画
+    //设置动画执行时间
+    [UIView setAnimationDuration:0.4];
+    //设置代理
+    [UIView setAnimationDelegate:self];
+    //设置动画执行完毕调用的事件
+    [UIView setAnimationDidStopSelector:@selector(stopAnimating)];
+    self.sortArea.center=CGPointMake(width/2, 66+self.navigationBarHeight+44+46);
+    [UIView commitAnimations];
+    
+    self.isSortAreaDisplay =YES;
+}
+
+- (void) pushSortArea{
+    CGFloat width = CGRectGetWidth(self.view.bounds);
+    //打印动画块的位置
+    NSLog(@"动画执行之前的位置：%@",NSStringFromCGPoint(self.sortArea.center));
+    //首尾式动画
+    [UIView beginAnimations:nil context:nil];
+    //执行动画
+    //设置动画执行时间
+    [UIView setAnimationDuration:0.4];
+    //设置代理
+    [UIView setAnimationDelegate:self];
+    //设置动画执行完毕调用的事件
+    [UIView setAnimationDidStopSelector:@selector(stopAnimating)];
+    self.sortArea.center=CGPointMake(0, -66+self.navigationBarHeight+44+46);
+    [UIView commitAnimations];
+    
+    self.isSortAreaDisplay = NO;
+}
+
+- (void) pullFilterArea{
+    CGFloat width = CGRectGetWidth(self.view.bounds);
+    //打印动画块的位置
+    NSLog(@"动画执行之前的位置：%@",NSStringFromCGPoint(self.filterArea.center));
+    //首尾式动画
+    [UIView beginAnimations:nil context:nil];
+    //执行动画
+    //设置动画执行时间
+    [UIView setAnimationDuration:0.4];
+    //设置代理
+    [UIView setAnimationDelegate:self];
+    //设置动画执行完毕调用的事件
+    [UIView setAnimationDidStopSelector:@selector(stopAnimating)];
+    self.filterArea.center=CGPointMake(width/2, 44*6/2+self.navigationBarHeight+44+46);
+    [UIView commitAnimations];
+    
+    self.isFilterAreaDisplay =YES;
+}
+
+- (void) pushFilterArea{
+    CGFloat width = CGRectGetWidth(self.view.bounds);
+    //打印动画块的位置
+    NSLog(@"动画执行之前的位置：%@",NSStringFromCGPoint(self.filterArea.center));
+    //首尾式动画
+    [UIView beginAnimations:nil context:nil];
+    //执行动画
+    //设置动画执行时间
+    [UIView setAnimationDuration:0.4];
+    //设置代理
+    [UIView setAnimationDelegate:self];
+    //设置动画执行完毕调用的事件
+    [UIView setAnimationDidStopSelector:@selector(stopAnimating)];
+    self.filterArea.center=CGPointMake(width/2, -44*6/2+self.navigationBarHeight+44+46);
+    [UIView commitAnimations];
+    
+    self.isFilterAreaDisplay = NO;
 }
 
 - (void)didReceiveMemoryWarning {
@@ -321,11 +491,19 @@
 }
 
 - (void)filters{
-    
+    if(self.isFilterAreaDisplay){
+        [self pushFilterArea];
+    }else{
+        [self pullFilterArea];
+    }
 }
 
--(void)orders{
-    
+-(void)sorts{
+    if(self.isSortAreaDisplay){
+        [self pushSortArea];
+    }else{
+        [self pullSortArea];
+    }
 }
 
 -(void) gotoStoreDetail:(HYBStore2Cell *)cell withStore:(HYBStore2 *)store{

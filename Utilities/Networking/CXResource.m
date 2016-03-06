@@ -370,6 +370,10 @@ NSString * const CXResourceErrorDomain = @"cx.resource.request.error.response";
 //    allParameters[@"parterValue"] = @(100);
 //    allParameters[@"width"] =@(scale_screen*wid);
     allParameters[@"token"] = [GVUserDefaults standardUserDefaults].token;
+    allParameters[@"cpuid"] = [[[ASIdentifierManager sharedManager] advertisingIdentifier] UUIDString];
+    NSTimeInterval nowTimestamp = [[NSDate date] timeIntervalSince1970] * 1000.0;
+    long time = (long)ceilf(nowTimestamp);
+    allParameters[@"timeStamp"] = [NSString stringWithFormat:@"%li",time];
     
 //    if([GVUserDefaults standardUserDefaults].cityCode)
 //    {

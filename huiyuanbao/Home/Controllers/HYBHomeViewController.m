@@ -20,12 +20,15 @@
 #import "QRCodeReader.h"
 #import "QRCodeReaderViewController.h"
 #import "HYBStoreDetailViewController.h"
+#import "HYBHomeData.h"
 
 @interface HYBHomeViewController ()<UICollectionViewDelegate, UICollectionViewDataSource,HYBBannersCellDelegate,HYBFirstStoreCellDelegate,HYBStoreCellDelegate, QRCodeReaderDelegate>
 @property (nonatomic, strong) UICollectionView *collectionView;
 @property (nonatomic, strong) NSMutableArray *dataArray;
 
 @property (nonatomic, strong) QRCodeReaderViewController *vc;
+
+@property (nonatomic, strong) HYBHomeData *homedata;
 @end
 
 static const CGFloat heightWidthRatio = 7.0f / 16.0f;
@@ -95,6 +98,12 @@ static const CGFloat heightWidthRatio = 7.0f / 16.0f;
     [reader setCompletionWithBlock:^(NSString *resultAsString) {
         NSLog(@"%@", resultAsString);
     }];
+    
+    self.homedata = [[HYBHomeData alloc] initWithBaseURL:HYB_API_BASE_URL path:HOME_DATA];
+}
+
+- (void) refreshData{
+    [self.homedata loadDataWithRequestMethodType:kHttpRequestMethodTypeGet parameters:@{}];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -309,7 +318,7 @@ static const CGFloat heightWidthRatio = 7.0f / 16.0f;
 {
     [super viewWillAppear:animated];
     [[self rdv_tabBarController] setTabBarHidden:NO animated:NO];
-//    [self refreshData];
+    [self refreshData];
 }
 
 #pragma mark - QRCodeReader Delegate Methods

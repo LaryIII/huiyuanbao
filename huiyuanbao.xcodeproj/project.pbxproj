@@ -262,6 +262,8 @@
 		B9DD34391C8B2B9D0008290A /* HYBChangeNumViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B9DD34381C8B2B9D0008290A /* HYBChangeNumViewController.m */; };
 		B9DD343C1C8B2BBD0008290A /* HYBSetPwdViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B9DD343B1C8B2BBD0008290A /* HYBSetPwdViewController.m */; };
 		B9DD34411C8B40960008290A /* HYBSMSCode.m in Sources */ = {isa = PBXBuildFile; fileRef = B9DD34401C8B40960008290A /* HYBSMSCode.m */; };
+		B9DD34441C8C4F2F0008290A /* HYBHomeData.m in Sources */ = {isa = PBXBuildFile; fileRef = B9DD34431C8C4F2F0008290A /* HYBHomeData.m */; };
+		B9DD34461C8C52080008290A /* AdSupport.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B9DD34451C8C52080008290A /* AdSupport.framework */; };
 		B9E9323C1C7DD5960068E620 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = B9E9323B1C7DD5960068E620 /* main.m */; };
 		B9E9323F1C7DD5960068E620 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = B9E9323E1C7DD5960068E620 /* AppDelegate.m */; };
 		B9E9324A1C7DD5960068E620 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B9E932491C7DD5960068E620 /* Assets.xcassets */; };
@@ -724,6 +726,9 @@
 		B9DD343B1C8B2BBD0008290A /* HYBSetPwdViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = HYBSetPwdViewController.m; path = User/Controllers/HYBSetPwdViewController.m; sourceTree = "<group>"; };
 		B9DD343F1C8B40960008290A /* HYBSMSCode.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = HYBSMSCode.h; path = User/Models/HYBSMSCode.h; sourceTree = "<group>"; };
 		B9DD34401C8B40960008290A /* HYBSMSCode.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = HYBSMSCode.m; path = User/Models/HYBSMSCode.m; sourceTree = "<group>"; };
+		B9DD34421C8C4F2F0008290A /* HYBHomeData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = HYBHomeData.h; path = Home/Models/HYBHomeData.h; sourceTree = "<group>"; };
+		B9DD34431C8C4F2F0008290A /* HYBHomeData.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = HYBHomeData.m; path = Home/Models/HYBHomeData.m; sourceTree = "<group>"; };
+		B9DD34451C8C52080008290A /* AdSupport.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AdSupport.framework; path = System/Library/Frameworks/AdSupport.framework; sourceTree = SDKROOT; };
 		B9E932371C7DD5960068E620 /* huiyuanbao.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = huiyuanbao.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B9E9323B1C7DD5960068E620 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		B9E9323D1C7DD5960068E620 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -956,6 +961,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B9DD34461C8C52080008290A /* AdSupport.framework in Frameworks */,
 				3D5BF0040909B727744B1E5F /* libPods.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -1878,6 +1884,8 @@
 				B9A828DF1C8B1A87007403D2 /* HYBCity.m */,
 				B9A828E11C8B1A93007403D2 /* HYBCityList.h */,
 				B9A828E21C8B1A93007403D2 /* HYBCityList.m */,
+				B9DD34421C8C4F2F0008290A /* HYBHomeData.h */,
+				B9DD34431C8C4F2F0008290A /* HYBHomeData.m */,
 			);
 			name = Models;
 			sourceTree = "<group>";
@@ -2136,6 +2144,7 @@
 		E7602D8CCEA5BEC985171EFB /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				B9DD34451C8C52080008290A /* AdSupport.framework */,
 				FDCCB340312BD400544476E3 /* libPods.a */,
 			);
 			name = Frameworks;
@@ -2612,6 +2621,7 @@
 				B9E9339F1C7DD8590068E620 /* HYBSplashViewController.m in Sources */,
 				B9E935741C7DE2B40068E620 /* UIButton+AFNetworking.m in Sources */,
 				B988F3D81C81495E006BBD8B /* HYBAdvertisement.m in Sources */,
+				B9DD34441C8C4F2F0008290A /* HYBHomeData.m in Sources */,
 				B9E9359F1C7DE2B40068E620 /* ChineseString.m in Sources */,
 				B9E935A61C7DE2B40068E620 /* PinyinHelper.m in Sources */,
 				B9E9323F1C7DD5960068E620 /* AppDelegate.m in Sources */,
