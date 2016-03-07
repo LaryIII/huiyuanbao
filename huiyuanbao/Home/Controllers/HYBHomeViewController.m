@@ -104,22 +104,14 @@ static const CGFloat heightWidthRatio = 7.0f / 16.0f;
 }
 
 - (void) refreshData{
-    //?userId=&longitude=116.322886&latitude=39.892176&phoneno=&current=0&pageLength=10
-    CocoaSecurityResult *useidx = [CocoaSecurity aesEncrypt:@"" hexKey:HEXKEY hexIv:HEXIV];
-    CocoaSecurityResult *longitudex = [CocoaSecurity aesEncrypt:@"116.322886" hexKey:HEXKEY hexIv:HEXIV];
-    CocoaSecurityResult *latitudex = [CocoaSecurity aesEncrypt:@"39.892176" hexKey:HEXKEY hexIv:HEXIV];
-    CocoaSecurityResult *phonenox = [CocoaSecurity aesEncrypt:@"" hexKey:HEXKEY hexIv:HEXIV];
-    CocoaSecurityResult *pageLengthx = [CocoaSecurity aesEncrypt:@"10" hexKey:HEXKEY hexIv:HEXIV];
-    CocoaSecurityResult *currentx = [CocoaSecurity aesEncrypt:@"0" hexKey:HEXKEY hexIv:HEXIV];
     [self.homedata loadDataWithRequestMethodType:kHttpRequestMethodTypeGet parameters:@{
-                                                                                        @"userId":useidx.hex,
-                                                                                        @"longitude":longitudex.hex,
-                                                                                        @"latitude":latitudex.hex,
-                                                                                        @"phoneno":phonenox.hex,
-                                                                                        @"pageLength":pageLengthx.hex,
-                                                                                        @"current":currentx.hex}];
-    
-//    [self.homedata loadDataWithRequestMethodType:kHttpRequestMethodTypeGet parameters:@{@"userId":@"",                                                                                       @"longitude":@"116.322886",                                                                                      @"latitude":@"39.892176",                                                                                     @"phoneno":@"",                                                                                       @"pageLength":@"10",                                                                                       @"current":@"0"}];
+                                                                                        @"userId":@"",
+                                                                                        @"longitude":@"116.322886",
+                                                                                        @"latitude":@"39.892176",
+                                                                                        @"phoneno":@"",
+                                                                                        @"pageLength":@"10",
+                                                                                        @"current":@"0"
+                                                                                        }];
 }
 
 - (void)didReceiveMemoryWarning {

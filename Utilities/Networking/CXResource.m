@@ -263,7 +263,7 @@ NSString * const CXResourceErrorDomain = @"cx.resource.request.error.response";
 
 
 #pragma mark KVC
-- (BOOL)isHDWBaseURL
+- (BOOL)isHYBBaseURL
 {
     return YES;
     //    return (self.baseURL /*&& [self.baseURL.absoluteString containsString:@""]*/);
@@ -361,6 +361,7 @@ NSString * const CXResourceErrorDomain = @"cx.resource.request.error.response";
 - (NSDictionary *)allParametersWithParameters:(NSDictionary *)parameters dataType:(HttpRequestDataType)dataType
 {
     NSMutableDictionary *allParameters = [[NSMutableDictionary alloc] initWithDictionary:parameters];
+    NSMutableDictionary *allParameters2 = [[NSMutableDictionary alloc] init];
 //    CGFloat scale_screen = [UIScreen mainScreen].scale;
 //    CGFloat wid = [UIScreen mainScreen].bounds.size.width;
 //    NSString *appVersion = [[[NSBundle mainBundle] infoDictionary] objectForKey:@"CFBundleShortVersionString"];
@@ -369,16 +370,25 @@ NSString * const CXResourceErrorDomain = @"cx.resource.request.error.response";
 //    allParameters[@"osType"] = @(1);
 //    allParameters[@"parterValue"] = @(100);
 //    allParameters[@"width"] =@(scale_screen*wid);
+    
+    for(NSString *key in allParameters) {    // 正确的字典遍历方式
+        NSString *value = [allParameters objectForKey:key];
+        CocoaSecurityResult *valuex = [CocoaSecurity aesEncrypt:value hexKey:HEXKEY hexIv:HEXIV];
+        
+        [allParameters2 setObject:valuex.hex forKey:key];
+    }
+
+    
     CocoaSecurityResult *cpuidx = [CocoaSecurity aesEncrypt:[[[ASIdentifierManager sharedManager] advertisingIdentifier] UUIDString] hexKey:HEXKEY hexIv:HEXIV];
     
-    allParameters[@"cpuid"] = cpuidx.hex;
+    allParameters2[@"cpuid"] = cpuidx.hex;
 //    allParameters[@"token"] = [GVUserDefaults standardUserDefaults].token;
 //    allParameters[@"cpuid"] = [[[ASIdentifierManager sharedManager] advertisingIdentifier] UUIDString];
     NSTimeInterval nowTimestamp = [[NSDate date] timeIntervalSince1970] * 1000.0;
     long time = (long)ceilf(nowTimestamp);
 //    allParameters[@"timeStamp"] = [NSString stringWithFormat:@"%li",time];
     CocoaSecurityResult *timeStampx = [CocoaSecurity aesEncrypt:[NSString stringWithFormat:@"%li",time] hexKey:HEXKEY hexIv:HEXIV];
-    allParameters[@"timeStamp"] = timeStampx.hex;
+    allParameters2[@"timeStamp"] = timeStampx.hex;
     
 //    if([GVUserDefaults standardUserDefaults].cityCode)
 //    {
@@ -390,13 +400,13 @@ NSString * const CXResourceErrorDomain = @"cx.resource.request.error.response";
 //        allParameters[@"token"] = [GVUserDefaults standardUserDefaults].token;
 //    }
     
-    if ([self isHDWBaseURL] && dataType == kHttpRequestDataTypeNormal) {
+    if ([self isHYBBaseURL] && dataType == kHttpRequestDataTypeNormal) {
 //        NSString *str = [self toJSONString:allParameters];
 //        return @{@"req":str};
-        return allParameters;
+        return allParameters2;
     }
     else {
-        return allParameters;
+        return allParameters2;
     }
 }
 

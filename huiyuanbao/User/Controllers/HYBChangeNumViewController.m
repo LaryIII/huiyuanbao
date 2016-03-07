@@ -24,7 +24,6 @@
     self.view.backgroundColor = RGB(224, 75, 68);
     self.navigationBar.title = @"更换号码";
     self.navigationBar.backgroundColor = RGB(224, 75, 68);
-    CGFloat width = CGRectGetWidth(self.view.bounds);
     CGFloat inputHeight = 44.0f;
     
     UIView *superview = self.view;

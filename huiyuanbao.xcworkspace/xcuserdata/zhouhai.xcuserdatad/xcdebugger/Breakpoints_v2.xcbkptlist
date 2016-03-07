@@ -26,11 +26,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "huiyuanbao/Home/Controllers/HYBHomeViewController.m"
-            timestampString = "479037212.850744"
+            timestampString = "479042437.213506"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "228"
-            endingLineNumber = "228"
+            startingLineNumber = "220"
+            endingLineNumber = "220"
             landmarkName = "-collectionView:cellForItemAtIndexPath:"
             landmarkType = "5">
          </BreakpointContent>
@@ -42,11 +42,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "huiyuanbao/Home/Controllers/HYBHomeViewController.m"
-            timestampString = "479037212.850744"
+            timestampString = "479042437.213506"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "216"
-            endingLineNumber = "216"
+            startingLineNumber = "208"
+            endingLineNumber = "208"
             landmarkName = "-collectionView:cellForItemAtIndexPath:"
             landmarkType = "5">
          </BreakpointContent>
@@ -58,11 +58,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "huiyuanbao/Home/Controllers/HYBHomeViewController.m"
-            timestampString = "479037212.850744"
+            timestampString = "479042437.213506"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "212"
-            endingLineNumber = "212"
+            startingLineNumber = "204"
+            endingLineNumber = "204"
             landmarkName = "-collectionView:cellForItemAtIndexPath:"
             landmarkType = "5">
          </BreakpointContent>
@@ -202,11 +202,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "huiyuanbao/Home/Controllers/HYBHomeViewController.m"
-            timestampString = "479037212.850744"
+            timestampString = "479042437.213506"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "114"
-            endingLineNumber = "114"
+            startingLineNumber = "107"
+            endingLineNumber = "107"
             landmarkName = "-refreshData"
             landmarkType = "5">
          </BreakpointContent>

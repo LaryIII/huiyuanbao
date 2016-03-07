@@ -264,6 +264,7 @@
 		B9DD34411C8B40960008290A /* HYBSMSCode.m in Sources */ = {isa = PBXBuildFile; fileRef = B9DD34401C8B40960008290A /* HYBSMSCode.m */; };
 		B9DD34441C8C4F2F0008290A /* HYBHomeData.m in Sources */ = {isa = PBXBuildFile; fileRef = B9DD34431C8C4F2F0008290A /* HYBHomeData.m */; };
 		B9DD34461C8C52080008290A /* AdSupport.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B9DD34451C8C52080008290A /* AdSupport.framework */; };
+		B9DD34531C8D9D5D0008290A /* HYBRegFirst.m in Sources */ = {isa = PBXBuildFile; fileRef = B9DD34521C8D9D5D0008290A /* HYBRegFirst.m */; };
 		B9E9323C1C7DD5960068E620 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = B9E9323B1C7DD5960068E620 /* main.m */; };
 		B9E9323F1C7DD5960068E620 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = B9E9323E1C7DD5960068E620 /* AppDelegate.m */; };
 		B9E9324A1C7DD5960068E620 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B9E932491C7DD5960068E620 /* Assets.xcassets */; };
@@ -729,6 +730,8 @@
 		B9DD34421C8C4F2F0008290A /* HYBHomeData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = HYBHomeData.h; path = Home/Models/HYBHomeData.h; sourceTree = "<group>"; };
 		B9DD34431C8C4F2F0008290A /* HYBHomeData.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = HYBHomeData.m; path = Home/Models/HYBHomeData.m; sourceTree = "<group>"; };
 		B9DD34451C8C52080008290A /* AdSupport.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AdSupport.framework; path = System/Library/Frameworks/AdSupport.framework; sourceTree = SDKROOT; };
+		B9DD34511C8D9D5D0008290A /* HYBRegFirst.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = HYBRegFirst.h; path = User/Models/HYBRegFirst.h; sourceTree = "<group>"; };
+		B9DD34521C8D9D5D0008290A /* HYBRegFirst.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = HYBRegFirst.m; path = User/Models/HYBRegFirst.m; sourceTree = "<group>"; };
 		B9E932371C7DD5960068E620 /* huiyuanbao.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = huiyuanbao.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B9E9323B1C7DD5960068E620 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		B9E9323D1C7DD5960068E620 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -1241,6 +1244,8 @@
 			children = (
 				B9DD343F1C8B40960008290A /* HYBSMSCode.h */,
 				B9DD34401C8B40960008290A /* HYBSMSCode.m */,
+				B9DD34511C8D9D5D0008290A /* HYBRegFirst.h */,
+				B9DD34521C8D9D5D0008290A /* HYBRegFirst.m */,
 			);
 			name = Models;
 			sourceTree = "<group>";
@@ -2669,6 +2674,7 @@
 				B9A828D41C8B0C58007403D2 /* HYBStoreProduct.m in Sources */,
 				B9E935B11C7DE2B40068E620 /* CXWebView.m in Sources */,
 				B9E933A01C7DD8590068E620 /* HYBLaunchViewController.m in Sources */,
+				B9DD34531C8D9D5D0008290A /* HYBRegFirst.m in Sources */,
 				B9E935FD1C7E00C60068E620 /* RDVTabBarController.m in Sources */,
 				B9E935781C7DE2B40068E620 /* UIWebView+AFNetworking.m in Sources */,
 				B9E935FC1C7E00C60068E620 /* RDVTabBar.m in Sources */,

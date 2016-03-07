@@ -7,7 +7,7 @@
 //
 
 #import "CXResource.h"
-#define SMS_CODE @"achieve/gain?userId=&phoneno=15313771409&timeStamp=1452916561019&cpuid=00000000-113a-8e7d-21d0-61980885d8da&type=1"
+#define SMS_CODE @"achieve/gain"
 @interface HYBSMSCode : CXResource
 
 @end

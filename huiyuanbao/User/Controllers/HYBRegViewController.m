@@ -10,9 +10,11 @@
 #import "masonry.h"
 #import "HYBSetPwdViewController.h"
 #import "HYBSMSCode.h"
+#import "HYBRegFirst.h"
 
 @interface HYBRegViewController ()
 @property (nonatomic, strong) HYBSMSCode *smscode;
+@property (nonatomic, strong) HYBRegFirst *regfirst;
 @property (nonatomic, strong) UITextField *phonefield;
 @property (nonatomic, strong) UITextField *psdfield;
 @property (nonatomic, strong) UITextField *emailfield;
@@ -24,6 +26,7 @@
 
 - (void) dealloc{
     [_smscode removeObserver:self forKeyPath:kResourceLoadingStatusKeyPath];
+    [_regfirst removeObserver:self forKeyPath:kResourceLoadingStatusKeyPath];
 }
 
 - (void)viewDidLoad {
@@ -262,6 +265,15 @@
             else if (_smscode.error) {
                 [self showErrorMessage:[_smscode.error localizedFailureReason]];
             }
+        }else if (object == _regfirst) {
+            if (_regfirst.isLoaded) {
+                [self hideLoadingView];
+                HYBSetPwdViewController *pushController = [[HYBSetPwdViewController alloc] init];
+                [self.navigationController pushViewController:pushController animated:YES];
+            }
+            else if (_regfirst.error) {
+                [self showErrorMessage:[_regfirst.error localizedFailureReason]];
+            }
         }
     }
 }
@@ -280,8 +292,7 @@
     return YES;
 }
 -(void)next{
-    HYBSetPwdViewController *pushController = [[HYBSetPwdViewController alloc] init];
-    [self.navigationController pushViewController:pushController animated:YES];
+    [self.regfirst loadDataWithRequestMethodType:kHttpRequestMethodTypeGet parameters:@{@"phoneno":_phonefield.text,@"userId":@"",@"shortmsg":_psdfield.text,@"email":_emailfield.text}];
 }
 -(void)read{
     
@@ -290,8 +301,8 @@
     
 }
 -(void)getCode{
-//    [self.smscode loadDataWithRequestMethodType:kHttpRequestMethodTypeGet parameters:@{@"phoneno":@"13236567035",@"type":@1,@"uuid":@"54f5558da0cf601d42c34d4ca726cbed7c1b666b",@"cpuid":@"00000000-113a-8e7d-21d0-61980885d8da",@"timeStamp":@"1452916561019"}];
-    [self.smscode loadDataWithRequestMethodType:kHttpRequestMethodTypeGet parameters:@{}];
+    [self.smscode loadDataWithRequestMethodType:kHttpRequestMethodTypeGet parameters:@{@"phoneno":_phonefield.text,@"type":@"1"}];
+//    [self.smscode loadDataWithRequestMethodType:kHttpRequestMethodTypeGet parameters:@{}];
 }
 
 @end
