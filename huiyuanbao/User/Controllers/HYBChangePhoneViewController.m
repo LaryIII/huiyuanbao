@@ -8,8 +8,14 @@
 
 #import "HYBChangePhoneViewController.h"
 #import "masonry.h"
+#import "HYBChangePhone.h"
+#import "HYBLoginViewController.h"
+#import "HYBSMSCode.h"
 
 @interface HYBChangePhoneViewController ()
+@property (nonatomic, strong) HYBChangePhone *changephone;
+@property (nonatomic, strong) HYBSMSCode *smscode;
+
 @property (nonatomic, strong) UITextField *phonefield;
 @property (nonatomic, strong) UITextField *psdfield;
 @property (nonatomic, strong) UITextField *emailfield;
@@ -19,7 +25,10 @@
 @end
 
 @implementation HYBChangePhoneViewController
-
+- (void) dealloc{
+    [_smscode removeObserver:self forKeyPath:kResourceLoadingStatusKeyPath];
+    [_changephone removeObserver:self forKeyPath:kResourceLoadingStatusKeyPath];
+}
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.view.backgroundColor = RGB(224, 75, 68);
@@ -117,6 +126,21 @@
         make.height.mas_equalTo(inputHeight);
         make.right.equalTo(superview.right).offset(-5);
     }];
+    
+    UILabel *gvlabel = UILabel.new;
+    gvlabel.textAlignment = NSTextAlignmentLeft;
+    gvlabel.text = @"获取验证码";
+    gvlabel.textColor = RGB(255, 255, 255);
+    gvlabel.font = [UIFont systemFontOfSize:13.0f];
+    gvlabel.userInteractionEnabled = YES;
+    UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc]initWithTarget:self action:@selector(getCode)];
+    [gvlabel addGestureRecognizer:tap];
+    [self.view addSubview:gvlabel];
+    [gvlabel makeConstraints:^(MASConstraintMaker *make) {
+        make.top.equalTo(lineview1.bottom).offset((inputHeight-13)/2);
+        make.right.equalTo(superview.right).offset(-15);
+    }];
+
     
     UIView *lineview2 = UIView.new;
     lineview2.backgroundColor = RGB(243, 183, 179);
@@ -244,8 +268,48 @@
         make.top.equalTo(_regBtn.bottom).offset(18);
         make.right.equalTo(superview.right).offset(-15);
     }];
-
     
+    self.smscode = [[HYBSMSCode alloc] initWithBaseURL:HYB_API_BASE_URL path:SMS_CODE cachePolicyType:kCachePolicyTypeNone];
+    
+    [self.smscode addObserver:self
+                   forKeyPath:kResourceLoadingStatusKeyPath
+                      options:NSKeyValueObservingOptionNew
+                      context:nil];
+
+    self.changephone = [[HYBChangePhone alloc] initWithBaseURL:HYB_API_BASE_URL path:CHANGE_PHONE cachePolicyType:kCachePolicyTypeNone];
+    
+    [self.changephone addObserver:self
+                    forKeyPath:kResourceLoadingStatusKeyPath
+                       options:NSKeyValueObservingOptionNew
+                       context:nil];
+}
+
+#pragma mark Key-value observing
+- (void)observeValueForKeyPath:(NSString *)keyPath
+                      ofObject:(id)object
+                        change:(NSDictionary *)change
+                       context:(void *)context
+{
+    if ([keyPath isEqualToString:kResourceLoadingStatusKeyPath]) {
+        if (object == _smscode) {
+            if (_smscode.isLoaded) {
+                // [self hideLoadingView];
+                //                [self.validate startTime];
+            }
+            else if (_smscode.error) {
+                [self showErrorMessage:[_smscode.error localizedFailureReason]];
+            }
+        }else if (object == _changephone) {
+            if (_changephone.isLoaded) {
+                [self hideLoadingView];
+                HYBLoginViewController *pushController = [[HYBLoginViewController alloc] init];
+                [self.navigationController pushViewController:pushController animated:YES];
+            }
+            else if (_changephone.error) {
+                [self showErrorMessage:[_changephone.error localizedFailureReason]];
+            }
+        }
+    }
 }
 
 - (void)didReceiveMemoryWarning {
@@ -267,10 +331,15 @@
     return YES;
 }
 -(void)logins{
+    [self.changephone loadDataWithRequestMethodType:kHttpRequestMethodTypeGet parameters:@{@"phoneno":_phonefield.text,@"userId":@"",@"shortmsg":_psdfield.text,@"email":_emailfield.text,@"loginpassword":_psdfield2.text}];
 }
 
 -(void)forget{
     
+}
+
+-(void)getCode{
+    [self.smscode loadDataWithRequestMethodType:kHttpRequestMethodTypeGet parameters:@{@"phoneno":_phonefield.text,@"type":@"1"}];
 }
 
 @end

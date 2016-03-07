@@ -1,5 +1,5 @@
 //
-//  HYBRegFirst.h
+//  HYBRegSecond.h
 //  huiyuanbao
 //
 //  Created by zhouhai on 16/3/7.
@@ -7,7 +7,7 @@
 //
 
 #import "CXResource.h"
-#define REG_FIRST @"register/check"
-@interface HYBRegFirst : CXResource
+#define REG_SECOND @"register/enroll"
+@interface HYBRegSecond : CXResource
 
 @end

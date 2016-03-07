@@ -8,8 +8,12 @@
 
 #import "HYBSetPwdViewController.h"
 #import "masonry.h"
+#import "HYBRegSecond.h"
+#import "HYBLoginViewController.h"
 
 @interface HYBSetPwdViewController ()
+@property (nonatomic, strong) HYBRegSecond *regsecond;
+
 @property (nonatomic, strong) UITextField *phonefield;
 @property (nonatomic, strong) UITextField *psdfield;
 
@@ -17,6 +21,10 @@
 @end
 
 @implementation HYBSetPwdViewController
+
+- (void) dealloc{
+    [_regsecond removeObserver:self forKeyPath:kResourceLoadingStatusKeyPath];
+}
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -142,7 +150,32 @@
         make.height.mas_equalTo(44);
     }];
     
+    self.regsecond = [[HYBRegSecond alloc] initWithBaseURL:HYB_API_BASE_URL path:REG_SECOND cachePolicyType:kCachePolicyTypeNone];
+    
+    [self.regsecond addObserver:self
+                    forKeyPath:kResourceLoadingStatusKeyPath
+                       options:NSKeyValueObservingOptionNew
+                       context:nil];
+}
 
+#pragma mark Key-value observing
+- (void)observeValueForKeyPath:(NSString *)keyPath
+                      ofObject:(id)object
+                        change:(NSDictionary *)change
+                       context:(void *)context
+{
+    if ([keyPath isEqualToString:kResourceLoadingStatusKeyPath]) {
+        if (object == _regsecond) {
+            if (_regsecond.isLoaded) {
+                [self hideLoadingView];
+                HYBLoginViewController *pushController = [[HYBLoginViewController alloc] init];
+                [self.navigationController pushViewController:pushController animated:YES];
+            }
+            else if (_regsecond.error) {
+                [self showErrorMessage:[_regsecond.error localizedFailureReason]];
+            }
+        }
+    }
 }
 
 - (void)didReceiveMemoryWarning {
@@ -165,7 +198,7 @@
 }
 
 -(void)regs{
-    
+    [self.regsecond loadDataWithRequestMethodType:kHttpRequestMethodTypeGet parameters:@{@"phoneno":_phonefield.text,@"userId":@"",@"loginpassword":_psdfield.text}];
 }
 
 @end

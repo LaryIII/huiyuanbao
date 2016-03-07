@@ -20,6 +20,7 @@
 @property (nonatomic, strong) UITextField *emailfield;
 
 @property (nonatomic, strong) UIButton *regBtn;
+@property (nonatomic, strong) UIButton *checkBtn;
 @end
 
 @implementation HYBRegViewController
@@ -200,6 +201,7 @@
     [_regBtn setTitle:@"下一步" forState:UIControlStateNormal];
     _regBtn.titleLabel.font = [UIFont systemFontOfSize:18.0f];
     [_regBtn addTarget:self action:@selector(next) forControlEvents:UIControlEventTouchUpInside];
+    _regBtn.selected = NO;
     [self.view addSubview:_regBtn];
     [_regBtn makeConstraints:^(MASConstraintMaker *make) {
         make.top.equalTo(lineview3.bottom).offset(28);
@@ -208,16 +210,16 @@
         make.height.mas_equalTo(44);
     }];
     
-    UIButton *checkBtn = UIButton.new;
-    [checkBtn setTitleColor:RGB(243, 183, 179) forState:UIControlStateNormal];
-    [checkBtn setTitle:@"我已阅读并同意遵守" forState:UIControlStateNormal];
-    [checkBtn setImage:[UIImage imageNamed:@"u_checkbox_normal"] forState:UIControlStateNormal];
-    [checkBtn setImage:[UIImage imageNamed:@"u_checkbox_selected"] forState:UIControlStateSelected];
-    [checkBtn setImageEdgeInsets:UIEdgeInsetsMake(0, 0, 0, 10)];
-    checkBtn.titleLabel.font = [UIFont systemFontOfSize:14.0f];
-    [checkBtn addTarget:self action:@selector(read) forControlEvents:UIControlEventTouchUpInside];
-    [self.view addSubview:checkBtn];
-    [checkBtn makeConstraints:^(MASConstraintMaker *make) {
+    _checkBtn = UIButton.new;
+    [_checkBtn setTitleColor:RGB(243, 183, 179) forState:UIControlStateNormal];
+    [_checkBtn setTitle:@"我已阅读并同意遵守" forState:UIControlStateNormal];
+    [_checkBtn setImage:[UIImage imageNamed:@"u_checkbox_normal"] forState:UIControlStateNormal];
+    [_checkBtn setImage:[UIImage imageNamed:@"u_checkbox_selected"] forState:UIControlStateSelected];
+    [_checkBtn setImageEdgeInsets:UIEdgeInsetsMake(0, 0, 0, 10)];
+    _checkBtn.titleLabel.font = [UIFont systemFontOfSize:14.0f];
+    [_checkBtn addTarget:self action:@selector(read) forControlEvents:UIControlEventTouchUpInside];
+    [self.view addSubview:_checkBtn];
+    [_checkBtn makeConstraints:^(MASConstraintMaker *make) {
         make.top.equalTo(_regBtn.bottom).offset(20);
         make.left.equalTo(superview.left).offset(15);
         make.width.mas_equalTo(156.0f);
@@ -231,7 +233,7 @@
     [protocolBtn addTarget:self action:@selector(protocol) forControlEvents:UIControlEventTouchUpInside];
     [self.view addSubview:protocolBtn];
     [protocolBtn makeConstraints:^(MASConstraintMaker *make) {
-        make.top.equalTo(checkBtn.bottom).offset(5);
+        make.top.equalTo(_checkBtn.bottom).offset(5);
         make.left.equalTo(superview.left).offset(36);
         make.width.mas_equalTo(198.0f);
     }];
@@ -242,6 +244,14 @@
                    forKeyPath:kResourceLoadingStatusKeyPath
                       options:NSKeyValueObservingOptionNew
                       context:nil];
+    
+    self.regfirst = [[HYBRegFirst alloc] initWithBaseURL:HYB_API_BASE_URL path:REG_FIRST cachePolicyType:kCachePolicyTypeNone];
+    
+    [self.regfirst addObserver:self
+                   forKeyPath:kResourceLoadingStatusKeyPath
+                      options:NSKeyValueObservingOptionNew
+                      context:nil];
+    
     
 }
 
@@ -295,14 +305,19 @@
     [self.regfirst loadDataWithRequestMethodType:kHttpRequestMethodTypeGet parameters:@{@"phoneno":_phonefield.text,@"userId":@"",@"shortmsg":_psdfield.text,@"email":_emailfield.text}];
 }
 -(void)read{
-    
+    if(_checkBtn.selected){
+        _checkBtn.selected = NO;
+        _regBtn.selected = NO;
+    }else{
+        _checkBtn.selected = YES;
+        _regBtn.selected = YES;
+    }
 }
 -(void)protocol{
     
 }
 -(void)getCode{
     [self.smscode loadDataWithRequestMethodType:kHttpRequestMethodTypeGet parameters:@{@"phoneno":_phonefield.text,@"type":@"1"}];
-//    [self.smscode loadDataWithRequestMethodType:kHttpRequestMethodTypeGet parameters:@{}];
 }
 
 @end

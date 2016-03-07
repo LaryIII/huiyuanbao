@@ -265,6 +265,11 @@
 		B9DD34441C8C4F2F0008290A /* HYBHomeData.m in Sources */ = {isa = PBXBuildFile; fileRef = B9DD34431C8C4F2F0008290A /* HYBHomeData.m */; };
 		B9DD34461C8C52080008290A /* AdSupport.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B9DD34451C8C52080008290A /* AdSupport.framework */; };
 		B9DD34531C8D9D5D0008290A /* HYBRegFirst.m in Sources */ = {isa = PBXBuildFile; fileRef = B9DD34521C8D9D5D0008290A /* HYBRegFirst.m */; };
+		B9DD34561C8DD3350008290A /* HYBRegSecond.m in Sources */ = {isa = PBXBuildFile; fileRef = B9DD34551C8DD3350008290A /* HYBRegSecond.m */; };
+		B9DD34591C8DD49F0008290A /* HYBLogin.m in Sources */ = {isa = PBXBuildFile; fileRef = B9DD34581C8DD49F0008290A /* HYBLogin.m */; };
+		B9DD345C1C8DD7270008290A /* HYBChangePhone.m in Sources */ = {isa = PBXBuildFile; fileRef = B9DD345B1C8DD7270008290A /* HYBChangePhone.m */; };
+		B9DD345F1C8DD9490008290A /* HYBChangeNum.m in Sources */ = {isa = PBXBuildFile; fileRef = B9DD345E1C8DD9490008290A /* HYBChangeNum.m */; };
+		B9DD34621C8DDA6C0008290A /* HYBSetPassword.m in Sources */ = {isa = PBXBuildFile; fileRef = B9DD34611C8DDA6C0008290A /* HYBSetPassword.m */; };
 		B9E9323C1C7DD5960068E620 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = B9E9323B1C7DD5960068E620 /* main.m */; };
 		B9E9323F1C7DD5960068E620 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = B9E9323E1C7DD5960068E620 /* AppDelegate.m */; };
 		B9E9324A1C7DD5960068E620 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B9E932491C7DD5960068E620 /* Assets.xcassets */; };
@@ -732,6 +737,16 @@
 		B9DD34451C8C52080008290A /* AdSupport.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AdSupport.framework; path = System/Library/Frameworks/AdSupport.framework; sourceTree = SDKROOT; };
 		B9DD34511C8D9D5D0008290A /* HYBRegFirst.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = HYBRegFirst.h; path = User/Models/HYBRegFirst.h; sourceTree = "<group>"; };
 		B9DD34521C8D9D5D0008290A /* HYBRegFirst.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = HYBRegFirst.m; path = User/Models/HYBRegFirst.m; sourceTree = "<group>"; };
+		B9DD34541C8DD3350008290A /* HYBRegSecond.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = HYBRegSecond.h; path = User/Models/HYBRegSecond.h; sourceTree = "<group>"; };
+		B9DD34551C8DD3350008290A /* HYBRegSecond.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = HYBRegSecond.m; path = User/Models/HYBRegSecond.m; sourceTree = "<group>"; };
+		B9DD34571C8DD49F0008290A /* HYBLogin.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = HYBLogin.h; path = User/Models/HYBLogin.h; sourceTree = "<group>"; };
+		B9DD34581C8DD49F0008290A /* HYBLogin.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = HYBLogin.m; path = User/Models/HYBLogin.m; sourceTree = "<group>"; };
+		B9DD345A1C8DD7270008290A /* HYBChangePhone.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = HYBChangePhone.h; path = User/Models/HYBChangePhone.h; sourceTree = "<group>"; };
+		B9DD345B1C8DD7270008290A /* HYBChangePhone.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = HYBChangePhone.m; path = User/Models/HYBChangePhone.m; sourceTree = "<group>"; };
+		B9DD345D1C8DD9490008290A /* HYBChangeNum.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = HYBChangeNum.h; path = User/Models/HYBChangeNum.h; sourceTree = "<group>"; };
+		B9DD345E1C8DD9490008290A /* HYBChangeNum.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = HYBChangeNum.m; path = User/Models/HYBChangeNum.m; sourceTree = "<group>"; };
+		B9DD34601C8DDA6C0008290A /* HYBSetPassword.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = HYBSetPassword.h; path = Mine/Models/HYBSetPassword.h; sourceTree = "<group>"; };
+		B9DD34611C8DDA6C0008290A /* HYBSetPassword.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = HYBSetPassword.m; path = Mine/Models/HYBSetPassword.m; sourceTree = "<group>"; };
 		B9E932371C7DD5960068E620 /* huiyuanbao.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = huiyuanbao.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B9E9323B1C7DD5960068E620 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		B9E9323D1C7DD5960068E620 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -1246,6 +1261,14 @@
 				B9DD34401C8B40960008290A /* HYBSMSCode.m */,
 				B9DD34511C8D9D5D0008290A /* HYBRegFirst.h */,
 				B9DD34521C8D9D5D0008290A /* HYBRegFirst.m */,
+				B9DD34541C8DD3350008290A /* HYBRegSecond.h */,
+				B9DD34551C8DD3350008290A /* HYBRegSecond.m */,
+				B9DD34571C8DD49F0008290A /* HYBLogin.h */,
+				B9DD34581C8DD49F0008290A /* HYBLogin.m */,
+				B9DD345A1C8DD7270008290A /* HYBChangePhone.h */,
+				B9DD345B1C8DD7270008290A /* HYBChangePhone.m */,
+				B9DD345D1C8DD9490008290A /* HYBChangeNum.h */,
+				B9DD345E1C8DD9490008290A /* HYBChangeNum.m */,
 			);
 			name = Models;
 			sourceTree = "<group>";
@@ -2056,6 +2079,8 @@
 				B9A828C11C8AE4F1007403D2 /* HYBScoreRecord.m */,
 				B9A828C31C8AE4FF007403D2 /* HYBScoreRecordList.h */,
 				B9A828C41C8AE4FF007403D2 /* HYBScoreRecordList.m */,
+				B9DD34601C8DDA6C0008290A /* HYBSetPassword.h */,
+				B9DD34611C8DDA6C0008290A /* HYBSetPassword.m */,
 			);
 			name = Models;
 			sourceTree = "<group>";
@@ -2623,6 +2648,7 @@
 				B9E933A11C7DD8590068E620 /* HYBCommonTool.m in Sources */,
 				B9E935AA1C7DE2B40068E620 /* CXNavigationBar.m in Sources */,
 				B9E935851C7DE2B40068E620 /* GVUserDefaults.m in Sources */,
+				B9DD34621C8DDA6C0008290A /* HYBSetPassword.m in Sources */,
 				B9E9339F1C7DD8590068E620 /* HYBSplashViewController.m in Sources */,
 				B9E935741C7DE2B40068E620 /* UIButton+AFNetworking.m in Sources */,
 				B988F3D81C81495E006BBD8B /* HYBAdvertisement.m in Sources */,
@@ -2640,6 +2666,8 @@
 				B9E9359E1C7DE2B40068E620 /* CXResource.m in Sources */,
 				B9E9357C1C7DE2B40068E620 /* DDASLLogger.m in Sources */,
 				B9E935911C7DE2B40068E620 /* TPKeyboardAvoidingCollectionView.m in Sources */,
+				B9DD34591C8DD49F0008290A /* HYBLogin.m in Sources */,
+				B9DD345F1C8DD9490008290A /* HYBChangeNum.m in Sources */,
 				B9A828481C8AAE1E007403D2 /* HYBMsgCell.m in Sources */,
 				B9E9356A1C7DE2B40068E620 /* AFURLConnectionOperation.m in Sources */,
 				B9DD343C1C8B2BBD0008290A /* HYBSetPwdViewController.m in Sources */,
@@ -2668,6 +2696,7 @@
 				B9E9323C1C7DD5960068E620 /* main.m in Sources */,
 				B9E9356C1C7DE2B40068E620 /* AFURLSessionManager.m in Sources */,
 				B9A828391C8AA885007403D2 /* HYBCard.m in Sources */,
+				B9DD34561C8DD3350008290A /* HYBRegSecond.m in Sources */,
 				B9E935831C7DE2B40068E620 /* EGOCache.m in Sources */,
 				B9A828541C8AD6FD007403D2 /* HYBChargeRecord.m in Sources */,
 				B9E9356F1C7DE2B40068E620 /* AFURLRequestSerialization.m in Sources */,
@@ -2696,6 +2725,7 @@
 				B9E935701C7DE2B40068E620 /* AFURLResponseSerialization.m in Sources */,
 				B9A828BF1C8AE3AB007403D2 /* HYBXiaofeiRecord.m in Sources */,
 				B9E935B01C7DE2B40068E620 /* RFSegmentView.m in Sources */,
+				B9DD345C1C8DD7270008290A /* HYBChangePhone.m in Sources */,
 				B9A828C21C8AE4F1007403D2 /* HYBScoreRecord.m in Sources */,
 				B9E935821C7DE2B40068E620 /* DDMultiFormatter.m in Sources */,
 				B9E935AE1C7DE2B40068E620 /* HDWRefreshView.m in Sources */,

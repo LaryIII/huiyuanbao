@@ -8,15 +8,24 @@
 
 #import "HYBLoginViewController.h"
 #import "masonry.h"
+#import "HYBLogin.h"
+#import "HYBHomeViewController.h"
 
 @interface HYBLoginViewController ()
+@property (nonatomic, strong) HYBLogin *login;
+
 @property (nonatomic, strong) UITextField *phonefield;
 @property (nonatomic, strong) UITextField *psdfield;
 
 @property (nonatomic, strong) UIButton *okBtn;
+@property (nonatomic, strong) UIButton *checkBtn;
 @end
 
 @implementation HYBLoginViewController
+- (void) dealloc{
+    [_login removeObserver:self forKeyPath:kResourceLoadingStatusKeyPath];
+}
+
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.view.backgroundColor = RGB(224, 75, 68);
@@ -140,16 +149,16 @@
         make.height.mas_equalTo(44);
     }];
     
-    UIButton *checkBtn = UIButton.new;
-    [checkBtn setTitleColor:RGB(243, 183, 179) forState:UIControlStateNormal];
-    [checkBtn setTitle:@"记住用户名" forState:UIControlStateNormal];
-    [checkBtn setImage:[UIImage imageNamed:@"u_checkbox_normal"] forState:UIControlStateNormal];
-    [checkBtn setImage:[UIImage imageNamed:@"u_checkbox_selected"] forState:UIControlStateSelected];
-    [checkBtn setImageEdgeInsets:UIEdgeInsetsMake(0, 0, 0, 10)];
-    checkBtn.titleLabel.font = [UIFont systemFontOfSize:14.0f];
-    [checkBtn addTarget:self action:@selector(remember) forControlEvents:UIControlEventTouchUpInside];
-    [self.view addSubview:checkBtn];
-    [checkBtn makeConstraints:^(MASConstraintMaker *make) {
+    _checkBtn = UIButton.new;
+    [_checkBtn setTitleColor:RGB(243, 183, 179) forState:UIControlStateNormal];
+    [_checkBtn setTitle:@"记住用户名" forState:UIControlStateNormal];
+    [_checkBtn setImage:[UIImage imageNamed:@"u_checkbox_normal"] forState:UIControlStateNormal];
+    [_checkBtn setImage:[UIImage imageNamed:@"u_checkbox_selected"] forState:UIControlStateSelected];
+    [_checkBtn setImageEdgeInsets:UIEdgeInsetsMake(0, 0, 0, 10)];
+    _checkBtn.titleLabel.font = [UIFont systemFontOfSize:14.0f];
+    [_checkBtn addTarget:self action:@selector(remember) forControlEvents:UIControlEventTouchUpInside];
+    [self.view addSubview:_checkBtn];
+    [_checkBtn makeConstraints:^(MASConstraintMaker *make) {
         make.top.equalTo(_okBtn.bottom).offset(20);
         make.left.equalTo(superview.left).offset(15);
         make.width.mas_equalTo(100.0f);
@@ -174,6 +183,33 @@
     }];
     
     
+    self.login = [[HYBLogin alloc] initWithBaseURL:HYB_API_BASE_URL path:LOGIN cachePolicyType:kCachePolicyTypeNone];
+    
+    [self.login addObserver:self
+                    forKeyPath:kResourceLoadingStatusKeyPath
+                       options:NSKeyValueObservingOptionNew
+                       context:nil];
+    
+}
+
+#pragma mark Key-value observing
+- (void)observeValueForKeyPath:(NSString *)keyPath
+                      ofObject:(id)object
+                        change:(NSDictionary *)change
+                       context:(void *)context
+{
+    if ([keyPath isEqualToString:kResourceLoadingStatusKeyPath]) {
+        if (object == _login) {
+            if (_login.isLoaded) {
+                [self hideLoadingView];
+                HYBHomeViewController *pushController = [[HYBHomeViewController alloc] init];
+                [self.navigationController pushViewController:pushController animated:YES];
+            }
+            else if (_login.error) {
+                [self showErrorMessage:[_login.error localizedFailureReason]];
+            }
+        }
+    }
 }
 
 - (void)didReceiveMemoryWarning {
@@ -196,11 +232,16 @@
 }
 
 -(void)logins{
-    
+    [self.login loadDataWithRequestMethodType:kHttpRequestMethodTypeGet parameters:@{@"phoneno":_phonefield.text,@"userId":@"",@"loginpassword":_psdfield.text}];
 }
 
 -(void)remember{
-    
+    // TODO: 记住用户名
+    if(_checkBtn.selected){
+        _checkBtn.selected = NO;
+    }else{
+        _checkBtn.selected = YES;
+    }
 }
 
 -(void)forget{

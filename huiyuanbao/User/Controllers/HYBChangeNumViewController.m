@@ -9,8 +9,11 @@
 #import "HYBChangeNumViewController.h"
 #import "masonry.h"
 #import "HYBSetPwdViewController.h"
+#import "HYBChangeNum.h"
 
 @interface HYBChangeNumViewController ()
+@property (nonatomic, strong) HYBChangeNum *changenum;
+
 @property (nonatomic, strong) UITextField *phonefield;
 @property (nonatomic, strong) UITextField *psdfield;
 @property (nonatomic, strong) UITextField *emailfield;
@@ -19,6 +22,9 @@
 @end
 
 @implementation HYBChangeNumViewController
+- (void) dealloc{
+    [_changenum removeObserver:self forKeyPath:kResourceLoadingStatusKeyPath];
+}
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.view.backgroundColor = RGB(224, 75, 68);
@@ -200,10 +206,33 @@
         make.top.equalTo(_regBtn.bottom).offset(18);
         make.right.equalTo(superview.right).offset(-15);
     }];
+    self.changenum = [[HYBChangeNum alloc] initWithBaseURL:HYB_API_BASE_URL path:CHANGE_NUM cachePolicyType:kCachePolicyTypeNone];
     
-    
+    [self.changenum addObserver:self
+                       forKeyPath:kResourceLoadingStatusKeyPath
+                          options:NSKeyValueObservingOptionNew
+                          context:nil];
 }
 
+#pragma mark Key-value observing
+- (void)observeValueForKeyPath:(NSString *)keyPath
+                      ofObject:(id)object
+                        change:(NSDictionary *)change
+                       context:(void *)context
+{
+    if ([keyPath isEqualToString:kResourceLoadingStatusKeyPath]) {
+        if (object == _changenum) {
+            if (_changenum.isLoaded) {
+                [self hideLoadingView];
+//                HYBLoginViewController *pushController = [[HYBLoginViewController alloc] init];
+//                [self.navigationController pushViewController:pushController animated:YES];
+            }
+            else if (_changenum.error) {
+                [self showErrorMessage:[_changenum.error localizedFailureReason]];
+            }
+        }
+    }
+}
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
@@ -223,8 +252,9 @@
     return YES;
 }
 -(void)next{
-    HYBSetPwdViewController *pushController = [[HYBSetPwdViewController alloc] init];
-    [self.navigationController pushViewController:pushController animated:YES];
+    [self.changenum loadDataWithRequestMethodType:kHttpRequestMethodTypeGet parameters:@{@"phoneno":_phonefield.text,@"userId":@"",@"email":_emailfield.text,@"loginpassword":_psdfield.text}];
+//    HYBSetPwdViewController *pushController = [[HYBSetPwdViewController alloc] init];
+//    [self.navigationController pushViewController:pushController animated:YES];
 }
 
 -(void)forget{
