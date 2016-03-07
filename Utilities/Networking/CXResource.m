@@ -21,7 +21,7 @@
 #import "GVUserDefaults+HYBProperties.h"
 
 #import "AppDelegate.h"
-//#import "AJLoginController.h"
+#import "CocoaSecurity.h"
 
 typedef NS_ENUM(NSInteger, ResourceStatus) {
     ResourceStatusNotProcessed = 0, // 0000
@@ -369,11 +369,16 @@ NSString * const CXResourceErrorDomain = @"cx.resource.request.error.response";
 //    allParameters[@"osType"] = @(1);
 //    allParameters[@"parterValue"] = @(100);
 //    allParameters[@"width"] =@(scale_screen*wid);
-    allParameters[@"token"] = [GVUserDefaults standardUserDefaults].token;
-    allParameters[@"cpuid"] = [[[ASIdentifierManager sharedManager] advertisingIdentifier] UUIDString];
+    CocoaSecurityResult *cpuidx = [CocoaSecurity aesEncrypt:[[[ASIdentifierManager sharedManager] advertisingIdentifier] UUIDString] hexKey:HEXKEY hexIv:HEXIV];
+    
+    allParameters[@"cpuid"] = cpuidx.hex;
+//    allParameters[@"token"] = [GVUserDefaults standardUserDefaults].token;
+//    allParameters[@"cpuid"] = [[[ASIdentifierManager sharedManager] advertisingIdentifier] UUIDString];
     NSTimeInterval nowTimestamp = [[NSDate date] timeIntervalSince1970] * 1000.0;
     long time = (long)ceilf(nowTimestamp);
-    allParameters[@"timeStamp"] = [NSString stringWithFormat:@"%li",time];
+//    allParameters[@"timeStamp"] = [NSString stringWithFormat:@"%li",time];
+    CocoaSecurityResult *timeStampx = [CocoaSecurity aesEncrypt:[NSString stringWithFormat:@"%li",time] hexKey:HEXKEY hexIv:HEXIV];
+    allParameters[@"timeStamp"] = timeStampx.hex;
     
 //    if([GVUserDefaults standardUserDefaults].cityCode)
 //    {

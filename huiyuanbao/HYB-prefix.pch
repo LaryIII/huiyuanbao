@@ -31,6 +31,8 @@
 
 #pragma mark - NotificationName
 #define kUserLoginSuccessNotificationName @"UserLoginSuccessNotification"
+#define HEXKEY @"B632B014A338A6CD1626BE148582DB1C"
+#define HEXIV @"7777772e7970747a672e636f6d40626a"
 
 #ifdef DEBUG
 
