@@ -67,8 +67,8 @@
     [_phonefield setClearButtonMode:UITextFieldViewModeWhileEditing];//右侧删除按钮
     _phonefield.leftViewMode=UITextFieldViewModeAlways;
     _phonefield.placeholder=@"输入密码";//默认显示的字
-     _psdfield.secureTextEntry=YES;//设置成密码格式
-    _phonefield.keyboardType=UIKeyboardTypePhonePad;//设置键盘类型为默认的
+    _phonefield.secureTextEntry=YES;//设置成密码格式
+    _phonefield.keyboardType=UIKeyboardTypeDefault;//设置键盘类型为默认的
     _phonefield.returnKeyType=UIReturnKeyNext;//返回键的类型
     _phonefield.font = [UIFont systemFontOfSize:13.0f];
     _phonefield.textColor = RGB(67, 67, 67);
@@ -198,7 +198,10 @@
 }
 
 -(void)regs{
-    [self.regsecond loadDataWithRequestMethodType:kHttpRequestMethodTypeGet parameters:@{@"phoneno":_phonefield.text,@"userId":@"",@"loginpassword":_psdfield.text}];
+    NSTimeInterval nowTimestamp = [[NSDate date] timeIntervalSince1970] * 1000.0;
+    long time = (long)ceilf(nowTimestamp);
+    NSString *timex = [NSString stringWithFormat:@"%li",time];
+    [self.regsecond loadDataWithRequestMethodType:kHttpRequestMethodTypeGet parameters:@{@"phoneno":_phonefield.text,@"userId":@"",@"loginpassword":[timex stringByAppendingString: _psdfield.text]}];
 }
 
 @end

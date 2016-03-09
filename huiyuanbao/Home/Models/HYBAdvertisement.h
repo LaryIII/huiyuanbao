@@ -9,8 +9,6 @@
 #import "CXResource.h"
 
 @interface HYBAdvertisement : CXResource
-@property (nonatomic, copy) NSString *bannerUrl;
-@property (nonatomic, copy) NSString *jumpUrl;
-@property (nonatomic, copy) NSString *logon;
-@property (nonatomic, assign) NSInteger position;
+@property (nonatomic, copy) NSString *adurl;
+@property (nonatomic, copy) NSString *slogan;
 @end

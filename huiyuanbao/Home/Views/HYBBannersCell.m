@@ -50,14 +50,14 @@
     
     if ([self.banners count] == 1) {
         HYBAdvertisement *advertisement = self.banners[0];
-        self.cycleScrollView.imageURLArray = @[advertisement.bannerUrl];
+        self.cycleScrollView.imageURLArray = @[advertisement.adurl];
     }
     else if ([self.banners count] > 1) {
         //        AJAdvertisement *fristAd = self.banners.firstObject;
         //        AJAdvertisement *lastAd = self.banners.lastObject;
         NSMutableArray *array = [[NSMutableArray alloc]init];
         for (HYBAdvertisement *advertisement in self.banners) {
-            [array addObject:advertisement.bannerUrl];
+            [array addObject:advertisement.adurl];
         }
         //        [array addObject:fristAd.bannerUrl];
         self.cycleScrollView.imageURLArray = array;

@@ -113,7 +113,7 @@ NSString * const CXResourceErrorDomain = @"cx.resource.request.error.response";
     
     NSDictionary *allParameters = [self allParametersWithParameters:parameters dataType:dataType];
     
-    DDLogDebug(@"Loading %@%@ allParameters: %@", self.baseURL, self.resourcePath, allParameters);
+//    DDLogDebug(@"Loading %@%@ allParameters: %@", self.baseURL, self.resourcePath, allParameters);
     
     if (dataType == kHttpRequestDataTypeNormal) {
         if (self.cachePolicyType == kCachePolicyTypeReturnCacheDataAndRequestNetwork) {
@@ -360,7 +360,11 @@ NSString * const CXResourceErrorDomain = @"cx.resource.request.error.response";
 
 - (NSDictionary *)allParametersWithParameters:(NSDictionary *)parameters dataType:(HttpRequestDataType)dataType
 {
+    
     NSMutableDictionary *allParameters = [[NSMutableDictionary alloc] initWithDictionary:parameters];
+    
+    DDLogDebug(@"Loading %@%@ allParameters: %@", self.baseURL, self.resourcePath, allParameters);
+    
     NSMutableDictionary *allParameters2 = [[NSMutableDictionary alloc] init];
 //    CGFloat scale_screen = [UIScreen mainScreen].scale;
 //    CGFloat wid = [UIScreen mainScreen].bounds.size.width;
@@ -378,7 +382,6 @@ NSString * const CXResourceErrorDomain = @"cx.resource.request.error.response";
         [allParameters2 setObject:valuex.hex forKey:key];
     }
 
-    
     CocoaSecurityResult *cpuidx = [CocoaSecurity aesEncrypt:[[[ASIdentifierManager sharedManager] advertisingIdentifier] UUIDString] hexKey:HEXKEY hexIv:HEXIV];
     
     allParameters2[@"cpuid"] = cpuidx.hex;
@@ -485,7 +488,7 @@ NSString * const CXResourceErrorDomain = @"cx.resource.request.error.response";
         id msg = responseObject[@"msg"];
         id result = [responseObject objectForKey:@"result"];
         
-        if ([resultStatus integerValue] == HttpResponseCodeSuccess) {
+        if ([resultStatus integerValue] == 0) {
             self.isAccessNetworkData = YES;
             if (isCanSave) {
                 if ([result isKindOfClass:[NSArray class]]){

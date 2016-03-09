@@ -270,6 +270,8 @@
 		B9DD345C1C8DD7270008290A /* HYBChangePhone.m in Sources */ = {isa = PBXBuildFile; fileRef = B9DD345B1C8DD7270008290A /* HYBChangePhone.m */; };
 		B9DD345F1C8DD9490008290A /* HYBChangeNum.m in Sources */ = {isa = PBXBuildFile; fileRef = B9DD345E1C8DD9490008290A /* HYBChangeNum.m */; };
 		B9DD34621C8DDA6C0008290A /* HYBSetPassword.m in Sources */ = {isa = PBXBuildFile; fileRef = B9DD34611C8DDA6C0008290A /* HYBSetPassword.m */; };
+		B9DD34651C900B910008290A /* HYBStoreHeaderReusableView.m in Sources */ = {isa = PBXBuildFile; fileRef = B9DD34641C900B910008290A /* HYBStoreHeaderReusableView.m */; };
+		B9DD34681C900DDE0008290A /* HYBFirstStoreHeaderReusableView.m in Sources */ = {isa = PBXBuildFile; fileRef = B9DD34671C900DDE0008290A /* HYBFirstStoreHeaderReusableView.m */; };
 		B9E9323C1C7DD5960068E620 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = B9E9323B1C7DD5960068E620 /* main.m */; };
 		B9E9323F1C7DD5960068E620 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = B9E9323E1C7DD5960068E620 /* AppDelegate.m */; };
 		B9E9324A1C7DD5960068E620 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B9E932491C7DD5960068E620 /* Assets.xcassets */; };
@@ -747,6 +749,10 @@
 		B9DD345E1C8DD9490008290A /* HYBChangeNum.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = HYBChangeNum.m; path = User/Models/HYBChangeNum.m; sourceTree = "<group>"; };
 		B9DD34601C8DDA6C0008290A /* HYBSetPassword.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = HYBSetPassword.h; path = Mine/Models/HYBSetPassword.h; sourceTree = "<group>"; };
 		B9DD34611C8DDA6C0008290A /* HYBSetPassword.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = HYBSetPassword.m; path = Mine/Models/HYBSetPassword.m; sourceTree = "<group>"; };
+		B9DD34631C900B910008290A /* HYBStoreHeaderReusableView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = HYBStoreHeaderReusableView.h; path = Home/Views/HYBStoreHeaderReusableView.h; sourceTree = "<group>"; };
+		B9DD34641C900B910008290A /* HYBStoreHeaderReusableView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = HYBStoreHeaderReusableView.m; path = Home/Views/HYBStoreHeaderReusableView.m; sourceTree = "<group>"; };
+		B9DD34661C900DDE0008290A /* HYBFirstStoreHeaderReusableView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = HYBFirstStoreHeaderReusableView.h; path = Home/Views/HYBFirstStoreHeaderReusableView.h; sourceTree = "<group>"; };
+		B9DD34671C900DDE0008290A /* HYBFirstStoreHeaderReusableView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = HYBFirstStoreHeaderReusableView.m; path = Home/Views/HYBFirstStoreHeaderReusableView.m; sourceTree = "<group>"; };
 		B9E932371C7DD5960068E620 /* huiyuanbao.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = huiyuanbao.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B9E9323B1C7DD5960068E620 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		B9E9323D1C7DD5960068E620 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -1887,6 +1893,10 @@
 				B9A828D91C8B0C8F007403D2 /* HYBStoreProductCell.m */,
 				B9A828E41C8B1AD9007403D2 /* HYBCityCell.h */,
 				B9A828E51C8B1AD9007403D2 /* HYBCityCell.m */,
+				B9DD34631C900B910008290A /* HYBStoreHeaderReusableView.h */,
+				B9DD34641C900B910008290A /* HYBStoreHeaderReusableView.m */,
+				B9DD34661C900DDE0008290A /* HYBFirstStoreHeaderReusableView.h */,
+				B9DD34671C900DDE0008290A /* HYBFirstStoreHeaderReusableView.m */,
 			);
 			name = Views;
 			sourceTree = "<group>";
@@ -2606,6 +2616,7 @@
 				B9A828B91C8AE282007403D2 /* HYBXiaofeiRecordList.m in Sources */,
 				B9E935AB1C7DE2B40068E620 /* CXNavigationBarController.m in Sources */,
 				B9DD34331C8B2AA90008290A /* HYBRegViewController.m in Sources */,
+				B9DD34681C900DDE0008290A /* HYBFirstStoreHeaderReusableView.m in Sources */,
 				B9DD34391C8B2B9D0008290A /* HYBChangeNumViewController.m in Sources */,
 				B9E935FE1C7E00C60068E620 /* RDVTabBarItem.m in Sources */,
 				B9E935801C7DE2B40068E620 /* DDContextFilterLogFormatter.m in Sources */,
@@ -2616,6 +2627,7 @@
 				B9E935A81C7DE2B40068E620 /* TSWCommonTool.m in Sources */,
 				B9E935BE1C7DFDD90068E620 /* HYBHomeViewController.m in Sources */,
 				B9E935B21C7DE2B40068E620 /* ZButton.m in Sources */,
+				B9DD34651C900B910008290A /* HYBStoreHeaderReusableView.m in Sources */,
 				B9E9358B1C7DE2B40068E620 /* SVIndefiniteAnimatedView.m in Sources */,
 				B9E9339E1C7DD8590068E620 /* HYBTabNavViewController.m in Sources */,
 				B9E935B61C7DE2B40068E620 /* ZHDatePicker.m in Sources */,

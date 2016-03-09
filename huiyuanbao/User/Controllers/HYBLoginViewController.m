@@ -232,7 +232,10 @@
 }
 
 -(void)logins{
-    [self.login loadDataWithRequestMethodType:kHttpRequestMethodTypeGet parameters:@{@"phoneno":_phonefield.text,@"userId":@"",@"loginpassword":_psdfield.text}];
+    NSTimeInterval nowTimestamp = [[NSDate date] timeIntervalSince1970] * 1000.0;
+    long time = (long)ceilf(nowTimestamp);
+    NSString *timex = [NSString stringWithFormat:@"%li",time];
+    [self.login loadDataWithRequestMethodType:kHttpRequestMethodTypeGet parameters:@{@"phoneno":_phonefield.text,@"userId":@"",@"loginpassword":[timex stringByAppendingString: _psdfield.text]}];
 }
 
 -(void)remember{

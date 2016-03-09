@@ -47,10 +47,8 @@ static const CGFloat heightWidthRatio = 7.0f / 16.0f;
     
     NSMutableArray *bannerList = [[NSMutableArray alloc] init];
     HYBAdvertisement *ad = [[HYBAdvertisement alloc] init];
-    ad.bannerUrl = @"http://7xidpx.com2.z0.glb.qiniucdn.com/partner.png";
-    ad.jumpUrl = @"http://www.baidu.com";
-    ad.logon = @"no";
-    ad.position = 0;
+    ad.adurl = @"http://7xidpx.com2.z0.glb.qiniucdn.com/partner.png";
+//    ad.position = 0;
     [bannerList addObject:ad];
     [self setBanners:bannerList];
     
@@ -194,14 +192,14 @@ static const CGFloat heightWidthRatio = 7.0f / 16.0f;
     
     if ([self.banners count] == 1) {
         HYBAdvertisement *advertisement = self.banners[0];
-        self.cycleScrollView.imageURLArray = @[advertisement.bannerUrl];
+        self.cycleScrollView.imageURLArray = @[advertisement.adurl];
     }
     else if ([self.banners count] > 1) {
         //        AJAdvertisement *fristAd = self.banners.firstObject;
         //        AJAdvertisement *lastAd = self.banners.lastObject;
         NSMutableArray *array = [[NSMutableArray alloc]init];
         for (HYBAdvertisement *advertisement in self.banners) {
-            [array addObject:advertisement.bannerUrl];
+            [array addObject:advertisement.adurl];
         }
         //        [array addObject:fristAd.bannerUrl];
         self.cycleScrollView.imageURLArray = array;

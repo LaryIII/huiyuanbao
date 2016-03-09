@@ -22,6 +22,8 @@
 #import "HYBStoreDetailViewController.h"
 #import "HYBHomeData.h"
 #import "CocoaSecurity.h"
+#import "HYBStoreHeaderReusableView.h"
+#import "HYBFirstStoreHeaderReusableView.h"
 
 @interface HYBHomeViewController ()<UICollectionViewDelegate, UICollectionViewDataSource,HYBBannersCellDelegate,HYBFirstStoreCellDelegate,HYBStoreCellDelegate, QRCodeReaderDelegate>
 @property (nonatomic, strong) UICollectionView *collectionView;
@@ -61,30 +63,29 @@ static const CGFloat heightWidthRatio = 7.0f / 16.0f;
     [_collectionView registerClass:[HYBBannersCell class] forCellWithReuseIdentifier:@"HYBBannersCell"];
     [_collectionView registerClass:[HYBFirstStoreCell class] forCellWithReuseIdentifier:@"HYBFirstStoreCell"];
     [_collectionView registerClass:[HYBStoreCell class] forCellWithReuseIdentifier:@"HYBStoreCell"];
+    [_collectionView registerClass:[HYBStoreHeaderReusableView class] forSupplementaryViewOfKind:UICollectionElementKindSectionHeader withReuseIdentifier:@"HYBStoreHeaderReusableView"];
+    [_collectionView registerClass:[HYBFirstStoreHeaderReusableView class] forSupplementaryViewOfKind:UICollectionElementKindSectionHeader withReuseIdentifier:@"HYBFirstStoreHeaderReusableView"];
     
     //test data
     self.dataArray = [NSMutableArray array];
-    [self.dataArray addObject:[NSMutableArray array]];
-    NSMutableArray *bannerList = [[NSMutableArray alloc] init];
-    HYBAdvertisement *ad = [[HYBAdvertisement alloc] init];
-    ad.bannerUrl = @"http://7xidpx.com2.z0.glb.qiniucdn.com/partner.png";
-    ad.jumpUrl = @"http://www.baidu.com";
-    ad.logon = @"no";
-    ad.position = 0;
-    [bannerList addObject:ad];
-    [self.dataArray[0] addObject:bannerList];
-    
-    [self.dataArray addObject:[NSMutableArray array]];
-    NSMutableArray *firstList = [[NSMutableArray alloc] init];
-    HYBFirstStore *firstStore = HYBFirstStore.new;
-    [firstList addObject:firstStore];
-    [self.dataArray[1] addObject:firstList];
-    
-    [self.dataArray addObject:[NSMutableArray array]];
-    NSMutableArray *storeList = [[NSMutableArray alloc] init];
-    HYBStore *store = HYBStore.new;
-    [storeList addObject:store];
-    [self.dataArray[2] addObject:storeList];
+//    [self.dataArray addObject:[NSMutableArray array]];
+//    NSMutableArray *bannerList = [[NSMutableArray alloc] init];
+//    HYBAdvertisement *ad = [[HYBAdvertisement alloc] init];
+//    ad.adurl = @"http://7xidpx.com2.z0.glb.qiniucdn.com/partner.png";
+//    [bannerList addObject:ad];
+//    [self.dataArray[0] addObject:bannerList];
+//    
+//    [self.dataArray addObject:[NSMutableArray array]];
+//    NSMutableArray *firstList = [[NSMutableArray alloc] init];
+//    HYBFirstStore *firstStore = HYBFirstStore.new;
+//    [firstList addObject:firstStore];
+//    [self.dataArray[1] addObject:firstList];
+//    
+//    [self.dataArray addObject:[NSMutableArray array]];
+//    NSMutableArray *storeList = [[NSMutableArray alloc] init];
+//    HYBStore *store = HYBStore.new;
+//    [storeList addObject:store];
+//    [self.dataArray[2] addObject:storeList];
     
     
     // Create the reader object
@@ -100,10 +101,16 @@ static const CGFloat heightWidthRatio = 7.0f / 16.0f;
         NSLog(@"%@", resultAsString);
     }];
     
-    self.homedata = [[HYBHomeData alloc] initWithBaseURL:HYB_API_BASE_URL path:HOME_DATA];
+    self.homedata = [[HYBHomeData alloc] initWithBaseURL:HYB_API_BASE_URL path:HOME_DATA cachePolicyType:kCachePolicyTypeNone];
+    
+    [self.homedata addObserver:self
+                 forKeyPath:kResourceLoadingStatusKeyPath
+                    options:NSKeyValueObservingOptionNew
+                    context:nil];
 }
 
 - (void) refreshData{
+    [self showLoadingView];
     [self.homedata loadDataWithRequestMethodType:kHttpRequestMethodTypeGet parameters:@{
                                                                                         @"userId":@"",
                                                                                         @"longitude":@"116.322886",
@@ -112,6 +119,34 @@ static const CGFloat heightWidthRatio = 7.0f / 16.0f;
                                                                                         @"pageLength":@"10",
                                                                                         @"current":@"0"
                                                                                         }];
+}
+
+#pragma mark Key-value observing
+- (void)observeValueForKeyPath:(NSString *)keyPath
+                      ofObject:(id)object
+                        change:(NSDictionary *)change
+                       context:(void *)context
+{
+    if ([keyPath isEqualToString:kResourceLoadingStatusKeyPath]) {
+        if (object == _homedata) {
+            if (_homedata.isLoaded) {
+                [self hideLoadingView];
+                [self.dataArray addObject:[NSMutableArray array]];
+                [self.dataArray[0] addObject:_homedata.ads];
+                
+                [self.dataArray addObject:[NSMutableArray array]];
+                [self.dataArray[1] addObject:_homedata.firstStores];
+                
+                [self.dataArray addObject:[NSMutableArray array]];
+                [self.dataArray[2] addObject:_homedata.stores];
+                
+                [_collectionView reloadData];
+            }
+            else if (_homedata.error) {
+                [self showErrorMessage:[_homedata.error localizedFailureReason]];
+            }
+        }
+    }
 }
 
 - (void)didReceiveMemoryWarning {
@@ -167,74 +202,62 @@ static const CGFloat heightWidthRatio = 7.0f / 16.0f;
 }
 
 
-//- (UICollectionReusableView *)collectionView:(UICollectionView *)collectionView viewForSupplementaryElementOfKind:(NSString *)kind atIndexPath:(NSIndexPath *)indexPath
-//{
-//    //    if ([kind isEqualToString:UICollectionElementKindSectionHeader]) {
-//    //        if (indexPath.section == 2) {
-//    //            AJCompositeHeaderView *headView = [collectionView dequeueReusableSupplementaryViewOfKind:UICollectionElementKindSectionHeader withReuseIdentifier:@"AJCompositeHeaderView" forIndexPath:indexPath];
-//    //            UITapGestureRecognizer *singleTap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(handleRecommendComposite:)];
-//    //            singleTap.delaysTouchesBegan = YES;
-//    //            singleTap.numberOfTapsRequired = 1;
-//    //            [headView addGestureRecognizer:singleTap];
-//    //
-//    //            return headView;
-//    //        }
-//    //        else if (indexPath.section == 3) {
-//    //            AJSummaryHeaderReusableView *headView = [collectionView dequeueReusableSupplementaryViewOfKind:UICollectionElementKindSectionHeader withReuseIdentifier:@"AJSummaryHeaderReusableView" forIndexPath:indexPath];
-//    //            UITapGestureRecognizer *singleTap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(handleMoreSingles:)];
-//    //            singleTap.delaysTouchesBegan = YES;
-//    //            singleTap.numberOfTapsRequired = 1;
-//    //            [headView addGestureRecognizer:singleTap];
-//    //
-//    //            return headView;
-//    //        }
-//    //        else {
-//    //            return nil;
-//    //        }
-//    //    }
-//    //    else {
-//    return nil;
-//}
+- (UICollectionReusableView *)collectionView:(UICollectionView *)collectionView viewForSupplementaryElementOfKind:(NSString *)kind atIndexPath:(NSIndexPath *)indexPath
+{
+    if ([kind isEqualToString:UICollectionElementKindSectionHeader]) {
+        if (indexPath.section == 1) {
+            HYBFirstStoreHeaderReusableView *headView = [collectionView dequeueReusableSupplementaryViewOfKind:UICollectionElementKindSectionHeader withReuseIdentifier:@"HYBFirstStoreHeaderReusableView" forIndexPath:indexPath];
+            
+            return headView;
+        }
+        else if (indexPath.section == 2) {
+            HYBStoreHeaderReusableView *headView = [collectionView dequeueReusableSupplementaryViewOfKind:UICollectionElementKindSectionHeader withReuseIdentifier:@"HYBStoreHeaderReusableView" forIndexPath:indexPath];
+            
+            return headView;
+        }
+        else {
+            return nil;
+        }
+    }
+    else {
+        return nil;
+    }
+    return nil;
+}
 
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath
 {
     NSArray *array = self.dataArray[indexPath.section];
-    
-    id object = array[indexPath.row];
-    if([object isKindOfClass:[NSArray class]])
-    {
-        id obj = object[0];
-        
-        if([obj isKindOfClass:[HYBAdvertisement class]])
-        {
-            
-            if(!_bannerCell)
-            {
-                _bannerCell = [collectionView dequeueReusableCellWithReuseIdentifier:@"HYBBannersCell" forIndexPath:indexPath];
-            }
-            _bannerCell.delegate = self;
-            [_bannerCell.cycleScrollView setPlaceHolderImage:@"banner_default"];
-            
-            _bannerCell.banners = object;
-            return _bannerCell;
-        }else if([obj isKindOfClass:[HYBFirstStore class]]){
-            HYBFirstStoreCell *firstStoreCell = [collectionView dequeueReusableCellWithReuseIdentifier:@"HYBFirstStoreCell" forIndexPath:indexPath];
-            HYBFirstStore *temp = (HYBFirstStore *)obj;
-            firstStoreCell.store = temp;
-            firstStoreCell.delegate = self;
-            return firstStoreCell;
-        }else if([obj isKindOfClass:[HYBStore class]]){
-            HYBStoreCell *storeCell = [collectionView dequeueReusableCellWithReuseIdentifier:@"HYBStoreCell" forIndexPath:indexPath];
-            HYBStore *temp = (HYBStore *)obj;
-            storeCell.store = temp;
-            storeCell.delegate = self;
-            return storeCell;
-        }else{
-            return nil;
-        }
-        
+    id obj;
+    if([array count]>0){
+        obj = array[indexPath.row];
     }
-    else{
+    
+    if([obj isKindOfClass:[HYBAdvertisement class]])
+    {
+        
+        if(!_bannerCell)
+        {
+            _bannerCell = [collectionView dequeueReusableCellWithReuseIdentifier:@"HYBBannersCell" forIndexPath:indexPath];
+        }
+        _bannerCell.delegate = self;
+        [_bannerCell.cycleScrollView setPlaceHolderImage:@"banner_default"];
+        
+        _bannerCell.banners = obj;
+        return _bannerCell;
+    }else if([obj isKindOfClass:[HYBFirstStore class]]){
+        HYBFirstStoreCell *firstStoreCell = [collectionView dequeueReusableCellWithReuseIdentifier:@"HYBFirstStoreCell" forIndexPath:indexPath];
+        HYBFirstStore *temp = (HYBFirstStore *)obj;
+        firstStoreCell.store = temp;
+        firstStoreCell.delegate = self;
+        return firstStoreCell;
+    }else if([obj isKindOfClass:[HYBStore class]]){
+        HYBStoreCell *storeCell = [collectionView dequeueReusableCellWithReuseIdentifier:@"HYBStoreCell" forIndexPath:indexPath];
+        HYBStore *temp = (HYBStore *)obj;
+        storeCell.store = temp;
+        storeCell.delegate = self;
+        return storeCell;
+    }else{
         return nil;
     }
 }
@@ -261,10 +284,10 @@ static const CGFloat heightWidthRatio = 7.0f / 16.0f;
                 CGSize size = CGSizeMake(width, width * heightWidthRatio);
                 return size;
             }else if([obj isKindOfClass:[HYBFirstStore class]]){
-                CGSize size = CGSizeMake(width, 158.0f);
+                CGSize size = CGSizeMake(width, 118.0f);
                 return size;
             }else if([obj isKindOfClass:[HYBStore class]]){
-                CGSize size = CGSizeMake(width, 148.0f);
+                CGSize size = CGSizeMake(width, 108.0f);
                 return size;
             }
             else
@@ -293,12 +316,14 @@ static const CGFloat heightWidthRatio = 7.0f / 16.0f;
 
 // 定义headview的size
 - (CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout*)collectionViewLayout referenceSizeForHeaderInSection:(NSInteger)section {
-//    if (section == 2 ) {
-//        return CGSizeMake(CGRectGetWidth(collectionView.bounds), 52.0f);
-//    }
-//    else {
+    if (section == 1 ) {
+        return CGSizeMake(CGRectGetWidth(collectionView.bounds), 40.5f);
+    }else if(section == 2){
+        return CGSizeMake(CGRectGetWidth(collectionView.bounds), 40.5f);
+    }
+    else {
         return CGSizeZero;
-//    }
+    }
 }
 
 // 定义footerView的size
