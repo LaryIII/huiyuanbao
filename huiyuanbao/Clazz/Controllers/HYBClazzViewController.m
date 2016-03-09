@@ -14,6 +14,10 @@
 #import "masonry.h"
 #import "HYBStoreDetailViewController.h"
 #import "HYBSelectCityViewController.h"
+#import "HYBStore2List.h"
+#import "HYBCategorys.h"
+#import "HYBCategoryInfo.h"
+#import "HYBCategoryInfo2.h"
 
 @interface HYBClazzViewController ()<UICollectionViewDelegate, UICollectionViewDataSource,HYBStore2CellDelegate>
 @property (nonatomic, strong) UICollectionView *collectionView;
@@ -23,14 +27,26 @@
 @property (nonatomic, assign) BOOL isSortAreaDisplay;
 @property (nonatomic, strong) NSString *selectedSort;
 
-@property (nonatomic, strong) UIView *filterArea;
+@property (nonatomic, strong) UIView *searchBox;
+@property (nonatomic, strong) UIView *filterbar;
+
+@property (nonatomic, strong) UIScrollView *filterArea;
+@property (nonatomic, strong) UIScrollView *level2menu;
+@property (nonatomic, strong) UIView *container;
+@property (nonatomic, strong) UIView *container2;
 @property (nonatomic, assign) BOOL isFilterAreaDisplay;
 
 @property (nonatomic, strong) NSString *selectedFilter;
+
+@property (nonatomic, strong) HYBStore2List *store2list;
+@property (nonatomic, strong) HYBCategorys *categorys;
 @end
 
 @implementation HYBClazzViewController
-
+- (void) dealloc{
+    [_store2list removeObserver:self forKeyPath:kResourceLoadingStatusKeyPath];
+    [_categorys removeObserver:self forKeyPath:kResourceLoadingStatusKeyPath];
+}
 - (void)viewDidLoad {
     [super viewDidLoad];
     CGFloat width = CGRectGetWidth(self.view.bounds);
@@ -53,7 +69,7 @@
     searchBtn.backgroundColor = [UIColor whiteColor];
     searchBtn.layer.cornerRadius = 5.0f;
     [searchBtn addTarget:self action:@selector(search) forControlEvents:UIControlEventTouchUpInside];
-    [self.view addSubview:searchBtn];
+    [searchBox addSubview:searchBtn];
     [searchBtn makeConstraints:^(MASConstraintMaker *make) {
         make.top.equalTo(searchBox.top).offset(8);
         make.left.equalTo(searchBox.left).offset(8);
@@ -176,17 +192,80 @@
     
     //test data
     self.dataArray = [NSMutableArray array];
-    [self.dataArray addObject:[NSMutableArray array]];
-    NSMutableArray *storeList = [[NSMutableArray alloc] init];
-    HYBStore2 *store = HYBStore2.new;
-    [storeList addObject:store];
-    [self.dataArray[0] addObject:storeList];
+//    [self.dataArray addObject:[NSMutableArray array]];
+//    NSMutableArray *storeList = [[NSMutableArray alloc] init];
+//    HYBStore2 *store = HYBStore2.new;
+//    [storeList addObject:store];
+//    [self.dataArray[0] addObject:storeList];
+    self.store2list = [[HYBStore2List alloc] initWithBaseURL:HYB_API_BASE_URL path:STORE_LIST cachePolicyType:kCachePolicyTypeNone];
+    
+    [self.store2list addObserver:self
+                      forKeyPath:kResourceLoadingStatusKeyPath
+                         options:NSKeyValueObservingOptionNew
+                         context:nil];
+    
+    self.categorys = [[HYBCategorys alloc] initWithBaseURL:HYB_API_BASE_URL path:CATEGORY_INFO cachePolicyType:kCachePolicyTypeNone];
+    
+    [self.categorys addObserver:self
+                      forKeyPath:kResourceLoadingStatusKeyPath
+                         options:NSKeyValueObservingOptionNew
+                         context:nil];
     
     [self addSelectSort];
     [self addSelectFilter];
     [self.view bringSubviewToFront:self.navigationBar];
     [self.view bringSubviewToFront:searchBox];
     [self.view bringSubviewToFront:filterbar];
+    
+    
+}
+
+- (void) refreshData{
+    [self showLoadingView];
+    [self.categorys loadDataWithRequestMethodType:kHttpRequestMethodTypeGet parameters:@{
+                                                                                          @"userId":@"",
+                                                                                          @"phoneno":@"",
+                                                                                          @"mtcode":@"320100"
+                                                                                          }];
+    
+    [self.store2list loadDataWithRequestMethodType:kHttpRequestMethodTypeGet parameters:@{
+                                                                                        @"userId":@"",
+                                                                                        @"longitude":@"116.322886",
+                                                                                        @"latitude":@"39.892176",
+                                                                                        @"phoneno":@"",
+                                                                                        @"pageLength":@"10",
+                                                                                        @"current":@"0"
+                                                                                        }];
+}
+
+#pragma mark Key-value observing
+- (void)observeValueForKeyPath:(NSString *)keyPath
+                      ofObject:(id)object
+                        change:(NSDictionary *)change
+                       context:(void *)context
+{
+    if ([keyPath isEqualToString:kResourceLoadingStatusKeyPath]) {
+        if (object == _store2list) {
+            if (_store2list.isLoaded) {
+                [self hideLoadingView];
+                [self.dataArray addObject:_store2list.stores];
+                
+                [_collectionView reloadData];
+            }
+            else if (_store2list.error) {
+                [self showErrorMessage:[_store2list.error localizedFailureReason]];
+            }
+        }else if(object == _categorys){
+            if (_categorys.isLoaded) {
+                [self hideLoadingView];
+                // TODO 添加筛选条件
+                [self refreshSelectFilter];
+            }
+            else if (_categorys.error) {
+                [self showErrorMessage:[_categorys.error localizedFailureReason]];
+            }
+        }
+    }
 }
 
 - (void)addLeftNavigatorButton
@@ -230,53 +309,104 @@
 
 - (void)addSelectFilter{
     CGFloat width = CGRectGetWidth(self.view.bounds);
-    self.filterArea = [[UIView alloc ]initWithFrame:CGRectMake(0.0f, self.navigationBarHeight-44.0f*6-44.0f-46.0f, width, 44.0f*6)];
+    self.filterArea = [[UIScrollView alloc ]initWithFrame:CGRectMake(0.0f, self.navigationBarHeight-44.0f*6-44.0f-46.0f, width/2, 44.0f*6)];
     self.filterArea.backgroundColor = [UIColor whiteColor];
+    _container = UIView.new;
+    [self.filterArea addSubview:_container];
+    [_container makeConstraints:^(MASConstraintMaker *make) {
+        make.edges.equalTo(self.filterArea);
+        make.width.equalTo(self.filterArea.width);
+    }];
     
-    NSArray *citys = @[@"全部",@"美食",@"酒店",@"电影",@"购物",@"汽车"];
-    for (int i=0; i<citys.count; i++) {
+    self.level2menu = [[UIScrollView alloc ]initWithFrame:CGRectMake(width/2, self.navigationBarHeight-44.0f*6-44.0f-46.0f, width/2, 44.0f*6)];
+    self.level2menu.backgroundColor = RGB(240, 240, 240);
+    _container2 = UIView.new;
+    [self.level2menu addSubview:_container2];
+    [_container2 makeConstraints:^(MASConstraintMaker *make) {
+        make.edges.equalTo(self.level2menu);
+        make.width.equalTo(self.level2menu.width);
+    }];
+    
+    [self.view addSubview:self.filterArea];
+    [self.view addSubview:self.level2menu];
+//    NSArray *citys = @[@"全部",@"美食",@"酒店",@"电影",@"购物",@"汽车"];
+    
+
+}
+
+- (void)refreshSelectFilter{
+    CGFloat width = CGRectGetWidth(self.view.bounds);
+    for (int i=0; i<_categorys.categorys.count; i++) {
         UIButton *btn = UIButton.new;
         btn.backgroundColor = [UIColor whiteColor];
-        [btn setTitle:citys[i] forState:UIControlStateNormal];
+        HYBCategoryInfo *category1 = _categorys.categorys[i];
+        [btn setTitle:category1.mtname forState:UIControlStateNormal];
         [btn setTitleColor:RGB(51, 51, 51) forState:UIControlStateNormal];
         [btn.titleLabel setFont:[UIFont systemFontOfSize:15.0f]];
-//        btn.contentHorizontalAlignment = UIControlContentHorizontalAlignmentLeft;
-        [btn addTarget:self action:@selector(gotoFilter:) forControlEvents:UIControlEventTouchUpInside];
-        [self.filterArea addSubview:btn];
+        //        btn.contentHorizontalAlignment = UIControlContentHorizontalAlignmentLeft;
+        btn.tag = 10001+[category1.mtcode integerValue];
+        [btn addTarget:self action:@selector(gotolevel2:) forControlEvents:UIControlEventTouchUpInside];
+        [_container addSubview:btn];
         [btn makeConstraints:^(MASConstraintMaker *make) {
             make.top.equalTo(_filterArea.top).offset(44*i);
             make.left.equalTo(_filterArea.left);
             make.width.mas_equalTo(width/2);
             make.height.mas_equalTo(44);
         }];
+        if(i==_categorys.categorys.count-1){
+            [_container makeConstraints:^(MASConstraintMaker *make) {
+                make.bottom.equalTo(btn.bottom);
+            }];
+        }
     }
-    
-    UIScrollView *level2menu = UIScrollView.new;
-    level2menu.backgroundColor = RGB(240, 240, 240);
-    [self.filterArea addSubview:level2menu];
-    [level2menu makeConstraints:^(MASConstraintMaker *make) {
-        make.top.equalTo(self.filterArea.top);
-        make.left.equalTo(self.filterArea.left).offset(width/2);
-        make.right.equalTo(self.filterArea.right);
-        make.bottom.equalTo(self.filterArea.bottom);
-    }];
-    
-    UIView *container = UIView.new;
-    [self.filterArea addSubview:container];
-    [container makeConstraints:^(MASConstraintMaker *make) {
-        make.edges.equalTo(level2menu);
-        make.width.equalTo(level2menu.width);
-    }];
-    
-    [self.view addSubview:self.filterArea];
+}
+
+-(void) gotolevel2:(id)sender{
+    while (self.container2.subviews.count) {
+        UIView *child = self.container2.subviews.lastObject;
+        [child removeFromSuperview];
+    }
+    CGFloat width = CGRectGetWidth(self.view.bounds);
+    UIButton *btn = (UIButton *)sender;
+    long code = btn.tag - 10001;
+    for (int i=0; i<_categorys.categorys.count; i++) {
+        HYBCategoryInfo *category1 = _categorys.categorys[i];
+        if(code == [category1.mtcode integerValue]){
+            for (int j=0; j<category1.subList.count; j++) {
+                HYBCategoryInfo2 *category2 = category1.subList[j];
+                UIButton *btn = UIButton.new;
+                btn.backgroundColor = [UIColor whiteColor];
+                [btn setTitle:category2.mtname forState:UIControlStateNormal];
+                [btn setTitleColor:RGB(51, 51, 51) forState:UIControlStateNormal];
+                [btn.titleLabel setFont:[UIFont systemFontOfSize:15.0f]];
+                //        btn.contentHorizontalAlignment = UIControlContentHorizontalAlignmentLeft;
+                btn.tag = 20001+[category2.mtcode integerValue];
+                [btn addTarget:self action:@selector(gotoFilter:) forControlEvents:UIControlEventTouchUpInside];
+                [self.container2 addSubview:btn];
+                [btn makeConstraints:^(MASConstraintMaker *make) {
+                    make.top.equalTo(_level2menu.top).offset(44*j);
+                    make.left.equalTo(_level2menu.left);
+                    make.width.mas_equalTo(width/2);
+                    make.height.mas_equalTo(44);
+                }];
+                if(j==category1.subList.count-1){
+                    [_container2 makeConstraints:^(MASConstraintMaker *make) {
+                        make.bottom.equalTo(btn.bottom);
+                    }];
+                }
+            }
+        }
+    }
 }
 
 -(void)gotoSort:(id)sender{
-    
+    // TODO:
+    [self pushSortArea];
 }
 
 -(void)gotoFilter:(id)sender{
-    
+    // TODO:
+    [self pushFilterArea];
 }
 
 - (void) pullSortArea{
@@ -311,7 +441,7 @@
     [UIView setAnimationDelegate:self];
     //设置动画执行完毕调用的事件
     [UIView setAnimationDidStopSelector:@selector(stopAnimating)];
-    self.sortArea.center=CGPointMake(0, -66+self.navigationBarHeight+44+46);
+    self.sortArea.center=CGPointMake(width/2, -66+self.navigationBarHeight+44+46);
     [UIView commitAnimations];
     
     self.isSortAreaDisplay = NO;
@@ -330,7 +460,8 @@
     [UIView setAnimationDelegate:self];
     //设置动画执行完毕调用的事件
     [UIView setAnimationDidStopSelector:@selector(stopAnimating)];
-    self.filterArea.center=CGPointMake(width/2, 44*6/2+self.navigationBarHeight+44+46);
+    self.filterArea.center=CGPointMake(width/4, 44*6/2+self.navigationBarHeight+44+46);
+    self.level2menu.center=CGPointMake(3*width/4, 44*6/2+self.navigationBarHeight+44+46);
     [UIView commitAnimations];
     
     self.isFilterAreaDisplay =YES;
@@ -349,7 +480,8 @@
     [UIView setAnimationDelegate:self];
     //设置动画执行完毕调用的事件
     [UIView setAnimationDidStopSelector:@selector(stopAnimating)];
-    self.filterArea.center=CGPointMake(width/2, -44*6/2+self.navigationBarHeight+44+46);
+    self.filterArea.center=CGPointMake(width/4, -44*6/2+self.navigationBarHeight+44+46);
+    self.level2menu.center=CGPointMake(3*width/4, -44*6/2+self.navigationBarHeight+44+46);
     [UIView commitAnimations];
     
     self.isFilterAreaDisplay = NO;
@@ -382,23 +514,17 @@
 {
     NSArray *array = self.dataArray[indexPath.section];
     
-    id object = array[indexPath.row];
-    if([object isKindOfClass:[NSArray class]])
-    {
-        id obj = object[0];
-        
-        if([obj isKindOfClass:[HYBStore2 class]]){
-            HYBStore2Cell *storeCell = [collectionView dequeueReusableCellWithReuseIdentifier:@"HYBStore2Cell" forIndexPath:indexPath];
-            HYBStore2 *temp = (HYBStore2 *)obj;
-            storeCell.store = temp;
-            storeCell.delegate = self;
-            return storeCell;
-        }else{
-            return nil;
-        }
-        
+    id obj;
+    if([array count]>0){
+        obj = array[indexPath.row];
     }
-    else{
+    if([obj isKindOfClass:[HYBStore2 class]]){
+        HYBStore2Cell *storeCell = [collectionView dequeueReusableCellWithReuseIdentifier:@"HYBStore2Cell" forIndexPath:indexPath];
+        HYBStore2 *temp = (HYBStore2 *)obj;
+        storeCell.store = temp;
+        storeCell.delegate = self;
+        return storeCell;
+    }else{
         return nil;
     }
 }
@@ -412,33 +538,14 @@
     
     CGFloat width = CGRectGetWidth(collectionView.bounds);
     
-    id object = array[indexPath.row];
+    id obj;
+    if([array count]>0){
+        obj = array[indexPath.row];
+    }
     
-    if([object isKindOfClass:[NSArray class]])
-    {
-        if(object)
-        {
-            id obj = object[0];
-            
-            if([obj isKindOfClass:[HYBStore2 class]]){
-                CGSize size = CGSizeMake(width, 108.0f);
-                return size;
-            }
-            else
-            {
-                CGFloat heig = 0;
-                if([object count] > 4)
-                {
-                    heig = 150.0;
-                }
-                else
-                {
-                    heig = 75.0f;
-                }
-                CGSize size = CGSizeMake(CGRectGetWidth(collectionView.bounds), heig);
-                return size;
-            }
-        }
+    if([obj isKindOfClass:[HYBStore2 class]]){
+        CGSize size = CGSizeMake(width, 108.0f);
+        return size;
     }
     return CGSizeZero;
 }
@@ -450,12 +557,7 @@
 
 // 定义headview的size
 - (CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout*)collectionViewLayout referenceSizeForHeaderInSection:(NSInteger)section {
-    //    if (section == 2 ) {
-    //        return CGSizeMake(CGRectGetWidth(collectionView.bounds), 52.0f);
-    //    }
-    //    else {
     return CGSizeZero;
-    //    }
 }
 
 // 定义footerView的size
@@ -483,7 +585,7 @@
 {
     [super viewWillAppear:animated];
     [[self rdv_tabBarController] setTabBarHidden:NO animated:NO];
-//    [self refreshData];
+    [self refreshData];
 }
 
 - (void)search{

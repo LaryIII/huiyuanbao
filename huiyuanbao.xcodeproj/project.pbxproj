@@ -10,6 +10,10 @@
 		3D5BF0040909B727744B1E5F /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = FDCCB340312BD400544476E3 /* libPods.a */; };
 		B9213E7E1C88347B00B8373A /* HYBLifeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B9213E7D1C88347B00B8373A /* HYBLifeViewController.m */; };
 		B9757B341C88112000781AB4 /* HYBQRCodeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B9757B331C88112000781AB4 /* HYBQRCodeViewController.m */; };
+		B97E9BAC1C907E710046F34D /* HYBStore2List.m in Sources */ = {isa = PBXBuildFile; fileRef = B97E9BAB1C907E710046F34D /* HYBStore2List.m */; };
+		B97E9BAF1C9086620046F34D /* HYBCategoryInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = B97E9BAE1C9086620046F34D /* HYBCategoryInfo.m */; };
+		B97E9BB21C908A720046F34D /* HYBCategoryInfo2.m in Sources */ = {isa = PBXBuildFile; fileRef = B97E9BB11C908A720046F34D /* HYBCategoryInfo2.m */; };
+		B97E9BB51C908B4E0046F34D /* HYBCategorys.m in Sources */ = {isa = PBXBuildFile; fileRef = B97E9BB41C908B4E0046F34D /* HYBCategorys.m */; };
 		B988F3B41C8144C0006BBD8B /* first_store@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = B988F3A51C8144C0006BBD8B /* first_store@2x.png */; };
 		B988F3B51C8144C0006BBD8B /* first_store@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = B988F3A61C8144C0006BBD8B /* first_store@3x.png */; };
 		B988F3B61C8144C0006BBD8B /* location@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = B988F3A71C8144C0006BBD8B /* location@2x.png */; };
@@ -422,6 +426,14 @@
 		B9213E7D1C88347B00B8373A /* HYBLifeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = HYBLifeViewController.m; path = Life/Controllers/HYBLifeViewController.m; sourceTree = "<group>"; };
 		B9757B321C88112000781AB4 /* HYBQRCodeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = HYBQRCodeViewController.h; path = Home/Controllers/HYBQRCodeViewController.h; sourceTree = "<group>"; };
 		B9757B331C88112000781AB4 /* HYBQRCodeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = HYBQRCodeViewController.m; path = Home/Controllers/HYBQRCodeViewController.m; sourceTree = "<group>"; };
+		B97E9BAA1C907E710046F34D /* HYBStore2List.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = HYBStore2List.h; path = Clazz/Models/HYBStore2List.h; sourceTree = "<group>"; };
+		B97E9BAB1C907E710046F34D /* HYBStore2List.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = HYBStore2List.m; path = Clazz/Models/HYBStore2List.m; sourceTree = "<group>"; };
+		B97E9BAD1C9086620046F34D /* HYBCategoryInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = HYBCategoryInfo.h; path = Clazz/Models/HYBCategoryInfo.h; sourceTree = "<group>"; };
+		B97E9BAE1C9086620046F34D /* HYBCategoryInfo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = HYBCategoryInfo.m; path = Clazz/Models/HYBCategoryInfo.m; sourceTree = "<group>"; };
+		B97E9BB01C908A720046F34D /* HYBCategoryInfo2.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = HYBCategoryInfo2.h; path = Clazz/Models/HYBCategoryInfo2.h; sourceTree = "<group>"; };
+		B97E9BB11C908A720046F34D /* HYBCategoryInfo2.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = HYBCategoryInfo2.m; path = Clazz/Models/HYBCategoryInfo2.m; sourceTree = "<group>"; };
+		B97E9BB31C908B4E0046F34D /* HYBCategorys.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = HYBCategorys.h; path = Clazz/Models/HYBCategorys.h; sourceTree = "<group>"; };
+		B97E9BB41C908B4E0046F34D /* HYBCategorys.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = HYBCategorys.m; path = Clazz/Models/HYBCategorys.m; sourceTree = "<group>"; };
 		B988F3A51C8144C0006BBD8B /* first_store@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "first_store@2x.png"; sourceTree = "<group>"; };
 		B988F3A61C8144C0006BBD8B /* first_store@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "first_store@3x.png"; sourceTree = "<group>"; };
 		B988F3A71C8144C0006BBD8B /* location@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "location@2x.png"; sourceTree = "<group>"; };
@@ -1969,6 +1981,14 @@
 			children = (
 				B988F3EB1C8180FF006BBD8B /* HYBStore2.h */,
 				B988F3EC1C8180FF006BBD8B /* HYBStore2.m */,
+				B97E9BAA1C907E710046F34D /* HYBStore2List.h */,
+				B97E9BAB1C907E710046F34D /* HYBStore2List.m */,
+				B97E9BAD1C9086620046F34D /* HYBCategoryInfo.h */,
+				B97E9BAE1C9086620046F34D /* HYBCategoryInfo.m */,
+				B97E9BB01C908A720046F34D /* HYBCategoryInfo2.h */,
+				B97E9BB11C908A720046F34D /* HYBCategoryInfo2.m */,
+				B97E9BB31C908B4E0046F34D /* HYBCategorys.h */,
+				B97E9BB41C908B4E0046F34D /* HYBCategorys.m */,
 			);
 			name = Models;
 			sourceTree = "<group>";
@@ -2676,6 +2696,7 @@
 				B988F3E11C81520B006BBD8B /* HYBStoreList.m in Sources */,
 				B9E935D31C7DFEE60068E620 /* HYBMineViewController.m in Sources */,
 				B9E9359E1C7DE2B40068E620 /* CXResource.m in Sources */,
+				B97E9BAF1C9086620046F34D /* HYBCategoryInfo.m in Sources */,
 				B9E9357C1C7DE2B40068E620 /* DDASLLogger.m in Sources */,
 				B9E935911C7DE2B40068E620 /* TPKeyboardAvoidingCollectionView.m in Sources */,
 				B9DD34591C8DD49F0008290A /* HYBLogin.m in Sources */,
@@ -2728,6 +2749,7 @@
 				B9E935A91C7DE2B40068E620 /* TSWValidateRules.m in Sources */,
 				B9E9357A1C7DE2B40068E620 /* DDAbstractDatabaseLogger.m in Sources */,
 				B9E9358E1C7DE2B40068E620 /* UIScrollView+SVInfiniteScrolling.m in Sources */,
+				B97E9BB21C908A720046F34D /* HYBCategoryInfo2.m in Sources */,
 				B9AC1F3D1C888DB0003D462F /* HYBXiaofeiRecordsViewController.m in Sources */,
 				B9A828E61C8B1AD9007403D2 /* HYBCityCell.m in Sources */,
 				B988F3ED1C8180FF006BBD8B /* HYBStore2.m in Sources */,
@@ -2758,9 +2780,11 @@
 				B9E935981C7DE2B40068E620 /* NSURL+CXExtensions.m in Sources */,
 				B9A8282D1C8A9CBF007403D2 /* HYBOrderRecordsViewController.m in Sources */,
 				B9213E7E1C88347B00B8373A /* HYBLifeViewController.m in Sources */,
+				B97E9BAC1C907E710046F34D /* HYBStore2List.m in Sources */,
 				B9E9358A1C7DE2B40068E620 /* Reachability.m in Sources */,
 				B9A8284B1C8AC860007403D2 /* HYBQuan.m in Sources */,
 				B9E935691C7DE2B40068E620 /* AFHTTPRequestOperationManager.m in Sources */,
+				B97E9BB51C908B4E0046F34D /* HYBCategorys.m in Sources */,
 				B988F3DB1C81501C006BBD8B /* HYBStoreCell.m in Sources */,
 				B9A828C81C8AE527007403D2 /* HYBScoreRecordCell.m in Sources */,
 			);

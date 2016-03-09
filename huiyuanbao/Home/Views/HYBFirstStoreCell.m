@@ -8,6 +8,9 @@
 
 #import "HYBFirstStoreCell.h"
 #import "masonry.h"
+#import "HYBFirstStore.h"
+#import "CXImageLoader.h"
+
 static const CGFloat imgWidth = 100.0f;
 static const CGFloat margin = 10.0f;
 static const CGFloat innerMargin = 7.0f;
@@ -29,176 +32,6 @@ static const CGFloat innerMargin = 7.0f;
 {
     self = [super initWithFrame:frame];
     if (self) {
-        int padding = 8;
-        
-        UIView *firstView = UIView.new;
-        firstView.backgroundColor = RGB(240, 240, 240);
-        firstView.layer.masksToBounds = YES;
-        [self.contentView addSubview:firstView];
-        
-        UITapGestureRecognizer *singleTap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(clickAction)];
-        [firstView addGestureRecognizer:singleTap];
-        
-        UIView *superview = self.contentView;
-        
-        [firstView makeConstraints:^(MASConstraintMaker *make) {
-            make.top.equalTo(superview.top).offset(0);
-            make.left.equalTo(superview.left).offset(0);
-            make.right.equalTo(superview.right).offset(0);
-            make.bottom.equalTo(superview.bottom);
-        }];
-        
-        UIView *bottomView = UIView.new;
-        bottomView.backgroundColor = [UIColor whiteColor];
-        [firstView addSubview:bottomView];
-        [bottomView makeConstraints:^(MASConstraintMaker *make) {
-            make.top.equalTo(firstView.top).offset(0);
-            make.left.equalTo(firstView.left).offset(0);
-            make.right.equalTo(firstView.right).offset(0);
-            make.bottom.equalTo(firstView.bottom).offset(-10);
-        }];
-        
-        UIImageView *storeImageView = UIImageView.new;
-        UIImage *storeImg = [UIImage imageNamed:@"store_default"];
-        [storeImageView setImage:storeImg];
-        [bottomView addSubview:storeImageView];
-        [storeImageView makeConstraints:^(MASConstraintMaker *make) {
-            make.top.equalTo(bottomView.top).offset(padding);
-            make.left.equalTo(bottomView.left).offset(padding);
-            make.width.mas_equalTo(90);
-            make.height.mas_equalTo(90);
-        }];
-        
-        
-        UILabel *storeTitle = UILabel.new;
-        storeTitle.textAlignment = NSTextAlignmentLeft;
-        storeTitle.textColor = RGB(51, 51, 51);
-        storeTitle.font = [UIFont systemFontOfSize:14.0f];
-        storeTitle.text = @"猫空咖啡(时代广场店)";
-        [bottomView addSubview:storeTitle];
-        [storeTitle makeConstraints:^(MASConstraintMaker *make) {
-            make.top.equalTo(bottomView.top).offset(padding+2);
-            make.left.equalTo(storeImageView.right).offset(15);
-        }];
-        
-        
-        UIImageView *RMBicon = UIImageView.new;
-        UIImage *rmb = [UIImage imageNamed:@"store"];
-        [RMBicon setImage:rmb];
-        [bottomView addSubview:RMBicon];
-        [RMBicon makeConstraints:^(MASConstraintMaker *make) {
-            make.top.equalTo(bottomView.top).offset(padding+2);
-            make.left.equalTo(storeTitle.right).offset(4);
-        }];
-        
-        UIImageView *vipicon = UIImageView.new;
-        UIImage *vip = [UIImage imageNamed:@"vip"];
-        [vipicon setImage:vip];
-        [bottomView addSubview:vipicon];
-        [vipicon makeConstraints:^(MASConstraintMaker *make) {
-            make.top.equalTo(bottomView.top).offset(padding);
-            make.left.equalTo(RMBicon.right).offset(4);
-        }];
-        
-        UILabel *zhuying = UILabel.new;
-        zhuying.textAlignment = NSTextAlignmentLeft;
-        zhuying.textColor = RGB(204, 204, 204);
-        zhuying.font = [UIFont systemFontOfSize:12.0f];
-        zhuying.text = @"主营: 咖啡、茗茶、港式简餐、特色小食一应俱全";
-        [bottomView addSubview:zhuying];
-        [zhuying makeConstraints:^(MASConstraintMaker *make) {
-            make.top.equalTo(storeTitle.bottom).offset(padding);
-            make.left.equalTo(storeImageView.right).offset(15);
-        }];
-        
-        UIView *ratingView = UIView.new;
-        [bottomView addSubview:ratingView];
-        [ratingView makeConstraints:^(MASConstraintMaker *make) {
-            make.top.equalTo(zhuying.bottom).offset(10);
-            make.left.equalTo(storeImageView.right).offset(15);
-            make.width.mas_equalTo(82);
-            make.height.mas_equalTo(14);
-        }];
-        for (int i=0; i<5; i++) {
-            UIImageView *star = UIImageView.new;
-            if(i<4){
-                [star setImage:[UIImage imageNamed:@"star"]];
-                [ratingView addSubview:star];
-            }else{
-                [star setImage:[UIImage imageNamed:@"star_gray"]];
-                [ratingView addSubview:star];
-            }
-            [star makeConstraints:^(MASConstraintMaker *make) {
-                make.top.equalTo(ratingView.top).offset(0);
-                make.left.mas_equalTo(i*14+3*i);
-            }];
-        }
-        
-        UILabel *score = UILabel.new;
-        score.textAlignment = NSTextAlignmentLeft;
-        score.textColor = RGB(250, 155, 59);
-        score.font = [UIFont systemFontOfSize:12.0f];
-        score.text = @"4.0分";
-        [bottomView addSubview:score];
-        [score makeConstraints:^(MASConstraintMaker *make) {
-            make.top.equalTo(zhuying.bottom).offset(15);
-            make.left.equalTo(ratingView.right).offset(5);
-        }];
-        
-        UILabel *info1 = UILabel.new;
-        info1.textAlignment = NSTextAlignmentLeft;
-        info1.textColor = RGB(204, 204, 204);
-        info1.font = [UIFont systemFontOfSize:13.0f];
-        info1.text = @"会员: ";
-        [bottomView addSubview:info1];
-        [info1 makeConstraints:^(MASConstraintMaker *make) {
-            make.top.equalTo(ratingView.bottom).offset(10);
-            make.left.equalTo(storeImageView.right).offset(15);
-        }];
-        
-        UILabel *info2 = UILabel.new;
-        info2.textAlignment = NSTextAlignmentLeft;
-        info2.textColor = RGB(245, 114, 110);
-        info2.font = [UIFont systemFontOfSize:13.0f];
-        info2.text = @"5";
-        [bottomView addSubview:info2];
-        [info2 makeConstraints:^(MASConstraintMaker *make) {
-            make.top.equalTo(ratingView.bottom).offset(10);
-            make.left.equalTo(info1.right).offset(0);
-        }];
-        
-        UILabel *info3 = UILabel.new;
-        info3.textAlignment = NSTextAlignmentLeft;
-        info3.textColor = RGB(204, 204, 204);
-        info3.font = [UIFont systemFontOfSize:13.0f];
-        info3.text = @"折";
-        [bottomView addSubview:info3];
-        [info3 makeConstraints:^(MASConstraintMaker *make) {
-            make.top.equalTo(ratingView.bottom).offset(10);
-            make.left.equalTo(info2.right).offset(0);
-        }];
-        
-        UILabel *total = UILabel.new;
-        total.textAlignment = NSTextAlignmentLeft;
-        total.textColor = RGB(204, 204, 204);
-        total.font = [UIFont systemFontOfSize:13.0f];
-        total.text = @"共有545会员";
-        [bottomView addSubview:total];
-        [total makeConstraints:^(MASConstraintMaker *make) {
-            make.top.equalTo(ratingView.bottom).offset(10);
-            make.right.equalTo(bottomView.right).offset(-padding);
-        }];
-        
-        UIView *lineView2 = UIView.new;
-        lineView2.backgroundColor = RGB(204, 204, 204);
-        [bottomView addSubview:lineView2];
-        [lineView2 makeConstraints:^(MASConstraintMaker *make) {
-            make.top.equalTo(bottomView.bottom).offset(-0.5);
-            make.left.equalTo(bottomView.left).offset(0);
-            make.right.equalTo(bottomView.right).offset(0);
-            make.height.mas_equalTo(0.5f);
-        }];
-        
     }
     return self;
 }
@@ -210,6 +43,180 @@ static const CGFloat innerMargin = 7.0f;
 
 - (void)setStore:(HYBFirstStore *)store
 {
+    _store = store;
+    int padding = 8;
+    
+    UIView *firstView = UIView.new;
+    firstView.backgroundColor = [UIColor whiteColor];
+    firstView.layer.masksToBounds = YES;
+    [self.contentView addSubview:firstView];
+    
+    UITapGestureRecognizer *singleTap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(clickAction)];
+    [firstView addGestureRecognizer:singleTap];
+    
+    UIView *superview = self.contentView;
+    
+    [firstView makeConstraints:^(MASConstraintMaker *make) {
+        make.top.equalTo(superview.top).offset(0);
+        make.left.equalTo(superview.left).offset(0);
+        make.right.equalTo(superview.right).offset(0);
+        make.bottom.equalTo(superview.bottom);
+    }];
+    
+    UIView *bottomView = UIView.new;
+    [firstView addSubview:bottomView];
+    [bottomView makeConstraints:^(MASConstraintMaker *make) {
+        make.top.equalTo(firstView.top).offset(0);
+        make.left.equalTo(firstView.left).offset(0);
+        make.right.equalTo(firstView.right).offset(0);
+        make.bottom.equalTo(firstView.bottom).offset(0);
+    }];
+    
+    UIImageView *storeImageView = UIImageView.new;
+    UIImage *storeImg = [UIImage imageNamed:@"store_default"];
+    storeImageView.image = storeImg;
+    if(_store.imgurl && ![_store.imgurl isEqualToString:@""]){
+        [[CXImageLoader sharedImageLoader] loadImageForURL:[NSURL URLWithString:[IMG_PREFIX stringByAppendingString:_store.imgurl]] image:^(UIImage *image, NSError *error) {
+            storeImageView.image = image;
+        }];
+    }
+    [bottomView addSubview:storeImageView];
+    [storeImageView makeConstraints:^(MASConstraintMaker *make) {
+        make.top.equalTo(bottomView.top).offset(padding);
+        make.left.equalTo(bottomView.left).offset(padding);
+        make.width.mas_equalTo(90);
+        make.height.mas_equalTo(90);
+    }];
+    
+    
+    UILabel *storeTitle = UILabel.new;
+    storeTitle.textAlignment = NSTextAlignmentLeft;
+    storeTitle.textColor = RGB(51, 51, 51);
+    storeTitle.font = [UIFont systemFontOfSize:14.0f];
+    storeTitle.text = _store.shopsname;//@"猫空咖啡(时代广场店)";
+    [bottomView addSubview:storeTitle];
+    [storeTitle makeConstraints:^(MASConstraintMaker *make) {
+        make.top.equalTo(bottomView.top).offset(padding+2);
+        make.left.equalTo(storeImageView.right).offset(15);
+    }];
+    
+    
+    UIImageView *RMBicon = UIImageView.new;
+    UIImage *rmb = [UIImage imageNamed:@"store"];
+    [RMBicon setImage:rmb];
+    [bottomView addSubview:RMBicon];
+    [RMBicon makeConstraints:^(MASConstraintMaker *make) {
+        make.top.equalTo(bottomView.top).offset(padding+2);
+        make.left.equalTo(storeTitle.right).offset(4);
+    }];
+    
+    UIImageView *vipicon = UIImageView.new;
+    UIImage *vip = [UIImage imageNamed:@"vip"];
+    [vipicon setImage:vip];
+    [bottomView addSubview:vipicon];
+    [vipicon makeConstraints:^(MASConstraintMaker *make) {
+        make.top.equalTo(bottomView.top).offset(padding);
+        make.left.equalTo(RMBicon.right).offset(4);
+    }];
+    
+    UILabel *zhuying = UILabel.new;
+    zhuying.textAlignment = NSTextAlignmentLeft;
+    zhuying.textColor = RGB(204, 204, 204);
+    zhuying.font = [UIFont systemFontOfSize:12.0f];
+    zhuying.text = _store.about;//@"主营: 咖啡、茗茶、港式简餐、特色小食一应俱全";
+    [bottomView addSubview:zhuying];
+    [zhuying makeConstraints:^(MASConstraintMaker *make) {
+        make.top.equalTo(storeTitle.bottom).offset(padding);
+        make.left.equalTo(storeImageView.right).offset(15);
+    }];
+    
+    UIView *ratingView = UIView.new;
+    [bottomView addSubview:ratingView];
+    [ratingView makeConstraints:^(MASConstraintMaker *make) {
+        make.top.equalTo(zhuying.bottom).offset(10);
+        make.left.equalTo(storeImageView.right).offset(15);
+        make.width.mas_equalTo(82);
+        make.height.mas_equalTo(14);
+    }];
+    for (int i=0; i<5; i++) {
+        UIImageView *star = UIImageView.new;
+        if(i<4){
+            [star setImage:[UIImage imageNamed:@"star"]];
+            [ratingView addSubview:star];
+        }else{
+            [star setImage:[UIImage imageNamed:@"star_gray"]];
+            [ratingView addSubview:star];
+        }
+        [star makeConstraints:^(MASConstraintMaker *make) {
+            make.top.equalTo(ratingView.top).offset(0);
+            make.left.mas_equalTo(i*14+3*i);
+        }];
+    }
+    
+    UILabel *score = UILabel.new;
+    score.textAlignment = NSTextAlignmentLeft;
+    score.textColor = RGB(250, 155, 59);
+    score.font = [UIFont systemFontOfSize:12.0f];
+    score.text = @"4.0分";
+    [bottomView addSubview:score];
+    [score makeConstraints:^(MASConstraintMaker *make) {
+        make.top.equalTo(zhuying.bottom).offset(15);
+        make.left.equalTo(ratingView.right).offset(5);
+    }];
+    
+    UILabel *info1 = UILabel.new;
+    info1.textAlignment = NSTextAlignmentLeft;
+    info1.textColor = RGB(204, 204, 204);
+    info1.font = [UIFont systemFontOfSize:13.0f];
+    info1.text = @"会员: ";
+    [bottomView addSubview:info1];
+    [info1 makeConstraints:^(MASConstraintMaker *make) {
+        make.top.equalTo(ratingView.bottom).offset(10);
+        make.left.equalTo(storeImageView.right).offset(15);
+    }];
+    
+    UILabel *info2 = UILabel.new;
+    info2.textAlignment = NSTextAlignmentLeft;
+    info2.textColor = RGB(245, 114, 110);
+    info2.font = [UIFont systemFontOfSize:13.0f];
+    info2.text = _store.vipdiscount;//@"5";
+    [bottomView addSubview:info2];
+    [info2 makeConstraints:^(MASConstraintMaker *make) {
+        make.top.equalTo(ratingView.bottom).offset(10);
+        make.left.equalTo(info1.right).offset(0);
+    }];
+    
+    UILabel *info3 = UILabel.new;
+    info3.textAlignment = NSTextAlignmentLeft;
+    info3.textColor = RGB(204, 204, 204);
+    info3.font = [UIFont systemFontOfSize:13.0f];
+    info3.text = @"折";
+    [bottomView addSubview:info3];
+    [info3 makeConstraints:^(MASConstraintMaker *make) {
+        make.top.equalTo(ratingView.bottom).offset(10);
+        make.left.equalTo(info2.right).offset(0);
+    }];
+    
+    UILabel *total = UILabel.new;
+    total.textAlignment = NSTextAlignmentLeft;
+    total.textColor = RGB(204, 204, 204);
+    total.font = [UIFont systemFontOfSize:13.0f];
+    total.text = [[NSString alloc]initWithFormat:@"共有%@会员",_store.vipnumber];
+    [bottomView addSubview:total];
+    [total makeConstraints:^(MASConstraintMaker *make) {
+        make.top.equalTo(ratingView.bottom).offset(10);
+        make.right.equalTo(bottomView.right).offset(-padding);
+    }];
+    
+    UIView *lineView2 = UIView.new;
+    lineView2.backgroundColor = RGB(204, 204, 204);
+    [bottomView addSubview:lineView2];
+    [lineView2 makeConstraints:^(MASConstraintMaker *make) {
+        make.top.equalTo(bottomView.bottom).offset(-0.5);
+        make.left.equalTo(bottomView.left).offset(0);
+        make.right.equalTo(bottomView.right).offset(0);
+        make.height.mas_equalTo(0.5f);
+    }];
     [self setNeedsLayout];
 }
 
