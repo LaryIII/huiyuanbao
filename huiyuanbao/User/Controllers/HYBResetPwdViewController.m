@@ -1,36 +1,32 @@
 //
-//  HYBLoginViewController.m
+//  HYBResetPwdViewController.m
 //  huiyuanbao
 //
-//  Created by zhouhai on 16/3/5.
+//  Created by zhouhai on 16/3/11.
 //  Copyright © 2016年 huiyuanbao. All rights reserved.
 //
 
-#import "HYBLoginViewController.h"
+#import "HYBResetPwdViewController.h"
 #import "masonry.h"
-#import "HYBLogin.h"
+#import "HYBResetLogin.h"
 #import "HYBHomeViewController.h"
-#import "HYBFindbackViewController.h"
 
-@interface HYBLoginViewController ()
-@property (nonatomic, strong) HYBLogin *login;
-
+@interface HYBResetPwdViewController ()
+@property (nonatomic, strong) HYBResetLogin *resetlogin;
 @property (nonatomic, strong) UITextField *phonefield;
 @property (nonatomic, strong) UITextField *psdfield;
 
 @property (nonatomic, strong) UIButton *okBtn;
-@property (nonatomic, strong) UIButton *checkBtn;
 @end
 
-@implementation HYBLoginViewController
+@implementation HYBResetPwdViewController
 - (void) dealloc{
-    [_login removeObserver:self forKeyPath:kResourceLoadingStatusKeyPath];
+    [_resetlogin removeObserver:self forKeyPath:kResourceLoadingStatusKeyPath];
 }
-
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.view.backgroundColor = RGB(224, 75, 68);
-    self.navigationBar.title = @"登录";
+    self.navigationBar.title = @"重置密码";
     self.navigationBar.backgroundColor = RGB(224, 75, 68);
     CGFloat width = CGRectGetWidth(self.view.bounds);
     CGFloat inputHeight = 44.0f;
@@ -41,17 +37,17 @@
     bigTitle.textAlignment = NSTextAlignmentCenter;
     bigTitle.textColor = RGB(255, 255, 255);
     bigTitle.font = [UIFont systemFontOfSize:30.0f];
-    bigTitle.text = @"用户登录";
+    bigTitle.text = @"重置密码";
     [self.view addSubview:bigTitle];
     [bigTitle makeConstraints:^(MASConstraintMaker *make) {
         make.top.equalTo(superview.top).offset(100.0f);
         make.left.equalTo(superview.left).offset(15);
         make.right.equalTo(superview.right).offset(-15);
     }];
-
+    
     
     UIImageView *phoneicon = UIImageView.new;
-    phoneicon.image = [UIImage imageNamed:@"u_phone"];
+    phoneicon.image = [UIImage imageNamed:@"u_psw"];
     [self.view addSubview:phoneicon];
     [phoneicon makeConstraints:^(MASConstraintMaker *make) {
         make.top.equalTo(bigTitle.bottom).offset((inputHeight-25.0f)/2+30.0f);
@@ -67,8 +63,9 @@
     _phonefield.leftView=leftview1;//设置输入框内左边的图标
     [_phonefield setClearButtonMode:UITextFieldViewModeWhileEditing];//右侧删除按钮
     _phonefield.leftViewMode=UITextFieldViewModeAlways;
-    _phonefield.placeholder=@"手机号码";//默认显示的字
-    _phonefield.keyboardType=UIKeyboardTypePhonePad;//设置键盘类型为默认的
+    _phonefield.placeholder=@"输入密码";//默认显示的字
+    _phonefield.secureTextEntry=YES;//设置成密码格式
+    _phonefield.keyboardType=UIKeyboardTypeDefault;//设置键盘类型为默认的
     _phonefield.returnKeyType=UIReturnKeyNext;//返回键的类型
     _phonefield.font = [UIFont systemFontOfSize:13.0f];
     _phonefield.textColor = RGB(67, 67, 67);
@@ -109,7 +106,7 @@
     _psdfield.leftView=leftview2;//设置输入框内左边的图标
     [_psdfield setClearButtonMode:UITextFieldViewModeWhileEditing];//右侧删除按钮
     _psdfield.leftViewMode=UITextFieldViewModeAlways;
-    _psdfield.placeholder=@"密码";//默认显示的字
+    _psdfield.placeholder=@"再次确认密码";//默认显示的字
     _psdfield.secureTextEntry=YES;//设置成密码格式
     _psdfield.keyboardType=UIKeyboardTypeDefault;//设置键盘类型为默认的
     _psdfield.returnKeyType=UIReturnKeyDone;//返回键的类型
@@ -141,7 +138,7 @@
     [_okBtn setTitleColor:RGB(255, 255, 255) forState:UIControlStateNormal];
     [_okBtn setTitle:@"登录" forState:UIControlStateNormal];
     _okBtn.titleLabel.font = [UIFont systemFontOfSize:18.0f];
-    [_okBtn addTarget:self action:@selector(logins) forControlEvents:UIControlEventTouchUpInside];
+    [_okBtn addTarget:self action:@selector(resetlogins) forControlEvents:UIControlEventTouchUpInside];
     [self.view addSubview:_okBtn];
     [_okBtn makeConstraints:^(MASConstraintMaker *make) {
         make.top.equalTo(lineview2.bottom).offset(28);
@@ -150,47 +147,12 @@
         make.height.mas_equalTo(44);
     }];
     
-    _checkBtn = UIButton.new;
-    [_checkBtn setTitleColor:RGB(243, 183, 179) forState:UIControlStateNormal];
-    [_checkBtn setTitle:@"记住用户名" forState:UIControlStateNormal];
-    [_checkBtn setImage:[UIImage imageNamed:@"u_checkbox_normal"] forState:UIControlStateNormal];
-    [_checkBtn setImage:[UIImage imageNamed:@"u_checkbox_selected"] forState:UIControlStateSelected];
-    [_checkBtn setImageEdgeInsets:UIEdgeInsetsMake(0, 0, 0, 10)];
-    _checkBtn.titleLabel.font = [UIFont systemFontOfSize:14.0f];
-    [_checkBtn addTarget:self action:@selector(remember) forControlEvents:UIControlEventTouchUpInside];
-    [self.view addSubview:_checkBtn];
-    [_checkBtn makeConstraints:^(MASConstraintMaker *make) {
-        make.top.equalTo(_okBtn.bottom).offset(20);
-        make.left.equalTo(superview.left).offset(15);
-        make.width.mas_equalTo(100.0f);
-    }];
+    self.resetlogin = [[HYBResetLogin alloc] initWithBaseURL:HYB_API_BASE_URL path:RESET_LOGIN cachePolicyType:kCachePolicyTypeNone];
     
-    
-    UIButton *forget = UIButton.new;
-    [forget setTitleColor:RGB(243, 183, 179) forState:UIControlStateNormal];
-    [forget setTitle:@"忘记密码" forState:UIControlStateNormal];
-    forget.titleLabel.font = [UIFont systemFontOfSize:14.0f];
-    [forget addTarget:self action:@selector(forget) forControlEvents:UIControlEventTouchUpInside];
-    [self.view addSubview:forget];
-    
-//    [_checkicon makeConstraints:^(MASConstraintMaker *make) {
-//        make.top.equalTo(cancelBtn.bottom).offset(23);
-//        make.left.equalTo(container.left);
-//        make.size.mas_equalTo(CGSizeMake(16, 16));
-//    }];
-    [forget makeConstraints:^(MASConstraintMaker *make) {
-        make.top.equalTo(_okBtn.bottom).offset(18);
-        make.right.equalTo(superview.right).offset(-15);
-    }];
-    
-    
-    self.login = [[HYBLogin alloc] initWithBaseURL:HYB_API_BASE_URL path:LOGIN cachePolicyType:kCachePolicyTypeNone];
-    
-    [self.login addObserver:self
-                    forKeyPath:kResourceLoadingStatusKeyPath
-                       options:NSKeyValueObservingOptionNew
-                       context:nil];
-    
+    [self.resetlogin addObserver:self
+                       forKeyPath:kResourceLoadingStatusKeyPath
+                          options:NSKeyValueObservingOptionNew
+                          context:nil];
 }
 
 #pragma mark Key-value observing
@@ -200,14 +162,14 @@
                        context:(void *)context
 {
     if ([keyPath isEqualToString:kResourceLoadingStatusKeyPath]) {
-        if (object == _login) {
-            if (_login.isLoaded) {
+        if (object == _resetlogin) {
+            if (_resetlogin.isLoaded) {
                 [self hideLoadingView];
                 HYBHomeViewController *pushController = [[HYBHomeViewController alloc] init];
                 [self.navigationController pushViewController:pushController animated:YES];
             }
-            else if (_login.error) {
-                [self showErrorMessage:[_login.error localizedFailureReason]];
+            else if (_resetlogin.error) {
+                [self showErrorMessage:[_resetlogin.error localizedFailureReason]];
             }
         }
     }
@@ -218,39 +180,11 @@
     // Dispose of any resources that can be recreated.
 }
 
-- (void)hideKeyBoard{
-    [self.view endEditing:YES];
-}
-
-- (BOOL)textFieldShouldReturn:(UITextField *)textField{
-    if(textField.tag == 10001){
-        [_psdfield becomeFirstResponder];
-    }else{
-        [textField resignFirstResponder];
-    }
-    
-    return YES;
-}
-
--(void)logins{
+-(void)resetlogins{
     NSTimeInterval nowTimestamp = [[NSDate date] timeIntervalSince1970] * 1000.0;
     long time = (long)ceilf(nowTimestamp);
     NSString *timex = [NSString stringWithFormat:@"%li",time];
-    [self.login loadDataWithRequestMethodType:kHttpRequestMethodTypeGet parameters:@{@"phoneno":_phonefield.text,@"userId":@"",@"loginpassword":[timex stringByAppendingString: _psdfield.text]}];
-}
-
--(void)remember{
-    // TODO: 记住用户名
-    if(_checkBtn.selected){
-        _checkBtn.selected = NO;
-    }else{
-        _checkBtn.selected = YES;
-    }
-}
-
--(void)forget{
-    HYBFindbackViewController *pushController = [[HYBFindbackViewController alloc] init];
-    [self.navigationController pushViewController:pushController animated:YES];
+    [self.resetlogin loadDataWithRequestMethodType:kHttpRequestMethodTypeGet parameters:@{@"phoneno":@"13236567035",@"loginpassword":[timex stringByAppendingString: _psdfield.text],@"userId":@"ea47794a91d0401089539020b170db24"}];
 }
 
 @end

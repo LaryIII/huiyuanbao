@@ -276,6 +276,18 @@
 		B9DD34621C8DDA6C0008290A /* HYBSetPassword.m in Sources */ = {isa = PBXBuildFile; fileRef = B9DD34611C8DDA6C0008290A /* HYBSetPassword.m */; };
 		B9DD34651C900B910008290A /* HYBStoreHeaderReusableView.m in Sources */ = {isa = PBXBuildFile; fileRef = B9DD34641C900B910008290A /* HYBStoreHeaderReusableView.m */; };
 		B9DD34681C900DDE0008290A /* HYBFirstStoreHeaderReusableView.m in Sources */ = {isa = PBXBuildFile; fileRef = B9DD34671C900DDE0008290A /* HYBFirstStoreHeaderReusableView.m */; };
+		B9E13C8F1C92F1C1007B3D3C /* HYBFindbackViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B9E13C8E1C92F1C1007B3D3C /* HYBFindbackViewController.m */; };
+		B9E13C921C92F1D9007B3D3C /* HYBResetPwdViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B9E13C911C92F1D9007B3D3C /* HYBResetPwdViewController.m */; };
+		B9E13C981C930111007B3D3C /* HYBResetLogin.m in Sources */ = {isa = PBXBuildFile; fileRef = B9E13C971C930111007B3D3C /* HYBResetLogin.m */; };
+		B9E13C9B1C930210007B3D3C /* HYBFindbackOne.m in Sources */ = {isa = PBXBuildFile; fileRef = B9E13C9A1C930210007B3D3C /* HYBFindbackOne.m */; };
+		B9E13C9E1C93065A007B3D3C /* HYBSearchStoreViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B9E13C9D1C93065A007B3D3C /* HYBSearchStoreViewController.m */; };
+		B9E13CA11C930BD6007B3D3C /* HYBPhoneContactsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B9E13CA01C930BD6007B3D3C /* HYBPhoneContactsViewController.m */; };
+		B9E13CA41C930C9F007B3D3C /* HYBPhoneContactsCell.m in Sources */ = {isa = PBXBuildFile; fileRef = B9E13CA31C930C9F007B3D3C /* HYBPhoneContactsCell.m */; };
+		B9E13CA71C930E43007B3D3C /* HYBPhoneContact.m in Sources */ = {isa = PBXBuildFile; fileRef = B9E13CA61C930E43007B3D3C /* HYBPhoneContact.m */; };
+		B9E13CAA1C930EE0007B3D3C /* HYBContactLetterCell.m in Sources */ = {isa = PBXBuildFile; fileRef = B9E13CA91C930EE0007B3D3C /* HYBContactLetterCell.m */; };
+		B9E13CBD1C9310A6007B3D3C /* HYBContactsModel.m in Sources */ = {isa = PBXBuildFile; fileRef = B9E13CB91C9310A6007B3D3C /* HYBContactsModel.m */; };
+		B9E13CBE1C9310A6007B3D3C /* HYBContacts.m in Sources */ = {isa = PBXBuildFile; fileRef = B9E13CBB1C9310A6007B3D3C /* HYBContacts.m */; };
+		B9E13CC11C931397007B3D3C /* HYBPhoneContactList.m in Sources */ = {isa = PBXBuildFile; fileRef = B9E13CC01C931397007B3D3C /* HYBPhoneContactList.m */; };
 		B9E9323C1C7DD5960068E620 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = B9E9323B1C7DD5960068E620 /* main.m */; };
 		B9E9323F1C7DD5960068E620 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = B9E9323E1C7DD5960068E620 /* AppDelegate.m */; };
 		B9E9324A1C7DD5960068E620 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B9E932491C7DD5960068E620 /* Assets.xcassets */; };
@@ -765,6 +777,30 @@
 		B9DD34641C900B910008290A /* HYBStoreHeaderReusableView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = HYBStoreHeaderReusableView.m; path = Home/Views/HYBStoreHeaderReusableView.m; sourceTree = "<group>"; };
 		B9DD34661C900DDE0008290A /* HYBFirstStoreHeaderReusableView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = HYBFirstStoreHeaderReusableView.h; path = Home/Views/HYBFirstStoreHeaderReusableView.h; sourceTree = "<group>"; };
 		B9DD34671C900DDE0008290A /* HYBFirstStoreHeaderReusableView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = HYBFirstStoreHeaderReusableView.m; path = Home/Views/HYBFirstStoreHeaderReusableView.m; sourceTree = "<group>"; };
+		B9E13C8D1C92F1C1007B3D3C /* HYBFindbackViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = HYBFindbackViewController.h; path = User/Controllers/HYBFindbackViewController.h; sourceTree = "<group>"; };
+		B9E13C8E1C92F1C1007B3D3C /* HYBFindbackViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = HYBFindbackViewController.m; path = User/Controllers/HYBFindbackViewController.m; sourceTree = "<group>"; };
+		B9E13C901C92F1D9007B3D3C /* HYBResetPwdViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = HYBResetPwdViewController.h; path = User/Controllers/HYBResetPwdViewController.h; sourceTree = "<group>"; };
+		B9E13C911C92F1D9007B3D3C /* HYBResetPwdViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = HYBResetPwdViewController.m; path = User/Controllers/HYBResetPwdViewController.m; sourceTree = "<group>"; };
+		B9E13C961C930111007B3D3C /* HYBResetLogin.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = HYBResetLogin.h; path = User/Models/HYBResetLogin.h; sourceTree = "<group>"; };
+		B9E13C971C930111007B3D3C /* HYBResetLogin.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = HYBResetLogin.m; path = User/Models/HYBResetLogin.m; sourceTree = "<group>"; };
+		B9E13C991C930210007B3D3C /* HYBFindbackOne.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = HYBFindbackOne.h; path = User/Models/HYBFindbackOne.h; sourceTree = "<group>"; };
+		B9E13C9A1C930210007B3D3C /* HYBFindbackOne.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = HYBFindbackOne.m; path = User/Models/HYBFindbackOne.m; sourceTree = "<group>"; };
+		B9E13C9C1C93065A007B3D3C /* HYBSearchStoreViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = HYBSearchStoreViewController.h; path = Clazz/Controllers/HYBSearchStoreViewController.h; sourceTree = "<group>"; };
+		B9E13C9D1C93065A007B3D3C /* HYBSearchStoreViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = HYBSearchStoreViewController.m; path = Clazz/Controllers/HYBSearchStoreViewController.m; sourceTree = "<group>"; };
+		B9E13C9F1C930BD6007B3D3C /* HYBPhoneContactsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = HYBPhoneContactsViewController.h; path = Life/Controllers/HYBPhoneContactsViewController.h; sourceTree = "<group>"; };
+		B9E13CA01C930BD6007B3D3C /* HYBPhoneContactsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = HYBPhoneContactsViewController.m; path = Life/Controllers/HYBPhoneContactsViewController.m; sourceTree = "<group>"; };
+		B9E13CA21C930C9F007B3D3C /* HYBPhoneContactsCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = HYBPhoneContactsCell.h; path = Life/Views/HYBPhoneContactsCell.h; sourceTree = "<group>"; };
+		B9E13CA31C930C9F007B3D3C /* HYBPhoneContactsCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = HYBPhoneContactsCell.m; path = Life/Views/HYBPhoneContactsCell.m; sourceTree = "<group>"; };
+		B9E13CA51C930E43007B3D3C /* HYBPhoneContact.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = HYBPhoneContact.h; path = Life/Models/HYBPhoneContact.h; sourceTree = "<group>"; };
+		B9E13CA61C930E43007B3D3C /* HYBPhoneContact.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = HYBPhoneContact.m; path = Life/Models/HYBPhoneContact.m; sourceTree = "<group>"; };
+		B9E13CA81C930EE0007B3D3C /* HYBContactLetterCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = HYBContactLetterCell.h; path = Life/Views/HYBContactLetterCell.h; sourceTree = "<group>"; };
+		B9E13CA91C930EE0007B3D3C /* HYBContactLetterCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = HYBContactLetterCell.m; path = Life/Views/HYBContactLetterCell.m; sourceTree = "<group>"; };
+		B9E13CB91C9310A6007B3D3C /* HYBContactsModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HYBContactsModel.m; sourceTree = "<group>"; };
+		B9E13CBA1C9310A6007B3D3C /* HYBContactsModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HYBContactsModel.h; sourceTree = "<group>"; };
+		B9E13CBB1C9310A6007B3D3C /* HYBContacts.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HYBContacts.m; sourceTree = "<group>"; };
+		B9E13CBC1C9310A6007B3D3C /* HYBContacts.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HYBContacts.h; sourceTree = "<group>"; };
+		B9E13CBF1C931397007B3D3C /* HYBPhoneContactList.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = HYBPhoneContactList.h; path = Life/Models/HYBPhoneContactList.h; sourceTree = "<group>"; };
+		B9E13CC01C931397007B3D3C /* HYBPhoneContactList.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = HYBPhoneContactList.m; path = Life/Models/HYBPhoneContactList.m; sourceTree = "<group>"; };
 		B9E932371C7DD5960068E620 /* huiyuanbao.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = huiyuanbao.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B9E9323B1C7DD5960068E620 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		B9E9323D1C7DD5960068E620 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -1247,6 +1283,10 @@
 				B9DD34381C8B2B9D0008290A /* HYBChangeNumViewController.m */,
 				B9DD343A1C8B2BBD0008290A /* HYBSetPwdViewController.h */,
 				B9DD343B1C8B2BBD0008290A /* HYBSetPwdViewController.m */,
+				B9E13C8D1C92F1C1007B3D3C /* HYBFindbackViewController.h */,
+				B9E13C8E1C92F1C1007B3D3C /* HYBFindbackViewController.m */,
+				B9E13C901C92F1D9007B3D3C /* HYBResetPwdViewController.h */,
+				B9E13C911C92F1D9007B3D3C /* HYBResetPwdViewController.m */,
 			);
 			name = Controllers;
 			sourceTree = "<group>";
@@ -1287,6 +1327,10 @@
 				B9DD345B1C8DD7270008290A /* HYBChangePhone.m */,
 				B9DD345D1C8DD9490008290A /* HYBChangeNum.h */,
 				B9DD345E1C8DD9490008290A /* HYBChangeNum.m */,
+				B9E13C961C930111007B3D3C /* HYBResetLogin.h */,
+				B9E13C971C930111007B3D3C /* HYBResetLogin.m */,
+				B9E13C991C930210007B3D3C /* HYBFindbackOne.h */,
+				B9E13C9A1C930210007B3D3C /* HYBFindbackOne.m */,
 			);
 			name = Models;
 			sourceTree = "<group>";
@@ -1296,6 +1340,17 @@
 			children = (
 			);
 			name = Views;
+			sourceTree = "<group>";
+		};
+		B9E13CB21C93106A007B3D3C /* Contacts */ = {
+			isa = PBXGroup;
+			children = (
+				B9E13CB91C9310A6007B3D3C /* HYBContactsModel.m */,
+				B9E13CBA1C9310A6007B3D3C /* HYBContactsModel.h */,
+				B9E13CBB1C9310A6007B3D3C /* HYBContacts.m */,
+				B9E13CBC1C9310A6007B3D3C /* HYBContacts.h */,
+			);
+			path = Contacts;
 			sourceTree = "<group>";
 		};
 		B9E9322E1C7DD5960068E620 = {
@@ -1648,6 +1703,7 @@
 		B9E9350F1C7DE2B40068E620 /* Utilities */ = {
 			isa = PBXGroup;
 			children = (
+				B9E13CB21C93106A007B3D3C /* Contacts */,
 				B9E935101C7DE2B40068E620 /* Cache */,
 				B9E935151C7DE2B40068E620 /* Extensions */,
 				B9E9351E1C7DE2B40068E620 /* ImageLoader */,
@@ -1972,6 +2028,8 @@
 			children = (
 				B9E935C31C7DFE360068E620 /* HYBClazzViewController.h */,
 				B9E935C41C7DFE360068E620 /* HYBClazzViewController.m */,
+				B9E13C9C1C93065A007B3D3C /* HYBSearchStoreViewController.h */,
+				B9E13C9D1C93065A007B3D3C /* HYBSearchStoreViewController.m */,
 			);
 			name = Controllers;
 			sourceTree = "<group>";
@@ -2025,6 +2083,8 @@
 				B988F4D71C874B68006BBD8B /* HYBShiyouChargeViewController.m */,
 				B9213E7C1C88347B00B8373A /* HYBLifeViewController.h */,
 				B9213E7D1C88347B00B8373A /* HYBLifeViewController.m */,
+				B9E13C9F1C930BD6007B3D3C /* HYBPhoneContactsViewController.h */,
+				B9E13CA01C930BD6007B3D3C /* HYBPhoneContactsViewController.m */,
 			);
 			name = Controllers;
 			sourceTree = "<group>";
@@ -2032,6 +2092,10 @@
 		B9E935C81C7DFE680068E620 /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				B9E13CA51C930E43007B3D3C /* HYBPhoneContact.h */,
+				B9E13CA61C930E43007B3D3C /* HYBPhoneContact.m */,
+				B9E13CBF1C931397007B3D3C /* HYBPhoneContactList.h */,
+				B9E13CC01C931397007B3D3C /* HYBPhoneContactList.m */,
 			);
 			name = Models;
 			sourceTree = "<group>";
@@ -2039,6 +2103,10 @@
 		B9E935C91C7DFE6F0068E620 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				B9E13CA21C930C9F007B3D3C /* HYBPhoneContactsCell.h */,
+				B9E13CA31C930C9F007B3D3C /* HYBPhoneContactsCell.m */,
+				B9E13CA81C930EE0007B3D3C /* HYBContactLetterCell.h */,
+				B9E13CA91C930EE0007B3D3C /* HYBContactLetterCell.m */,
 			);
 			name = Views;
 			sourceTree = "<group>";
@@ -2645,10 +2713,13 @@
 				B9E9356E1C7DE2B40068E620 /* AFSecurityPolicy.m in Sources */,
 				B9E935AF1C7DE2B40068E620 /* CXCycleScrollView.m in Sources */,
 				B9E935A81C7DE2B40068E620 /* TSWCommonTool.m in Sources */,
+				B9E13C921C92F1D9007B3D3C /* HYBResetPwdViewController.m in Sources */,
 				B9E935BE1C7DFDD90068E620 /* HYBHomeViewController.m in Sources */,
 				B9E935B21C7DE2B40068E620 /* ZButton.m in Sources */,
 				B9DD34651C900B910008290A /* HYBStoreHeaderReusableView.m in Sources */,
 				B9E9358B1C7DE2B40068E620 /* SVIndefiniteAnimatedView.m in Sources */,
+				B9E13CBD1C9310A6007B3D3C /* HYBContactsModel.m in Sources */,
+				B9E13C8F1C92F1C1007B3D3C /* HYBFindbackViewController.m in Sources */,
 				B9E9339E1C7DD8590068E620 /* HYBTabNavViewController.m in Sources */,
 				B9E935B61C7DE2B40068E620 /* ZHDatePicker.m in Sources */,
 				B9E9357B1C7DE2B40068E620 /* DDASLLogCapture.m in Sources */,
@@ -2657,6 +2728,7 @@
 				B9E935931C7DE2B40068E620 /* TPKeyboardAvoidingTableView.m in Sources */,
 				B9E935C51C7DFE360068E620 /* HYBClazzViewController.m in Sources */,
 				B988F3EA1C8180EE006BBD8B /* HYBStore2Cell.m in Sources */,
+				B9E13CAA1C930EE0007B3D3C /* HYBContactLetterCell.m in Sources */,
 				B9DD34361C8B2B900008290A /* HYBChangePhoneViewController.m in Sources */,
 				B9A828CB1C8AFEB7007403D2 /* HYBStoreDetailViewController.m in Sources */,
 				B9E935921C7DE2B40068E620 /* TPKeyboardAvoidingScrollView.m in Sources */,
@@ -2667,8 +2739,10 @@
 				B9E9356D1C7DE2B40068E620 /* AFNetworkReachabilityManager.m in Sources */,
 				B9A8284E1C8AC86C007403D2 /* HYBQuanList.m in Sources */,
 				B988F4601C83375E006BBD8B /* HYBSetPasswordViewController.m in Sources */,
+				B9E13CA11C930BD6007B3D3C /* HYBPhoneContactsViewController.m in Sources */,
 				B9E935731C7DE2B40068E620 /* UIAlertView+AFNetworking.m in Sources */,
 				B9E9359A1C7DE2B40068E620 /* UIImage+CXExtensions.m in Sources */,
+				B9E13CA71C930E43007B3D3C /* HYBPhoneContact.m in Sources */,
 				B9E935A41C7DE2B40068E620 /* PinyinFormatter.m in Sources */,
 				B9A828451C8AADF7007403D2 /* HYBMsgList.m in Sources */,
 				B9E9358F1C7DE2B40068E620 /* UIScrollView+SVPullToRefresh.m in Sources */,
@@ -2702,6 +2776,7 @@
 				B9DD34591C8DD49F0008290A /* HYBLogin.m in Sources */,
 				B9DD345F1C8DD9490008290A /* HYBChangeNum.m in Sources */,
 				B9A828481C8AAE1E007403D2 /* HYBMsgCell.m in Sources */,
+				B9E13C9E1C93065A007B3D3C /* HYBSearchStoreViewController.m in Sources */,
 				B9E9356A1C7DE2B40068E620 /* AFURLConnectionOperation.m in Sources */,
 				B9DD343C1C8B2BBD0008290A /* HYBSetPwdViewController.m in Sources */,
 				B9E935711C7DE2B40068E620 /* AFNetworkActivityIndicatorManager.m in Sources */,
@@ -2715,6 +2790,7 @@
 				B9E935791C7DE2B40068E620 /* CLIColor.m in Sources */,
 				B9E935941C7DE2B40068E620 /* UIScrollView+TPKeyboardAvoidingAdditions.m in Sources */,
 				B9E935AD1C7DE2B40068E620 /* CXWebViewController.m in Sources */,
+				B9E13CA41C930C9F007B3D3C /* HYBPhoneContactsCell.m in Sources */,
 				B9E9356B1C7DE2B40068E620 /* AFHTTPSessionManager.m in Sources */,
 				B9E935971C7DE2B40068E620 /* NSString+CXExtensions.m in Sources */,
 				B9E9359D1C7DE2B40068E620 /* CXClients.m in Sources */,
@@ -2733,8 +2809,10 @@
 				B9E935831C7DE2B40068E620 /* EGOCache.m in Sources */,
 				B9A828541C8AD6FD007403D2 /* HYBChargeRecord.m in Sources */,
 				B9E9356F1C7DE2B40068E620 /* AFURLRequestSerialization.m in Sources */,
+				B9E13CBE1C9310A6007B3D3C /* HYBContacts.m in Sources */,
 				B9A828D41C8B0C58007403D2 /* HYBStoreProduct.m in Sources */,
 				B9E935B11C7DE2B40068E620 /* CXWebView.m in Sources */,
+				B9E13CC11C931397007B3D3C /* HYBPhoneContactList.m in Sources */,
 				B9E933A01C7DD8590068E620 /* HYBLaunchViewController.m in Sources */,
 				B9DD34531C8D9D5D0008290A /* HYBRegFirst.m in Sources */,
 				B9E935FD1C7E00C60068E620 /* RDVTabBarController.m in Sources */,
@@ -2753,6 +2831,7 @@
 				B9AC1F3D1C888DB0003D462F /* HYBXiaofeiRecordsViewController.m in Sources */,
 				B9A828E61C8B1AD9007403D2 /* HYBCityCell.m in Sources */,
 				B988F3ED1C8180FF006BBD8B /* HYBStore2.m in Sources */,
+				B9E13C981C930111007B3D3C /* HYBResetLogin.m in Sources */,
 				B988F4D81C874B68006BBD8B /* HYBShiyouChargeViewController.m in Sources */,
 				B9E935B31C7DE2B40068E620 /* ZHAreaPickerView.m in Sources */,
 				B9E9357D1C7DE2B40068E620 /* DDFileLogger.m in Sources */,
@@ -2766,6 +2845,7 @@
 				B9A828BC1C8AE2B1007403D2 /* HYBXiaofeiRecordCell.m in Sources */,
 				B9A828331C8AA2B6007403D2 /* HYBOrderRecord.m in Sources */,
 				B9E935B51C7DE2B40068E620 /* ZHLocation.m in Sources */,
+				B9E13C9B1C930210007B3D3C /* HYBFindbackOne.m in Sources */,
 				B9A828421C8AADE7007403D2 /* HYBMsg.m in Sources */,
 				B988F4CF1C834967006BBD8B /* HYBShihuaChargeViewController.m in Sources */,
 				B9E935A51C7DE2B40068E620 /* PinYinForObjc.m in Sources */,

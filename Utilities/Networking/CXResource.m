@@ -382,7 +382,10 @@ NSString * const CXResourceErrorDomain = @"cx.resource.request.error.response";
         [allParameters2 setObject:valuex.hex forKey:key];
     }
 
+    NSString *str = [[[ASIdentifierManager sharedManager] advertisingIdentifier] UUIDString];
     CocoaSecurityResult *cpuidx = [CocoaSecurity aesEncrypt:[[[ASIdentifierManager sharedManager] advertisingIdentifier] UUIDString] hexKey:HEXKEY hexIv:HEXIV];
+    
+//    CocoaSecurityResult *cpuidx = [CocoaSecurity aesEncrypt:@"00000000-113a-8e7d-21d0-61980885d8da" hexKey:HEXKEY hexIv:HEXIV];
     
     allParameters2[@"cpuid"] = cpuidx.hex;
 //    allParameters[@"token"] = [GVUserDefaults standardUserDefaults].token;

@@ -1,36 +1,35 @@
 //
-//  HYBLoginViewController.m
+//  HYBFindbackViewController.m
 //  huiyuanbao
 //
-//  Created by zhouhai on 16/3/5.
+//  Created by zhouhai on 16/3/11.
 //  Copyright © 2016年 huiyuanbao. All rights reserved.
 //
 
-#import "HYBLoginViewController.h"
-#import "masonry.h"
-#import "HYBLogin.h"
-#import "HYBHomeViewController.h"
 #import "HYBFindbackViewController.h"
+#import "masonry.h"
+#import "HYBResetPwdViewController.h"
+#import "HYBFindbackOne.h"
+#import "HYBSMSCode.h"
 
-@interface HYBLoginViewController ()
-@property (nonatomic, strong) HYBLogin *login;
-
+@interface HYBFindbackViewController ()
+@property (nonatomic, strong) HYBSMSCode *smscode;
+@property (nonatomic, strong) HYBFindbackOne *findbackone;
 @property (nonatomic, strong) UITextField *phonefield;
 @property (nonatomic, strong) UITextField *psdfield;
 
-@property (nonatomic, strong) UIButton *okBtn;
-@property (nonatomic, strong) UIButton *checkBtn;
+@property (nonatomic, strong) UIButton *regBtn;
 @end
 
-@implementation HYBLoginViewController
+@implementation HYBFindbackViewController
 - (void) dealloc{
-    [_login removeObserver:self forKeyPath:kResourceLoadingStatusKeyPath];
+    [_smscode removeObserver:self forKeyPath:kResourceLoadingStatusKeyPath];
+    [_findbackone removeObserver:self forKeyPath:kResourceLoadingStatusKeyPath];
 }
-
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.view.backgroundColor = RGB(224, 75, 68);
-    self.navigationBar.title = @"登录";
+    self.navigationBar.title = @"找回密码";
     self.navigationBar.backgroundColor = RGB(224, 75, 68);
     CGFloat width = CGRectGetWidth(self.view.bounds);
     CGFloat inputHeight = 44.0f;
@@ -41,14 +40,14 @@
     bigTitle.textAlignment = NSTextAlignmentCenter;
     bigTitle.textColor = RGB(255, 255, 255);
     bigTitle.font = [UIFont systemFontOfSize:30.0f];
-    bigTitle.text = @"用户登录";
+    bigTitle.text = @"找回密码";
     [self.view addSubview:bigTitle];
     [bigTitle makeConstraints:^(MASConstraintMaker *make) {
         make.top.equalTo(superview.top).offset(100.0f);
         make.left.equalTo(superview.left).offset(15);
         make.right.equalTo(superview.right).offset(-15);
     }];
-
+    
     
     UIImageView *phoneicon = UIImageView.new;
     phoneicon.image = [UIImage imageNamed:@"u_phone"];
@@ -109,7 +108,7 @@
     _psdfield.leftView=leftview2;//设置输入框内左边的图标
     [_psdfield setClearButtonMode:UITextFieldViewModeWhileEditing];//右侧删除按钮
     _psdfield.leftViewMode=UITextFieldViewModeAlways;
-    _psdfield.placeholder=@"密码";//默认显示的字
+    _psdfield.placeholder=@"验证码";//默认显示的字
     _psdfield.secureTextEntry=YES;//设置成密码格式
     _psdfield.keyboardType=UIKeyboardTypeDefault;//设置键盘类型为默认的
     _psdfield.returnKeyType=UIReturnKeyDone;//返回键的类型
@@ -125,6 +124,20 @@
         make.right.equalTo(superview.right).offset(-5);
     }];
     
+    UILabel *gvlabel = UILabel.new;
+    gvlabel.textAlignment = NSTextAlignmentLeft;
+    gvlabel.text = @"获取验证码";
+    gvlabel.textColor = RGB(255, 255, 255);
+    gvlabel.font = [UIFont systemFontOfSize:13.0f];
+    gvlabel.userInteractionEnabled = YES;
+    UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc]initWithTarget:self action:@selector(getCode)];
+    [gvlabel addGestureRecognizer:tap];
+    [self.view addSubview:gvlabel];
+    [gvlabel makeConstraints:^(MASConstraintMaker *make) {
+        make.top.equalTo(lineview1.bottom).offset((inputHeight-13)/2);
+        make.right.equalTo(superview.right).offset(-15);
+    }];
+    
     UIView *lineview2 = UIView.new;
     lineview2.backgroundColor = RGB(243, 183, 179);
     [self.view addSubview:lineview2];
@@ -135,61 +148,35 @@
         make.height.mas_equalTo(0.5);
     }];
     
-    _okBtn = UIButton.new;
-    _okBtn.backgroundColor = RGB(255, 186, 65);
-    _okBtn.layer.cornerRadius = 5.0f;
-    [_okBtn setTitleColor:RGB(255, 255, 255) forState:UIControlStateNormal];
-    [_okBtn setTitle:@"登录" forState:UIControlStateNormal];
-    _okBtn.titleLabel.font = [UIFont systemFontOfSize:18.0f];
-    [_okBtn addTarget:self action:@selector(logins) forControlEvents:UIControlEventTouchUpInside];
-    [self.view addSubview:_okBtn];
-    [_okBtn makeConstraints:^(MASConstraintMaker *make) {
+    _regBtn = UIButton.new;
+    _regBtn.backgroundColor = RGB(255, 186, 65);
+    _regBtn.layer.cornerRadius = 5.0f;
+    [_regBtn setTitleColor:RGB(255, 255, 255) forState:UIControlStateNormal];
+    [_regBtn setTitle:@"下一步" forState:UIControlStateNormal];
+    _regBtn.titleLabel.font = [UIFont systemFontOfSize:18.0f];
+    [_regBtn addTarget:self action:@selector(next) forControlEvents:UIControlEventTouchUpInside];
+    _regBtn.selected = NO;
+    [self.view addSubview:_regBtn];
+    [_regBtn makeConstraints:^(MASConstraintMaker *make) {
         make.top.equalTo(lineview2.bottom).offset(28);
         make.left.equalTo(superview.left).offset(15);
         make.right.equalTo(superview.right).offset(-15);
         make.height.mas_equalTo(44);
     }];
     
-    _checkBtn = UIButton.new;
-    [_checkBtn setTitleColor:RGB(243, 183, 179) forState:UIControlStateNormal];
-    [_checkBtn setTitle:@"记住用户名" forState:UIControlStateNormal];
-    [_checkBtn setImage:[UIImage imageNamed:@"u_checkbox_normal"] forState:UIControlStateNormal];
-    [_checkBtn setImage:[UIImage imageNamed:@"u_checkbox_selected"] forState:UIControlStateSelected];
-    [_checkBtn setImageEdgeInsets:UIEdgeInsetsMake(0, 0, 0, 10)];
-    _checkBtn.titleLabel.font = [UIFont systemFontOfSize:14.0f];
-    [_checkBtn addTarget:self action:@selector(remember) forControlEvents:UIControlEventTouchUpInside];
-    [self.view addSubview:_checkBtn];
-    [_checkBtn makeConstraints:^(MASConstraintMaker *make) {
-        make.top.equalTo(_okBtn.bottom).offset(20);
-        make.left.equalTo(superview.left).offset(15);
-        make.width.mas_equalTo(100.0f);
-    }];
+    self.smscode = [[HYBSMSCode alloc] initWithBaseURL:HYB_API_BASE_URL path:SMS_CODE cachePolicyType:kCachePolicyTypeNone];
     
+    [self.smscode addObserver:self
+                       forKeyPath:kResourceLoadingStatusKeyPath
+                          options:NSKeyValueObservingOptionNew
+                          context:nil];
     
-    UIButton *forget = UIButton.new;
-    [forget setTitleColor:RGB(243, 183, 179) forState:UIControlStateNormal];
-    [forget setTitle:@"忘记密码" forState:UIControlStateNormal];
-    forget.titleLabel.font = [UIFont systemFontOfSize:14.0f];
-    [forget addTarget:self action:@selector(forget) forControlEvents:UIControlEventTouchUpInside];
-    [self.view addSubview:forget];
+    self.findbackone = [[HYBFindbackOne alloc] initWithBaseURL:HYB_API_BASE_URL path:FINDBACK_ONE cachePolicyType:kCachePolicyTypeNone];
     
-//    [_checkicon makeConstraints:^(MASConstraintMaker *make) {
-//        make.top.equalTo(cancelBtn.bottom).offset(23);
-//        make.left.equalTo(container.left);
-//        make.size.mas_equalTo(CGSizeMake(16, 16));
-//    }];
-    [forget makeConstraints:^(MASConstraintMaker *make) {
-        make.top.equalTo(_okBtn.bottom).offset(18);
-        make.right.equalTo(superview.right).offset(-15);
-    }];
-    
-    
-    self.login = [[HYBLogin alloc] initWithBaseURL:HYB_API_BASE_URL path:LOGIN cachePolicyType:kCachePolicyTypeNone];
-    
-    [self.login addObserver:self
-                    forKeyPath:kResourceLoadingStatusKeyPath
-                       options:NSKeyValueObservingOptionNew
-                       context:nil];
+    [self.findbackone addObserver:self
+                   forKeyPath:kResourceLoadingStatusKeyPath
+                      options:NSKeyValueObservingOptionNew
+                      context:nil];
     
 }
 
@@ -200,14 +187,22 @@
                        context:(void *)context
 {
     if ([keyPath isEqualToString:kResourceLoadingStatusKeyPath]) {
-        if (object == _login) {
-            if (_login.isLoaded) {
+        if (object == _findbackone) {
+            if (_findbackone.isLoaded) {
                 [self hideLoadingView];
-                HYBHomeViewController *pushController = [[HYBHomeViewController alloc] init];
+                HYBResetPwdViewController *pushController = [[HYBResetPwdViewController alloc] init];
                 [self.navigationController pushViewController:pushController animated:YES];
             }
-            else if (_login.error) {
-                [self showErrorMessage:[_login.error localizedFailureReason]];
+            else if (_findbackone.error) {
+                [self showErrorMessage:[_findbackone.error localizedFailureReason]];
+            }
+        }else if (object == _smscode) {
+            if (_smscode.isLoaded) {
+                // [self hideLoadingView];
+                //                [self.validate startTime];
+            }
+            else if (_smscode.error) {
+                [self showErrorMessage:[_smscode.error localizedFailureReason]];
             }
         }
     }
@@ -218,39 +213,13 @@
     // Dispose of any resources that can be recreated.
 }
 
-- (void)hideKeyBoard{
-    [self.view endEditing:YES];
-}
-
-- (BOOL)textFieldShouldReturn:(UITextField *)textField{
-    if(textField.tag == 10001){
-        [_psdfield becomeFirstResponder];
-    }else{
-        [textField resignFirstResponder];
-    }
+-(void)next{
+    [self.findbackone loadDataWithRequestMethodType:kHttpRequestMethodTypeGet parameters:@{@"phoneno":_phonefield.text,@"shortmsg":_psdfield.text}];
     
-    return YES;
 }
 
--(void)logins{
-    NSTimeInterval nowTimestamp = [[NSDate date] timeIntervalSince1970] * 1000.0;
-    long time = (long)ceilf(nowTimestamp);
-    NSString *timex = [NSString stringWithFormat:@"%li",time];
-    [self.login loadDataWithRequestMethodType:kHttpRequestMethodTypeGet parameters:@{@"phoneno":_phonefield.text,@"userId":@"",@"loginpassword":[timex stringByAppendingString: _psdfield.text]}];
-}
-
--(void)remember{
-    // TODO: 记住用户名
-    if(_checkBtn.selected){
-        _checkBtn.selected = NO;
-    }else{
-        _checkBtn.selected = YES;
-    }
-}
-
--(void)forget{
-    HYBFindbackViewController *pushController = [[HYBFindbackViewController alloc] init];
-    [self.navigationController pushViewController:pushController animated:YES];
+-(void)getCode{
+    [self.smscode loadDataWithRequestMethodType:kHttpRequestMethodTypeGet parameters:@{@"phoneno":_phonefield.text,@"type":@"2"}];
 }
 
 @end

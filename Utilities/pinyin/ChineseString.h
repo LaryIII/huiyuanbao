@@ -8,10 +8,10 @@
 
 #import <Foundation/Foundation.h>
 #import "pinyin.h"
-//#import "TSWContact.h"
+#import "HYBPhoneContact.h"
 
 @interface ChineseString : NSObject
-//@property(retain,nonatomic)TSWContact *contact;
+@property(retain,nonatomic)HYBPhoneContact *contact;
 @property(retain,nonatomic)NSString *pinYin;
 
 //-----  返回tableview右方indexArray

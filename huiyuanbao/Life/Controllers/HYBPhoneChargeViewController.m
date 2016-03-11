@@ -8,6 +8,7 @@
 
 #import "HYBPhoneChargeViewController.h"
 #import "masonry.h"
+#import "HYBPhoneContactsViewController.h"
 
 @interface HYBPhoneChargeViewController ()
 @property(strong, nonatomic) UIButton *btn1;
@@ -110,13 +111,13 @@
     [phoneinput makeConstraints:^(MASConstraintMaker *make) {
         make.top.equalTo(selectPhone.top).offset(15);
         make.left.equalTo(selectPhone.left).offset(15);
-        make.width.mas_equalTo(200);
+        make.width.mas_equalTo(180);
     }];
     
     UIButton *otherNumIcon = UIButton.new;
     otherNumIcon.titleLabel.font = [UIFont systemFontOfSize:14.0f];
     [otherNumIcon setImage:[UIImage imageNamed:@"phonebook"] forState:UIControlStateNormal];
-    [otherNumIcon addTarget:self action:@selector(otherNum) forControlEvents:UIControlEventTouchUpInside];
+    [otherNumIcon addTarget:self action:@selector(otherNums:) forControlEvents:UIControlEventTouchUpInside];
     [selectPhone addSubview:otherNumIcon];
     [otherNumIcon makeConstraints:^(MASConstraintMaker *make) {
         make.top.equalTo(selectPhone.top).offset(10);
@@ -129,7 +130,7 @@
     otherNum.titleLabel.font = [UIFont systemFontOfSize:14.0f];
     [otherNum setTitle:@"其他号码" forState:UIControlStateNormal];
     [otherNum setTitleColor:RGB(204, 204, 204) forState:UIControlStateNormal];
-    [otherNum addTarget:self action:@selector(otherNum) forControlEvents:UIControlEventTouchUpInside];
+    [otherNum addTarget:self action:@selector(otherNums:) forControlEvents:UIControlEventTouchUpInside];
     [selectPhone addSubview:otherNum];
     [otherNum makeConstraints:^(MASConstraintMaker *make) {
         make.top.equalTo(selectPhone.top).offset(10);
@@ -234,6 +235,10 @@
         make.top.equalTo(tipsTitle.bottom).offset(10);
         make.left.equalTo(container1.left).offset(15);
     }];
+    
+    [container1 makeConstraints:^(MASConstraintMaker *make) {
+        make.bottom.equalTo(tipsDetail).offset(18);
+    }];
 
     
     
@@ -284,7 +289,7 @@
     UIButton *otherNumIcon2 = UIButton.new;
     otherNumIcon2.titleLabel.font = [UIFont systemFontOfSize:14.0f];
     [otherNumIcon2 setImage:[UIImage imageNamed:@"phonebook"] forState:UIControlStateNormal];
-    [otherNumIcon2 addTarget:self action:@selector(otherNum2) forControlEvents:UIControlEventTouchUpInside];
+    [otherNumIcon2 addTarget:self action:@selector(otherNums2:) forControlEvents:UIControlEventTouchUpInside];
     [selectPhone2 addSubview:otherNumIcon2];
     [otherNumIcon2 makeConstraints:^(MASConstraintMaker *make) {
         make.top.equalTo(selectPhone2.top).offset(10);
@@ -297,7 +302,7 @@
     otherNum2.titleLabel.font = [UIFont systemFontOfSize:14.0f];
     [otherNum2 setTitle:@"其他号码" forState:UIControlStateNormal];
     [otherNum2 setTitleColor:RGB(204, 204, 204) forState:UIControlStateNormal];
-    [otherNum2 addTarget:self action:@selector(otherNum2) forControlEvents:UIControlEventTouchUpInside];
+    [otherNum2 addTarget:self action:@selector(otherNums2:) forControlEvents:UIControlEventTouchUpInside];
     [selectPhone2 addSubview:otherNum2];
     [otherNum2 makeConstraints:^(MASConstraintMaker *make) {
         make.top.equalTo(selectPhone2.top).offset(10);
@@ -403,6 +408,10 @@
         make.left.equalTo(container2.left).offset(15);
     }];
     
+    [container2 makeConstraints:^(MASConstraintMaker *make) {
+        make.bottom.equalTo(tipsDetail2).offset(18);
+    }];
+    
 }
 
 -(void)huafei{
@@ -419,12 +428,14 @@
     _btn2.selected = YES;
 }
 
--(void)otherNum{
-    
+-(void)otherNums:(id)sender{
+    HYBPhoneContactsViewController *viewController = [[HYBPhoneContactsViewController alloc] init];
+    [self.navigationController pushViewController:viewController animated:YES];
 }
 
--(void)otherNum2{
-    
+-(void)otherNums2:(id)sender{
+    HYBPhoneContactsViewController *viewController = [[HYBPhoneContactsViewController alloc] init];
+    [self.navigationController pushViewController:viewController animated:YES];
 }
 
 -(void)charge{
@@ -432,6 +443,10 @@
 }
 
 -(void)charge2{
+    
+}
+
+-(void)btn1clicked:(id)sender{
     
 }
 
