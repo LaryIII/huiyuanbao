@@ -7,8 +7,9 @@
 //
 
 #import "CXResource.h"
-
+#define ORDER_LIST @"merchant/getOrderList"
 @interface HYBOrderRecordList : CXResource
 @property (nonatomic, strong) NSMutableArray *orderRecords;
 @property (nonatomic, assign) NSInteger page;
+@property (nonatomic, assign) BOOL isInfinite;
 @end

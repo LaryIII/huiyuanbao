@@ -79,7 +79,7 @@
         
     }completion:^(BOOL finished) {
         [_scrollView  removeFromSuperview];//将scrollView移除
-        [GVUserDefaults standardUserDefaults].isFirst = @"NO";
+//        [GVUserDefaults standardUserDefaults].isFirst = @"NO";
         HYBSplashViewController *splashViewController = [[HYBSplashViewController alloc] init];
         NSArray *arr = [[UIApplication sharedApplication] windows];
         UIWindow *mainWindow = [arr objectAtIndex:0];

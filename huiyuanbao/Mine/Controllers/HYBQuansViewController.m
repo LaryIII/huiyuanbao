@@ -11,6 +11,7 @@
 #import "HYBQuanCell.h"
 #import "HYBQuan.h"
 #import "HYBQuanList.h"
+#import "GVUserDefaults+HYBProperties.h"
 
 @interface HYBQuansViewController ()<UICollectionViewDelegate, UICollectionViewDataSource,HYBQuanCellDelegate>
 @property (nonatomic, strong) UICollectionView *collectionView;
@@ -20,12 +21,20 @@
 @property(strong, nonatomic) UIButton *btn3;
 @property(strong, nonatomic) UIScrollView *scrollView1;
 @property(strong, nonatomic) UIScrollView *scrollView2;
+
+@property (nonatomic, strong) HYBQuanList *quanlist;
+@property (nonatomic, strong) NSString *expirestatus;
+@property (nonatomic, strong) NSString *wealstatus;
 @end
 
 @implementation HYBQuansViewController
-
+- (void) dealloc{
+    [_quanlist removeObserver:self forKeyPath:kResourceLoadingStatusKeyPath];
+}
 - (void)viewDidLoad {
     [super viewDidLoad];
+    _expirestatus = @"1";
+    _wealstatus = @"1";
     CGFloat width = CGRectGetWidth(self.view.bounds);
     
     self.navigationBar.title = @"优惠券";
@@ -48,7 +57,7 @@
     [_btn1 setTitleColor:RGB(82, 82, 82) forState:UIControlStateNormal];
     [_btn1 setBackgroundImage:[UIImage imageNamed:@"tab_current"] forState:UIControlStateSelected];
     [_btn1 setBackgroundImage:[UIImage imageNamed:@"tab_default"] forState:UIControlStateNormal];
-    [_btn1 addTarget:self action:@selector(huiyuanbao) forControlEvents:UIControlEventTouchUpInside];
+    [_btn1 addTarget:self action:@selector(weishiyong) forControlEvents:UIControlEventTouchUpInside];
     [segView addSubview:_btn1];
     _btn1.selected = YES;
     [_btn1 makeConstraints:^(MASConstraintMaker *make) {
@@ -65,7 +74,7 @@
     [_btn2 setTitleColor:RGB(82, 82, 82) forState:UIControlStateNormal];
     [_btn2 setBackgroundImage:[UIImage imageNamed:@"tab_default"] forState:UIControlStateNormal];
     [_btn2 setBackgroundImage:[UIImage imageNamed:@"tab_current"] forState:UIControlStateSelected];
-    [_btn2 addTarget:self action:@selector(shanghu) forControlEvents:UIControlEventTouchUpInside];
+    [_btn2 addTarget:self action:@selector(yishiyong) forControlEvents:UIControlEventTouchUpInside];
     [segView addSubview:_btn2];
     _btn2.selected = NO;
     [_btn2 makeConstraints:^(MASConstraintMaker *make) {
@@ -83,7 +92,7 @@
     [_btn3 setTitleColor:RGB(82, 82, 82) forState:UIControlStateNormal];
     [_btn3 setBackgroundImage:[UIImage imageNamed:@"tab_default"] forState:UIControlStateNormal];
     [_btn3 setBackgroundImage:[UIImage imageNamed:@"tab_current"] forState:UIControlStateSelected];
-    [_btn3 addTarget:self action:@selector(shanghu) forControlEvents:UIControlEventTouchUpInside];
+    [_btn3 addTarget:self action:@selector(yiguoqi) forControlEvents:UIControlEventTouchUpInside];
     [segView addSubview:_btn3];
     _btn3.selected = NO;
     [_btn3 makeConstraints:^(MASConstraintMaker *make) {
@@ -142,21 +151,63 @@
     
     [_collectionView registerClass:[HYBQuanCell class] forCellWithReuseIdentifier:@"HYBQuanCell"];
     
+    self.quanlist = [[HYBQuanList alloc] initWithBaseURL:HYB_API_BASE_URL path:QUAN_LIST cachePolicyType:kCachePolicyTypeNone];
+    
+    [self.quanlist addObserver:self
+                    forKeyPath:kResourceLoadingStatusKeyPath
+                       options:NSKeyValueObservingOptionNew
+                       context:nil];
+    
     //test data
     self.dataArray = [NSMutableArray array];
-    [self.dataArray addObject:[NSMutableArray array]];
-    HYBQuanList *quans = HYBQuanList.new;
-    NSMutableArray *arr = [[NSMutableArray alloc]init];
-    HYBQuan *o1 = HYBQuan.new;
-    HYBQuan *o2 = HYBQuan.new;
-    [arr addObject:o1];
-    [arr addObject:o2];
-    quans.quans = arr;
-    [_dataArray[0] addObjectsFromArray:quans.quans];
+//    [self.dataArray addObject:[NSMutableArray array]];
+//    HYBQuanList *quans = HYBQuanList.new;
+//    NSMutableArray *arr = [[NSMutableArray alloc]init];
+//    HYBQuan *o1 = HYBQuan.new;
+//    HYBQuan *o2 = HYBQuan.new;
+//    [arr addObject:o1];
+//    [arr addObject:o2];
+//    quans.quans = arr;
+//    [_dataArray[0] addObjectsFromArray:quans.quans];
 }
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+
+- (void) refreshData{
+    [self showLoadingView];
+    [self.quanlist loadDataWithRequestMethodType:kHttpRequestMethodTypeGet parameters:@{
+                                                                                        @"userId":[GVUserDefaults standardUserDefaults].userId,
+                                                                                        
+                                                                                        @"phoneno":[GVUserDefaults standardUserDefaults].phoneno,
+                                                                                        @"pageLength":@"10",
+                                                                                        @"current":@"0",
+                                                                                        @"wctype":@"2",
+                                                                                        @"expirestatus":_expirestatus,
+                                                                                        @"wealstatus":_wealstatus
+                                                                                        }];
+}
+
+#pragma mark Key-value observing
+- (void)observeValueForKeyPath:(NSString *)keyPath
+                      ofObject:(id)object
+                        change:(NSDictionary *)change
+                       context:(void *)context
+{
+    if ([keyPath isEqualToString:kResourceLoadingStatusKeyPath]) {
+        if (object == _quanlist) {
+            if (_quanlist.isLoaded) {
+                [self hideLoadingView];
+                [self.dataArray addObject:_quanlist.quans];
+                
+                [_collectionView reloadData];
+            }
+            else if (_quanlist.error) {
+                [self showErrorMessage:[_quanlist.error localizedFailureReason]];
+            }
+        }
+    }
 }
 
 #pragma mark  UICollectionViewDataSource
@@ -169,36 +220,6 @@
     NSArray *array = self.dataArray[section];
     return [array count];
 }
-
-
-//- (UICollectionReusableView *)collectionView:(UICollectionView *)collectionView viewForSupplementaryElementOfKind:(NSString *)kind atIndexPath:(NSIndexPath *)indexPath
-//{
-//    //    if ([kind isEqualToString:UICollectionElementKindSectionHeader]) {
-//    //        if (indexPath.section == 2) {
-//    //            AJCompositeHeaderView *headView = [collectionView dequeueReusableSupplementaryViewOfKind:UICollectionElementKindSectionHeader withReuseIdentifier:@"AJCompositeHeaderView" forIndexPath:indexPath];
-//    //            UITapGestureRecognizer *singleTap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(handleRecommendComposite:)];
-//    //            singleTap.delaysTouchesBegan = YES;
-//    //            singleTap.numberOfTapsRequired = 1;
-//    //            [headView addGestureRecognizer:singleTap];
-//    //
-//    //            return headView;
-//    //        }
-//    //        else if (indexPath.section == 3) {
-//    //            AJSummaryHeaderReusableView *headView = [collectionView dequeueReusableSupplementaryViewOfKind:UICollectionElementKindSectionHeader withReuseIdentifier:@"AJSummaryHeaderReusableView" forIndexPath:indexPath];
-//    //            UITapGestureRecognizer *singleTap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(handleMoreSingles:)];
-//    //            singleTap.delaysTouchesBegan = YES;
-//    //            singleTap.numberOfTapsRequired = 1;
-//    //            [headView addGestureRecognizer:singleTap];
-//    //
-//    //            return headView;
-//    //        }
-//    //        else {
-//    //            return nil;
-//    //        }
-//    //    }
-//    //    else {
-//    return nil;
-//}
 
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath
 {
@@ -239,12 +260,7 @@
 
 // 定义headview的size
 - (CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout*)collectionViewLayout referenceSizeForHeaderInSection:(NSInteger)section {
-    //    if (section == 2 ) {
-    //        return CGSizeMake(CGRectGetWidth(collectionView.bounds), 52.0f);
-    //    }
-    //    else {
     return CGSizeZero;
-    //    }
 }
 
 // 定义footerView的size
@@ -271,22 +287,34 @@
 - (void)viewWillAppear:(BOOL)animated
 {
     [super viewWillAppear:animated];
-    //    [[self rdv_tabBarController] setTabBarHidden:NO animated:NO];
-    //    [self refreshData];
+    [self refreshData];
 }
 
--(void)huiyuanbao{
-    _scrollView1.hidden = NO;
-    _scrollView2.hidden = YES;
+-(void)weishiyong{
     _btn1.selected = YES;
     _btn2.selected = NO;
+    _btn3.selected = NO;
+    _expirestatus = @"1";
+    _wealstatus = @"1";
+    [self refreshData];
 }
 
--(void)shanghu{
-    _scrollView1.hidden = YES;
-    _scrollView2.hidden = NO;
+-(void)yishiyong{
     _btn1.selected = NO;
     _btn2.selected = YES;
+    _btn3.selected = NO;
+    _expirestatus = @"";
+    _wealstatus = @"2";
+    [self refreshData];
+}
+
+-(void)yiguoqi{
+    _btn1.selected = NO;
+    _btn2.selected = NO;
+    _btn3.selected = YES;
+    _expirestatus = @"2";
+    _wealstatus = @"1";
+    [self refreshData];
 }
 
 @end

@@ -9,5 +9,4 @@
 #import "CXResource.h"
 
 @interface HYBChargeRecord : CXResource
-
 @end

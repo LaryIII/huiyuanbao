@@ -7,8 +7,9 @@
 //
 
 #import "CXResource.h"
-
+#define CARD_LIST @"merchant/getMerMemberList"
 @interface HYBCardList : CXResource
 @property (nonatomic, strong) NSMutableArray *cards;
 @property (nonatomic, assign) NSInteger page;
+@property (nonatomic, assign) BOOL isInfinite;
 @end

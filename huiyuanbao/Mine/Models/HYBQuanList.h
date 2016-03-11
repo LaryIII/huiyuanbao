@@ -7,8 +7,9 @@
 //
 
 #import "CXResource.h"
-
+#define QUAN_LIST @"recharge/selectWealOrCoupon"
 @interface HYBQuanList : CXResource
 @property (nonatomic, strong) NSMutableArray *quans;
 @property (nonatomic, assign) NSInteger page;
+@property (nonatomic, assign) BOOL isInfinite;
 @end

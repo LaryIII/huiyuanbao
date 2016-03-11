@@ -11,16 +11,21 @@
 #import "HYBCardCell.h"
 #import "HYBCard.h"
 #import "HYBCardList.h"
+#import "GVUserDefaults+HYBProperties.h"
 
 @interface HYBCardsViewController ()<UICollectionViewDelegate, UICollectionViewDataSource,HYBCardCellDelegate>
 @property (nonatomic, strong) UICollectionView *collectionView;
 @property (nonatomic, strong) NSMutableArray *dataArray;
 
+@property (nonatomic, strong) HYBCardList *cardlist;
 
 @end
 
 
 @implementation HYBCardsViewController
+- (void) dealloc{
+    [_cardlist removeObserver:self forKeyPath:kResourceLoadingStatusKeyPath];
+}
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -83,25 +88,62 @@
     
     [_collectionView registerClass:[HYBCardCell class] forCellWithReuseIdentifier:@"HYBCardCell"];
     
+    self.cardlist = [[HYBCardList alloc] initWithBaseURL:HYB_API_BASE_URL path:CARD_LIST cachePolicyType:kCachePolicyTypeNone];
+    
+    [self.cardlist addObserver:self
+                 forKeyPath:kResourceLoadingStatusKeyPath
+                    options:NSKeyValueObservingOptionNew
+                    context:nil];
+    
     //test data
     self.dataArray = [NSMutableArray array];
-    [self.dataArray addObject:[NSMutableArray array]];
-    HYBCardList *cards = HYBCardList.new;
-    NSMutableArray *arr = [[NSMutableArray alloc]init];
-    HYBCard *o1 = HYBCard.new;
-    HYBCard *o2 = HYBCard.new;
-    [arr addObject:o1];
-    [arr addObject:o2];
-    cards.cards = arr;
-    [_dataArray[0] addObjectsFromArray:cards.cards];
+//    [self.dataArray addObject:[NSMutableArray array]];
+//    HYBCardList *cards = HYBCardList.new;
+//    NSMutableArray *arr = [[NSMutableArray alloc]init];
+//    HYBCard *o1 = HYBCard.new;
+//    HYBCard *o2 = HYBCard.new;
+//    [arr addObject:o1];
+//    [arr addObject:o2];
+//    cards.cards = arr;
+//    [_dataArray[0] addObjectsFromArray:cards.cards];
 }
+
+- (void) refreshData{
+    [self showLoadingView];
+    [self.cardlist loadDataWithRequestMethodType:kHttpRequestMethodTypeGet parameters:@{
+                                                                                        @"userId":[GVUserDefaults standardUserDefaults].userId,
+                                                                                        
+                                                                                        @"phoneno":[GVUserDefaults standardUserDefaults].phoneno,
+                                                                                        @"pageLength":@"10",
+                                                                                        @"current":@"0",
+                                                                                        @"muname":@""
+                                                                                        }];
+}
+
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
-- (void)leftButtonTapped:(id)sender
+
+#pragma mark Key-value observing
+- (void)observeValueForKeyPath:(NSString *)keyPath
+                      ofObject:(id)object
+                        change:(NSDictionary *)change
+                       context:(void *)context
 {
-    //TODO
+    if ([keyPath isEqualToString:kResourceLoadingStatusKeyPath]) {
+        if (object == _cardlist) {
+            if (_cardlist.isLoaded) {
+                [self hideLoadingView];
+                [self.dataArray addObject:_cardlist.cards];
+                
+                [_collectionView reloadData];
+            }
+            else if (_cardlist.error) {
+                [self showErrorMessage:[_cardlist.error localizedFailureReason]];
+            }
+        }
+    }
 }
 
 #pragma mark  UICollectionViewDataSource
@@ -115,35 +157,6 @@
     return [array count];
 }
 
-
-//- (UICollectionReusableView *)collectionView:(UICollectionView *)collectionView viewForSupplementaryElementOfKind:(NSString *)kind atIndexPath:(NSIndexPath *)indexPath
-//{
-//    //    if ([kind isEqualToString:UICollectionElementKindSectionHeader]) {
-//    //        if (indexPath.section == 2) {
-//    //            AJCompositeHeaderView *headView = [collectionView dequeueReusableSupplementaryViewOfKind:UICollectionElementKindSectionHeader withReuseIdentifier:@"AJCompositeHeaderView" forIndexPath:indexPath];
-//    //            UITapGestureRecognizer *singleTap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(handleRecommendComposite:)];
-//    //            singleTap.delaysTouchesBegan = YES;
-//    //            singleTap.numberOfTapsRequired = 1;
-//    //            [headView addGestureRecognizer:singleTap];
-//    //
-//    //            return headView;
-//    //        }
-//    //        else if (indexPath.section == 3) {
-//    //            AJSummaryHeaderReusableView *headView = [collectionView dequeueReusableSupplementaryViewOfKind:UICollectionElementKindSectionHeader withReuseIdentifier:@"AJSummaryHeaderReusableView" forIndexPath:indexPath];
-//    //            UITapGestureRecognizer *singleTap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(handleMoreSingles:)];
-//    //            singleTap.delaysTouchesBegan = YES;
-//    //            singleTap.numberOfTapsRequired = 1;
-//    //            [headView addGestureRecognizer:singleTap];
-//    //
-//    //            return headView;
-//    //        }
-//    //        else {
-//    //            return nil;
-//    //        }
-//    //    }
-//    //    else {
-//    return nil;
-//}
 
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath
 {
@@ -183,12 +196,7 @@
 
 // 定义headview的size
 - (CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout*)collectionViewLayout referenceSizeForHeaderInSection:(NSInteger)section {
-    //    if (section == 2 ) {
-    //        return CGSizeMake(CGRectGetWidth(collectionView.bounds), 52.0f);
-    //    }
-    //    else {
     return CGSizeZero;
-    //    }
 }
 
 // 定义footerView的size
@@ -215,8 +223,7 @@
 - (void)viewWillAppear:(BOOL)animated
 {
     [super viewWillAppear:animated];
-    //    [[self rdv_tabBarController] setTabBarHidden:NO animated:NO];
-    //    [self refreshData];
+    [self refreshData];
 }
 
 - (void)search{
