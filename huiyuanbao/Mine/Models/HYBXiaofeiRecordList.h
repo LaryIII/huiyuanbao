@@ -7,8 +7,9 @@
 //
 
 #import "CXResource.h"
-
+#define HUIYUANBAO_XIAOFEILIST @"of/recharge/queryLifeOrder"
 @interface HYBXiaofeiRecordList : CXResource
 @property (nonatomic, strong) NSMutableArray *xiaofeiRecords;
 @property (nonatomic, assign) NSInteger page;
+@property (nonatomic, assign) BOOL isInfinite;
 @end

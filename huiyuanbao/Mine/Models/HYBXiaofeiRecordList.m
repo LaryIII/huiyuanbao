@@ -7,7 +7,52 @@
 //
 
 #import "HYBXiaofeiRecordList.h"
+#import "HYBXiaofeiRecord.h"
 
 @implementation HYBXiaofeiRecordList
+- (instancetype)initWithBaseURL:(NSURL *)url path:(NSString *)path
+{
+    self.isInfinite = false;
+    return [self initWithBaseURL:url path:path cachePolicyType:kCachePolicyTypeReturnCacheDataOnError];
+}
+
+- (instancetype)initWithBaseURL:(NSURL *)url path:(NSString *)path cachePolicyType:(CachePolicyType)cachePolicyType
+{
+    self = [super initWithBaseURL:url path:path cachePolicyType:cachePolicyType];
+    if (self) {
+        self.page = 1;
+    }
+    self.isInfinite = false;
+    return self;
+}
+
+- (void)setValue:(id)value forKey:(NSString *)key
+{
+    if ([key isEqualToString:@"result"]) {
+        if (![value isKindOfClass:[NSArray class]]) {
+            return;
+        }
+        
+        if (self.xiaofeiRecords) {
+            [self.xiaofeiRecords removeAllObjects];
+        }
+        else {
+            self.xiaofeiRecords = [NSMutableArray array];
+        }
+        
+        for (id dictionary in value) {
+            HYBXiaofeiRecord *xiaofeiRecord = [[HYBXiaofeiRecord alloc] initWithValues:dictionary];
+            [self.xiaofeiRecords addObject:xiaofeiRecord];
+        }
+        
+        self.page++;
+    }
+    else {
+        [super setValue:value forKey:key];
+    }
+}
 
 @end
+
+
+

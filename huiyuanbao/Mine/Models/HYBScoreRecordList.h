@@ -7,8 +7,9 @@
 //
 
 #import "CXResource.h"
-
+#define SCORE_LIST @"PointsDetails/detailsInfo"
 @interface HYBScoreRecordList : CXResource
 @property (nonatomic, strong) NSMutableArray *scoreRecords;
 @property (nonatomic, assign) NSInteger page;
+@property (nonatomic, assign) BOOL isInfinite;
 @end

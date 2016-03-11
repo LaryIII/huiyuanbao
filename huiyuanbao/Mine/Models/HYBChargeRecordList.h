@@ -7,8 +7,9 @@
 //
 
 #import "CXResource.h"
-
+#define CHARGE_LIST @"recharge/queryRechargeSystem"
 @interface HYBChargeRecordList : CXResource
 @property (nonatomic, strong) NSMutableArray *chargeRecords;
 @property (nonatomic, assign) NSInteger page;
+@property (nonatomic, assign) BOOL isInfinite;
 @end

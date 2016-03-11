@@ -1,15 +1,15 @@
 //
-//  HYBChargeRecordList.m
+//  HYBStoreChargeRecordList.m
 //  huiyuanbao
 //
-//  Created by zhouhai on 16/3/5.
+//  Created by zhouhai on 16/3/12.
 //  Copyright © 2016年 huiyuanbao. All rights reserved.
 //
 
-#import "HYBChargeRecordList.h"
-#import "HYBChargeRecord.h"
+#import "HYBStoreChargeRecordList.h"
+#import "HYBStoreChargeRecord.h"
 
-@implementation HYBChargeRecordList
+@implementation HYBStoreChargeRecordList
 - (instancetype)initWithBaseURL:(NSURL *)url path:(NSString *)path
 {
     self.isInfinite = false;
@@ -33,16 +33,16 @@
             return;
         }
         
-        if (self.chargeRecords) {
-            [self.chargeRecords removeAllObjects];
+        if (self.storeChargeRecords) {
+            [self.storeChargeRecords removeAllObjects];
         }
         else {
-            self.chargeRecords = [NSMutableArray array];
+            self.storeChargeRecords = [NSMutableArray array];
         }
         
         for (id dictionary in value) {
-            HYBChargeRecord *chargeRecord = [[HYBChargeRecord alloc] initWithValues:dictionary];
-            [self.chargeRecords addObject:chargeRecord];
+            HYBStoreChargeRecord *storeChargeRecord = [[HYBStoreChargeRecord alloc] initWithValues:dictionary];
+            [self.storeChargeRecords addObject:storeChargeRecord];
         }
         
         self.page++;

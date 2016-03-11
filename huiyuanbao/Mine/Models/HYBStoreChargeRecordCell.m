@@ -1,21 +1,17 @@
 //
-//  HYBChargeRecordCell.m
+//  HYBStoreChargeRecordCell.m
 //  huiyuanbao
 //
-//  Created by zhouhai on 16/3/5.
+//  Created by zhouhai on 16/3/12.
 //  Copyright © 2016年 huiyuanbao. All rights reserved.
 //
 
-#import "HYBChargeRecordCell.h"
+#import "HYBStoreChargeRecordCell.h"
 #import "masonry.h"
-#import "HYBChargeRecord.h"
+#import "HYBStoreChargeRecord.h"
 #import "CXImageLoader.h"
 
-@interface HYBChargeRecordCell()
-
-@end
-
-@implementation HYBChargeRecordCell
+@implementation HYBStoreChargeRecordCell
 - (id)initWithFrame:(CGRect)frame
 {
     self = [super initWithFrame:frame];
@@ -30,9 +26,9 @@
     [super layoutSubviews];
 }
 
-- (void)setChargeRecord:(HYBChargeRecord *)chargeRecord
+- (void)setStoreChargeRecord:(HYBStoreChargeRecord *)storeChargeRecord
 {
-    _chargeRecord = chargeRecord;
+    _storeChargeRecord = storeChargeRecord;
     int padding = 8;
     
     UIView *firstView = UIView.new;
@@ -64,8 +60,8 @@
     UIImageView *storeImageView = UIImageView.new;
     UIImage *storeImg = [UIImage imageNamed:@"charge_default"];
     [storeImageView setImage:storeImg];
-    if(_chargeRecord.logo && ![_chargeRecord.logo isEqualToString:@""]){
-        [[CXImageLoader sharedImageLoader] loadImageForURL:[NSURL URLWithString:[IMG_PREFIX stringByAppendingString:_chargeRecord.logo]] image:^(UIImage *image, NSError *error) {
+    if(_storeChargeRecord.logo && ![_storeChargeRecord.logo isEqualToString:@""]){
+        [[CXImageLoader sharedImageLoader] loadImageForURL:[NSURL URLWithString:[IMG_PREFIX stringByAppendingString:_storeChargeRecord.logo]] image:^(UIImage *image, NSError *error) {
             storeImageView.image = image;
         }];
     }
@@ -82,7 +78,7 @@
     storeTitle.textAlignment = NSTextAlignmentLeft;
     storeTitle.textColor = RGB(51, 51, 51);
     storeTitle.font = [UIFont systemFontOfSize:14.0f];
-    storeTitle.text = _chargeRecord.muname;//@"惠员包系统";
+    storeTitle.text = _storeChargeRecord.muname;//@"惠员包系统";
     [bottomView addSubview:storeTitle];
     [storeTitle makeConstraints:^(MASConstraintMaker *make) {
         make.top.equalTo(bottomView.top).offset(15);
@@ -93,7 +89,7 @@
     time.textAlignment = NSTextAlignmentLeft;
     time.textColor = RGB(102, 102, 102);
     time.font = [UIFont systemFontOfSize:11.0f];
-    time.text = _chargeRecord.createtime;//@"02-30 18:00";
+    time.text = _storeChargeRecord.createtime;//@"02-30 18:00";
     [bottomView addSubview:time];
     [time makeConstraints:^(MASConstraintMaker *make) {
         make.top.equalTo(storeTitle.bottom).offset(8);
@@ -105,7 +101,7 @@
     status.textColor = RGB(51, 51, 51);
     status.font = [UIFont systemFontOfSize:14.0f];
     NSString *statusText = @"";
-    switch ([_chargeRecord.status integerValue]) {
+    switch ([_storeChargeRecord.status integerValue]) {
         case 0:
             statusText = @"未完成";
             break;
@@ -132,7 +128,7 @@
     youvalue.textAlignment = NSTextAlignmentLeft;
     youvalue.textColor = MAIN_COLOR;
     youvalue.font = [UIFont systemFontOfSize:11.0f];
-    youvalue.text = [NSString stringWithFormat: @"￥%@",_chargeRecord.balance];
+    youvalue.text = [NSString stringWithFormat: @"￥%@",_storeChargeRecord.balance];
     [bottomView addSubview:youvalue];
     [youvalue makeConstraints:^(MASConstraintMaker *make) {
         make.top.equalTo(status.bottom).offset(24);
@@ -154,7 +150,7 @@
     alivalue.textAlignment = NSTextAlignmentLeft;
     alivalue.textColor = MAIN_COLOR;
     alivalue.font = [UIFont systemFontOfSize:11.0f];
-    alivalue.text = [NSString stringWithFormat: @"￥%@",_chargeRecord.balance];
+    alivalue.text = [NSString stringWithFormat: @"￥%@",_storeChargeRecord.balance];
     [bottomView addSubview:alivalue];
     [alivalue makeConstraints:^(MASConstraintMaker *make) {
         make.top.equalTo(status.bottom).offset(24);
@@ -166,7 +162,7 @@
     aliname.textColor = RGB(102, 102, 102);
     aliname.font = [UIFont systemFontOfSize:11.0f];
     NSString *payType = @"";
-    switch ([_chargeRecord.rechargecode integerValue]) {
+    switch ([_storeChargeRecord.rechargecode integerValue]) {
         case 0:
             payType = @"支付宝";
             break;
@@ -215,14 +211,14 @@
 }
 
 
-+ (CGSize)calculateCellSizeWithSummary:(HYBChargeRecord *)chargeRecord containerWidth:(CGFloat)containerWidth
++ (CGSize)calculateCellSizeWithSummary:(HYBStoreChargeRecord *)storeChargeRecord containerWidth:(CGFloat)containerWidth
 {
     return CGSizeMake(containerWidth, 75.0f);
 }
 
 -(void)clickAction{
-    if (self.delegate && [self.delegate respondsToSelector:@selector(gotoChargeRecordDetail:withChargeRecord:)]) {
-        [self.delegate gotoChargeRecordDetail:self withChargeRecord:_chargeRecord];
+    if (self.delegate && [self.delegate respondsToSelector:@selector(gotoStoreChargeRecordDetail:withStoreChargeRecord:)]) {
+        [self.delegate gotoStoreChargeRecordDetail:self withStoreChargeRecord:_storeChargeRecord];
     }
 }
 @end

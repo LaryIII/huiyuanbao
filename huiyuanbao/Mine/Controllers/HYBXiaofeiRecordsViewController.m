@@ -11,6 +11,10 @@
 #import "HYBXiaofeiRecordCell.h"
 #import "HYBXiaofeiRecord.h"
 #import "HYBXiaofeiRecordList.h"
+#import "GVUserDefaults+HYBProperties.h"
+#import "HYBStoreXiaofeiRecordList.h"
+#import "HYBStoreXiaofeiRecordCell.h"
+#import "HYBStoreXiaofeiRecord.h"
 
 @interface HYBXiaofeiRecordsViewController ()<UICollectionViewDelegate, UICollectionViewDataSource,HYBXiaofeiRecordCellDelegate>
 @property (nonatomic, strong) UICollectionView *collectionView;
@@ -19,10 +23,16 @@
 @property(strong, nonatomic) UIButton *btn2;
 @property(strong, nonatomic) UIScrollView *scrollView1;
 @property(strong, nonatomic) UIScrollView *scrollView2;
+
+@property (nonatomic, strong) HYBXiaofeiRecordList *xiaofeilist;
+@property (nonatomic, strong) HYBStoreXiaofeiRecordList *storexiaofeilist;
 @end
 
 @implementation HYBXiaofeiRecordsViewController
-
+- (void) dealloc{
+    [_xiaofeilist removeObserver:self forKeyPath:kResourceLoadingStatusKeyPath];
+    [_storexiaofeilist removeObserver:self forKeyPath:kResourceLoadingStatusKeyPath];
+}
 - (void)viewDidLoad {
     [super viewDidLoad];
     CGFloat width = CGRectGetWidth(self.view.bounds);
@@ -144,26 +154,79 @@
     [self.view addSubview:_collectionView];
     
     [_collectionView registerClass:[HYBXiaofeiRecordCell class] forCellWithReuseIdentifier:@"HYBXiaofeiRecordCell"];
+    [_collectionView registerClass:[HYBStoreXiaofeiRecordCell class] forCellWithReuseIdentifier:@"HYBStoreXiaofeiRecordCell"];
+    
+    self.xiaofeilist = [[HYBXiaofeiRecordList alloc] initWithBaseURL:HYB_API_BASE_URL path:HUIYUANBAO_XIAOFEILIST cachePolicyType:kCachePolicyTypeNone];
+    
+    [self.xiaofeilist addObserver:self
+                    forKeyPath:kResourceLoadingStatusKeyPath
+                       options:NSKeyValueObservingOptionNew
+                       context:nil];
+    
+    self.storexiaofeilist = [[HYBStoreXiaofeiRecordList alloc] initWithBaseURL:HYB_API_BASE_URL path:STORE_XIAOFEILIST cachePolicyType:kCachePolicyTypeNone];
+    
+    [self.storexiaofeilist addObserver:self
+                       forKeyPath:kResourceLoadingStatusKeyPath
+                          options:NSKeyValueObservingOptionNew
+                          context:nil];
     
     //test data
     self.dataArray = [NSMutableArray array];
-    [self.dataArray addObject:[NSMutableArray array]];
-    HYBXiaofeiRecordList *xiaofeiRecords = HYBXiaofeiRecordList.new;
-    NSMutableArray *arr = [[NSMutableArray alloc]init];
-    HYBXiaofeiRecord *o1 = HYBXiaofeiRecord.new;
-    HYBXiaofeiRecord *o2 = HYBXiaofeiRecord.new;
-    [arr addObject:o1];
-    [arr addObject:o2];
-    xiaofeiRecords.xiaofeiRecords = arr;
-    [_dataArray[0] addObjectsFromArray:xiaofeiRecords.xiaofeiRecords];
+//    [self.dataArray addObject:[NSMutableArray array]];
+//    HYBXiaofeiRecordList *xiaofeiRecords = HYBXiaofeiRecordList.new;
+//    NSMutableArray *arr = [[NSMutableArray alloc]init];
+//    HYBXiaofeiRecord *o1 = HYBXiaofeiRecord.new;
+//    HYBXiaofeiRecord *o2 = HYBXiaofeiRecord.new;
+//    [arr addObject:o1];
+//    [arr addObject:o2];
+//    xiaofeiRecords.xiaofeiRecords = arr;
+//    [_dataArray[0] addObjectsFromArray:xiaofeiRecords.xiaofeiRecords];
 }
+- (void) refreshData{
+    [self showLoadingView];
+    [self.xiaofeilist loadDataWithRequestMethodType:kHttpRequestMethodTypeGet parameters:@{
+                                                                                        @"userId":[GVUserDefaults standardUserDefaults].userId,
+                                                                                        
+                                                                                        @"phoneno":[GVUserDefaults standardUserDefaults].phoneno,
+                                                                                        @"pageLength":@"10",
+                                                                                        @"current":@"0"
+                                                                                        }];
+}
+
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
-- (void)leftButtonTapped:(id)sender
+
+#pragma mark Key-value observing
+- (void)observeValueForKeyPath:(NSString *)keyPath
+                      ofObject:(id)object
+                        change:(NSDictionary *)change
+                       context:(void *)context
 {
-    //TODO
+    if ([keyPath isEqualToString:kResourceLoadingStatusKeyPath]) {
+        if (object == _xiaofeilist) {
+            if (_xiaofeilist.isLoaded) {
+                [self hideLoadingView];
+                [self.dataArray addObject:_xiaofeilist.xiaofeiRecords];
+                
+                [_collectionView reloadData];
+            }
+            else if (_xiaofeilist.error) {
+                [self showErrorMessage:[_xiaofeilist.error localizedFailureReason]];
+            }
+        }else if (object == _storexiaofeilist) {
+            if (_storexiaofeilist.isLoaded) {
+                [self hideLoadingView];
+                [self.dataArray addObject:_storexiaofeilist.storeXiaofeiRecords];
+                
+                [_collectionView reloadData];
+            }
+            else if (_storexiaofeilist.error) {
+                [self showErrorMessage:[_storexiaofeilist.error localizedFailureReason]];
+            }
+        }
+    }
 }
 
 #pragma mark  UICollectionViewDataSource
@@ -176,36 +239,6 @@
     NSArray *array = self.dataArray[section];
     return [array count];
 }
-
-
-//- (UICollectionReusableView *)collectionView:(UICollectionView *)collectionView viewForSupplementaryElementOfKind:(NSString *)kind atIndexPath:(NSIndexPath *)indexPath
-//{
-//    //    if ([kind isEqualToString:UICollectionElementKindSectionHeader]) {
-//    //        if (indexPath.section == 2) {
-//    //            AJCompositeHeaderView *headView = [collectionView dequeueReusableSupplementaryViewOfKind:UICollectionElementKindSectionHeader withReuseIdentifier:@"AJCompositeHeaderView" forIndexPath:indexPath];
-//    //            UITapGestureRecognizer *singleTap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(handleRecommendComposite:)];
-//    //            singleTap.delaysTouchesBegan = YES;
-//    //            singleTap.numberOfTapsRequired = 1;
-//    //            [headView addGestureRecognizer:singleTap];
-//    //
-//    //            return headView;
-//    //        }
-//    //        else if (indexPath.section == 3) {
-//    //            AJSummaryHeaderReusableView *headView = [collectionView dequeueReusableSupplementaryViewOfKind:UICollectionElementKindSectionHeader withReuseIdentifier:@"AJSummaryHeaderReusableView" forIndexPath:indexPath];
-//    //            UITapGestureRecognizer *singleTap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(handleMoreSingles:)];
-//    //            singleTap.delaysTouchesBegan = YES;
-//    //            singleTap.numberOfTapsRequired = 1;
-//    //            [headView addGestureRecognizer:singleTap];
-//    //
-//    //            return headView;
-//    //        }
-//    //        else {
-//    //            return nil;
-//    //        }
-//    //    }
-//    //    else {
-//    return nil;
-//}
 
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath
 {
@@ -220,6 +253,12 @@
         xiaofeiRecordCell.xiaofeiRecord = temp;
         xiaofeiRecordCell.delegate = self;
         return xiaofeiRecordCell;
+    }else if([obj isKindOfClass:[HYBStoreXiaofeiRecord class]]){
+        HYBStoreXiaofeiRecordCell *storeXiaofeiRecordCell = [collectionView dequeueReusableCellWithReuseIdentifier:@"HYBStoreXiaofeiRecordCell" forIndexPath:indexPath];
+        HYBStoreXiaofeiRecord *temp = (HYBStoreXiaofeiRecord *)obj;
+        storeXiaofeiRecordCell.storeXiaofeiRecord = temp;
+        storeXiaofeiRecordCell.delegate = self;
+        return storeXiaofeiRecordCell;
     }else{
         HYBXiaofeiRecordCell *xiaofeiRecordCell = [collectionView dequeueReusableCellWithReuseIdentifier:@"HYBXiaofeiRecordCell" forIndexPath:indexPath];
         HYBXiaofeiRecord *temp = (HYBXiaofeiRecord *)obj;
@@ -245,12 +284,7 @@
 
 // 定义headview的size
 - (CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout*)collectionViewLayout referenceSizeForHeaderInSection:(NSInteger)section {
-    //    if (section == 2 ) {
-    //        return CGSizeMake(CGRectGetWidth(collectionView.bounds), 52.0f);
-    //    }
-    //    else {
     return CGSizeZero;
-    //    }
 }
 
 // 定义footerView的size
@@ -277,8 +311,7 @@
 - (void)viewWillAppear:(BOOL)animated
 {
     [super viewWillAppear:animated];
-    //    [[self rdv_tabBarController] setTabBarHidden:NO animated:NO];
-    //    [self refreshData];
+    [self refreshData];
 }
 
 
@@ -287,6 +320,7 @@
     _scrollView2.hidden = YES;
     _btn1.selected = YES;
     _btn2.selected = NO;
+    [self refreshData];
 }
 
 -(void)shanghu{
@@ -294,6 +328,14 @@
     _scrollView2.hidden = NO;
     _btn1.selected = NO;
     _btn2.selected = YES;
+    [self showLoadingView];
+    [self.storexiaofeilist loadDataWithRequestMethodType:kHttpRequestMethodTypeGet parameters:@{
+                                                                                           @"userId":[GVUserDefaults standardUserDefaults].userId,
+                                                                                           
+                                                                                           @"phoneno":[GVUserDefaults standardUserDefaults].phoneno,
+                                                                                           @"pageLength":@"10",
+                                                                                           @"current":@"0"
+                                                                                           }];
 }
 
 @end

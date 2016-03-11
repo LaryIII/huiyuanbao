@@ -9,6 +9,7 @@
 #import "HYBSetPasswordViewController.h"
 #import "masonry.h"
 #import "HYBSetPassword.h"
+#import "GVUserDefaults+HYBProperties.h"
 
 @interface HYBSetPasswordViewController ()<UITextFieldDelegate>
 @property (nonatomic, strong) HYBSetPassword *setpassword;
@@ -156,7 +157,10 @@
 }
 
 - (void)savepsd{
-    [self.setpassword loadDataWithRequestMethodType:kHttpRequestMethodTypeGet parameters:@{@"phoneno":@"",@"userId":@"",@"paypassword":_psd1.text}];
+    NSTimeInterval nowTimestamp = [[NSDate date] timeIntervalSince1970] * 1000.0;
+    long time = (long)ceilf(nowTimestamp);
+    NSString *timex = [NSString stringWithFormat:@"%li",time];
+    [self.setpassword loadDataWithRequestMethodType:kHttpRequestMethodTypeGet parameters:@{@"phoneno":[GVUserDefaults standardUserDefaults].phoneno,@"userId":[GVUserDefaults standardUserDefaults].userId,@"paypassword":[timex stringByAppendingString:_psd1.text]}];
 }
 
 @end

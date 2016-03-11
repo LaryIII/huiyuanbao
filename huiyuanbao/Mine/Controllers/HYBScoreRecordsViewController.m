@@ -11,6 +11,7 @@
 #import "HYBScoreRecordCell.h"
 #import "HYBScoreRecord.h"
 #import "HYBScoreRecordList.h"
+#import "GVUserDefaults+HYBProperties.h"
 
 @interface HYBScoreRecordsViewController ()<UICollectionViewDelegate, UICollectionViewDataSource,HYBScoreRecordCellDelegate>
 @property (nonatomic, strong) UICollectionView *collectionView;
@@ -19,10 +20,14 @@
 @property(strong, nonatomic) UIButton *btn2;
 @property(strong, nonatomic) UIScrollView *scrollView1;
 @property(strong, nonatomic) UIScrollView *scrollView2;
+
+@property (nonatomic, strong) HYBScoreRecordList *scorelist;
 @end
 
 @implementation HYBScoreRecordsViewController
-
+- (void) dealloc{
+    [_scorelist removeObserver:self forKeyPath:kResourceLoadingStatusKeyPath];
+}
 - (void)viewDidLoad {
     [super viewDidLoad];
     CGFloat width = CGRectGetWidth(self.view.bounds);
@@ -133,42 +138,6 @@
         make.height.mas_equalTo(44);
     }];
     
-    UIView *ssuperview = self.view;
-    
-    _scrollView1 = UIScrollView.new;
-    _scrollView1.backgroundColor = [UIColor clearColor];
-    [self.view addSubview:_scrollView1];
-    _scrollView1.hidden = NO;
-    [_scrollView1 makeConstraints:^(MASConstraintMaker *make) {
-        make.edges.equalTo(ssuperview).with.insets(UIEdgeInsetsMake(self.navigationBarHeight+44,0,0,0));
-    }];
-    
-    UIView *container1 = [UIView new];
-    [_scrollView1 addSubview:container1];
-    [container1 makeConstraints:^(MASConstraintMaker *make) {
-        make.edges.equalTo(_scrollView1);
-        make.width.equalTo(_scrollView1.width);
-    }];
-    
-    
-    
-    
-    
-    _scrollView2 = UIScrollView.new;
-    _scrollView2.backgroundColor = [UIColor clearColor];
-    [self.view addSubview:_scrollView2];
-    _scrollView2.hidden = YES;
-    [_scrollView2 makeConstraints:^(MASConstraintMaker *make) {
-        make.edges.equalTo(ssuperview).with.insets(UIEdgeInsetsMake(self.navigationBarHeight+44,0,0,0));
-    }];
-    
-    UIView *container2 = [UIView new];
-    [_scrollView2 addSubview:container2];
-    [container2 makeConstraints:^(MASConstraintMaker *make) {
-        make.edges.equalTo(_scrollView2);
-        make.width.equalTo(_scrollView2.width);
-    }];
-    
     UICollectionViewFlowLayout *collectionViewFlowLayout = [[UICollectionViewFlowLayout alloc]init];
     _collectionView = [[UICollectionView alloc] initWithFrame:CGRectMake(0.0f, self.navigationBarHeight+44+120, CGRectGetWidth(self.view.bounds), CGRectGetHeight(self.view.bounds) - self.navigationBarHeight-44-120) collectionViewLayout:collectionViewFlowLayout];
     _collectionView.alwaysBounceVertical = YES;
@@ -181,26 +150,52 @@
     [self.view addSubview:_collectionView];
     
     [_collectionView registerClass:[HYBScoreRecordCell class] forCellWithReuseIdentifier:@"HYBScoreRecordCell"];
+    self.scorelist = [[HYBScoreRecordList alloc] initWithBaseURL:HYB_API_BASE_URL path:SCORE_LIST cachePolicyType:kCachePolicyTypeNone];
+    
+    [self.scorelist addObserver:self
+                    forKeyPath:kResourceLoadingStatusKeyPath
+                       options:NSKeyValueObservingOptionNew
+                       context:nil];
     
     //test data
     self.dataArray = [NSMutableArray array];
-    [self.dataArray addObject:[NSMutableArray array]];
-    HYBScoreRecordList *scoreRecords = HYBScoreRecordList.new;
-    NSMutableArray *arr = [[NSMutableArray alloc]init];
-    HYBScoreRecord *o1 = HYBScoreRecord.new;
-    HYBScoreRecord *o2 = HYBScoreRecord.new;
-    [arr addObject:o1];
-    [arr addObject:o2];
-    scoreRecords.scoreRecords = arr;
-    [_dataArray[0] addObjectsFromArray:scoreRecords.scoreRecords];
 }
+- (void) refreshData{
+    [self showLoadingView];
+    [self.scorelist loadDataWithRequestMethodType:kHttpRequestMethodTypeGet parameters:@{
+                                                                                        @"userId":[GVUserDefaults standardUserDefaults].userId,
+                                                                                        
+                                                                                        @"phoneno":[GVUserDefaults standardUserDefaults].phoneno,
+                                                                                        @"pageLength":@"10",
+                                                                                        @"current":@"0",
+                                                                                        @"muname":@""
+                                                                                        }];
+}
+
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
-- (void)leftButtonTapped:(id)sender
+
+#pragma mark Key-value observing
+- (void)observeValueForKeyPath:(NSString *)keyPath
+                      ofObject:(id)object
+                        change:(NSDictionary *)change
+                       context:(void *)context
 {
-    //TODO
+    if ([keyPath isEqualToString:kResourceLoadingStatusKeyPath]) {
+        if (object == _scorelist) {
+            if (_scorelist.isLoaded) {
+                [self hideLoadingView];
+                [self.dataArray addObject:_scorelist.scoreRecords];
+                
+                [_collectionView reloadData];
+            }
+            else if (_scorelist.error) {
+                [self showErrorMessage:[_scorelist.error localizedFailureReason]];
+            }
+        }
+    }
 }
 
 #pragma mark  UICollectionViewDataSource
@@ -213,36 +208,6 @@
     NSArray *array = self.dataArray[section];
     return [array count];
 }
-
-
-//- (UICollectionReusableView *)collectionView:(UICollectionView *)collectionView viewForSupplementaryElementOfKind:(NSString *)kind atIndexPath:(NSIndexPath *)indexPath
-//{
-//    //    if ([kind isEqualToString:UICollectionElementKindSectionHeader]) {
-//    //        if (indexPath.section == 2) {
-//    //            AJCompositeHeaderView *headView = [collectionView dequeueReusableSupplementaryViewOfKind:UICollectionElementKindSectionHeader withReuseIdentifier:@"AJCompositeHeaderView" forIndexPath:indexPath];
-//    //            UITapGestureRecognizer *singleTap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(handleRecommendComposite:)];
-//    //            singleTap.delaysTouchesBegan = YES;
-//    //            singleTap.numberOfTapsRequired = 1;
-//    //            [headView addGestureRecognizer:singleTap];
-//    //
-//    //            return headView;
-//    //        }
-//    //        else if (indexPath.section == 3) {
-//    //            AJSummaryHeaderReusableView *headView = [collectionView dequeueReusableSupplementaryViewOfKind:UICollectionElementKindSectionHeader withReuseIdentifier:@"AJSummaryHeaderReusableView" forIndexPath:indexPath];
-//    //            UITapGestureRecognizer *singleTap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(handleMoreSingles:)];
-//    //            singleTap.delaysTouchesBegan = YES;
-//    //            singleTap.numberOfTapsRequired = 1;
-//    //            [headView addGestureRecognizer:singleTap];
-//    //
-//    //            return headView;
-//    //        }
-//    //        else {
-//    //            return nil;
-//    //        }
-//    //    }
-//    //    else {
-//    return nil;
-//}
 
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath
 {
@@ -282,12 +247,7 @@
 
 // 定义headview的size
 - (CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout*)collectionViewLayout referenceSizeForHeaderInSection:(NSInteger)section {
-    //    if (section == 2 ) {
-    //        return CGSizeMake(CGRectGetWidth(collectionView.bounds), 52.0f);
-    //    }
-    //    else {
     return CGSizeZero;
-    //    }
 }
 
 // 定义footerView的size
@@ -314,20 +274,15 @@
 - (void)viewWillAppear:(BOOL)animated
 {
     [super viewWillAppear:animated];
-    //    [[self rdv_tabBarController] setTabBarHidden:NO animated:NO];
-    //    [self refreshData];
+    [self refreshData];
 }
 
 -(void)huiyuanbao{
-    _scrollView1.hidden = NO;
-    _scrollView2.hidden = YES;
     _btn1.selected = YES;
     _btn2.selected = NO;
 }
 
 -(void)shanghu{
-    _scrollView1.hidden = YES;
-    _scrollView2.hidden = NO;
     _btn1.selected = NO;
     _btn2.selected = YES;
 }

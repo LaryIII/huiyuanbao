@@ -1,15 +1,15 @@
 //
-//  HYBChargeRecordList.m
+//  HYBStoreXiaofeiRecordList.m
 //  huiyuanbao
 //
-//  Created by zhouhai on 16/3/5.
+//  Created by zhouhai on 16/3/12.
 //  Copyright © 2016年 huiyuanbao. All rights reserved.
 //
 
-#import "HYBChargeRecordList.h"
-#import "HYBChargeRecord.h"
+#import "HYBStoreXiaofeiRecordList.h"
+#import "HYBStoreXiaofeiRecord.h"
 
-@implementation HYBChargeRecordList
+@implementation HYBStoreXiaofeiRecordList
 - (instancetype)initWithBaseURL:(NSURL *)url path:(NSString *)path
 {
     self.isInfinite = false;
@@ -33,16 +33,16 @@
             return;
         }
         
-        if (self.chargeRecords) {
-            [self.chargeRecords removeAllObjects];
+        if (self.storeXiaofeiRecords) {
+            [self.storeXiaofeiRecords removeAllObjects];
         }
         else {
-            self.chargeRecords = [NSMutableArray array];
+            self.storeXiaofeiRecords = [NSMutableArray array];
         }
         
         for (id dictionary in value) {
-            HYBChargeRecord *chargeRecord = [[HYBChargeRecord alloc] initWithValues:dictionary];
-            [self.chargeRecords addObject:chargeRecord];
+            HYBStoreXiaofeiRecord *storeXiaofeiRecord = [[HYBStoreXiaofeiRecord alloc] initWithValues:dictionary];
+            [self.storeXiaofeiRecords addObject:storeXiaofeiRecord];
         }
         
         self.page++;
@@ -53,3 +53,7 @@
 }
 
 @end
+
+
+
+
