@@ -245,6 +245,9 @@
 		B9AC1F361C88886B003D462F /* dot@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = B9AC1F321C88886B003D462F /* dot@3x.png */; };
 		B9AC1F371C88886B003D462F /* dot@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = B9AC1F331C88886B003D462F /* dot@2x.png */; };
 		B9AC1F3D1C888DB0003D462F /* HYBXiaofeiRecordsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B9AC1F3C1C888DB0003D462F /* HYBXiaofeiRecordsViewController.m */; };
+		B9D5AAD61C946C3300B9692D /* HYBQueryBelong.m in Sources */ = {isa = PBXBuildFile; fileRef = B9D5AAD51C946C3300B9692D /* HYBQueryBelong.m */; };
+		B9D5AAD91C946CBB00B9692D /* HYBChargeFee.m in Sources */ = {isa = PBXBuildFile; fileRef = B9D5AAD81C946CBB00B9692D /* HYBChargeFee.m */; };
+		B9D5AADC1C946DBB00B9692D /* HYBChargeFlow.m in Sources */ = {isa = PBXBuildFile; fileRef = B9D5AADB1C946DBB00B9692D /* HYBChargeFlow.m */; };
 		B9DD34101C8B270E0008290A /* HYBGateViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B9DD340F1C8B270E0008290A /* HYBGateViewController.m */; };
 		B9DD34201C8B29A50008290A /* inner_logo@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = B9DD34121C8B29A50008290A /* inner_logo@2x.png */; };
 		B9DD34211C8B29A50008290A /* inner_logo@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = B9DD34131C8B29A50008290A /* inner_logo@3x.png */; };
@@ -736,6 +739,12 @@
 		B9AC1F331C88886B003D462F /* dot@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "dot@2x.png"; sourceTree = "<group>"; };
 		B9AC1F3B1C888DB0003D462F /* HYBXiaofeiRecordsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = HYBXiaofeiRecordsViewController.h; path = Mine/Controllers/HYBXiaofeiRecordsViewController.h; sourceTree = "<group>"; };
 		B9AC1F3C1C888DB0003D462F /* HYBXiaofeiRecordsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = HYBXiaofeiRecordsViewController.m; path = Mine/Controllers/HYBXiaofeiRecordsViewController.m; sourceTree = "<group>"; };
+		B9D5AAD41C946C3300B9692D /* HYBQueryBelong.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = HYBQueryBelong.h; path = Life/Models/HYBQueryBelong.h; sourceTree = "<group>"; };
+		B9D5AAD51C946C3300B9692D /* HYBQueryBelong.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = HYBQueryBelong.m; path = Life/Models/HYBQueryBelong.m; sourceTree = "<group>"; };
+		B9D5AAD71C946CBB00B9692D /* HYBChargeFee.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = HYBChargeFee.h; path = Life/Models/HYBChargeFee.h; sourceTree = "<group>"; };
+		B9D5AAD81C946CBB00B9692D /* HYBChargeFee.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = HYBChargeFee.m; path = Life/Models/HYBChargeFee.m; sourceTree = "<group>"; };
+		B9D5AADA1C946DBB00B9692D /* HYBChargeFlow.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = HYBChargeFlow.h; path = Life/Models/HYBChargeFlow.h; sourceTree = "<group>"; };
+		B9D5AADB1C946DBB00B9692D /* HYBChargeFlow.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = HYBChargeFlow.m; path = Life/Models/HYBChargeFlow.m; sourceTree = "<group>"; };
 		B9DD340E1C8B270E0008290A /* HYBGateViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = HYBGateViewController.h; path = User/Controllers/HYBGateViewController.h; sourceTree = "<group>"; };
 		B9DD340F1C8B270E0008290A /* HYBGateViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = HYBGateViewController.m; path = User/Controllers/HYBGateViewController.m; sourceTree = "<group>"; };
 		B9DD34121C8B29A50008290A /* inner_logo@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "inner_logo@2x.png"; sourceTree = "<group>"; };
@@ -2114,6 +2123,12 @@
 				B9E13CA61C930E43007B3D3C /* HYBPhoneContact.m */,
 				B9E13CBF1C931397007B3D3C /* HYBPhoneContactList.h */,
 				B9E13CC01C931397007B3D3C /* HYBPhoneContactList.m */,
+				B9D5AAD41C946C3300B9692D /* HYBQueryBelong.h */,
+				B9D5AAD51C946C3300B9692D /* HYBQueryBelong.m */,
+				B9D5AAD71C946CBB00B9692D /* HYBChargeFee.h */,
+				B9D5AAD81C946CBB00B9692D /* HYBChargeFee.m */,
+				B9D5AADA1C946DBB00B9692D /* HYBChargeFlow.h */,
+				B9D5AADB1C946DBB00B9692D /* HYBChargeFlow.m */,
 			);
 			name = Models;
 			sourceTree = "<group>";
@@ -2739,6 +2754,7 @@
 				B9DD34681C900DDE0008290A /* HYBFirstStoreHeaderReusableView.m in Sources */,
 				B9DD34391C8B2B9D0008290A /* HYBChangeNumViewController.m in Sources */,
 				B9E935FE1C7E00C60068E620 /* RDVTabBarItem.m in Sources */,
+				B9D5AAD91C946CBB00B9692D /* HYBChargeFee.m in Sources */,
 				B9E935801C7DE2B40068E620 /* DDContextFilterLogFormatter.m in Sources */,
 				B9E935811C7DE2B40068E620 /* DDDispatchQueueLogFormatter.m in Sources */,
 				B9E935771C7DE2B40068E620 /* UIRefreshControl+AFNetworking.m in Sources */,
@@ -2867,6 +2883,7 @@
 				B9A828E61C8B1AD9007403D2 /* HYBCityCell.m in Sources */,
 				B988F3ED1C8180FF006BBD8B /* HYBStore2.m in Sources */,
 				B9E13C981C930111007B3D3C /* HYBResetLogin.m in Sources */,
+				B9D5AAD61C946C3300B9692D /* HYBQueryBelong.m in Sources */,
 				B988F4D81C874B68006BBD8B /* HYBShiyouChargeViewController.m in Sources */,
 				B9E935B31C7DE2B40068E620 /* ZHAreaPickerView.m in Sources */,
 				B9E9357D1C7DE2B40068E620 /* DDFileLogger.m in Sources */,
@@ -2879,6 +2896,7 @@
 				B9E935AE1C7DE2B40068E620 /* HDWRefreshView.m in Sources */,
 				B9A828BC1C8AE2B1007403D2 /* HYBXiaofeiRecordCell.m in Sources */,
 				B9A828331C8AA2B6007403D2 /* HYBOrderRecord.m in Sources */,
+				B9D5AADC1C946DBB00B9692D /* HYBChargeFlow.m in Sources */,
 				B9E935B51C7DE2B40068E620 /* ZHLocation.m in Sources */,
 				B9E13C9B1C930210007B3D3C /* HYBFindbackOne.m in Sources */,
 				B9E13CCD1C9355C7007B3D3C /* HYBStoreChargeRecord.m in Sources */,

@@ -9,15 +9,30 @@
 #import "HYBPhoneChargeViewController.h"
 #import "masonry.h"
 #import "HYBPhoneContactsViewController.h"
+#import "HYBQueryBelong.h"
+#import "HYBChargeFee.h"
+#import "HYBChargeFlow.h"
 
 @interface HYBPhoneChargeViewController ()
 @property(strong, nonatomic) UIButton *btn1;
 @property(strong, nonatomic) UIButton *btn2;
 @property(strong, nonatomic) UIScrollView *scrollView1;
 @property(strong, nonatomic) UIScrollView *scrollView2;
+
+@property (strong, nonatomic) UITextField *phoneinput;
+
+@property (strong, nonatomic) HYBQueryBelong *querybelong;
+@property (strong, nonatomic) HYBChargeFee *chargefee;
+@property (strong, nonatomic) HYBChargeFlow *chargeflow;
 @end
 
 @implementation HYBPhoneChargeViewController
+
+- (void) dealloc{
+    [_querybelong removeObserver:self forKeyPath:kResourceLoadingStatusKeyPath];
+    [_chargefee removeObserver:self forKeyPath:kResourceLoadingStatusKeyPath];
+    [_chargeflow removeObserver:self forKeyPath:kResourceLoadingStatusKeyPath];
+}
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -97,18 +112,19 @@
         make.height.mas_equalTo(50);
     }];
     
-    UITextField *phoneinput = UITextField.new;
-    [phoneinput setClearButtonMode:UITextFieldViewModeWhileEditing];//右侧删除按钮
-    phoneinput.leftViewMode=UITextFieldViewModeAlways;
-    phoneinput.placeholder=@"请填写手机号码";//默认显示的字
-    phoneinput.keyboardType=UIKeyboardTypeNumberPad;//设置键盘类型为默认的
-    phoneinput.returnKeyType=UIReturnKeyDone;//返回键的类型
-    phoneinput.font = [UIFont systemFontOfSize:14.0f];
-    phoneinput.textColor = RGB(51, 51, 51);
-    phoneinput.delegate=self;//设置委托
-    phoneinput.tag = 10001;
-    [selectPhone addSubview:phoneinput];
-    [phoneinput makeConstraints:^(MASConstraintMaker *make) {
+    _phoneinput = UITextField.new;
+    [_phoneinput setClearButtonMode:UITextFieldViewModeWhileEditing];//右侧删除按钮
+    _phoneinput.leftViewMode=UITextFieldViewModeAlways;
+    _phoneinput.placeholder=@"请填写手机号码";//默认显示的字
+    _phoneinput.keyboardType=UIKeyboardTypeNumberPad;//设置键盘类型为默认的
+    _phoneinput.returnKeyType=UIReturnKeyDone;//返回键的类型
+    _phoneinput.font = [UIFont systemFontOfSize:14.0f];
+    _phoneinput.textColor = RGB(51, 51, 51);
+    _phoneinput.delegate=self;//设置委托
+    _phoneinput.tag = 10001;
+    [_phoneinput addTarget:self action:@selector(phoneNumDidChange) forControlEvents:UIControlEventEditingChanged];
+    [selectPhone addSubview:_phoneinput];
+    [_phoneinput makeConstraints:^(MASConstraintMaker *make) {
         make.top.equalTo(selectPhone.top).offset(15);
         make.left.equalTo(selectPhone.left).offset(15);
         make.width.mas_equalTo(180);
@@ -279,6 +295,7 @@
     phoneinput2.textColor = RGB(51, 51, 51);
     phoneinput2.delegate=self;//设置委托
     phoneinput2.tag = 10001;
+    [phoneinput2 addTarget:self action:@selector(phoneNumDidChange2) forControlEvents:UIControlEventEditingChanged];
     [selectPhone2 addSubview:phoneinput2];
     [phoneinput2 makeConstraints:^(MASConstraintMaker *make) {
         make.top.equalTo(selectPhone2.top).offset(15);
@@ -412,6 +429,60 @@
         make.bottom.equalTo(tipsDetail2).offset(18);
     }];
     
+    self.querybelong = [[HYBQueryBelong alloc] initWithBaseURL:HYB_API_BASE_URL path:QUERY_BLONG cachePolicyType:kCachePolicyTypeNone];
+    
+    [self.querybelong addObserver:self
+                   forKeyPath:kResourceLoadingStatusKeyPath
+                      options:NSKeyValueObservingOptionNew
+                      context:nil];
+    
+    self.chargefee = [[HYBChargeFee alloc] initWithBaseURL:HYB_API_BASE_URL path:CHARGE_FEE cachePolicyType:kCachePolicyTypeNone];
+    
+    [self.chargefee addObserver:self
+                       forKeyPath:kResourceLoadingStatusKeyPath
+                          options:NSKeyValueObservingOptionNew
+                          context:nil];
+    
+    self.chargeflow = [[HYBChargeFlow alloc] initWithBaseURL:HYB_API_BASE_URL path:CHARGE_FLOW cachePolicyType:kCachePolicyTypeNone];
+    
+    [self.chargeflow addObserver:self
+                     forKeyPath:kResourceLoadingStatusKeyPath
+                        options:NSKeyValueObservingOptionNew
+                        context:nil];
+    
+}
+
+#pragma mark Key-value observing
+- (void)observeValueForKeyPath:(NSString *)keyPath
+                      ofObject:(id)object
+                        change:(NSDictionary *)change
+                       context:(void *)context
+{
+    if ([keyPath isEqualToString:kResourceLoadingStatusKeyPath]) {
+        if (object == _querybelong) {
+            if (_querybelong.isLoaded) {
+                [self hideLoadingView];
+                
+            }
+            else if (_querybelong.error) {
+                [self showErrorMessage:[_querybelong.error localizedFailureReason]];
+            }
+        }else if (object == _chargefee) {
+            if (_chargefee.isLoaded) {
+                 [self hideLoadingView];
+            }
+            else if (_chargefee.error) {
+                [self showErrorMessage:[_chargefee.error localizedFailureReason]];
+            }
+        }else if (object == _chargeflow) {
+            if (_chargeflow.isLoaded) {
+                [self hideLoadingView];
+            }
+            else if (_chargeflow.error) {
+                [self showErrorMessage:[_chargeflow.error localizedFailureReason]];
+            }
+        }
+    }
 }
 
 -(void)huafei{
@@ -448,6 +519,12 @@
 
 -(void)btn1clicked:(id)sender{
     
+}
+
+-(void)phoneNumDidChange{
+    if(_phoneinput.text.length == 11){
+        
+    }
 }
 
 @end
