@@ -440,11 +440,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "huiyuanbao/Life/Controllers/HYBPhoneChargeViewController.m"
-            timestampString = "479488985.726043"
+            timestampString = "479527073.33431"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "436"
-            endingLineNumber = "436"
+            startingLineNumber = "543"
+            endingLineNumber = "543"
             landmarkName = "-otherNums:"
             landmarkType = "5">
          </BreakpointContent>
@@ -456,11 +456,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "huiyuanbao/Life/Controllers/HYBPhoneChargeViewController.m"
-            timestampString = "479488985.726043"
+            timestampString = "479527073.33431"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "441"
-            endingLineNumber = "441"
+            startingLineNumber = "548"
+            endingLineNumber = "548"
             landmarkName = "-otherNums2:"
             landmarkType = "5">
          </BreakpointContent>
@@ -472,12 +472,28 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "huiyuanbao/Life/Controllers/HYBPhoneChargeViewController.m"
-            timestampString = "479488985.726043"
+            timestampString = "479527073.33431"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "446"
-            endingLineNumber = "446"
+            startingLineNumber = "556"
+            endingLineNumber = "556"
             landmarkName = "-charge"
+            landmarkType = "5">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "huiyuanbao/Life/Controllers/HYBPhoneChargeViewController.m"
+            timestampString = "479527179.184495"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "577"
+            endingLineNumber = "577"
+            landmarkName = "-btn1clicked:"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>

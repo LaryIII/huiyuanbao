@@ -12,6 +12,7 @@
 #import "HYBQueryBelong.h"
 #import "HYBChargeFee.h"
 #import "HYBChargeFlow.h"
+#import "GVUserDefaults+HYBProperties.h"
 
 @interface HYBPhoneChargeViewController ()
 @property(strong, nonatomic) UIButton *btn1;
@@ -20,22 +21,40 @@
 @property(strong, nonatomic) UIScrollView *scrollView2;
 
 @property (strong, nonatomic) UITextField *phoneinput;
+@property (strong, nonatomic) UITextField *phoneinput2;
 
-@property (strong, nonatomic) HYBQueryBelong *querybelong;
+@property (strong, nonatomic) HYBQueryBelong *querybelong1;
+@property (strong, nonatomic) HYBQueryBelong *querybelong2;
 @property (strong, nonatomic) HYBChargeFee *chargefee;
 @property (strong, nonatomic) HYBChargeFlow *chargeflow;
+
+@property (strong,nonatomic) UILabel *t_title1;
+@property (strong,nonatomic) UILabel *t_title2;
+
+@property (strong,nonatomic) NSArray *categorys;
+@property (strong,nonatomic) NSArray *categorys2;
+@property (strong,nonatomic) NSString *totalMoney;
+@property (strong,nonatomic) NSString *totalMoney2;
+@property (strong,nonatomic) NSString *totalFlow;
+
+@property (strong,nonatomic) UIView *btn1s;
+@property (strong,nonatomic) UIView *btn2s;
 @end
 
 @implementation HYBPhoneChargeViewController
 
 - (void) dealloc{
-    [_querybelong removeObserver:self forKeyPath:kResourceLoadingStatusKeyPath];
+    [_querybelong1 removeObserver:self forKeyPath:kResourceLoadingStatusKeyPath];
+    [_querybelong2 removeObserver:self forKeyPath:kResourceLoadingStatusKeyPath];
     [_chargefee removeObserver:self forKeyPath:kResourceLoadingStatusKeyPath];
     [_chargeflow removeObserver:self forKeyPath:kResourceLoadingStatusKeyPath];
 }
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    _totalMoney = @"0";
+    _totalMoney2 = @"0";
+    _totalFlow = @"0";
     CGFloat width = CGRectGetWidth(self.view.bounds);
     
     self.navigationBar.title = @"手机充值";
@@ -163,50 +182,52 @@
         make.height.mas_equalTo(30);
     }];
     
-    UILabel *t_title1 = UILabel.new;
-    t_title1.textAlignment = NSTextAlignmentCenter;
-    t_title1.textColor = RGB(136, 136, 136);
-    t_title1.font = [UIFont systemFontOfSize:14.0f];
-    t_title1.text = @"江苏移动";
-    [title1 addSubview:t_title1];
-    [t_title1 makeConstraints:^(MASConstraintMaker *make) {
+    _t_title1 = UILabel.new;
+    _t_title1.textAlignment = NSTextAlignmentCenter;
+    _t_title1.textColor = RGB(136, 136, 136);
+    _t_title1.font = [UIFont systemFontOfSize:14.0f];
+    _t_title1.text = @"";
+    [title1 addSubview:_t_title1];
+    [_t_title1 makeConstraints:^(MASConstraintMaker *make) {
         make.top.equalTo(title1.top).offset(7);
         make.left.equalTo(title1.left).offset(15);
     }];
     
-    UIView *btn1s = UIView.new;
-    btn1s.backgroundColor = [UIColor clearColor];
-    [container1 addSubview:btn1s];
-    [btn1s makeConstraints:^(MASConstraintMaker *make) {
+    _btn1s = UIView.new;
+    _btn1s.backgroundColor = [UIColor clearColor];
+    [container1 addSubview:_btn1s];
+    [_btn1s makeConstraints:^(MASConstraintMaker *make) {
         make.top.equalTo(title1.bottom);
         make.left.equalTo(container1.left);
         make.right.equalTo(container1.right);
         make.height.mas_equalTo(15*2+33*1);
     }];
     
-    NSArray *categarys = @[@{@"name":@"5元",@"id":@5},@{@"name":@"30元",@"id":@30},@{@"name":@"100元",@"id":@100}];
-    for(int i=0;i<categarys.count;i++){
+    _categorys = @[@{@"name":@"5元",@"id":@"5"},@{@"name":@"30元",@"id":@"30"},@{@"name":@"100元",@"id":@"100"}];
+    for(int i=0;i<_categorys.count;i++){
         UIButton *btn = UIButton.new;
         btn.titleLabel.font = [UIFont systemFontOfSize:14.0f];
-        [btn setTitle:[categarys[i] objectForKey:@"name"] forState:UIControlStateNormal];
+        [btn setTitle:[_categorys[i] objectForKey:@"name"] forState:UIControlStateNormal];
         [btn setTitleColor:MAIN_COLOR forState:UIControlStateNormal];
+        [btn setTitleColor:[UIColor whiteColor] forState:UIControlStateSelected];
         btn.layer.borderColor = MAIN_COLOR.CGColor;
         btn.layer.borderWidth = 1;
         btn.layer.cornerRadius = 5.0;
         btn.tag = 10001+i;
+        btn.selected = NO;
         [btn addTarget:self action:@selector(btn1clicked:) forControlEvents:UIControlEventTouchUpInside];
-        [btn1s addSubview:btn];
+        [_btn1s addSubview:btn];
         int btnw = (width-30-30)/4;
         if(i<4){
             [btn makeConstraints:^(MASConstraintMaker *make) {
-                make.top.equalTo(btn1s.top).offset(15);
+                make.top.equalTo(_btn1s.top).offset(15);
                 make.left.mas_equalTo((btnw+10)*i+15);
                 make.width.mas_equalTo(btnw);
                 make.height.mas_equalTo(33);
             }];
         }else{
             [btn makeConstraints:^(MASConstraintMaker *make) {
-                make.top.equalTo(btn1s.top).offset(15*2+33);
+                make.top.equalTo(_btn1s.top).offset(15*2+33);
                 make.left.mas_equalTo((btnw+10)*(i-4)+15);
                 make.width.mas_equalTo(btnw);
                 make.height.mas_equalTo(33);
@@ -224,7 +245,7 @@
     [container1 addSubview:btn1x];
     btn1x.backgroundColor = MAIN_COLOR;
     [btn1x makeConstraints:^(MASConstraintMaker *make) {
-        make.top.equalTo(btn1s.bottom).offset(20);
+        make.top.equalTo(_btn1s.bottom).offset(20);
         make.left.equalTo(container1.left).offset(15);
         make.right.equalTo(container1.right).offset(-15);
         make.height.mas_equalTo(44);
@@ -336,50 +357,52 @@
         make.height.mas_equalTo(30);
     }];
     
-    UILabel *t_title2 = UILabel.new;
-    t_title2.textAlignment = NSTextAlignmentCenter;
-    t_title2.textColor = RGB(136, 136, 136);
-    t_title2.font = [UIFont systemFontOfSize:14.0f];
-    t_title2.text = @"江苏移动";
-    [title2 addSubview:t_title2];
-    [t_title2 makeConstraints:^(MASConstraintMaker *make) {
+    _t_title2 = UILabel.new;
+    _t_title2.textAlignment = NSTextAlignmentCenter;
+    _t_title2.textColor = RGB(136, 136, 136);
+    _t_title2.font = [UIFont systemFontOfSize:14.0f];
+    _t_title2.text = @"";
+    [title2 addSubview:_t_title2];
+    [_t_title2 makeConstraints:^(MASConstraintMaker *make) {
         make.top.equalTo(title2.top).offset(7);
         make.left.equalTo(title2.left).offset(15);
     }];
     
-    UIView *btn2s = UIView.new;
-    btn2s.backgroundColor = [UIColor clearColor];
-    [container2 addSubview:btn2s];
-    [btn2s makeConstraints:^(MASConstraintMaker *make) {
+    _btn2s = UIView.new;
+    _btn2s.backgroundColor = [UIColor clearColor];
+    [container2 addSubview:_btn2s];
+    [_btn2s makeConstraints:^(MASConstraintMaker *make) {
         make.top.equalTo(title2.bottom);
         make.left.equalTo(container2.left);
         make.right.equalTo(container2.right);
         make.height.mas_equalTo(15*2+33*1);
     }];
     
-    NSArray *categarys2 = @[@{@"name":@"5元",@"id":@5},@{@"name":@"30元",@"id":@30},@{@"name":@"100元",@"id":@100}];
-    for(int i=0;i<categarys2.count;i++){
+    _categorys2 = @[@{@"name":@"5元",@"id":@"5",@"flow":@"10"},@{@"name":@"10元",@"id":@"10",@"flow":@"30"},@{@"name":@"20元",@"id":@"20",@"flow":@"50"}];
+    for(int i=0;i<_categorys2.count;i++){
         UIButton *btn = UIButton.new;
         btn.titleLabel.font = [UIFont systemFontOfSize:14.0f];
-        [btn setTitle:[categarys2[i] objectForKey:@"name"] forState:UIControlStateNormal];
+        [btn setTitle:[_categorys2[i] objectForKey:@"name"] forState:UIControlStateNormal];
         [btn setTitleColor:MAIN_COLOR forState:UIControlStateNormal];
+        [btn setTitleColor:[UIColor whiteColor] forState:UIControlStateSelected];
         btn.layer.borderColor = MAIN_COLOR.CGColor;
         btn.layer.borderWidth = 1;
         btn.layer.cornerRadius = 5.0;
         btn.tag = 10001+i;
-        [btn addTarget:self action:@selector(btn1clicked:) forControlEvents:UIControlEventTouchUpInside];
-        [btn2s addSubview:btn];
+        btn.selected = NO;
+        [btn addTarget:self action:@selector(btn2clicked:) forControlEvents:UIControlEventTouchUpInside];
+        [_btn2s addSubview:btn];
         int btnw = (width-30-30)/4;
         if(i<4){
             [btn makeConstraints:^(MASConstraintMaker *make) {
-                make.top.equalTo(btn2s.top).offset(15);
+                make.top.equalTo(_btn2s.top).offset(15);
                 make.left.mas_equalTo((btnw+10)*i+15);
                 make.width.mas_equalTo(btnw);
                 make.height.mas_equalTo(33);
             }];
         }else{
             [btn makeConstraints:^(MASConstraintMaker *make) {
-                make.top.equalTo(btn2s.top).offset(15*2+33);
+                make.top.equalTo(_btn2s.top).offset(15*2+33);
                 make.left.mas_equalTo((btnw+10)*(i-4)+15);
                 make.width.mas_equalTo(btnw);
                 make.height.mas_equalTo(33);
@@ -397,7 +420,7 @@
     [container2 addSubview:btn2x];
     btn2x.backgroundColor = MAIN_COLOR;
     [btn2x makeConstraints:^(MASConstraintMaker *make) {
-        make.top.equalTo(btn2s.bottom).offset(20);
+        make.top.equalTo(_btn2s.bottom).offset(20);
         make.left.equalTo(container2.left).offset(15);
         make.right.equalTo(container2.right).offset(-15);
         make.height.mas_equalTo(44);
@@ -429,12 +452,19 @@
         make.bottom.equalTo(tipsDetail2).offset(18);
     }];
     
-    self.querybelong = [[HYBQueryBelong alloc] initWithBaseURL:HYB_API_BASE_URL path:QUERY_BLONG cachePolicyType:kCachePolicyTypeNone];
+    self.querybelong1 = [[HYBQueryBelong alloc] initWithBaseURL:HYB_API_BASE_URL path:QUERY_BLONG cachePolicyType:kCachePolicyTypeNone];
     
-    [self.querybelong addObserver:self
+    [self.querybelong1 addObserver:self
                    forKeyPath:kResourceLoadingStatusKeyPath
                       options:NSKeyValueObservingOptionNew
                       context:nil];
+    
+    self.querybelong2 = [[HYBQueryBelong alloc] initWithBaseURL:HYB_API_BASE_URL path:QUERY_BLONG cachePolicyType:kCachePolicyTypeNone];
+    
+    [self.querybelong2 addObserver:self
+                        forKeyPath:kResourceLoadingStatusKeyPath
+                           options:NSKeyValueObservingOptionNew
+                           context:nil];
     
     self.chargefee = [[HYBChargeFee alloc] initWithBaseURL:HYB_API_BASE_URL path:CHARGE_FEE cachePolicyType:kCachePolicyTypeNone];
     
@@ -459,13 +489,23 @@
                        context:(void *)context
 {
     if ([keyPath isEqualToString:kResourceLoadingStatusKeyPath]) {
-        if (object == _querybelong) {
-            if (_querybelong.isLoaded) {
+        if (object == _querybelong1) {
+            if (_querybelong1.isLoaded) {
                 [self hideLoadingView];
+                _t_title1.text = _querybelong1.msg;
                 
             }
-            else if (_querybelong.error) {
-                [self showErrorMessage:[_querybelong.error localizedFailureReason]];
+            else if (_querybelong1.error) {
+                [self showErrorMessage:[_querybelong1.error localizedFailureReason]];
+            }
+        }else if (object == _querybelong2) {
+            if (_querybelong2.isLoaded) {
+                [self hideLoadingView];
+                _t_title2.text = _querybelong2.msg;
+                
+            }
+            else if (_querybelong2.error) {
+                [self showErrorMessage:[_querybelong2.error localizedFailureReason]];
             }
         }else if (object == _chargefee) {
             if (_chargefee.isLoaded) {
@@ -510,20 +550,75 @@
 }
 
 -(void)charge{
-    
+    [self.chargefee loadDataWithRequestMethodType:kHttpRequestMethodTypeGet parameters:@{
+                                                                                           @"userId":[GVUserDefaults standardUserDefaults].userId,
+                                                                                           @"phoneno":[GVUserDefaults standardUserDefaults].phoneno,
+                                                                                           @"mobile":_phoneinput.text,
+                                                                                           @"totalMoney":_totalMoney,
+                                                                                           @"cardType":@"0",
+                                                                                           @"consumeType":@"1"
+                                                                                           }];
 }
 
 -(void)charge2{
-    
+    [self.chargeflow loadDataWithRequestMethodType:kHttpRequestMethodTypeGet parameters:@{
+                                                                                           @"userId":[GVUserDefaults standardUserDefaults].userId,
+                                                                                           @"phoneno":[GVUserDefaults standardUserDefaults].phoneno,
+                                                                                           @"mobile":_phoneinput.text,
+                                                                                           @"cardType":@"0",
+                                                                                           @"errMsg":_totalFlow,
+                                                                                           @"consumeType":@"5",
+                                                                                           @"totalMoney":_totalMoney2
+                                                                                           }];
 }
 
--(void)btn1clicked:(id)sender{
+-(void)btn1clicked:(UIButton *)sender{
+    long label = sender.tag;
+    for (UIButton *btn in _btn1s.subviews) {
+        if(btn.tag == label){
+            btn.selected = YES;
+            btn.backgroundColor = MAIN_COLOR;
+        }else{
+            btn.selected = NO;
+            btn.backgroundColor = [UIColor clearColor];
+        }
+    }
     
+    _totalMoney = [_categorys[label-10001] objectForKey:@"id"];
+}
+
+-(void)btn2clicked:(UIButton *)sender{
+    long label = sender.tag;
+    for (UIButton *btn in _btn2s.subviews) {
+        if(btn.tag == label){
+            sender.selected = YES;
+            sender.backgroundColor = MAIN_COLOR;
+        }else{
+            sender.selected = NO;
+            sender.backgroundColor = [UIColor clearColor];
+        }
+    }
+    _totalMoney2 = [_categorys[label-10001] objectForKey:@"id"];
+    _totalFlow = [_categorys[label-10001] objectForKey:@"flow"];
 }
 
 -(void)phoneNumDidChange{
     if(_phoneinput.text.length == 11){
-        
+        [self.querybelong1 loadDataWithRequestMethodType:kHttpRequestMethodTypeGet parameters:@{
+                                                                                              @"userId":[GVUserDefaults standardUserDefaults].userId,
+                                                                                              @"phoneno":[GVUserDefaults standardUserDefaults].phoneno,
+                                                                                              @"mobile":_phoneinput.text
+                                                                                              }];
+    }
+}
+
+-(void)phoneNumDidChange2{
+    if(_phoneinput2.text.length == 11){
+        [self.querybelong2 loadDataWithRequestMethodType:kHttpRequestMethodTypeGet parameters:@{
+                                                                                               @"userId":[GVUserDefaults standardUserDefaults].userId,
+                                                                                               @"phoneno":[GVUserDefaults standardUserDefaults].phoneno,
+                                                                                               @"mobile":_phoneinput2.text
+                                                                                               }];
     }
 }
 
