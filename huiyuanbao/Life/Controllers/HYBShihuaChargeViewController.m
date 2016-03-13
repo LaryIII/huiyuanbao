@@ -8,15 +8,36 @@
 
 #import "HYBShihuaChargeViewController.h"
 #import "masonry.h"
+#import "HYBQueryCardInfo.h"
+#import "HYBChargeYou.h"
+#import "GVUserDefaults+HYBProperties.h"
 
 @interface HYBShihuaChargeViewController ()
+@property (strong, nonatomic) HYBQueryCardInfo *querycardinfo;
+@property (strong, nonatomic) HYBChargeYou *chargeyou;
 
+@property (strong, nonatomic) UITextField *cardinput;
+@property (strong, nonatomic) UITextField *phoneinput;
+
+@property (strong, nonatomic) NSString *cardid;//64127500 (中石化任意充) 64157002 (中石化直充500元)、64157001 (中石化直充1000元) 64157004 (中石化直充100元) 64349102 (中石油任意充)
+@property (strong, nonatomic) NSString *cardType;//0 直冲 1 任意冲 手机只有直冲
+@property (strong, nonatomic) NSString *totalMoney;
+
+@property (strong, nonatomic) NSArray *pays;
+@property (strong, nonatomic) UIView *btn2s;
 @end
 
 @implementation HYBShihuaChargeViewController
 
+- (void) dealloc{
+    [_querycardinfo removeObserver:self forKeyPath:kResourceLoadingStatusKeyPath];
+    [_chargeyou removeObserver:self forKeyPath:kResourceLoadingStatusKeyPath];
+}
 - (void)viewDidLoad {
     [super viewDidLoad];
+    _cardid = @"0";
+    _cardType = @"0";
+    _totalMoney = @"0";
     self.navigationBar.title = @"中石化加油卡充值";
     self.view.backgroundColor = RGB(240, 240, 240);
     CGFloat width = CGRectGetWidth(self.view.bounds);
@@ -60,18 +81,18 @@
         make.width.mas_equalTo(80);
     }];
     
-    UITextField *cardinput = UITextField.new;
-    [cardinput setClearButtonMode:UITextFieldViewModeWhileEditing];//右侧删除按钮
-    cardinput.leftViewMode=UITextFieldViewModeAlways;
-    cardinput.placeholder=@"";//默认显示的字
-    cardinput.keyboardType=UIKeyboardTypeNumberPad;//设置键盘类型为默认的
-    cardinput.returnKeyType=UIReturnKeyDone;//返回键的类型
-    cardinput.font = [UIFont systemFontOfSize:15.0f];
-    cardinput.textColor = RGB(67, 67, 67);
-    cardinput.delegate=self;//设置委托
-    cardinput.tag = 30002;
-    [cardview addSubview:cardinput];
-    [cardinput makeConstraints:^(MASConstraintMaker *make) {
+    _cardinput = UITextField.new;
+    [_cardinput setClearButtonMode:UITextFieldViewModeWhileEditing];//右侧删除按钮
+    _cardinput.leftViewMode=UITextFieldViewModeAlways;
+    _cardinput.placeholder=@"";//默认显示的字
+    _cardinput.keyboardType=UIKeyboardTypeNumberPad;//设置键盘类型为默认的
+    _cardinput.returnKeyType=UIReturnKeyDone;//返回键的类型
+    _cardinput.font = [UIFont systemFontOfSize:15.0f];
+    _cardinput.textColor = RGB(67, 67, 67);
+    _cardinput.delegate=self;//设置委托
+    _cardinput.tag = 30002;
+    [cardview addSubview:_cardinput];
+    [_cardinput makeConstraints:^(MASConstraintMaker *make) {
         make.top.equalTo(cardview.top).offset(15);
         make.left.equalTo(cardview.right).offset(6);
         make.right.equalTo(cardview.right).offset(-15);
@@ -99,18 +120,18 @@
         make.width.mas_equalTo(50);
     }];
     
-    UITextField *phoneinput = UITextField.new;
-    [phoneinput setClearButtonMode:UITextFieldViewModeWhileEditing];//右侧删除按钮
-    phoneinput.leftViewMode=UITextFieldViewModeAlways;
-    phoneinput.placeholder=@"";//默认显示的字
-    phoneinput.keyboardType=UIKeyboardTypeNumberPad;//设置键盘类型为默认的
-    phoneinput.returnKeyType=UIReturnKeyDone;//返回键的类型
-    phoneinput.font = [UIFont systemFontOfSize:15.0f];
-    phoneinput.textColor = RGB(67, 67, 67);
-    phoneinput.delegate=self;//设置委托
-    phoneinput.tag = 30003;
-    [phoneview addSubview:phoneinput];
-    [phoneinput makeConstraints:^(MASConstraintMaker *make) {
+    _phoneinput = UITextField.new;
+    [_phoneinput setClearButtonMode:UITextFieldViewModeWhileEditing];//右侧删除按钮
+    _phoneinput.leftViewMode=UITextFieldViewModeAlways;
+    _phoneinput.placeholder=@"";//默认显示的字
+    _phoneinput.keyboardType=UIKeyboardTypeNumberPad;//设置键盘类型为默认的
+    _phoneinput.returnKeyType=UIReturnKeyDone;//返回键的类型
+    _phoneinput.font = [UIFont systemFontOfSize:15.0f];
+    _phoneinput.textColor = RGB(67, 67, 67);
+    _phoneinput.delegate=self;//设置委托
+    _phoneinput.tag = 30003;
+    [phoneview addSubview:_phoneinput];
+    [_phoneinput makeConstraints:^(MASConstraintMaker *make) {
         make.top.equalTo(phoneview.top).offset(15);
         make.left.equalTo(phoneview.right).offset(6);
         make.right.equalTo(phoneview.right).offset(-15);
@@ -150,32 +171,34 @@
         make.height.mas_equalTo(13);
     }];
     
-    UIView *btn2s = UIView.new;
-    btn2s.backgroundColor = [UIColor clearColor];
-    [container addSubview:btn2s];
-    [btn2s makeConstraints:^(MASConstraintMaker *make) {
+    _btn2s = UIView.new;
+    _btn2s.backgroundColor = [UIColor clearColor];
+    [container addSubview:_btn2s];
+    [_btn2s makeConstraints:^(MASConstraintMaker *make) {
         make.top.equalTo(infoview.bottom);
         make.left.equalTo(container.left);
         make.right.equalTo(container.right);
         make.height.mas_equalTo(15*2+44);
     }];
     
-    NSArray *pays = @[@{@"name":@"100元",@"id":@100},@{@"name":@"500元",@"id":@500},@{@"name":@"1000元",@"id":@1000}];
-    for(int i=0;i<pays.count;i++){
+    _pays = @[@{@"name":@"100元",@"id":@"64157004",@"money":@"100"},@{@"name":@"500元",@"id":@"64157002",@"money":@"500"},@{@"name":@"1000元",@"id":@"64157001",@"money":@"1000"}];
+    for(int i=0;i<_pays.count;i++){
         UIButton *btn = UIButton.new;
         btn.titleLabel.font = [UIFont systemFontOfSize:16.0f];
-        [btn setTitle:[pays[i] objectForKey:@"name"] forState:UIControlStateNormal];
+        [btn setTitle:[_pays[i] objectForKey:@"name"] forState:UIControlStateNormal];
         [btn setTitleColor:MAIN_COLOR forState:UIControlStateNormal];
+        [btn setTitleColor:[UIColor whiteColor] forState:UIControlStateSelected];
         btn.layer.borderColor = MAIN_COLOR.CGColor;
         btn.layer.borderWidth = 1;
         btn.layer.cornerRadius = 5.0;
         btn.tag = 20001+i;
+        btn.selected = NO;
         [btn addTarget:self action:@selector(btn2clicked:) forControlEvents:UIControlEventTouchUpInside];
-        [btn2s addSubview:btn];
+        [_btn2s addSubview:btn];
         int btnw = (width-30-20)/3;
         if(i<3){
             [btn makeConstraints:^(MASConstraintMaker *make) {
-                make.top.equalTo(btn2s.top).offset(15);
+                make.top.equalTo(_btn2s.top).offset(15);
                 make.left.mas_equalTo((btnw+10)*i+15);
                 make.width.mas_equalTo(btnw);
                 make.height.mas_equalTo(44);
@@ -188,7 +211,7 @@
     total.backgroundColor = [UIColor clearColor];
     [container addSubview:total];
     [total makeConstraints:^(MASConstraintMaker *make) {
-        make.top.equalTo(btn2s.bottom);
+        make.top.equalTo(_btn2s.bottom);
         make.left.equalTo(container.left);
         make.right.equalTo(container.right);
         make.height.mas_equalTo(50);
@@ -235,6 +258,20 @@
     [container makeConstraints:^(MASConstraintMaker *make) {
         make.bottom.equalTo(btn.bottom).offset(18);
     }];
+    
+    self.querycardinfo = [[HYBQueryCardInfo alloc] initWithBaseURL:HYB_API_BASE_URL path:QUERY_CARDINFO cachePolicyType:kCachePolicyTypeNone];
+    
+    [self.querycardinfo addObserver:self
+                      forKeyPath:kResourceLoadingStatusKeyPath
+                         options:NSKeyValueObservingOptionNew
+                         context:nil];
+    
+    self.chargeyou = [[HYBChargeYou alloc] initWithBaseURL:HYB_API_BASE_URL path:CHARGE_YOU cachePolicyType:kCachePolicyTypeNone];
+    
+    [self.chargeyou addObserver:self
+                         forKeyPath:kResourceLoadingStatusKeyPath
+                            options:NSKeyValueObservingOptionNew
+                            context:nil];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -242,8 +279,71 @@
     // Dispose of any resources that can be recreated.
 }
 
+#pragma mark Key-value observing
+- (void)observeValueForKeyPath:(NSString *)keyPath
+                      ofObject:(id)object
+                        change:(NSDictionary *)change
+                       context:(void *)context
+{
+    if ([keyPath isEqualToString:kResourceLoadingStatusKeyPath]) {
+        if (object == _querycardinfo) {
+            if (_querycardinfo.isLoaded) {
+                [self hideLoadingView];
+                // TODO: 弹出卡信息
+                
+            }
+            else if (_querycardinfo.error) {
+                [self showErrorMessage:[_querycardinfo.error localizedFailureReason]];
+            }
+        }else if (object == _chargeyou) {
+            if (_chargeyou.isLoaded) {
+                [self hideLoadingView];
+                
+            }
+            else if (_chargeyou.error) {
+                [self showErrorMessage:[_chargeyou.error localizedFailureReason]];
+            }
+        }
+    }
+}
+
+-(void)btn2clicked:(UIButton *)sender{
+    long label = sender.tag;
+    for (UIButton *btn in _btn2s.subviews) {
+        if(btn.tag == label){
+            btn.selected = YES;
+            btn.backgroundColor = MAIN_COLOR;
+        }else{
+            btn.selected = NO;
+            btn.backgroundColor = [UIColor clearColor];
+        }
+    }
+    _totalMoney = [_pays[label-20001] objectForKey:@"id"];
+    _cardid = [_pays[label-20001] objectForKey:@"money"];
+}
+
 - (void)viewCard{
-    
+    [self.querycardinfo loadDataWithRequestMethodType:kHttpRequestMethodTypeGet parameters:@{
+                                                                                            @"userId":[GVUserDefaults standardUserDefaults].userId,
+                                                                                            @"phoneno":[GVUserDefaults standardUserDefaults].phoneno,
+                                                                                            @"mobile":_phoneinput.text,
+                                                                                            @"gameUserid":_cardinput.text
+                                                                                            }];
+}
+
+-(void)charge{
+    [self.chargeyou loadDataWithRequestMethodType:kHttpRequestMethodTypeGet parameters:@{
+                                                                                             @"userId":[GVUserDefaults standardUserDefaults].userId,
+                                                                                             @"phoneno":[GVUserDefaults standardUserDefaults].phoneno,
+                                                                                             @"mobile":_phoneinput.text,
+                                                                                             @"gameUserid":_cardinput.text,
+                                                                                             @"consumeType":@"2",
+                                                                                             @"consumeChildType":@"2",
+                                                                                             @"cardType":_cardType,
+                                                                                             @"totalMoney":_totalMoney,
+                                                                                             @"cardid":_cardid
+                                                                                             
+                                                                                             }];
 }
 
 @end

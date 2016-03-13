@@ -248,6 +248,8 @@
 		B9D5AAD61C946C3300B9692D /* HYBQueryBelong.m in Sources */ = {isa = PBXBuildFile; fileRef = B9D5AAD51C946C3300B9692D /* HYBQueryBelong.m */; };
 		B9D5AAD91C946CBB00B9692D /* HYBChargeFee.m in Sources */ = {isa = PBXBuildFile; fileRef = B9D5AAD81C946CBB00B9692D /* HYBChargeFee.m */; };
 		B9D5AADC1C946DBB00B9692D /* HYBChargeFlow.m in Sources */ = {isa = PBXBuildFile; fileRef = B9D5AADB1C946DBB00B9692D /* HYBChargeFlow.m */; };
+		B9D5AADF1C95059500B9692D /* HYBQueryCardInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = B9D5AADE1C95059500B9692D /* HYBQueryCardInfo.m */; };
+		B9D5AAE21C95078E00B9692D /* HYBChargeYou.m in Sources */ = {isa = PBXBuildFile; fileRef = B9D5AAE11C95078E00B9692D /* HYBChargeYou.m */; };
 		B9DD34101C8B270E0008290A /* HYBGateViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B9DD340F1C8B270E0008290A /* HYBGateViewController.m */; };
 		B9DD34201C8B29A50008290A /* inner_logo@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = B9DD34121C8B29A50008290A /* inner_logo@2x.png */; };
 		B9DD34211C8B29A50008290A /* inner_logo@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = B9DD34131C8B29A50008290A /* inner_logo@3x.png */; };
@@ -745,6 +747,10 @@
 		B9D5AAD81C946CBB00B9692D /* HYBChargeFee.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = HYBChargeFee.m; path = Life/Models/HYBChargeFee.m; sourceTree = "<group>"; };
 		B9D5AADA1C946DBB00B9692D /* HYBChargeFlow.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = HYBChargeFlow.h; path = Life/Models/HYBChargeFlow.h; sourceTree = "<group>"; };
 		B9D5AADB1C946DBB00B9692D /* HYBChargeFlow.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = HYBChargeFlow.m; path = Life/Models/HYBChargeFlow.m; sourceTree = "<group>"; };
+		B9D5AADD1C95059500B9692D /* HYBQueryCardInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = HYBQueryCardInfo.h; path = Life/Models/HYBQueryCardInfo.h; sourceTree = "<group>"; };
+		B9D5AADE1C95059500B9692D /* HYBQueryCardInfo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = HYBQueryCardInfo.m; path = Life/Models/HYBQueryCardInfo.m; sourceTree = "<group>"; };
+		B9D5AAE01C95078E00B9692D /* HYBChargeYou.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = HYBChargeYou.h; path = Life/Models/HYBChargeYou.h; sourceTree = "<group>"; };
+		B9D5AAE11C95078E00B9692D /* HYBChargeYou.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = HYBChargeYou.m; path = Life/Models/HYBChargeYou.m; sourceTree = "<group>"; };
 		B9DD340E1C8B270E0008290A /* HYBGateViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = HYBGateViewController.h; path = User/Controllers/HYBGateViewController.h; sourceTree = "<group>"; };
 		B9DD340F1C8B270E0008290A /* HYBGateViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = HYBGateViewController.m; path = User/Controllers/HYBGateViewController.m; sourceTree = "<group>"; };
 		B9DD34121C8B29A50008290A /* inner_logo@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "inner_logo@2x.png"; sourceTree = "<group>"; };
@@ -2129,6 +2135,10 @@
 				B9D5AAD81C946CBB00B9692D /* HYBChargeFee.m */,
 				B9D5AADA1C946DBB00B9692D /* HYBChargeFlow.h */,
 				B9D5AADB1C946DBB00B9692D /* HYBChargeFlow.m */,
+				B9D5AADD1C95059500B9692D /* HYBQueryCardInfo.h */,
+				B9D5AADE1C95059500B9692D /* HYBQueryCardInfo.m */,
+				B9D5AAE01C95078E00B9692D /* HYBChargeYou.h */,
+				B9D5AAE11C95078E00B9692D /* HYBChargeYou.m */,
 			);
 			name = Models;
 			sourceTree = "<group>";
@@ -2813,6 +2823,7 @@
 				B9E935A61C7DE2B40068E620 /* PinyinHelper.m in Sources */,
 				B9E9323F1C7DD5960068E620 /* AppDelegate.m in Sources */,
 				B9A828DD1C8B166D007403D2 /* HYBSearchCityViewController.m in Sources */,
+				B9D5AAE21C95078E00B9692D /* HYBChargeYou.m in Sources */,
 				B9A8283F1C8AA8C4007403D2 /* HYBCardCell.m in Sources */,
 				B9A828D11C8B057E007403D2 /* HYBStoreBaseInfoCell.m in Sources */,
 				B9E935721C7DE2B40068E620 /* UIActivityIndicatorView+AFNetworking.m in Sources */,
@@ -2888,6 +2899,7 @@
 				B9E935B31C7DE2B40068E620 /* ZHAreaPickerView.m in Sources */,
 				B9E9357D1C7DE2B40068E620 /* DDFileLogger.m in Sources */,
 				B9E935701C7DE2B40068E620 /* AFURLResponseSerialization.m in Sources */,
+				B9D5AADF1C95059500B9692D /* HYBQueryCardInfo.m in Sources */,
 				B9A828BF1C8AE3AB007403D2 /* HYBXiaofeiRecord.m in Sources */,
 				B9E935B01C7DE2B40068E620 /* RFSegmentView.m in Sources */,
 				B9DD345C1C8DD7270008290A /* HYBChangePhone.m in Sources */,

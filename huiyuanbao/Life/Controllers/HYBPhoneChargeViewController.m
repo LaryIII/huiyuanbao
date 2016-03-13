@@ -591,11 +591,11 @@
     long label = sender.tag;
     for (UIButton *btn in _btn2s.subviews) {
         if(btn.tag == label){
-            sender.selected = YES;
-            sender.backgroundColor = MAIN_COLOR;
+            btn.selected = YES;
+            btn.backgroundColor = MAIN_COLOR;
         }else{
-            sender.selected = NO;
-            sender.backgroundColor = [UIColor clearColor];
+            btn.selected = NO;
+            btn.backgroundColor = [UIColor clearColor];
         }
     }
     _totalMoney2 = [_categorys[label-10001] objectForKey:@"id"];
