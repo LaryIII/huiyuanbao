@@ -254,7 +254,7 @@
     [self.joinmerchant loadDataWithRequestMethodType:kHttpRequestMethodTypeGet parameters:@{
                                                                                           @"userId":[GVUserDefaults standardUserDefaults].userId,
                                                                                           @"phoneno":[GVUserDefaults standardUserDefaults].phoneno,
-                                                                                          @"pkmuser":_store.shopsid,
+                                                                                          @"pkmuser":@"",
                                                                                           @"name":_psdfield.text
                                                                                           }];
 }
