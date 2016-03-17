@@ -8,6 +8,8 @@
 
 #import "HYBJoinShopViewController.h"
 #import "masonry.h"
+#import "HYBJoinMerchant.h"
+#import "GVUserDefaults+HYBProperties.h"
 
 @interface HYBJoinShopViewController ()
 @property (nonatomic, strong) UITextField *phonefield;
@@ -15,10 +17,14 @@
 
 @property (nonatomic, strong) UIButton *regBtn;
 @property (nonatomic, strong) UIButton *checkBtn;
+
+@property (nonatomic, strong) HYBJoinMerchant *joinmerchant;
 @end
 
 @implementation HYBJoinShopViewController
-
+- (void) dealloc{
+    [_joinmerchant removeObserver:self forKeyPath:kResourceLoadingStatusKeyPath];
+}
 - (void)viewDidLoad {
     [super viewDidLoad];
     CGFloat width = CGRectGetWidth(self.view.bounds);
@@ -201,6 +207,32 @@
         make.right.equalTo(superview.right).offset(-15);
         make.height.mas_equalTo(44);
     }];
+    
+    self.joinmerchant = [[HYBJoinMerchant alloc] initWithBaseURL:HYB_API_BASE_URL path:JOIN_SHOP cachePolicyType:kCachePolicyTypeNone];
+    
+    [self.joinmerchant addObserver:self
+                      forKeyPath:kResourceLoadingStatusKeyPath
+                         options:NSKeyValueObservingOptionNew
+                         context:nil];
+}
+
+#pragma mark Key-value observing
+- (void)observeValueForKeyPath:(NSString *)keyPath
+                      ofObject:(id)object
+                        change:(NSDictionary *)change
+                       context:(void *)context
+{
+    if ([keyPath isEqualToString:kResourceLoadingStatusKeyPath]) {
+        if (object == _joinmerchant) {
+            if (_joinmerchant.isLoaded) {
+                [self hideLoadingView];
+                [self.navigationController popViewControllerAnimated:YES];;
+            }
+            else if (_joinmerchant.error) {
+                [self showErrorMessage:[_joinmerchant.error localizedFailureReason]];
+            }
+        }
+    }
 }
 
 - (void)didReceiveMemoryWarning {
@@ -215,5 +247,15 @@
         _checkBtn.selected = YES;
     }
     
+}
+
+-(void)reg{
+    [self showLoadingView];
+    [self.joinmerchant loadDataWithRequestMethodType:kHttpRequestMethodTypeGet parameters:@{
+                                                                                          @"userId":[GVUserDefaults standardUserDefaults].userId,
+                                                                                          @"phoneno":[GVUserDefaults standardUserDefaults].phoneno,
+                                                                                          @"pkmuser":_store.shopsid,
+                                                                                          @"name":_psdfield.text
+                                                                                          }];
 }
 @end
