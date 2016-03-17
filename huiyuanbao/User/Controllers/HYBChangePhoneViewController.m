@@ -11,6 +11,7 @@
 #import "HYBChangePhone.h"
 #import "HYBLoginViewController.h"
 #import "HYBSMSCode.h"
+#import "GVUserDefaults+HYBProperties.h"
 
 @interface HYBChangePhoneViewController ()
 @property (nonatomic, strong) HYBChangePhone *changephone;

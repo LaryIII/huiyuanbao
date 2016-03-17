@@ -7,7 +7,8 @@
 //
 
 #import "CXNavigationBarController.h"
+#import "HYBStore.h"
 
 @interface HYBStoreDetailViewController : CXNavigationBarController
-
+- (instancetype)initWithStore:(HYBStore *)store;
 @end

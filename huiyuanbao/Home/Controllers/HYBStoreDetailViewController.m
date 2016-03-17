@@ -15,12 +15,17 @@
 #import "HYBStoreProduct.h"
 #import "HYBStoreProductCell.h"
 #import "HYBStoreProductList.h"
+#import "HYBStore.h"
+#import "HYBShopDetail.h"
+#import "GVUserDefaults+HYBProperties.h"
+#import "HYBJoinShopViewController.h"
 
 static const CGFloat heightWidthRatio = 7.0f / 16.0f;
 
 @interface HYBStoreDetailViewController ()<CXCycleScrollViewDelegate,UICollectionViewDelegate, UICollectionViewDataSource,HYBStoreBaseInfoCellDelegate,HYBStoreProductCellDelegate>
 @property (nonatomic, strong) CXCycleScrollView *cycleScrollView;
 @property (nonatomic, strong) NSArray *banners;
+@property (nonatomic, strong) HYBStore *store;
 
 @property(strong, nonatomic) UIButton *btn1;
 @property(strong, nonatomic) UIButton *btn2;
@@ -28,15 +33,87 @@ static const CGFloat heightWidthRatio = 7.0f / 16.0f;
 @property(strong, nonatomic) UICollectionView *collectionView2;
 @property (nonatomic, strong) NSMutableArray *dataArray1;
 @property (nonatomic, strong) NSMutableArray *dataArray2;
+
+@property (nonatomic, strong) HYBShopDetail *shopdetail;
 @end
 
 @implementation HYBStoreDetailViewController
 
+- (void) dealloc{
+    [_shopdetail removeObserver:self forKeyPath:kResourceLoadingStatusKeyPath];
+}
+- (instancetype)initWithStore:(HYBStore *)store {
+    self = [super init];
+    if (self) {
+        self.store = store;
+    }
+    return self;
+}
 - (void)viewDidLoad {
     [super viewDidLoad];
-    self.navigationBar.title = @"大娘水饺";
+    self.navigationBar.title = _store.shopsname;//@"大娘水饺";
     self.view.backgroundColor = RGB(240, 240, 240);
     
+    // 请求数据，获得商家详情
+    self.shopdetail = [[HYBShopDetail alloc] initWithBaseURL:HYB_API_BASE_URL path:SHOP_DETAIL cachePolicyType:kCachePolicyTypeNone];
+    
+    [self.shopdetail addObserver:self
+                    forKeyPath:kResourceLoadingStatusKeyPath
+                       options:NSKeyValueObservingOptionNew
+                       context:nil];
+    
+    [self showLoadingView];
+    [self.shopdetail loadDataWithRequestMethodType:kHttpRequestMethodTypeGet parameters:@{
+                                                                                        @"userId":[GVUserDefaults standardUserDefaults].userId,
+                                                                                        @"phoneno":[GVUserDefaults standardUserDefaults].phoneno,
+                                                                                        @"pkmuser":_store.shopsid
+                                                                                        }];
+}
+
+- (void)setBanners:(NSArray *)banners
+{
+    _banners = banners;
+    
+    if ([self.banners count] == 1) {
+        HYBAdvertisement *advertisement = self.banners[0];
+        self.cycleScrollView.imageURLArray = @[[IMG_PREFIX stringByAppendingString: advertisement.adurl]];
+    }
+    else if ([self.banners count] > 1) {
+        //        AJAdvertisement *fristAd = self.banners.firstObject;
+        //        AJAdvertisement *lastAd = self.banners.lastObject;
+        NSMutableArray *array = [[NSMutableArray alloc]init];
+        for (HYBAdvertisement *advertisement in self.banners) {
+            [array addObject:[IMG_PREFIX stringByAppendingString: advertisement.adurl]];
+        }
+        //        [array addObject:fristAd.bannerUrl];
+        self.cycleScrollView.imageURLArray = array;
+    }
+    else {
+        self.cycleScrollView.imageURLArray = @[];
+    }
+    _cycleScrollView.showDot = YES;
+}
+
+#pragma mark Key-value observing
+- (void)observeValueForKeyPath:(NSString *)keyPath
+                      ofObject:(id)object
+                        change:(NSDictionary *)change
+                       context:(void *)context
+{
+    if ([keyPath isEqualToString:kResourceLoadingStatusKeyPath]) {
+        if (object == _shopdetail) {
+            if (_shopdetail.isLoaded) {
+                [self hideLoadingView];
+                [self loadData];
+            }
+            else if (_shopdetail.error) {
+                [self showErrorMessage:[_shopdetail.error localizedFailureReason]];
+            }
+        }
+    }
+}
+
+-(void)loadData{
     CGFloat width = CGRectGetWidth(self.view.bounds);
     UIView *ssuperview = self.view;
     
@@ -45,12 +122,13 @@ static const CGFloat heightWidthRatio = 7.0f / 16.0f;
     _cycleScrollView.delegate = self;
     [self.view addSubview:_cycleScrollView];
     
-    NSMutableArray *bannerList = [[NSMutableArray alloc] init];
-    HYBAdvertisement *ad = [[HYBAdvertisement alloc] init];
-    ad.adurl = @"http://7xidpx.com2.z0.glb.qiniucdn.com/partner.png";
-//    ad.position = 0;
-    [bannerList addObject:ad];
-    [self setBanners:bannerList];
+//    NSMutableArray *bannerList = [[NSMutableArray alloc] init];
+//    HYBAdvertisement *ad = [[HYBAdvertisement alloc] init];
+//    ad.adurl = @"http://7xidpx.com2.z0.glb.qiniucdn.com/partner.png";
+//    //    ad.position = 0;
+//    [bannerList addObject:ad];
+    
+    [self setBanners:_shopdetail.merAd];
     
     // tab
     UIView *segView = UIView.new;
@@ -114,37 +192,38 @@ static const CGFloat heightWidthRatio = 7.0f / 16.0f;
     //test data
     self.dataArray1 = [NSMutableArray array];
     [self.dataArray1 addObject:[NSMutableArray array]];
-    HYBStoreBaseInfo *baseinfo = HYBStoreBaseInfo.new;
-    [_dataArray1[0] addObject:baseinfo];
+//    HYBStoreBaseInfo *baseinfo = HYBStoreBaseInfo.new;
+    _shopdetail.isvip = _store.isvip;
+    [_dataArray1[0] addObject:_shopdetail];
     
     [self.dataArray1 addObject:[NSMutableArray array]];
-    HYBStoreProductList *products = HYBStoreProductList.new;
-    NSMutableArray *arr = [[NSMutableArray alloc]init];
-    HYBStoreProduct *o1 = HYBStoreProduct.new;
-    HYBStoreProduct *o2 = HYBStoreProduct.new;
-    [arr addObject:o1];
-    [arr addObject:o2];
-    products.products = arr;
-    [_dataArray1[1] addObjectsFromArray:products.products];
+//    HYBStoreProductList *products = HYBStoreProductList.new;
+//    NSMutableArray *arr = [[NSMutableArray alloc]init];
+//    HYBStoreProduct *o1 = HYBStoreProduct.new;
+//    HYBStoreProduct *o2 = HYBStoreProduct.new;
+//    [arr addObject:o1];
+//    [arr addObject:o2];
+//    products.products = arr;
+    [_dataArray1[1] addObjectsFromArray:_shopdetail.productList];
     
     
     
     
     
-//    _scrollView2 = UIScrollView.new;
-//    _scrollView2.backgroundColor = [UIColor clearColor];
-//    [self.view addSubview:_scrollView2];
-//    _scrollView2.hidden = YES;
-//    [_scrollView2 makeConstraints:^(MASConstraintMaker *make) {
-//        make.edges.equalTo(ssuperview).with.insets(UIEdgeInsetsMake(self.navigationBarHeight+44,0,0,0));
-//    }];
-//    
-//    UIView *container2 = [UIView new];
-//    [_scrollView2 addSubview:container2];
-//    [container2 makeConstraints:^(MASConstraintMaker *make) {
-//        make.edges.equalTo(_scrollView2);
-//        make.width.equalTo(_scrollView2.width);
-//    }];
+    //    _scrollView2 = UIScrollView.new;
+    //    _scrollView2.backgroundColor = [UIColor clearColor];
+    //    [self.view addSubview:_scrollView2];
+    //    _scrollView2.hidden = YES;
+    //    [_scrollView2 makeConstraints:^(MASConstraintMaker *make) {
+    //        make.edges.equalTo(ssuperview).with.insets(UIEdgeInsetsMake(self.navigationBarHeight+44,0,0,0));
+    //    }];
+    //
+    //    UIView *container2 = [UIView new];
+    //    [_scrollView2 addSubview:container2];
+    //    [container2 makeConstraints:^(MASConstraintMaker *make) {
+    //        make.edges.equalTo(_scrollView2);
+    //        make.width.equalTo(_scrollView2.width);
+    //    }];
     
     
     
@@ -160,7 +239,7 @@ static const CGFloat heightWidthRatio = 7.0f / 16.0f;
     [bottomBtn1 setTitleEdgeInsets:UIEdgeInsetsMake(0,-30,0,0)];
     [bottomBtn1 addTarget:self action:@selector(charge) forControlEvents:UIControlEventTouchUpInside];
     [self.view addSubview:bottomBtn1];
-    bottomBtn1.backgroundColor = [UIColor whiteColor];;
+    bottomBtn1.backgroundColor = [UIColor whiteColor];
     
     [bottomBtn1 makeConstraints:^(MASConstraintMaker *make) {
         make.width.mas_equalTo(width-110);
@@ -171,10 +250,19 @@ static const CGFloat heightWidthRatio = 7.0f / 16.0f;
     
     UIButton *bottomBtn2 = UIButton.new;
     bottomBtn2.titleLabel.font = [UIFont systemFontOfSize:15.0f];
-    [bottomBtn2 setTitle:@"立即充值" forState:UIControlStateNormal];
-    [bottomBtn2 setTitle:@"立即充值" forState:UIControlStateDisabled];
-    [bottomBtn2 setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
-    [bottomBtn2 addTarget:self action:@selector(charge) forControlEvents:UIControlEventTouchUpInside];
+    // 如果非商家会员
+    if([_store.isvip isEqualToString:@"N"]){
+        [bottomBtn2 setTitle:@"加入会员" forState:UIControlStateNormal];
+        [bottomBtn2 setTitle:@"加入会员" forState:UIControlStateDisabled];
+        [bottomBtn2 setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
+        [bottomBtn2 addTarget:self action:@selector(join) forControlEvents:UIControlEventTouchUpInside];
+    }else if([_store.isvip isEqualToString:@"Y"]){
+        [bottomBtn2 setTitle:@"立即充值" forState:UIControlStateNormal];
+        [bottomBtn2 setTitle:@"立即充值" forState:UIControlStateDisabled];
+        [bottomBtn2 setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
+        [bottomBtn2 addTarget:self action:@selector(charge) forControlEvents:UIControlEventTouchUpInside];
+    }
+    
     [self.view addSubview:bottomBtn2];
     bottomBtn2.backgroundColor = MAIN_COLOR;
     
@@ -184,30 +272,6 @@ static const CGFloat heightWidthRatio = 7.0f / 16.0f;
         make.bottom.equalTo(ssuperview.bottom);
         make.height.mas_equalTo(40);
     }];
-}
-
-- (void)setBanners:(NSArray *)banners
-{
-    _banners = banners;
-    
-    if ([self.banners count] == 1) {
-        HYBAdvertisement *advertisement = self.banners[0];
-        self.cycleScrollView.imageURLArray = @[advertisement.adurl];
-    }
-    else if ([self.banners count] > 1) {
-        //        AJAdvertisement *fristAd = self.banners.firstObject;
-        //        AJAdvertisement *lastAd = self.banners.lastObject;
-        NSMutableArray *array = [[NSMutableArray alloc]init];
-        for (HYBAdvertisement *advertisement in self.banners) {
-            [array addObject:advertisement.adurl];
-        }
-        //        [array addObject:fristAd.bannerUrl];
-        self.cycleScrollView.imageURLArray = array;
-    }
-    else {
-        self.cycleScrollView.imageURLArray = @[];
-    }
-    _cycleScrollView.showDot = YES;
 }
 
 - (void)didReceiveMemoryWarning {
@@ -247,9 +311,9 @@ static const CGFloat heightWidthRatio = 7.0f / 16.0f;
     if([array count]>0){
         obj = array[indexPath.row];
     }
-    if([obj isKindOfClass:[HYBStoreBaseInfo class]]){
+    if([obj isKindOfClass:[HYBShopDetail class]]){
         HYBStoreBaseInfoCell *baseinfoCell = [collectionView dequeueReusableCellWithReuseIdentifier:@"HYBStoreBaseInfoCell" forIndexPath:indexPath];
-        HYBStoreBaseInfo *temp = (HYBStoreBaseInfo *)obj;
+        HYBShopDetail *temp = (HYBShopDetail *)obj;
         baseinfoCell.storeBaseInfo = temp;
         baseinfoCell.delegate = self;
         return baseinfoCell;
@@ -261,7 +325,7 @@ static const CGFloat heightWidthRatio = 7.0f / 16.0f;
         return productCell;
     }else{
         HYBStoreBaseInfoCell *baseinfoCell = [collectionView dequeueReusableCellWithReuseIdentifier:@"HYBStoreBaseInfoCell" forIndexPath:indexPath];
-        HYBStoreBaseInfo *temp = (HYBStoreBaseInfo *)obj;
+        HYBShopDetail *temp = (HYBShopDetail *)obj;
         baseinfoCell.storeBaseInfo = temp;
         baseinfoCell.delegate = self;
         return baseinfoCell;
@@ -281,26 +345,12 @@ static const CGFloat heightWidthRatio = 7.0f / 16.0f;
     if([array count]>0){
         obj = array[indexPath.row];
     }
-    if([obj isKindOfClass:[HYBStoreBaseInfo class]])
+    if([obj isKindOfClass:[HYBShopDetail class]])
     {
         CGSize size = CGSizeMake(width, 197.0f);
         return size;
     }else if([obj isKindOfClass:[HYBStoreProduct class]]){
         CGSize size = CGSizeMake(width, 89.0f);
-        return size;
-    }
-    else
-    {
-        CGFloat heig = 0;
-        if([obj count] > 4)
-        {
-            heig = 150.0;
-        }
-        else
-        {
-            heig = 75.0f;
-        }
-        CGSize size = CGSizeMake(CGRectGetWidth(collectionView.bounds), heig);
         return size;
     }
     
@@ -314,12 +364,7 @@ static const CGFloat heightWidthRatio = 7.0f / 16.0f;
 
 // 定义headview的size
 - (CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout*)collectionViewLayout referenceSizeForHeaderInSection:(NSInteger)section {
-    //    if (section == 2 ) {
-    //        return CGSizeMake(CGRectGetWidth(collectionView.bounds), 52.0f);
-    //    }
-    //    else {
     return CGSizeZero;
-    //    }
 }
 
 // 定义footerView的size
@@ -348,6 +393,15 @@ static const CGFloat heightWidthRatio = 7.0f / 16.0f;
     [super viewWillAppear:animated];
     //    [[self rdv_tabBarController] setTabBarHidden:NO animated:NO];
     //    [self refreshData];
+}
+
+-(void)join{
+    HYBJoinShopViewController *pushController = [[HYBJoinShopViewController alloc] init];
+    [self.navigationController pushViewController:pushController animated:YES];
+}
+
+-(void)charge{
+    
 }
 
 @end

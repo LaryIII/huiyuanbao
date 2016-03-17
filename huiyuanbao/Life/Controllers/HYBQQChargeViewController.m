@@ -341,6 +341,34 @@
 
 
 -(void)charge{
+    if([_consumeChildType isEqualToString:@"5"]){
+        if([_totalMoney isEqualToString:@"5"]){
+            _cardid = @"220614";
+        }else if([_totalMoney isEqualToString:@"10"]){
+            _cardid = @"220615";
+        }else if([_totalMoney isEqualToString:@"20"]){
+            _cardid = @"220616";
+        }else if([_totalMoney isEqualToString:@"30"]){
+            _cardid = @"220617";
+        }else if([_totalMoney isEqualToString:@"50"]){
+            _cardid = @"220618";
+        }else if([_totalMoney isEqualToString:@"50"]){
+            _cardid = @"220619";
+        }
+    }else if([_consumeChildType isEqualToString:@"6"]){
+        _cardid = @"222301";
+    }else if([_consumeChildType isEqualToString:@"7"]){
+        _cardid = @"222304";
+    }else if([_consumeChildType isEqualToString:@"8"]){
+        _cardid = @"222306";
+    }else if([_consumeChildType isEqualToString:@"9"]){
+        _cardid = @"222309";
+    }else if([_consumeChildType isEqualToString:@"11"]){
+        _cardid = @"222308";
+    }else if([_consumeChildType isEqualToString:@"12"]){
+        _cardid = @"222302";
+    }
+    
     [self.chargeqq loadDataWithRequestMethodType:kHttpRequestMethodTypeGet parameters:@{
                                                                                          @"userId":[GVUserDefaults standardUserDefaults].userId,
                                                                                          @"phoneno":[GVUserDefaults standardUserDefaults].phoneno,

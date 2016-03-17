@@ -11,4 +11,5 @@
 @interface HYBAdvertisement : CXResource
 @property (nonatomic, copy) NSString *adurl;
 @property (nonatomic, copy) NSString *slogan;
+@property (nonatomic, copy) NSString *addesc;
 @end

@@ -7,17 +7,17 @@
 //
 
 #import <UIKit/UIKit.h>
-@class HYBStoreBaseInfo;
+@class HYBShopDetail;
 @protocol HYBStoreBaseInfoCellDelegate;
 
 @interface HYBStoreBaseInfoCell : UICollectionViewCell
 @property (nonatomic, strong) id<HYBStoreBaseInfoCellDelegate> delegate;
-@property (nonatomic, strong) HYBStoreBaseInfo *storeBaseInfo;
+@property (nonatomic, strong) HYBShopDetail *storeBaseInfo;
 + (CGSize)calculateCellSizeWithSummary:(HYBStoreBaseInfoCell *)store containerWidth:(CGFloat)containerWidth;
 @end
 
 @protocol HYBStoreBaseInfoCellDelegate <NSObject>
 
--(void) gotoMap:(HYBStoreBaseInfoCell *)cell withStoreBaseInfo:(HYBStoreBaseInfo *)storeBaseInfo;
+-(void) gotoMap:(HYBStoreBaseInfoCell *)cell withStoreBaseInfo:(HYBShopDetail *)storeBaseInfo;
 
 @end

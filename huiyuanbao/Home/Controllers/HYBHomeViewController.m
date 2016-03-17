@@ -24,6 +24,7 @@
 #import "CocoaSecurity.h"
 #import "HYBStoreHeaderReusableView.h"
 #import "HYBFirstStoreHeaderReusableView.h"
+#import "GVUserDefaults+HYBProperties.h"
 
 @interface HYBHomeViewController ()<UICollectionViewDelegate, UICollectionViewDataSource,HYBBannersCellDelegate,HYBFirstStoreCellDelegate,HYBStoreCellDelegate, QRCodeReaderDelegate>
 @property (nonatomic, strong) UICollectionView *collectionView;
@@ -113,10 +114,10 @@ static const CGFloat heightWidthRatio = 7.0f / 16.0f;
 - (void) refreshData{
     [self showLoadingView];
     [self.homedata loadDataWithRequestMethodType:kHttpRequestMethodTypeGet parameters:@{
-                                                                                        @"userId":@"",
+                                                                                        @"userId":[GVUserDefaults standardUserDefaults].userId,
                                                                                         @"longitude":@"116.322886",
                                                                                         @"latitude":@"39.892176",
-                                                                                        @"phoneno":@"",
+                                                                                        @"phoneno":[GVUserDefaults standardUserDefaults].phoneno,
                                                                                         @"pageLength":@"10",
                                                                                         @"current":@"0"
                                                                                         }];
@@ -371,13 +372,13 @@ static const CGFloat heightWidthRatio = 7.0f / 16.0f;
 
 -(void) gotoStoreDetail:(HYBStoreCell *)cell withStore:(HYBStore *)store{
     [[self rdv_tabBarController] setTabBarHidden:YES animated:YES];
-    HYBStoreDetailViewController *pushController = [[HYBStoreDetailViewController alloc] init];
+    HYBStoreDetailViewController *pushController = [[HYBStoreDetailViewController alloc] initWithStore:store];
     [self.navigationController pushViewController:pushController animated:YES];
 }
 
 -(void) gotoFirstStoreDetail:(HYBFirstStoreCell *)cell withStore:(HYBFirstStore *)store{
     [[self rdv_tabBarController] setTabBarHidden:YES animated:YES];
-    HYBStoreDetailViewController *pushController = [[HYBStoreDetailViewController alloc] init];
+    HYBStoreDetailViewController *pushController = [[HYBStoreDetailViewController alloc] initWithStore:store];
     [self.navigationController pushViewController:pushController animated:YES];
 }
 

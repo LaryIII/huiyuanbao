@@ -251,6 +251,8 @@
 		B9D5AADF1C95059500B9692D /* HYBQueryCardInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = B9D5AADE1C95059500B9692D /* HYBQueryCardInfo.m */; };
 		B9D5AAE21C95078E00B9692D /* HYBChargeYou.m in Sources */ = {isa = PBXBuildFile; fileRef = B9D5AAE11C95078E00B9692D /* HYBChargeYou.m */; };
 		B9D5AAE51C97401E00B9692D /* HYBChargeQQ.m in Sources */ = {isa = PBXBuildFile; fileRef = B9D5AAE41C97401E00B9692D /* HYBChargeQQ.m */; };
+		B9D5AAEB1C9B033700B9692D /* HYBShopDetail.m in Sources */ = {isa = PBXBuildFile; fileRef = B9D5AAEA1C9B033700B9692D /* HYBShopDetail.m */; };
+		B9D5AAF11C9B1B4500B9692D /* HYBJoinShopViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B9D5AAF01C9B1B4500B9692D /* HYBJoinShopViewController.m */; };
 		B9DD34101C8B270E0008290A /* HYBGateViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B9DD340F1C8B270E0008290A /* HYBGateViewController.m */; };
 		B9DD34201C8B29A50008290A /* inner_logo@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = B9DD34121C8B29A50008290A /* inner_logo@2x.png */; };
 		B9DD34211C8B29A50008290A /* inner_logo@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = B9DD34131C8B29A50008290A /* inner_logo@3x.png */; };
@@ -754,6 +756,10 @@
 		B9D5AAE11C95078E00B9692D /* HYBChargeYou.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = HYBChargeYou.m; path = Life/Models/HYBChargeYou.m; sourceTree = "<group>"; };
 		B9D5AAE31C97401E00B9692D /* HYBChargeQQ.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = HYBChargeQQ.h; path = Life/Models/HYBChargeQQ.h; sourceTree = "<group>"; };
 		B9D5AAE41C97401E00B9692D /* HYBChargeQQ.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = HYBChargeQQ.m; path = Life/Models/HYBChargeQQ.m; sourceTree = "<group>"; };
+		B9D5AAE91C9B033700B9692D /* HYBShopDetail.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = HYBShopDetail.h; path = Home/Models/HYBShopDetail.h; sourceTree = "<group>"; };
+		B9D5AAEA1C9B033700B9692D /* HYBShopDetail.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = HYBShopDetail.m; path = Home/Models/HYBShopDetail.m; sourceTree = "<group>"; };
+		B9D5AAEF1C9B1B4500B9692D /* HYBJoinShopViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = HYBJoinShopViewController.h; path = Home/Controllers/HYBJoinShopViewController.h; sourceTree = "<group>"; };
+		B9D5AAF01C9B1B4500B9692D /* HYBJoinShopViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = HYBJoinShopViewController.m; path = Home/Controllers/HYBJoinShopViewController.m; sourceTree = "<group>"; };
 		B9DD340E1C8B270E0008290A /* HYBGateViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = HYBGateViewController.h; path = User/Controllers/HYBGateViewController.h; sourceTree = "<group>"; };
 		B9DD340F1C8B270E0008290A /* HYBGateViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = HYBGateViewController.m; path = User/Controllers/HYBGateViewController.m; sourceTree = "<group>"; };
 		B9DD34121C8B29A50008290A /* inner_logo@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "inner_logo@2x.png"; sourceTree = "<group>"; };
@@ -2028,6 +2034,8 @@
 				B9A828E21C8B1A93007403D2 /* HYBCityList.m */,
 				B9DD34421C8C4F2F0008290A /* HYBHomeData.h */,
 				B9DD34431C8C4F2F0008290A /* HYBHomeData.m */,
+				B9D5AAE91C9B033700B9692D /* HYBShopDetail.h */,
+				B9D5AAEA1C9B033700B9692D /* HYBShopDetail.m */,
 			);
 			name = Models;
 			sourceTree = "<group>";
@@ -2045,6 +2053,8 @@
 				B9A828CA1C8AFEB7007403D2 /* HYBStoreDetailViewController.m */,
 				B9A828DB1C8B166D007403D2 /* HYBSearchCityViewController.h */,
 				B9A828DC1C8B166D007403D2 /* HYBSearchCityViewController.m */,
+				B9D5AAEF1C9B1B4500B9692D /* HYBJoinShopViewController.h */,
+				B9D5AAF01C9B1B4500B9692D /* HYBJoinShopViewController.m */,
 			);
 			name = Controllers;
 			sourceTree = "<group>";
@@ -2761,6 +2771,7 @@
 				B9A828DA1C8B0C8F007403D2 /* HYBStoreProductCell.m in Sources */,
 				B9E935A01C7DE2B40068E620 /* pinyin.c in Sources */,
 				B9E9357E1C7DE2B40068E620 /* DDLog.m in Sources */,
+				B9D5AAEB1C9B033700B9692D /* HYBShopDetail.m in Sources */,
 				B9A8282A1C8A9C4D007403D2 /* HYBMsgsViewController.m in Sources */,
 				B9A828B91C8AE282007403D2 /* HYBXiaofeiRecordList.m in Sources */,
 				B9E935AB1C7DE2B40068E620 /* CXNavigationBarController.m in Sources */,
@@ -2800,6 +2811,7 @@
 				B9E935761C7DE2B40068E620 /* UIProgressView+AFNetworking.m in Sources */,
 				B9E9358D1C7DE2B40068E620 /* SVProgressHUD.m in Sources */,
 				B9E9356D1C7DE2B40068E620 /* AFNetworkReachabilityManager.m in Sources */,
+				B9D5AAF11C9B1B4500B9692D /* HYBJoinShopViewController.m in Sources */,
 				B9A8284E1C8AC86C007403D2 /* HYBQuanList.m in Sources */,
 				B988F4601C83375E006BBD8B /* HYBSetPasswordViewController.m in Sources */,
 				B9E13CA11C930BD6007B3D3C /* HYBPhoneContactsViewController.m in Sources */,
@@ -2991,7 +3003,7 @@
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
-				CODE_SIGN_IDENTITY = "iPhone Developer: sunzhiqiang@minszx.com (6A77U2PM4C)";
+				CODE_SIGN_IDENTITY = "";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: sun zhiqiang (BWGLG4MHW8)";
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = dwarf;
@@ -3016,7 +3028,7 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 9.2;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
-				PROVISIONING_PROFILE = "e08e172d-ba49-4755-8ae7-476a2062efd0";
+				PROVISIONING_PROFILE = "fac7228d-d39f-49ff-a79f-c08ddcd172e4";
 				SDKROOT = iphoneos;
 			};
 			name = Debug;
@@ -3038,8 +3050,8 @@
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
-				CODE_SIGN_IDENTITY = "iPhone Developer: sunzhiqiang@minszx.com (6A77U2PM4C)";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CODE_SIGN_IDENTITY = "iPhone Distribution: Beijing Hua Yi Livelihood Online E-commerce Company Limited (MG3A2G9YM3)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Beijing Hua Yi Livelihood Online E-commerce Company Limited (MG3A2G9YM3)";
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				ENABLE_NS_ASSERTIONS = NO;
@@ -3056,7 +3068,7 @@
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.2;
 				MTL_ENABLE_DEBUG_INFO = NO;
-				PROVISIONING_PROFILE = "e08e172d-ba49-4755-8ae7-476a2062efd0";
+				PROVISIONING_PROFILE = "fac7228d-d39f-49ff-a79f-c08ddcd172e4";
 				SDKROOT = iphoneos;
 				VALIDATE_PRODUCT = YES;
 			};
@@ -3074,9 +3086,9 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				LIBRARY_SEARCH_PATHS = "$(inherited)";
-				PRODUCT_BUNDLE_IDENTIFIER = com.minszx.huiyuanbao;
+				PRODUCT_BUNDLE_IDENTIFIER = com.minszx.huiyuanbaox;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "";
+				PROVISIONING_PROFILE = "fac7228d-d39f-49ff-a79f-c08ddcd172e4";
 			};
 			name = Debug;
 		};
@@ -3085,16 +3097,16 @@
 			baseConfigurationReference = 123DF5E81F7FBA31611304D4 /* Pods.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_IDENTITY = "iPhone Developer";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CODE_SIGN_IDENTITY = "iPhone Distribution: Beijing Hua Yi Livelihood Online E-commerce Company Limited (MG3A2G9YM3)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Beijing Hua Yi Livelihood Online E-commerce Company Limited (MG3A2G9YM3)";
 				GCC_PREFIX_HEADER = "$(SRCROOT)/huiyuanbao/HYB-prefix.pch";
 				INFOPLIST_FILE = huiyuanbao/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				LIBRARY_SEARCH_PATHS = "$(inherited)";
-				PRODUCT_BUNDLE_IDENTIFIER = com.minszx.huiyuanbao;
+				PRODUCT_BUNDLE_IDENTIFIER = com.minszx.huiyuanbaox;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "";
+				PROVISIONING_PROFILE = "fac7228d-d39f-49ff-a79f-c08ddcd172e4";
 			};
 			name = Release;
 		};
