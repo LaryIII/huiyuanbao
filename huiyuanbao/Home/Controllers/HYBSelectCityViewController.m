@@ -9,8 +9,23 @@
 #import "HYBSelectCityViewController.h"
 #import "masonry.h"
 #import "HYBSearchCityViewController.h"
+#import "HYBCityNameCell.h"
+#import "HYBCityName.h"
+#import "HYBCityLetterCell.h"
+#import "HYBCityNameList.h"
+#import "ChineseStringForCity.h"
+#import "HYBCities.h"
 
-@interface HYBSelectCityViewController ()
+@interface HYBSelectCityViewController ()<UICollectionViewDelegate, UICollectionViewDataSource, HYBCityNameCellDelegate>
+
+@property (nonatomic, strong) UICollectionView *collectionView;
+@property (nonatomic, strong) HYBCities *cities;
+@property (nonatomic, strong) NSMutableArray *letterArr;
+@property (nonatomic, strong) NSMutableArray *sortCitiesArr;
+@property (nonatomic, strong) NSMutableArray *dataArray;
+@property (nonatomic, strong) UIButton *okButton;
+
+@property (nonatomic, strong) NSMutableArray *letterCellsIndexPath;
 
 @end
 
@@ -140,6 +155,56 @@
             }];
         }
         
+        UICollectionViewFlowLayout *collectionViewFlowLayout = [[UICollectionViewFlowLayout alloc]init];
+        _collectionView = [[UICollectionView alloc] initWithFrame:CGRectMake(0.0f, self.navigationBarHeight+30+15*5+37*4, CGRectGetWidth(self.view.bounds), CGRectGetHeight(self.view.bounds) - self.navigationBarHeight-30-(15*5+37*4)) collectionViewLayout:collectionViewFlowLayout];
+        _collectionView.alwaysBounceVertical = YES;
+        _collectionView.delegate = self;
+        _collectionView.dataSource = self;
+        _collectionView.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight;
+        _collectionView.backgroundColor = [UIColor clearColor];
+        [self.view addSubview:_collectionView];
+        
+        // 字母和联系人是重复可添加的，参照小金库的controller来
+        self.cities = [[HYBCities alloc] init];
+        //    [self.contacts addPeople];
+        NSMutableArray *cities = [self.cities getCities];
+        NSArray *cityArr = [cities mutableCopy];
+        NSMutableArray * array = [ChineseStringForCity IndexArray:cityArr];
+        NSMutableArray *letterResultArr = [ChineseStringForCity LetterSortArray:cityArr];
+        self.letterArr = array;
+        self.sortCitiesArr = letterResultArr;
+        
+        [_collectionView registerClass:[HYBCityLetterCell class] forCellWithReuseIdentifier:@"HYBCityLetterCell"];
+        [_collectionView registerClass:[HYBCityNameCell class] forCellWithReuseIdentifier:@"HYBCityNameCell"];
+        
+        _dataArray = [NSMutableArray array];
+        
+        //    NSArray *arr = @[@0];
+        //    [self.dataArray addObject:arr];
+        
+        for(HYBCityNameList * obj in self.sortCitiesArr){
+            NSArray *t = [NSArray arrayWithObject:obj.pinYin];
+            [self.dataArray addObject:t];
+            [self.dataArray addObject:obj.cities];
+        }
+        
+        // 增加字母索引侧边栏
+        CGFloat width = CGRectGetWidth(self.collectionView.bounds);
+        CGFloat height = CGRectGetHeight(self.collectionView.bounds);
+        UIView *letterBar = [[UIView alloc] initWithFrame:CGRectMake(width-30.0f, 150.0f, 30.0f, height-150.0f)];
+        NSUInteger count = array.count;
+        for(int i=0; i<count;i++){
+            UIButton *l = [[UIButton alloc] initWithFrame:CGRectMake(0, i*20.0f, 30.0f, 20.0f)];
+            [l setTitleColor:[UIColor colorWithRed:0.55f green:0.55f blue:0.57f alpha:1.0] forState:UIControlStateNormal];
+            l.titleLabel.font = [UIFont systemFontOfSize: 14.0];
+            NSString *s = [array objectAtIndex:i];
+            [l setTitle:s forState:UIControlStateNormal];
+            [l addTarget:self action:@selector(clickAction:) forControlEvents:UIControlEventTouchUpInside];
+            l.tag = i;
+            [letterBar addSubview:l];
+        }
+        [self.view addSubview:letterBar];
+        
     }
 }
 
@@ -156,5 +221,71 @@
 -(void)btn1clicked:(id)sender{
     
 }
+#pragma mark  UICollectionViewDataSource
+- (NSInteger)numberOfSectionsInCollectionView:(UICollectionView *)collectionView
+{
+    return [self.dataArray count];
+}
+- (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section
+{
+    NSArray *array = self.dataArray[section];
+    return [array count];
+}
+
+- (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath
+{
+    NSArray *array = self.dataArray[indexPath.section];
+    id object = array[indexPath.row];
+    
+    if ([object isKindOfClass:[HYBCityName class]]) {
+        HYBCityNameCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"HYBCityNameCell" forIndexPath:indexPath];
+        HYBCityName *temp =(HYBCityName *)object;
+        cell.city = temp;
+        cell.delegate = self;
+        return cell;
+        
+    }else if([object isKindOfClass:[NSString class]]){
+        HYBCityLetterCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"HYBCityLetterCell" forIndexPath:indexPath];
+        [self.letterCellsIndexPath addObject:indexPath];
+        NSString *temp =(NSString *)object;
+        cell.letter = temp;
+        return cell;
+    }else{
+        return nil;
+    }
+}
+
+#pragma mark UICollectionViewDelegateFlowLayout
+// 定义cell的size
+- (CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout sizeForItemAtIndexPath:(NSIndexPath *)indexPath{
+    CGFloat width = CGRectGetWidth(self.collectionView.bounds);
+    if(indexPath.section%2 == 0) {
+        return CGSizeMake(width, 25);
+    }else{
+        return CGSizeMake(width, 40);
+    }
+    
+}
+
+- (UIEdgeInsets)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout*)collectionViewLayout insetForSectionAtIndex:(NSInteger)section
+{
+    return UIEdgeInsetsMake(0.0F, 0.0F, 0.0F, 0.0F);
+}
+
+// 定义上下cell的最小间距
+- (CGFloat)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout*)collectionViewLayout minimumLineSpacingForSectionAtIndex:(NSInteger)section {
+    return 0.0F;
+}
+
+// 定义左右cell的最小间距
+- (CGFloat)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout*)collectionViewLayout minimumInteritemSpacingForSectionAtIndex:(NSInteger)section {
+    return 0.0F;
+}
+
+#pragma mark UICollectionViewDelegate
+- (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath {
+    [_collectionView scrollToItemAtIndexPath:indexPath atScrollPosition:UICollectionViewScrollPositionCenteredHorizontally animated:YES];
+}
 
 @end
+
