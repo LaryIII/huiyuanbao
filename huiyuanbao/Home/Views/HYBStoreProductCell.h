@@ -19,5 +19,5 @@
 @protocol HYBStoreProductCellDelegate <NSObject>
 
 -(void) gotoProductDetail:(HYBStoreProductCell *)cell withProduct:(HYBStoreProduct *)product;
-
+-(void) orderProduct:(HYBStoreProductCell *)cell withProduct:(HYBStoreProduct *)product;
 @end

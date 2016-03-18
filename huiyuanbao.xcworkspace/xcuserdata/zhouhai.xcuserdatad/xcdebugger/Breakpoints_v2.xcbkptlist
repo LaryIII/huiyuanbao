@@ -232,11 +232,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Utilities/Networking/CXResource.m"
-            timestampString = "479398581.768769"
+            timestampString = "479997892.241622"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "390"
-            endingLineNumber = "390"
+            startingLineNumber = "392"
+            endingLineNumber = "392"
             landmarkName = "-allParametersWithParameters:dataType:"
             landmarkType = "5">
          </BreakpointContent>
@@ -248,11 +248,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Utilities/Networking/CXResource.m"
-            timestampString = "479398581.768769"
+            timestampString = "479997892.241622"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "494"
-            endingLineNumber = "494"
+            startingLineNumber = "496"
+            endingLineNumber = "496"
             landmarkName = "-loadedResponseObject:parameters:isCanSave:"
             landmarkType = "5">
          </BreakpointContent>
@@ -264,11 +264,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Utilities/Networking/CXResource.m"
-            timestampString = "479398581.768769"
+            timestampString = "479997892.241622"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "493"
-            endingLineNumber = "493"
+            startingLineNumber = "495"
+            endingLineNumber = "495"
             landmarkName = "-loadedResponseObject:parameters:isCanSave:"
             landmarkType = "5">
          </BreakpointContent>
@@ -520,11 +520,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "huiyuanbao/Home/Controllers/HYBStoreDetailViewController.m"
-            timestampString = "479928512.400668"
+            timestampString = "480002890.060933"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "340"
-            endingLineNumber = "340"
+            startingLineNumber = "344"
+            endingLineNumber = "344"
             landmarkName = "-collectionView:layout:sizeForItemAtIndexPath:"
             landmarkType = "5">
          </BreakpointContent>
@@ -536,11 +536,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "huiyuanbao/Home/Controllers/HYBStoreDetailViewController.m"
-            timestampString = "479928512.400668"
+            timestampString = "480002890.060933"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "207"
-            endingLineNumber = "207"
+            startingLineNumber = "211"
+            endingLineNumber = "211"
             landmarkName = "-loadData"
             landmarkType = "5">
          </BreakpointContent>
@@ -552,11 +552,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "huiyuanbao/Home/Controllers/HYBStoreDetailViewController.m"
-            timestampString = "479928512.400668"
+            timestampString = "480002890.060933"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "197"
-            endingLineNumber = "197"
+            startingLineNumber = "201"
+            endingLineNumber = "201"
             landmarkName = "-loadData"
             landmarkType = "5">
          </BreakpointContent>
@@ -568,11 +568,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "huiyuanbao/Home/Controllers/HYBStoreDetailViewController.m"
-            timestampString = "479928512.400668"
+            timestampString = "480002890.060933"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "54"
-            endingLineNumber = "54"
+            startingLineNumber = "55"
+            endingLineNumber = "55"
             landmarkName = "-viewDidLoad"
             landmarkType = "5">
          </BreakpointContent>
@@ -638,6 +638,22 @@
             startingLineNumber = "23"
             endingLineNumber = "23"
             landmarkName = "-getCities"
+            landmarkType = "5">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "huiyuanbao/Home/Controllers/HYBOrderProductViewController.m"
+            timestampString = "480008006.187747"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "416"
+            endingLineNumber = "416"
+            landmarkName = "-selecttime"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>

@@ -382,8 +382,10 @@ NSString * const CXResourceErrorDomain = @"cx.resource.request.error.response";
         [allParameters2 setObject:valuex.hex forKey:key];
     }
 
-    NSString *str = [[[ASIdentifierManager sharedManager] advertisingIdentifier] UUIDString];
-    CocoaSecurityResult *cpuidx = [CocoaSecurity aesEncrypt:[[[ASIdentifierManager sharedManager] advertisingIdentifier] UUIDString] hexKey:HEXKEY hexIv:HEXIV];
+//    NSString *str = [[[ASIdentifierManager sharedManager] advertisingIdentifier] UUIDString];
+    NSString *str = @"099D035B-E748-4CCA-A019-94ED7BF9D6EB";
+//    CocoaSecurityResult *cpuidx = [CocoaSecurity aesEncrypt:[[[ASIdentifierManager sharedManager] advertisingIdentifier] UUIDString] hexKey:HEXKEY hexIv:HEXIV];
+    CocoaSecurityResult *cpuidx = [CocoaSecurity aesEncrypt:[NSString stringWithFormat:@"%@",str] hexKey:HEXKEY hexIv:HEXIV];
     
 //    CocoaSecurityResult *cpuidx = [CocoaSecurity aesEncrypt:@"00000000-113a-8e7d-21d0-61980885d8da" hexKey:HEXKEY hexIv:HEXIV];
     
@@ -519,8 +521,11 @@ NSString * const CXResourceErrorDomain = @"cx.resource.request.error.response";
             else {
                 [userInfo setValue:[NSString stringWithFormat:@"Response Data: %@", responseObject] forKey:NSLocalizedFailureReasonErrorKey];
             }
+            NSError *error = [[NSError alloc] initWithDomain:CXResourceErrorDomain code:[resultStatus integerValue] userInfo:userInfo];
+            DDLogDebug(@"Loading %@ failed: %@", self.resourcePath, error);
+            [self loadFailWithError:error parameters:parameters];
             
-//            NSError *error = [[NSError alloc] initWithDomain:CXResourceErrorDomain code:[respCode integerValue] userInfo:userInfo];
+//
             
 //            if ([errCode isEqualToString:@"E_INVALID_TOKEN"]) {
 //                self.error = error;

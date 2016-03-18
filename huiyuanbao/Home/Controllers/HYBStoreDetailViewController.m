@@ -19,6 +19,7 @@
 #import "HYBShopDetail.h"
 #import "GVUserDefaults+HYBProperties.h"
 #import "HYBJoinShopViewController.h"
+#import "HYBOrderProductViewController.h"
 
 static const CGFloat heightWidthRatio = 7.0f / 16.0f;
 
@@ -62,12 +63,15 @@ static const CGFloat heightWidthRatio = 7.0f / 16.0f;
                        options:NSKeyValueObservingOptionNew
                        context:nil];
     
+}
+
+-(void)refreshData{
     [self showLoadingView];
     [self.shopdetail loadDataWithRequestMethodType:kHttpRequestMethodTypeGet parameters:@{
-                                                                                        @"userId":[GVUserDefaults standardUserDefaults].userId,
-                                                                                        @"phoneno":[GVUserDefaults standardUserDefaults].phoneno,
-                                                                                        @"pkmuser":_store.shopsid
-                                                                                        }];
+                                                                                          @"userId":[GVUserDefaults standardUserDefaults].userId,
+                                                                                          @"phoneno":[GVUserDefaults standardUserDefaults].phoneno,
+                                                                                          @"pkmuser":_store.shopsid
+                                                                                          }];
 }
 
 - (void)setBanners:(NSArray *)banners
@@ -384,15 +388,14 @@ static const CGFloat heightWidthRatio = 7.0f / 16.0f;
 
 #pragma mark UICollectionViewDelegate
 - (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath {
-    NSMutableArray *array = self.dataArray1[indexPath.section];
-    id object = array[indexPath.row];
+//    NSMutableArray *array = self.dataArray1[indexPath.section];
 }
 
 - (void)viewWillAppear:(BOOL)animated
 {
     [super viewWillAppear:animated];
     //    [[self rdv_tabBarController] setTabBarHidden:NO animated:NO];
-    //    [self refreshData];
+    [self refreshData];
 }
 
 -(void)join{
@@ -402,6 +405,14 @@ static const CGFloat heightWidthRatio = 7.0f / 16.0f;
 
 -(void)charge{
     
+}
+
+-(void) gotoProductDetail:(HYBStoreProductCell *)cell withProduct:(HYBStoreProduct *)product{
+    
+}
+-(void) orderProduct:(HYBStoreProductCell *)cell withProduct:(HYBStoreProduct *)product{
+    HYBOrderProductViewController *pushController = [[HYBOrderProductViewController alloc] initWithProduct:product withStore:_store];
+    [self.navigationController pushViewController:pushController animated:YES];
 }
 
 @end

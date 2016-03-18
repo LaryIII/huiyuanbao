@@ -156,7 +156,7 @@
         }
         
         UICollectionViewFlowLayout *collectionViewFlowLayout = [[UICollectionViewFlowLayout alloc]init];
-        _collectionView = [[UICollectionView alloc] initWithFrame:CGRectMake(0.0f, self.navigationBarHeight+30+15*5+37*4, CGRectGetWidth(self.view.bounds), CGRectGetHeight(self.view.bounds) - self.navigationBarHeight-30-(15*5+37*4)) collectionViewLayout:collectionViewFlowLayout];
+        _collectionView = [[UICollectionView alloc] initWithFrame:CGRectMake(0.0f, self.navigationBarHeight+46+30+15*5+37*4, CGRectGetWidth(self.view.bounds), CGRectGetHeight(self.view.bounds) - self.navigationBarHeight-46-30-(15*5+37*4)) collectionViewLayout:collectionViewFlowLayout];
         _collectionView.alwaysBounceVertical = YES;
         _collectionView.delegate = self;
         _collectionView.dataSource = self;
@@ -189,14 +189,15 @@
         }
         
         // 增加字母索引侧边栏
-        CGFloat width = CGRectGetWidth(self.collectionView.bounds);
-        CGFloat height = CGRectGetHeight(self.collectionView.bounds);
-        UIView *letterBar = [[UIView alloc] initWithFrame:CGRectMake(width-30.0f, 150.0f, 30.0f, height-150.0f)];
+        CGFloat width = CGRectGetWidth(self.view.bounds);
+        CGFloat height = CGRectGetHeight(self.view.bounds);
+        UIView *letterBar = [[UIView alloc] initWithFrame:CGRectMake(width-20.0f, self.navigationBarHeight+46, 20.0f, height-self.navigationBarHeight-46)];
+        letterBar.backgroundColor = [UIColor whiteColor];
         NSUInteger count = array.count;
         for(int i=0; i<count;i++){
-            UIButton *l = [[UIButton alloc] initWithFrame:CGRectMake(0, i*20.0f, 30.0f, 20.0f)];
-            [l setTitleColor:[UIColor colorWithRed:0.55f green:0.55f blue:0.57f alpha:1.0] forState:UIControlStateNormal];
-            l.titleLabel.font = [UIFont systemFontOfSize: 14.0];
+            UIButton *l = [[UIButton alloc] initWithFrame:CGRectMake(0.0f, 40.0f+i*15.0f, 20.0f, 15.0f)];
+            [l setTitleColor:MAIN_COLOR forState:UIControlStateNormal];
+            l.titleLabel.font = [UIFont systemFontOfSize: 12.0];
             NSString *s = [array objectAtIndex:i];
             [l setTitle:s forState:UIControlStateNormal];
             [l addTarget:self action:@selector(clickAction:) forControlEvents:UIControlEventTouchUpInside];

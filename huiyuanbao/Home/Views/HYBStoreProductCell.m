@@ -151,6 +151,8 @@
 }
 
 -(void)order{
-    
+    if (self.delegate && [self.delegate respondsToSelector:@selector(orderProduct:withProduct:)]) {
+        [self.delegate orderProduct:self withProduct:_product];
+    }
 }
 @end
