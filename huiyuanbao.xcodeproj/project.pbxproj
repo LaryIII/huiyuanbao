@@ -262,6 +262,9 @@
 		B9D5AB071C9BA2C100B9692D /* ChineseStringForCity.m in Sources */ = {isa = PBXBuildFile; fileRef = B9D5AB061C9BA2C100B9692D /* ChineseStringForCity.m */; };
 		B9D5AB0A1C9C313700B9692D /* HYBOrderProductViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B9D5AB091C9C313700B9692D /* HYBOrderProductViewController.m */; };
 		B9D5AB0D1C9C525B00B9692D /* HYBOrderProduct.m in Sources */ = {isa = PBXBuildFile; fileRef = B9D5AB0C1C9C525B00B9692D /* HYBOrderProduct.m */; };
+		B9D5AB101C9CF68600B9692D /* HYBTradeRecordCell.m in Sources */ = {isa = PBXBuildFile; fileRef = B9D5AB0F1C9CF68600B9692D /* HYBTradeRecordCell.m */; };
+		B9D5AB131C9CF6A900B9692D /* HYBHeadCell.m in Sources */ = {isa = PBXBuildFile; fileRef = B9D5AB121C9CF6A900B9692D /* HYBHeadCell.m */; };
+		B9D5AB161C9CF94B00B9692D /* HYBTradeRecord.m in Sources */ = {isa = PBXBuildFile; fileRef = B9D5AB151C9CF94B00B9692D /* HYBTradeRecord.m */; };
 		B9DD34101C8B270E0008290A /* HYBGateViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B9DD340F1C8B270E0008290A /* HYBGateViewController.m */; };
 		B9DD34201C8B29A50008290A /* inner_logo@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = B9DD34121C8B29A50008290A /* inner_logo@2x.png */; };
 		B9DD34211C8B29A50008290A /* inner_logo@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = B9DD34131C8B29A50008290A /* inner_logo@3x.png */; };
@@ -787,6 +790,12 @@
 		B9D5AB091C9C313700B9692D /* HYBOrderProductViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = HYBOrderProductViewController.m; path = Home/Controllers/HYBOrderProductViewController.m; sourceTree = "<group>"; };
 		B9D5AB0B1C9C525B00B9692D /* HYBOrderProduct.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = HYBOrderProduct.h; path = Home/Models/HYBOrderProduct.h; sourceTree = "<group>"; };
 		B9D5AB0C1C9C525B00B9692D /* HYBOrderProduct.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = HYBOrderProduct.m; path = Home/Models/HYBOrderProduct.m; sourceTree = "<group>"; };
+		B9D5AB0E1C9CF68600B9692D /* HYBTradeRecordCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = HYBTradeRecordCell.h; path = Home/Views/HYBTradeRecordCell.h; sourceTree = "<group>"; };
+		B9D5AB0F1C9CF68600B9692D /* HYBTradeRecordCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = HYBTradeRecordCell.m; path = Home/Views/HYBTradeRecordCell.m; sourceTree = "<group>"; };
+		B9D5AB111C9CF6A900B9692D /* HYBHeadCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = HYBHeadCell.h; path = Home/Views/HYBHeadCell.h; sourceTree = "<group>"; };
+		B9D5AB121C9CF6A900B9692D /* HYBHeadCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = HYBHeadCell.m; path = Home/Views/HYBHeadCell.m; sourceTree = "<group>"; };
+		B9D5AB141C9CF94B00B9692D /* HYBTradeRecord.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = HYBTradeRecord.h; path = Home/Models/HYBTradeRecord.h; sourceTree = "<group>"; };
+		B9D5AB151C9CF94B00B9692D /* HYBTradeRecord.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = HYBTradeRecord.m; path = Home/Models/HYBTradeRecord.m; sourceTree = "<group>"; };
 		B9DD340E1C8B270E0008290A /* HYBGateViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = HYBGateViewController.h; path = User/Controllers/HYBGateViewController.h; sourceTree = "<group>"; };
 		B9DD340F1C8B270E0008290A /* HYBGateViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = HYBGateViewController.m; path = User/Controllers/HYBGateViewController.m; sourceTree = "<group>"; };
 		B9DD34121C8B29A50008290A /* inner_logo@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "inner_logo@2x.png"; sourceTree = "<group>"; };
@@ -2050,6 +2059,10 @@
 				B9D5AAF61C9B932800B9692D /* HYBCityNameCell.m */,
 				B9D5AAF81C9B93BA00B9692D /* HYBCityLetterCell.h */,
 				B9D5AAF91C9B93BA00B9692D /* HYBCityLetterCell.m */,
+				B9D5AB0E1C9CF68600B9692D /* HYBTradeRecordCell.h */,
+				B9D5AB0F1C9CF68600B9692D /* HYBTradeRecordCell.m */,
+				B9D5AB111C9CF6A900B9692D /* HYBHeadCell.h */,
+				B9D5AB121C9CF6A900B9692D /* HYBHeadCell.m */,
 			);
 			name = Views;
 			sourceTree = "<group>";
@@ -2087,6 +2100,8 @@
 				B9D5AB031C9B993400B9692D /* HYBCityNameList.m */,
 				B9D5AB0B1C9C525B00B9692D /* HYBOrderProduct.h */,
 				B9D5AB0C1C9C525B00B9692D /* HYBOrderProduct.m */,
+				B9D5AB141C9CF94B00B9692D /* HYBTradeRecord.h */,
+				B9D5AB151C9CF94B00B9692D /* HYBTradeRecord.m */,
 			);
 			name = Models;
 			sourceTree = "<group>";
@@ -2895,6 +2910,7 @@
 				B9E935A61C7DE2B40068E620 /* PinyinHelper.m in Sources */,
 				B9E9323F1C7DD5960068E620 /* AppDelegate.m in Sources */,
 				B9A828DD1C8B166D007403D2 /* HYBSearchCityViewController.m in Sources */,
+				B9D5AB131C9CF6A900B9692D /* HYBHeadCell.m in Sources */,
 				B9D5AAE21C95078E00B9692D /* HYBChargeYou.m in Sources */,
 				B9A8283F1C8AA8C4007403D2 /* HYBCardCell.m in Sources */,
 				B9A828D11C8B057E007403D2 /* HYBStoreBaseInfoCell.m in Sources */,
@@ -2935,6 +2951,7 @@
 				B9DD34301C8B2A9C0008290A /* HYBLoginViewController.m in Sources */,
 				B9A828241C8A9AAD007403D2 /* HYBCardsViewController.m in Sources */,
 				B9E935A21C7DE2B40068E620 /* HanyuPinyinOutputFormat.m in Sources */,
+				B9D5AB101C9CF68600B9692D /* HYBTradeRecordCell.m in Sources */,
 				B988F3D51C8148C1006BBD8B /* HYBBannersCell.m in Sources */,
 				B9E9323C1C7DD5960068E620 /* main.m in Sources */,
 				B9D5AAFA1C9B93BA00B9692D /* HYBCityLetterCell.m in Sources */,
@@ -2947,6 +2964,7 @@
 				B9E13CBE1C9310A6007B3D3C /* HYBContacts.m in Sources */,
 				B9A828D41C8B0C58007403D2 /* HYBStoreProduct.m in Sources */,
 				B9E935B11C7DE2B40068E620 /* CXWebView.m in Sources */,
+				B9D5AB161C9CF94B00B9692D /* HYBTradeRecord.m in Sources */,
 				B9E13CC11C931397007B3D3C /* HYBPhoneContactList.m in Sources */,
 				B9E933A01C7DD8590068E620 /* HYBLaunchViewController.m in Sources */,
 				B9DD34531C8D9D5D0008290A /* HYBRegFirst.m in Sources */,
