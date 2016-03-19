@@ -7,8 +7,9 @@
 //
 
 #import "CXResource.h"
-
+#define MSG_LIST @"push/getPushList"
 @interface HYBMsgList : CXResource
 @property (nonatomic, strong) NSMutableArray *msgs;
 @property (nonatomic, assign) NSInteger page;
+@property (nonatomic, assign) BOOL isInfinite;
 @end

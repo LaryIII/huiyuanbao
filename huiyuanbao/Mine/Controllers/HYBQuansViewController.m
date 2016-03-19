@@ -102,41 +102,41 @@
         make.height.mas_equalTo(44);
     }];
     
-    UIView *ssuperview = self.view;
+//    UIView *ssuperview = self.view;
     
-    _scrollView1 = UIScrollView.new;
-    _scrollView1.backgroundColor = [UIColor clearColor];
-    [self.view addSubview:_scrollView1];
-    _scrollView1.hidden = NO;
-    [_scrollView1 makeConstraints:^(MASConstraintMaker *make) {
-        make.edges.equalTo(ssuperview).with.insets(UIEdgeInsetsMake(self.navigationBarHeight+44,0,0,0));
-    }];
-    
-    UIView *container1 = [UIView new];
-    [_scrollView1 addSubview:container1];
-    [container1 makeConstraints:^(MASConstraintMaker *make) {
-        make.edges.equalTo(_scrollView1);
-        make.width.equalTo(_scrollView1.width);
-    }];
-    
-    
-    
-    
-    
-    _scrollView2 = UIScrollView.new;
-    _scrollView2.backgroundColor = [UIColor clearColor];
-    [self.view addSubview:_scrollView2];
-    _scrollView2.hidden = YES;
-    [_scrollView2 makeConstraints:^(MASConstraintMaker *make) {
-        make.edges.equalTo(ssuperview).with.insets(UIEdgeInsetsMake(self.navigationBarHeight+44,0,0,0));
-    }];
-    
-    UIView *container2 = [UIView new];
-    [_scrollView2 addSubview:container2];
-    [container2 makeConstraints:^(MASConstraintMaker *make) {
-        make.edges.equalTo(_scrollView2);
-        make.width.equalTo(_scrollView2.width);
-    }];
+//    _scrollView1 = UIScrollView.new;
+//    _scrollView1.backgroundColor = [UIColor clearColor];
+//    [self.view addSubview:_scrollView1];
+//    _scrollView1.hidden = NO;
+//    [_scrollView1 makeConstraints:^(MASConstraintMaker *make) {
+//        make.edges.equalTo(ssuperview).with.insets(UIEdgeInsetsMake(self.navigationBarHeight+44,0,0,0));
+//    }];
+//    
+//    UIView *container1 = [UIView new];
+//    [_scrollView1 addSubview:container1];
+//    [container1 makeConstraints:^(MASConstraintMaker *make) {
+//        make.edges.equalTo(_scrollView1);
+//        make.width.equalTo(_scrollView1.width);
+//    }];
+//    
+//    
+//    
+//    
+//    
+//    _scrollView2 = UIScrollView.new;
+//    _scrollView2.backgroundColor = [UIColor clearColor];
+//    [self.view addSubview:_scrollView2];
+//    _scrollView2.hidden = YES;
+//    [_scrollView2 makeConstraints:^(MASConstraintMaker *make) {
+//        make.edges.equalTo(ssuperview).with.insets(UIEdgeInsetsMake(self.navigationBarHeight+44,0,0,0));
+//    }];
+//    
+//    UIView *container2 = [UIView new];
+//    [_scrollView2 addSubview:container2];
+//    [container2 makeConstraints:^(MASConstraintMaker *make) {
+//        make.edges.equalTo(_scrollView2);
+//        make.width.equalTo(_scrollView2.width);
+//    }];
     
     
     
@@ -280,8 +280,7 @@
 
 #pragma mark UICollectionViewDelegate
 - (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath {
-    NSMutableArray *array = self.dataArray[indexPath.section];
-    id object = array[indexPath.row];
+    
 }
 
 - (void)viewWillAppear:(BOOL)animated

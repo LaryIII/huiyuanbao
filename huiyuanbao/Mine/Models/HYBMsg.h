@@ -9,5 +9,7 @@
 #import "CXResource.h"
 
 @interface HYBMsg : CXResource
-
+@property (nonatomic, strong) NSString *image;//详情
+@property (nonatomic, strong) NSString *muname;//商家名称
+@property (nonatomic, strong) NSString *senddate;//发送时间
 @end
