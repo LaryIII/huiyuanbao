@@ -9,6 +9,7 @@
 #import "HYBOrderDetailViewController.h"
 #import "masonry.h"
 #import "HYBOrderRecord.h"
+#import "HYBPayViewController.h"
 
 @interface HYBOrderDetailViewController ()
 @property (nonatomic, strong) UIButton *payBtn;
@@ -474,7 +475,8 @@
 }
 
 -(void)pay{
-    
+    HYBPayViewController *pushController = [[HYBPayViewController alloc] initWithOrder:_order];
+    [self.navigationController pushViewController:pushController animated:YES];
 }
 
 @end

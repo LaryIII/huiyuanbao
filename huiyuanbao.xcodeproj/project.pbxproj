@@ -266,6 +266,7 @@
 		B9D5AB131C9CF6A900B9692D /* HYBHeadCell.m in Sources */ = {isa = PBXBuildFile; fileRef = B9D5AB121C9CF6A900B9692D /* HYBHeadCell.m */; };
 		B9D5AB161C9CF94B00B9692D /* HYBTradeRecord.m in Sources */ = {isa = PBXBuildFile; fileRef = B9D5AB151C9CF94B00B9692D /* HYBTradeRecord.m */; };
 		B9D5AB191C9D0D8C00B9692D /* HYBOrderDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B9D5AB181C9D0D8C00B9692D /* HYBOrderDetailViewController.m */; };
+		B9D5AB1C1C9D42B900B9692D /* HYBPayViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B9D5AB1B1C9D42B900B9692D /* HYBPayViewController.m */; };
 		B9DD34101C8B270E0008290A /* HYBGateViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B9DD340F1C8B270E0008290A /* HYBGateViewController.m */; };
 		B9DD34201C8B29A50008290A /* inner_logo@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = B9DD34121C8B29A50008290A /* inner_logo@2x.png */; };
 		B9DD34211C8B29A50008290A /* inner_logo@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = B9DD34131C8B29A50008290A /* inner_logo@3x.png */; };
@@ -799,6 +800,8 @@
 		B9D5AB151C9CF94B00B9692D /* HYBTradeRecord.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = HYBTradeRecord.m; path = Home/Models/HYBTradeRecord.m; sourceTree = "<group>"; };
 		B9D5AB171C9D0D8C00B9692D /* HYBOrderDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = HYBOrderDetailViewController.h; path = Mine/Controllers/HYBOrderDetailViewController.h; sourceTree = "<group>"; };
 		B9D5AB181C9D0D8C00B9692D /* HYBOrderDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = HYBOrderDetailViewController.m; path = Mine/Controllers/HYBOrderDetailViewController.m; sourceTree = "<group>"; };
+		B9D5AB1A1C9D42B900B9692D /* HYBPayViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = HYBPayViewController.h; path = Mine/Controllers/HYBPayViewController.h; sourceTree = "<group>"; };
+		B9D5AB1B1C9D42B900B9692D /* HYBPayViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = HYBPayViewController.m; path = Mine/Controllers/HYBPayViewController.m; sourceTree = "<group>"; };
 		B9DD340E1C8B270E0008290A /* HYBGateViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = HYBGateViewController.h; path = User/Controllers/HYBGateViewController.h; sourceTree = "<group>"; };
 		B9DD340F1C8B270E0008290A /* HYBGateViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = HYBGateViewController.m; path = User/Controllers/HYBGateViewController.m; sourceTree = "<group>"; };
 		B9DD34121C8B29A50008290A /* inner_logo@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "inner_logo@2x.png"; sourceTree = "<group>"; };
@@ -2273,6 +2276,8 @@
 				B9A8282C1C8A9CBF007403D2 /* HYBOrderRecordsViewController.m */,
 				B9D5AB171C9D0D8C00B9692D /* HYBOrderDetailViewController.h */,
 				B9D5AB181C9D0D8C00B9692D /* HYBOrderDetailViewController.m */,
+				B9D5AB1A1C9D42B900B9692D /* HYBPayViewController.h */,
+				B9D5AB1B1C9D42B900B9692D /* HYBPayViewController.m */,
 			);
 			name = Controllers;
 			sourceTree = "<group>";
@@ -2843,6 +2848,7 @@
 				B9A828E01C8B1A87007403D2 /* HYBCity.m in Sources */,
 				B9A8285A1C8AD760007403D2 /* HYBChargeRecordCell.m in Sources */,
 				B9A828DA1C8B0C8F007403D2 /* HYBStoreProductCell.m in Sources */,
+				B9D5AB1C1C9D42B900B9692D /* HYBPayViewController.m in Sources */,
 				B9E935A01C7DE2B40068E620 /* pinyin.c in Sources */,
 				B9E9357E1C7DE2B40068E620 /* DDLog.m in Sources */,
 				B9D5AAEB1C9B033700B9692D /* HYBShopDetail.m in Sources */,
