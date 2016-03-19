@@ -12,6 +12,7 @@
 #import "HYBOrderRecord.h"
 #import "HYBOrderRecordList.h"
 #import "GVUserDefaults+HYBProperties.h"
+#import "HYBOrderDetailViewController.h"
 
 @interface HYBOrderRecordsViewController ()<UICollectionViewDelegate, UICollectionViewDataSource,HYBOrderRecordCellDelegate>
 @property (nonatomic, strong) UICollectionView *collectionView;
@@ -221,6 +222,11 @@
 
 - (void)search{
     
+}
+
+-(void) gotoOrderRecordDetail:(HYBOrderRecordCell *)cell withOrderRecord:(HYBOrderRecord *)orderRecord{
+    HYBOrderDetailViewController *pushController = [[HYBOrderDetailViewController alloc] initWithOrder:orderRecord];
+    [self.navigationController pushViewController:pushController animated:YES];
 }
 
 
