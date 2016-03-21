@@ -267,6 +267,13 @@
 		B9D5AB161C9CF94B00B9692D /* HYBTradeRecord.m in Sources */ = {isa = PBXBuildFile; fileRef = B9D5AB151C9CF94B00B9692D /* HYBTradeRecord.m */; };
 		B9D5AB191C9D0D8C00B9692D /* HYBOrderDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B9D5AB181C9D0D8C00B9692D /* HYBOrderDetailViewController.m */; };
 		B9D5AB1C1C9D42B900B9692D /* HYBPayViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B9D5AB1B1C9D42B900B9692D /* HYBPayViewController.m */; };
+		B9D5AB1F1CA0179C00B9692D /* HYBHuiyuanbaoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B9D5AB1E1CA0179C00B9692D /* HYBHuiyuanbaoViewController.m */; };
+		B9D5AB221CA01CD600B9692D /* HYBHuiTradeRecord.m in Sources */ = {isa = PBXBuildFile; fileRef = B9D5AB211CA01CD600B9692D /* HYBHuiTradeRecord.m */; };
+		B9D5AB251CA01CF700B9692D /* HYBHuiChargeRecord.m in Sources */ = {isa = PBXBuildFile; fileRef = B9D5AB241CA01CF700B9692D /* HYBHuiChargeRecord.m */; };
+		B9D5AB281CA01D1B00B9692D /* HYBHuiTradeRecordCell.m in Sources */ = {isa = PBXBuildFile; fileRef = B9D5AB271CA01D1B00B9692D /* HYBHuiTradeRecordCell.m */; };
+		B9D5AB2B1CA01D3300B9692D /* HYBHuiChargeRecordCell.m in Sources */ = {isa = PBXBuildFile; fileRef = B9D5AB2A1CA01D3300B9692D /* HYBHuiChargeRecordCell.m */; };
+		B9D5AB2E1CA01F3000B9692D /* HYBHuiTradeRecordList.m in Sources */ = {isa = PBXBuildFile; fileRef = B9D5AB2D1CA01F3000B9692D /* HYBHuiTradeRecordList.m */; };
+		B9D5AB311CA0226300B9692D /* HYBHuiChargeRecordList.m in Sources */ = {isa = PBXBuildFile; fileRef = B9D5AB301CA0226300B9692D /* HYBHuiChargeRecordList.m */; };
 		B9DD34101C8B270E0008290A /* HYBGateViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B9DD340F1C8B270E0008290A /* HYBGateViewController.m */; };
 		B9DD34201C8B29A50008290A /* inner_logo@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = B9DD34121C8B29A50008290A /* inner_logo@2x.png */; };
 		B9DD34211C8B29A50008290A /* inner_logo@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = B9DD34131C8B29A50008290A /* inner_logo@3x.png */; };
@@ -802,6 +809,20 @@
 		B9D5AB181C9D0D8C00B9692D /* HYBOrderDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = HYBOrderDetailViewController.m; path = Mine/Controllers/HYBOrderDetailViewController.m; sourceTree = "<group>"; };
 		B9D5AB1A1C9D42B900B9692D /* HYBPayViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = HYBPayViewController.h; path = Mine/Controllers/HYBPayViewController.h; sourceTree = "<group>"; };
 		B9D5AB1B1C9D42B900B9692D /* HYBPayViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = HYBPayViewController.m; path = Mine/Controllers/HYBPayViewController.m; sourceTree = "<group>"; };
+		B9D5AB1D1CA0179C00B9692D /* HYBHuiyuanbaoViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = HYBHuiyuanbaoViewController.h; path = Mine/Controllers/HYBHuiyuanbaoViewController.h; sourceTree = "<group>"; };
+		B9D5AB1E1CA0179C00B9692D /* HYBHuiyuanbaoViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = HYBHuiyuanbaoViewController.m; path = Mine/Controllers/HYBHuiyuanbaoViewController.m; sourceTree = "<group>"; };
+		B9D5AB201CA01CD600B9692D /* HYBHuiTradeRecord.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = HYBHuiTradeRecord.h; path = Mine/Models/HYBHuiTradeRecord.h; sourceTree = "<group>"; };
+		B9D5AB211CA01CD600B9692D /* HYBHuiTradeRecord.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = HYBHuiTradeRecord.m; path = Mine/Models/HYBHuiTradeRecord.m; sourceTree = "<group>"; };
+		B9D5AB231CA01CF700B9692D /* HYBHuiChargeRecord.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = HYBHuiChargeRecord.h; path = Mine/Models/HYBHuiChargeRecord.h; sourceTree = "<group>"; };
+		B9D5AB241CA01CF700B9692D /* HYBHuiChargeRecord.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = HYBHuiChargeRecord.m; path = Mine/Models/HYBHuiChargeRecord.m; sourceTree = "<group>"; };
+		B9D5AB261CA01D1B00B9692D /* HYBHuiTradeRecordCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = HYBHuiTradeRecordCell.h; path = Mine/Views/HYBHuiTradeRecordCell.h; sourceTree = "<group>"; };
+		B9D5AB271CA01D1B00B9692D /* HYBHuiTradeRecordCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = HYBHuiTradeRecordCell.m; path = Mine/Views/HYBHuiTradeRecordCell.m; sourceTree = "<group>"; };
+		B9D5AB291CA01D3300B9692D /* HYBHuiChargeRecordCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = HYBHuiChargeRecordCell.h; path = Mine/Views/HYBHuiChargeRecordCell.h; sourceTree = "<group>"; };
+		B9D5AB2A1CA01D3300B9692D /* HYBHuiChargeRecordCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = HYBHuiChargeRecordCell.m; path = Mine/Views/HYBHuiChargeRecordCell.m; sourceTree = "<group>"; };
+		B9D5AB2C1CA01F3000B9692D /* HYBHuiTradeRecordList.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = HYBHuiTradeRecordList.h; path = Mine/Models/HYBHuiTradeRecordList.h; sourceTree = "<group>"; };
+		B9D5AB2D1CA01F3000B9692D /* HYBHuiTradeRecordList.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = HYBHuiTradeRecordList.m; path = Mine/Models/HYBHuiTradeRecordList.m; sourceTree = "<group>"; };
+		B9D5AB2F1CA0226300B9692D /* HYBHuiChargeRecordList.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = HYBHuiChargeRecordList.h; path = Mine/Models/HYBHuiChargeRecordList.h; sourceTree = "<group>"; };
+		B9D5AB301CA0226300B9692D /* HYBHuiChargeRecordList.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = HYBHuiChargeRecordList.m; path = Mine/Models/HYBHuiChargeRecordList.m; sourceTree = "<group>"; };
 		B9DD340E1C8B270E0008290A /* HYBGateViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = HYBGateViewController.h; path = User/Controllers/HYBGateViewController.h; sourceTree = "<group>"; };
 		B9DD340F1C8B270E0008290A /* HYBGateViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = HYBGateViewController.m; path = User/Controllers/HYBGateViewController.m; sourceTree = "<group>"; };
 		B9DD34121C8B29A50008290A /* inner_logo@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "inner_logo@2x.png"; sourceTree = "<group>"; };
@@ -2278,6 +2299,8 @@
 				B9D5AB181C9D0D8C00B9692D /* HYBOrderDetailViewController.m */,
 				B9D5AB1A1C9D42B900B9692D /* HYBPayViewController.h */,
 				B9D5AB1B1C9D42B900B9692D /* HYBPayViewController.m */,
+				B9D5AB1D1CA0179C00B9692D /* HYBHuiyuanbaoViewController.h */,
+				B9D5AB1E1CA0179C00B9692D /* HYBHuiyuanbaoViewController.m */,
 			);
 			name = Controllers;
 			sourceTree = "<group>";
@@ -2323,6 +2346,14 @@
 				B9E13CCC1C9355C7007B3D3C /* HYBStoreChargeRecord.m */,
 				B9E13CCE1C9355E6007B3D3C /* HYBStoreChargeRecordList.h */,
 				B9E13CCF1C9355E6007B3D3C /* HYBStoreChargeRecordList.m */,
+				B9D5AB201CA01CD600B9692D /* HYBHuiTradeRecord.h */,
+				B9D5AB211CA01CD600B9692D /* HYBHuiTradeRecord.m */,
+				B9D5AB231CA01CF700B9692D /* HYBHuiChargeRecord.h */,
+				B9D5AB241CA01CF700B9692D /* HYBHuiChargeRecord.m */,
+				B9D5AB2C1CA01F3000B9692D /* HYBHuiTradeRecordList.h */,
+				B9D5AB2D1CA01F3000B9692D /* HYBHuiTradeRecordList.m */,
+				B9D5AB2F1CA0226300B9692D /* HYBHuiChargeRecordList.h */,
+				B9D5AB301CA0226300B9692D /* HYBHuiChargeRecordList.m */,
 			);
 			name = Models;
 			sourceTree = "<group>";
@@ -2348,6 +2379,10 @@
 				B9E13CC91C934AAB007B3D3C /* HYBStoreXiaofeiRecordCell.m */,
 				B9E13CD11C9358FC007B3D3C /* HYBStoreChargeRecordCell.h */,
 				B9E13CD21C9358FC007B3D3C /* HYBStoreChargeRecordCell.m */,
+				B9D5AB261CA01D1B00B9692D /* HYBHuiTradeRecordCell.h */,
+				B9D5AB271CA01D1B00B9692D /* HYBHuiTradeRecordCell.m */,
+				B9D5AB291CA01D3300B9692D /* HYBHuiChargeRecordCell.h */,
+				B9D5AB2A1CA01D3300B9692D /* HYBHuiChargeRecordCell.m */,
 			);
 			name = Views;
 			sourceTree = "<group>";
@@ -2855,7 +2890,10 @@
 				B9A8282A1C8A9C4D007403D2 /* HYBMsgsViewController.m in Sources */,
 				B9A828B91C8AE282007403D2 /* HYBXiaofeiRecordList.m in Sources */,
 				B9E935AB1C7DE2B40068E620 /* CXNavigationBarController.m in Sources */,
+				B9D5AB1F1CA0179C00B9692D /* HYBHuiyuanbaoViewController.m in Sources */,
 				B9E13CD01C9355E6007B3D3C /* HYBStoreChargeRecordList.m in Sources */,
+				B9D5AB2B1CA01D3300B9692D /* HYBHuiChargeRecordCell.m in Sources */,
+				B9D5AB281CA01D1B00B9692D /* HYBHuiTradeRecordCell.m in Sources */,
 				B9DD34331C8B2AA90008290A /* HYBRegViewController.m in Sources */,
 				B9DD34681C900DDE0008290A /* HYBFirstStoreHeaderReusableView.m in Sources */,
 				B9DD34391C8B2B9D0008290A /* HYBChangeNumViewController.m in Sources */,
@@ -2871,11 +2909,13 @@
 				B9E935BE1C7DFDD90068E620 /* HYBHomeViewController.m in Sources */,
 				B9E935B21C7DE2B40068E620 /* ZButton.m in Sources */,
 				B9DD34651C900B910008290A /* HYBStoreHeaderReusableView.m in Sources */,
+				B9D5AB311CA0226300B9692D /* HYBHuiChargeRecordList.m in Sources */,
 				B9E9358B1C7DE2B40068E620 /* SVIndefiniteAnimatedView.m in Sources */,
 				B9E13CBD1C9310A6007B3D3C /* HYBContactsModel.m in Sources */,
 				B9E13C8F1C92F1C1007B3D3C /* HYBFindbackViewController.m in Sources */,
 				B9E9339E1C7DD8590068E620 /* HYBTabNavViewController.m in Sources */,
 				B9E935B61C7DE2B40068E620 /* ZHDatePicker.m in Sources */,
+				B9D5AB221CA01CD600B9692D /* HYBHuiTradeRecord.m in Sources */,
 				B9E9357B1C7DE2B40068E620 /* DDASLLogCapture.m in Sources */,
 				B9E9359B1C7DE2B40068E620 /* CXImageLoader.m in Sources */,
 				B988F3E71C815CFF006BBD8B /* HYBFirstStore.m in Sources */,
@@ -2985,6 +3025,7 @@
 				B9E935FD1C7E00C60068E620 /* RDVTabBarController.m in Sources */,
 				B9E935781C7DE2B40068E620 /* UIWebView+AFNetworking.m in Sources */,
 				B9E935FC1C7E00C60068E620 /* RDVTabBar.m in Sources */,
+				B9D5AB2E1CA01F3000B9692D /* HYBHuiTradeRecordList.m in Sources */,
 				B9D5AB0A1C9C313700B9692D /* HYBOrderProductViewController.m in Sources */,
 				B9E935A31C7DE2B40068E620 /* NSString+PinYin4Cocoa.m in Sources */,
 				B9D5AB071C9BA2C100B9692D /* ChineseStringForCity.m in Sources */,
@@ -3006,6 +3047,7 @@
 				B988F4D81C874B68006BBD8B /* HYBShiyouChargeViewController.m in Sources */,
 				B9D5AAF41C9B267B00B9692D /* HYBJoinMerchant.m in Sources */,
 				B9E935B31C7DE2B40068E620 /* ZHAreaPickerView.m in Sources */,
+				B9D5AB251CA01CF700B9692D /* HYBHuiChargeRecord.m in Sources */,
 				B9E9357D1C7DE2B40068E620 /* DDFileLogger.m in Sources */,
 				B9E935701C7DE2B40068E620 /* AFURLResponseSerialization.m in Sources */,
 				B9D5AADF1C95059500B9692D /* HYBQueryCardInfo.m in Sources */,

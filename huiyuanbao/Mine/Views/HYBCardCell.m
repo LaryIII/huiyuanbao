@@ -63,10 +63,12 @@
     UIImageView *storeImageView = UIImageView.new;
     UIImage *storeImg = [UIImage imageNamed:@"shang_default"];
     [storeImageView setImage:storeImg];
-    if(_card.merchant_img && ![_card.merchant_img isEqualToString:@""]){
+    if(_card.merchant_img && ![_card.merchant_img isEqualToString:@""] && ![_card.merchant_img isEqualToString:@"hui"]){
         [[CXImageLoader sharedImageLoader] loadImageForURL:[NSURL URLWithString:[IMG_PREFIX stringByAppendingString:_card.merchant_img]] image:^(UIImage *image, NSError *error) {
             storeImageView.image = image;
         }];
+    }else if(_card.merchant_img && [_card.merchant_img isEqualToString:@"hui"]){
+        storeImageView.image = [UIImage imageNamed:@"hui_default"];
     }
     [bottomView addSubview:storeImageView];
     [storeImageView makeConstraints:^(MASConstraintMaker *make) {

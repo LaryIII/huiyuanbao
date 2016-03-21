@@ -12,6 +12,7 @@
 #import "HYBCard.h"
 #import "HYBCardList.h"
 #import "GVUserDefaults+HYBProperties.h"
+#import "HYBHuiyuanbaoViewController.h"
 
 @interface HYBCardsViewController ()<UICollectionViewDelegate, UICollectionViewDataSource,HYBCardCellDelegate>
 @property (nonatomic, strong) UICollectionView *collectionView;
@@ -135,6 +136,17 @@
         if (object == _cardlist) {
             if (_cardlist.isLoaded) {
                 [self hideLoadingView];
+                HYBCard *huiyuanbaoCard = HYBCard.new;
+                huiyuanbaoCard.merchant_rechage = @"100000";
+                huiyuanbaoCard.interest = @"0";
+                huiyuanbaoCard.merchant_total = @"0";
+                huiyuanbaoCard.merchant_img = @"hui";
+                huiyuanbaoCard.merchant_name = @"惠员包";
+                huiyuanbaoCard.pkmuser = @"ea506b76df234d348e9a8478ab7d2fe4";
+                huiyuanbaoCard.merchant_id = @"ea506b76df234d348e9a8478ab7d2fe4";
+                huiyuanbaoCard.logocheck = @"2";
+                huiyuanbaoCard.merchant_blance = @"9950";
+                [_cardlist.cards insertObject:huiyuanbaoCard atIndex:0];
                 [self.dataArray addObject:_cardlist.cards];
                 
                 [_collectionView reloadData];
@@ -216,8 +228,6 @@
 
 #pragma mark UICollectionViewDelegate
 - (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath {
-    NSMutableArray *array = self.dataArray[indexPath.section];
-    id object = array[indexPath.row];
 }
 
 - (void)viewWillAppear:(BOOL)animated
@@ -228,6 +238,13 @@
 
 - (void)search{
     
+}
+
+-(void) gotoCardDetail:(HYBCardCell *)cell withCard:(HYBCard *)card{
+    if([card.merchant_img isEqualToString:@"hui"]){
+        HYBHuiyuanbaoViewController *pushController = [[HYBHuiyuanbaoViewController alloc] init];
+        [self.navigationController pushViewController:pushController animated:YES];
+    }
 }
 
 
