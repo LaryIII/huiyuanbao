@@ -18,6 +18,7 @@
 #import "HYBCategorys.h"
 #import "HYBCategoryInfo.h"
 #import "HYBCategoryInfo2.h"
+#import "GVUserDefaults+HYBProperties.h"
 
 @interface HYBClazzViewController ()<UICollectionViewDelegate, UICollectionViewDataSource,HYBStore2CellDelegate>
 @property (nonatomic, strong) UICollectionView *collectionView;
@@ -37,9 +38,16 @@
 @property (nonatomic, assign) BOOL isFilterAreaDisplay;
 
 @property (nonatomic, strong) NSString *selectedFilter;
+@property (nonatomic, strong) NSString *mtcode;
+@property (nonatomic, strong) NSString *mtlevel;
+@property (nonatomic, strong) NSString *pkmertype;
+@property (nonatomic, strong) NSString *ordertag;// 0智能排序 1离我最近 2人气最高
 
 @property (nonatomic, strong) HYBStore2List *store2list;
 @property (nonatomic, strong) HYBCategorys *categorys;
+
+@property (nonatomic, strong) UIButton *btn1;
+@property (nonatomic, strong) UIButton *btn2;
 @end
 
 @implementation HYBClazzViewController
@@ -51,6 +59,10 @@
     [super viewDidLoad];
     CGFloat width = CGRectGetWidth(self.view.bounds);
     
+    _mtcode = @"",
+    _mtlevel = @"",
+    _pkmertype = @"",
+    _ordertag = @"0",
     self.navigationBar.title = @"分类";
     self.view.backgroundColor = RGB(240, 240, 240);
     
@@ -106,17 +118,17 @@
         make.height.mas_equalTo(44);
     }];
     
-    UIButton *btn1 = UIButton.new;
-    btn1.titleLabel.font = [UIFont systemFontOfSize:14.0f];
-    [btn1 setTitle:@"全部" forState:UIControlStateNormal];
-    [btn1 setTitleColor:RGB(0, 0, 0) forState:UIControlStateNormal];
-    btn1.layer.borderColor = RGB(232, 232, 232).CGColor;
-    btn1.layer.borderWidth = 0.5;
-    [btn1 addTarget:self action:@selector(filters) forControlEvents:UIControlEventTouchUpInside];
-    [filterbar addSubview:btn1];
-    btn1.backgroundColor = [UIColor whiteColor];
+    _btn1 = UIButton.new;
+    _btn1.titleLabel.font = [UIFont systemFontOfSize:14.0f];
+    [_btn1 setTitle:@"全部" forState:UIControlStateNormal];
+    [_btn1 setTitleColor:RGB(0, 0, 0) forState:UIControlStateNormal];
+    _btn1.layer.borderColor = RGB(232, 232, 232).CGColor;
+    _btn1.layer.borderWidth = 0.5;
+    [_btn1 addTarget:self action:@selector(filters) forControlEvents:UIControlEventTouchUpInside];
+    [filterbar addSubview:_btn1];
+    _btn1.backgroundColor = [UIColor whiteColor];
     
-    [btn1 makeConstraints:^(MASConstraintMaker *make) {
+    [_btn1 makeConstraints:^(MASConstraintMaker *make) {
         make.left.equalTo(filterbar.left);
         make.width.mas_equalTo(width/2);
         make.bottom.equalTo(filterbar.bottom);
@@ -125,24 +137,24 @@
     
     UIImageView *arrow1 = UIImageView.new;
     [arrow1 setImage:[UIImage imageNamed:@"filter_arrow"]];
-    [btn1 addSubview:arrow1];
+    [_btn1 addSubview:arrow1];
     [arrow1 makeConstraints:^(MASConstraintMaker *make) {
-        make.top.equalTo(btn1.top).offset(15);
-        make.right.equalTo(btn1.right).offset(-8);
+        make.top.equalTo(_btn1.top).offset(15);
+        make.right.equalTo(_btn1.right).offset(-8);
     }];
 
-    UIButton *btn2 = UIButton.new;
-    btn2.titleLabel.font = [UIFont systemFontOfSize:14.0f];
-    [btn2 setTitle:@"智能排序" forState:UIControlStateNormal];
-    [btn2 setTitleColor:RGB(0, 0, 0) forState:UIControlStateNormal];
-    btn2.layer.borderColor = RGB(232, 232, 232).CGColor;
-    btn2.layer.borderWidth = 0.5;
-    [btn2 addTarget:self action:@selector(sorts) forControlEvents:UIControlEventTouchUpInside];
-    [filterbar addSubview:btn2];
-    btn2.backgroundColor = [UIColor whiteColor];
+    _btn2 = UIButton.new;
+    _btn2.titleLabel.font = [UIFont systemFontOfSize:14.0f];
+    [_btn2 setTitle:@"智能排序" forState:UIControlStateNormal];
+    [_btn2 setTitleColor:RGB(0, 0, 0) forState:UIControlStateNormal];
+    _btn2.layer.borderColor = RGB(232, 232, 232).CGColor;
+    _btn2.layer.borderWidth = 0.5;
+    [_btn2 addTarget:self action:@selector(sorts) forControlEvents:UIControlEventTouchUpInside];
+    [filterbar addSubview:_btn2];
+    _btn2.backgroundColor = [UIColor whiteColor];
     
-    [btn2 makeConstraints:^(MASConstraintMaker *make) {
-        make.left.equalTo(btn1.right);
+    [_btn2 makeConstraints:^(MASConstraintMaker *make) {
+        make.left.equalTo(_btn1.right);
         make.width.mas_equalTo(width/2);
         make.bottom.equalTo(filterbar.bottom);
         make.height.mas_equalTo(44);
@@ -150,10 +162,10 @@
     
     UIImageView *arrow2 = UIImageView.new;
     [arrow2 setImage:[UIImage imageNamed:@"filter_arrow"]];
-    [btn2 addSubview:arrow2];
+    [_btn2 addSubview:arrow2];
     [arrow2 makeConstraints:^(MASConstraintMaker *make) {
-        make.top.equalTo(btn2.top).offset(15);
-        make.right.equalTo(btn2.right).offset(-8);
+        make.top.equalTo(_btn2.top).offset(15);
+        make.right.equalTo(_btn2.right).offset(-8);
     }];
     
     
@@ -217,24 +229,27 @@
     [self.view bringSubviewToFront:searchBox];
     [self.view bringSubviewToFront:filterbar];
     
+    [self.categorys loadDataWithRequestMethodType:kHttpRequestMethodTypeGet parameters:@{
+                                                                                         @"userId":[GVUserDefaults standardUserDefaults].userId,
+                                                                                         @"phoneno":[GVUserDefaults standardUserDefaults].phoneno,
+                                                                                         @"mtcode":[GVUserDefaults standardUserDefaults].citycode
+                                                                                         }];
     
 }
 
 - (void) refreshData{
     [self showLoadingView];
-    [self.categorys loadDataWithRequestMethodType:kHttpRequestMethodTypeGet parameters:@{
-                                                                                          @"userId":@"",
-                                                                                          @"phoneno":@"",
-                                                                                          @"mtcode":@"320100"
-                                                                                          }];
-    
     [self.store2list loadDataWithRequestMethodType:kHttpRequestMethodTypeGet parameters:@{
-                                                                                        @"userId":@"",
+                                                                                        @"userId":[GVUserDefaults standardUserDefaults].userId,
                                                                                         @"longitude":@"116.322886",
                                                                                         @"latitude":@"39.892176",
-                                                                                        @"phoneno":@"",
+                                                                                        @"phoneno":[GVUserDefaults standardUserDefaults].phoneno,
                                                                                         @"pageLength":@"10",
-                                                                                        @"current":@"0"
+                                                                                        @"current":@"0",
+                                                                                        @"mtcode":_mtcode,
+                                                                                        @"mtlevel":_mtlevel,
+                                                                                        @"pkmertype":_pkmertype,
+                                                                                        @"ordertag":_ordertag
                                                                                         }];
 }
 
@@ -248,6 +263,7 @@
         if (object == _store2list) {
             if (_store2list.isLoaded) {
                 [self hideLoadingView];
+                [self.dataArray removeAllObjects];
                 [self.dataArray addObject:_store2list.stores];
                 
                 [_collectionView reloadData];
@@ -293,6 +309,7 @@
         [btn setTitle:citys[i] forState:UIControlStateNormal];
         [btn setTitleColor:RGB(51, 51, 51) forState:UIControlStateNormal];
         [btn.titleLabel setFont:[UIFont systemFontOfSize:15.0f]];
+        btn.tag = 30001+i;
 //        btn.contentHorizontalAlignment = UIControlContentHorizontalAlignmentLeft;
         [btn addTarget:self action:@selector(gotoSort:) forControlEvents:UIControlEventTouchUpInside];
         [self.sortArea addSubview:btn];
@@ -342,9 +359,10 @@
         HYBCategoryInfo *category1 = _categorys.categorys[i];
         [btn setTitle:category1.mtname forState:UIControlStateNormal];
         [btn setTitleColor:RGB(51, 51, 51) forState:UIControlStateNormal];
+        [btn setTitleColor:MAIN_COLOR forState:UIControlStateSelected];
         [btn.titleLabel setFont:[UIFont systemFontOfSize:15.0f]];
         //        btn.contentHorizontalAlignment = UIControlContentHorizontalAlignmentLeft;
-        btn.tag = 10001+[category1.mtcode integerValue];
+        btn.tag = [[NSString stringWithFormat:@"%i%@", 10001,category1.mtcode] integerValue];
         [btn addTarget:self action:@selector(gotolevel2:) forControlEvents:UIControlEventTouchUpInside];
         [_container addSubview:btn];
         [btn makeConstraints:^(MASConstraintMaker *make) {
@@ -368,10 +386,20 @@
     }
     CGFloat width = CGRectGetWidth(self.view.bounds);
     UIButton *btn = (UIButton *)sender;
-    long code = btn.tag - 10001;
+    _mtcode = [[NSString stringWithFormat:@"%li",btn.tag] substringFromIndex:5];
+    _mtlevel = @"1";
     for (int i=0; i<_categorys.categorys.count; i++) {
         HYBCategoryInfo *category1 = _categorys.categorys[i];
-        if(code == [category1.mtcode integerValue]){
+        if([_mtcode isEqualToString: category1.mtcode]){
+            _pkmertype = category1.pkmertype;
+            if([category1.mtname isEqualToString:@"全部"]){
+                _mtcode = @"";
+                _mtlevel = @"";
+                _pkmertype = @"";
+                [self pushFilterArea];
+                [self refreshData];
+                return;
+            }
             for (int j=0; j<category1.subList.count; j++) {
                 HYBCategoryInfo2 *category2 = category1.subList[j];
                 UIButton *btn = UIButton.new;
@@ -380,7 +408,7 @@
                 [btn setTitleColor:RGB(51, 51, 51) forState:UIControlStateNormal];
                 [btn.titleLabel setFont:[UIFont systemFontOfSize:15.0f]];
                 //        btn.contentHorizontalAlignment = UIControlContentHorizontalAlignmentLeft;
-                btn.tag = 20001+[category2.mtcode integerValue];
+                btn.tag = [[NSString stringWithFormat:@"%i%@", 20001,category2.mtcode] integerValue];
                 [btn addTarget:self action:@selector(gotoFilter:) forControlEvents:UIControlEventTouchUpInside];
                 [self.container2 addSubview:btn];
                 [btn makeConstraints:^(MASConstraintMaker *make) {
@@ -402,11 +430,42 @@
 -(void)gotoSort:(id)sender{
     // TODO:
     [self pushSortArea];
+    UIButton *btn = (UIButton *)sender;
+    _ordertag = [NSString stringWithFormat:@"%li",btn.tag - 30001];
+    if([_ordertag isEqualToString:@"0"]){
+        _btn2.titleLabel.text = @"智能排序";
+    }else if([_ordertag isEqualToString:@"1"]){
+        _btn2.titleLabel.text = @"离我最近";
+    }else if([_ordertag isEqualToString:@"2"]){
+        _btn2.titleLabel.text = @"人气最高";
+    }
+    
+    [self refreshData];
 }
 
 -(void)gotoFilter:(id)sender{
     // TODO:
     [self pushFilterArea];
+    UIButton *btn = (UIButton *)sender;
+//    NSString *s = [NSString stringWithFormat:@"%li", btn.tag - 20001];
+    NSString *s = [[NSString stringWithFormat:@"%li",btn.tag] substringFromIndex:5];
+    
+    for (int i=0; i<_categorys.categorys.count; i++) {
+        HYBCategoryInfo *category1 = _categorys.categorys[i];
+        if([_mtcode isEqualToString:category1.mtcode]){
+            for (int j=0; j<category1.subList.count; j++) {
+                HYBCategoryInfo2 *category2 = category1.subList[j];
+                if([s isEqualToString:category2.mtcode]){
+                    _mtcode = s;
+                    _mtlevel = category2.mtlevel;
+                    _pkmertype = category2.pkmertype;
+                    _btn1.titleLabel.text = category2.mtname;
+                }
+            }
+        }
+    }
+    
+    [self refreshData];
 }
 
 - (void) pullSortArea{
@@ -426,6 +485,7 @@
     [UIView commitAnimations];
     
     self.isSortAreaDisplay =YES;
+    [self pushFilterArea];
 }
 
 - (void) pushSortArea{
@@ -465,6 +525,7 @@
     [UIView commitAnimations];
     
     self.isFilterAreaDisplay =YES;
+    [self pushSortArea];
 }
 
 - (void) pushFilterArea{
@@ -577,8 +638,6 @@
 
 #pragma mark UICollectionViewDelegate
 - (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath {
-    NSMutableArray *array = self.dataArray[indexPath.section];
-    id object = array[indexPath.row];
 }
 
 - (void)viewWillAppear:(BOOL)animated
@@ -610,7 +669,7 @@
 
 -(void) gotoStoreDetail:(HYBStore2Cell *)cell withStore:(HYBStore2 *)store{
     [[self rdv_tabBarController] setTabBarHidden:YES animated:YES];
-    HYBStoreDetailViewController *pushController = [[HYBStoreDetailViewController alloc] init];
+    HYBStoreDetailViewController *pushController = [[HYBStoreDetailViewController alloc] initWithStore:store];
     [self.navigationController pushViewController:pushController animated:YES];
 }
 

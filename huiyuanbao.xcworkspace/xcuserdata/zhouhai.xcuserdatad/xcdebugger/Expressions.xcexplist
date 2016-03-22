@@ -3,10 +3,30 @@
    version = "1.0">
    <ContextStates>
       <ContextState
+         contextName = "__64-[CXResource loadDataWithRequestMethodType:parameters:dataType:]_block_invoke:CXResource.m">
+      </ContextState>
+      <ContextState
+         contextName = "-[HYBStoreDetailViewController collectionView:layout:sizeForItemAtIndexPath:]:HYBStoreDetailViewController.m">
+      </ContextState>
+      <ContextState
+         contextName = "-[HYBClazzViewController gotolevel2:]:HYBClazzViewController.m">
+      </ContextState>
+      <ContextState
+         contextName = "-[HYBCities getCities]:HYBCities.m">
+      </ContextState>
+      <ContextState
          contextName = "-[HYBHomeViewController collectionView:cellForItemAtIndexPath:]:HYBHomeViewController.m">
          <PersistentStrings>
             <PersistentString
                value = "self.dataArray">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "-[HYBClazzViewController gotoFilter:]:HYBClazzViewController.m">
+         <PersistentStrings>
+            <PersistentString
+               value = "category1">
             </PersistentString>
          </PersistentStrings>
       </ContextState>

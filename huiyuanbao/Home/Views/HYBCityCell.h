@@ -7,17 +7,17 @@
 //
 
 #import <UIKit/UIKit.h>
-@class HYBCity;
+@class HYBCityName;
 @protocol HYBCityCellDelegate;
 
 @interface HYBCityCell : UICollectionViewCell
 @property (nonatomic, strong) id<HYBCityCellDelegate> delegate;
-@property (nonatomic, strong) HYBCity *city;
-+ (CGSize)calculateCellSizeWithSummary:(HYBCity *)city containerWidth:(CGFloat)containerWidth;
+@property (nonatomic, strong) HYBCityName *city;
++ (CGSize)calculateCellSizeWithSummary:(HYBCityName *)city containerWidth:(CGFloat)containerWidth;
 @end
 
 @protocol HYBCityCellDelegate <NSObject>
 
--(void) gotoCity:(HYBCityCell *)cell withCity:(HYBCity *)city;
+-(void) gotoCity:(HYBCityCell *)cell withCity:(HYBCityName *)city;
 
 @end

@@ -282,6 +282,7 @@
 		B9D5AB431CA0434E00B9692D /* HYBQueryBalance.m in Sources */ = {isa = PBXBuildFile; fileRef = B9D5AB421CA0434E00B9692D /* HYBQueryBalance.m */; };
 		B9D5AB461CA04BCD00B9692D /* HYBImgUpload.m in Sources */ = {isa = PBXBuildFile; fileRef = B9D5AB451CA04BCD00B9692D /* HYBImgUpload.m */; };
 		B9D5AB491CA0539900B9692D /* HYBSaveImg.m in Sources */ = {isa = PBXBuildFile; fileRef = B9D5AB481CA0539900B9692D /* HYBSaveImg.m */; };
+		B9D5AB4C1CA1B81C00B9692D /* ChineseInclude.m in Sources */ = {isa = PBXBuildFile; fileRef = B9D5AB4A1CA1B81C00B9692D /* ChineseInclude.m */; };
 		B9DD34101C8B270E0008290A /* HYBGateViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B9DD340F1C8B270E0008290A /* HYBGateViewController.m */; };
 		B9DD34201C8B29A50008290A /* inner_logo@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = B9DD34121C8B29A50008290A /* inner_logo@2x.png */; };
 		B9DD34211C8B29A50008290A /* inner_logo@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = B9DD34131C8B29A50008290A /* inner_logo@3x.png */; };
@@ -847,6 +848,8 @@
 		B9D5AB451CA04BCD00B9692D /* HYBImgUpload.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = HYBImgUpload.m; path = Mine/Models/HYBImgUpload.m; sourceTree = "<group>"; };
 		B9D5AB471CA0539900B9692D /* HYBSaveImg.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = HYBSaveImg.h; path = Mine/Models/HYBSaveImg.h; sourceTree = "<group>"; };
 		B9D5AB481CA0539900B9692D /* HYBSaveImg.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = HYBSaveImg.m; path = Mine/Models/HYBSaveImg.m; sourceTree = "<group>"; };
+		B9D5AB4A1CA1B81C00B9692D /* ChineseInclude.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ChineseInclude.m; path = Home/Models/ChineseInclude.m; sourceTree = "<group>"; };
+		B9D5AB4B1CA1B81C00B9692D /* ChineseInclude.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ChineseInclude.h; path = Home/Models/ChineseInclude.h; sourceTree = "<group>"; };
 		B9DD340E1C8B270E0008290A /* HYBGateViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = HYBGateViewController.h; path = User/Controllers/HYBGateViewController.h; sourceTree = "<group>"; };
 		B9DD340F1C8B270E0008290A /* HYBGateViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = HYBGateViewController.m; path = User/Controllers/HYBGateViewController.m; sourceTree = "<group>"; };
 		B9DD34121C8B29A50008290A /* inner_logo@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "inner_logo@2x.png"; sourceTree = "<group>"; };
@@ -2121,6 +2124,8 @@
 		B9E935BA1C7DFD580068E620 /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				B9D5AB4A1CA1B81C00B9692D /* ChineseInclude.m */,
+				B9D5AB4B1CA1B81C00B9692D /* ChineseInclude.h */,
 				B988F3D61C81495E006BBD8B /* HYBAdvertisement.h */,
 				B988F3D71C81495E006BBD8B /* HYBAdvertisement.m */,
 				B988F3DC1C8151FB006BBD8B /* HYBStore.h */,
@@ -2996,6 +3001,7 @@
 				B9E935AA1C7DE2B40068E620 /* CXNavigationBar.m in Sources */,
 				B9E935851C7DE2B40068E620 /* GVUserDefaults.m in Sources */,
 				B9DD34621C8DDA6C0008290A /* HYBSetPassword.m in Sources */,
+				B9D5AB4C1CA1B81C00B9692D /* ChineseInclude.m in Sources */,
 				B9E9339F1C7DD8590068E620 /* HYBSplashViewController.m in Sources */,
 				B9E935741C7DE2B40068E620 /* UIButton+AFNetworking.m in Sources */,
 				B988F3D81C81495E006BBD8B /* HYBAdvertisement.m in Sources */,

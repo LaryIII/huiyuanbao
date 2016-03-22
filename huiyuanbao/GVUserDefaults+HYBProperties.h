@@ -19,6 +19,9 @@
 @property (nonatomic, weak) NSString *cpuid;
 @property (nonatomic, weak) NSString *phoneno;
 
-@property (nonatomic, weak) NSString *position;
+@property (nonatomic, weak) NSString *position;// 头像
+
+@property (nonatomic, weak) NSString *citycode;// 城市编码
+@property (nonatomic, weak) NSString *cityname;// 城市名称
 
 @end

@@ -133,6 +133,7 @@ static const CGFloat heightWidthRatio = 7.0f / 16.0f;
         if (object == _homedata) {
             if (_homedata.isLoaded) {
                 [self hideLoadingView];
+                [self.dataArray removeAllObjects];
                 [self.dataArray addObject:[NSMutableArray array]];
                 [self.dataArray[0] addObject:_homedata.ads];
                 
@@ -167,10 +168,11 @@ static const CGFloat heightWidthRatio = 7.0f / 16.0f;
 
 - (void)addLeftNavigatorButton
 {
-    ZButton *leftButton=[[ZButton alloc ] initWithFrame : CGRectMake (0, 31, 100, 44)];
-    [leftButton setTitle : @"南京" forState : UIControlStateNormal];
+    ZButton *leftButton=[[ZButton alloc ] initWithFrame : CGRectMake (0, 31, 200, 44)];
+    [leftButton setTitle : [GVUserDefaults standardUserDefaults].cityname forState : UIControlStateNormal];
     [leftButton setImage :[ UIImage imageNamed:@"city_arrow"] forState : UIControlStateNormal];
     [leftButton setTitleColor :RGB(255, 255, 255) forState : UIControlStateNormal];
+    [leftButton setImageEdgeInsets:UIEdgeInsetsMake(2, 14, 5, 9)];
     [leftButton addTarget:self action:@selector(leftButtonTapped:) forControlEvents:UIControlEventTouchUpInside];
     //    [self.navigationBar addSubview :rightButton];
     [self.navigationBar setLeftButton:leftButton];
@@ -345,14 +347,13 @@ static const CGFloat heightWidthRatio = 7.0f / 16.0f;
 
 #pragma mark UICollectionViewDelegate
 - (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath {
-    NSMutableArray *array = self.dataArray[indexPath.section];
-    id object = array[indexPath.row];
 }
 
 - (void)viewWillAppear:(BOOL)animated
 {
     [super viewWillAppear:animated];
     [[self rdv_tabBarController] setTabBarHidden:NO animated:NO];
+    self.navigationBar.leftButton.titleLabel.text = [GVUserDefaults standardUserDefaults].cityname;
     [self refreshData];
 }
 
@@ -378,7 +379,7 @@ static const CGFloat heightWidthRatio = 7.0f / 16.0f;
 
 -(void) gotoFirstStoreDetail:(HYBFirstStoreCell *)cell withStore:(HYBFirstStore *)store{
     [[self rdv_tabBarController] setTabBarHidden:YES animated:YES];
-    HYBStoreDetailViewController *pushController = [[HYBStoreDetailViewController alloc] initWithStore:store];
+    HYBStoreDetailViewController *pushController = [[HYBStoreDetailViewController alloc] initWithFirstStore:store];
     [self.navigationController pushViewController:pushController animated:YES];
 }
 

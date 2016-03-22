@@ -93,6 +93,10 @@
 #pragma mark Button Response
 - (void)clickAction:(UIButton *)sender
 {
+    if (self.delegate && [self.delegate respondsToSelector:@selector(setCity:withCity:)]) {
+    [self.delegate setCity:self withCity:_city];
+}
+    
 }
 
 @end

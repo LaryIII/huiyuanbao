@@ -15,6 +15,7 @@
 #import "HYBCityNameList.h"
 #import "ChineseStringForCity.h"
 #import "HYBCities.h"
+#import "GVUserDefaults+HYBProperties.h"
 
 @interface HYBSelectCityViewController ()<UICollectionViewDelegate, UICollectionViewDataSource, HYBCityNameCellDelegate>
 
@@ -25,6 +26,7 @@
 @property (nonatomic, strong) NSMutableArray *dataArray;
 @property (nonatomic, strong) UIButton *okButton;
 
+@property (nonatomic, strong) NSArray *citiesx;
 @property (nonatomic, strong) NSMutableArray *letterCellsIndexPath;
 
 @end
@@ -35,7 +37,7 @@
     [super viewDidLoad];
     CGFloat width = CGRectGetWidth(self.view.bounds);
     
-    self.navigationBar.title = @"选择城市 - 南京";
+    self.navigationBar.title = @"选择城市";
     self.view.backgroundColor = RGB(240, 240, 240);
     
 //    [self addLeftNavigatorButton];
@@ -110,17 +112,17 @@
         make.right.equalTo(self.view.right);
         make.height.mas_equalTo(15*5+37*4);
     }];
-    
-    NSArray *cities = @[@{@"name":@"北京",@"id":@1},@{@"name":@"重庆",@"id":@2},@{@"name":@"广州",@"id":@3},@{@"name":@"成都",@"id":@4},@{@"name":@"南京",@"id":@5},@{@"name":@"杭州",@"id":@6},@{@"name":@"上海",@"id":@7},@{@"name":@"深圳",@"id":@8},@{@"name":@"天津",@"id":@9},@{@"name":@"武汉",@"id":@10},@{@"name":@"西安",@"id":@11},@{@"name":@"阜阳",@"id":@12}];
-    for(int i=0;i<cities.count;i++){
+
+    _citiesx = @[@{@"name":@"北京",@"id":@"110000"},@{@"name":@"重庆",@"id":@"400000"},@{@"name":@"广州",@"id":@"510000"},@{@"name":@"成都",@"id":@"510000"},@{@"name":@"南京",@"id":@"210000"},@{@"name":@"杭州",@"id":@"310000"},@{@"name":@"上海",@"id":@"320000"},@{@"name":@"深圳",@"id":@"518000"},@{@"name":@"天津",@"id":@"100000"},@{@"name":@"武汉",@"id":@"430000"},@{@"name":@"西安",@"id":@"710000"},@{@"name":@"阜阳",@"id":@"236100"}];
+    for(int i=0;i<_citiesx.count;i++){
         UIButton *btn = UIButton.new;
         btn.titleLabel.font = [UIFont systemFontOfSize:14.0f];
-        [btn setTitle:[cities[i] objectForKey:@"name"] forState:UIControlStateNormal];
+        [btn setTitle:[_citiesx[i] objectForKey:@"name"] forState:UIControlStateNormal];
         [btn setTitleColor:RGB(51,51,51) forState:UIControlStateNormal];
         btn.layer.borderColor = RGB(216, 216, 216).CGColor;
         btn.layer.borderWidth = 1;
         btn.layer.cornerRadius = 2.0;
-        btn.tag = 10001+i;
+        btn.tag = [[_citiesx[i] objectForKey:@"id"] integerValue];
         btn.backgroundColor = [UIColor whiteColor];
         [btn addTarget:self action:@selector(btn1clicked:) forControlEvents:UIControlEventTouchUpInside];
         [btn1s addSubview:btn];
@@ -200,7 +202,7 @@
             l.titleLabel.font = [UIFont systemFontOfSize: 12.0];
             NSString *s = [array objectAtIndex:i];
             [l setTitle:s forState:UIControlStateNormal];
-            [l addTarget:self action:@selector(clickAction:) forControlEvents:UIControlEventTouchUpInside];
+            [l addTarget:self action:@selector(scrollLetter:) forControlEvents:UIControlEventTouchUpInside];
             l.tag = i;
             [letterBar addSubview:l];
         }
@@ -220,7 +222,19 @@
 }
 
 -(void)btn1clicked:(id)sender{
+    // 点击热门城市
+    UIButton *btn = (UIButton *)sender;
+    NSString *citycode = [NSString stringWithFormat:@"%li", btn.tag];
+    NSString *cityname = @"";
+    for (int i=0; i<_citiesx.count; i++) {
+        if([citycode isEqualToString:[_citiesx[i] objectForKey:@"id"]]){
+            cityname = [_citiesx[i] objectForKey:@"name"];
+        }
+    }
     
+    [GVUserDefaults standardUserDefaults].citycode = citycode;
+    [GVUserDefaults standardUserDefaults].cityname = cityname;
+    [self.navigationController popViewControllerAnimated:YES];
 }
 #pragma mark  UICollectionViewDataSource
 - (NSInteger)numberOfSectionsInCollectionView:(UICollectionView *)collectionView
@@ -283,10 +297,28 @@
     return 0.0F;
 }
 
+- (void)scrollLetter:(UIButton *)sender{
+    // 滚动到相应位置
+    //    NSLog(@"当前按钮所在的cell，在表中的位置为第%ld区，第%ld行，tag为%d",(long)indexPath.section,(long)indexPath.row, sender.tag);
+    NSIndexPath *indexPath = [NSIndexPath indexPathForRow:0 inSection:2*sender.tag+1];
+    [self.collectionView scrollToItemAtIndexPath:indexPath atScrollPosition:UICollectionViewScrollPositionCenteredVertically animated:YES];
+    
+//    [self.collectionView scrollToItemAtIndexPath:[self.letterCellsIndexPath objectAtIndex:sender.tag]
+//                                atScrollPosition:UICollectionViewScrollPositionCenteredVertically
+//                                        animated:YES];
+}
+
 #pragma mark UICollectionViewDelegate
 - (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath {
     [_collectionView scrollToItemAtIndexPath:indexPath atScrollPosition:UICollectionViewScrollPositionCenteredHorizontally animated:YES];
 }
+
+-(void) setCity:(HYBCityNameCell *)cell withCity:(HYBCityName *)city{
+    [GVUserDefaults standardUserDefaults].citycode = city.code;
+    [GVUserDefaults standardUserDefaults].cityname = city.name;
+    [self.navigationController popViewControllerAnimated:YES];
+}
+
 
 @end
 

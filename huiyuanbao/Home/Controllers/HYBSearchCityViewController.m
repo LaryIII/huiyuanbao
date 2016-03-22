@@ -11,10 +11,23 @@
 #import "HYBCityCell.h"
 #import "HYBCity.h"
 #import "HYBCityList.h"
+#import "HYBCities.h"
+#import "ChineseStringForCity.h"
+#import "HYBCityNameList.h"
+#import "ChineseInclude.h"
+#import "PinYinForObjc.h"
+#import "GVUserDefaults+HYBProperties.h"
 
-@interface HYBSearchCityViewController ()<UICollectionViewDelegate, UICollectionViewDataSource,HYBCityCellDelegate>
+@interface HYBSearchCityViewController ()<UICollectionViewDelegate, UICollectionViewDataSource,HYBCityCellDelegate,UITextFieldDelegate>
 @property (nonatomic, strong) UICollectionView *collectionView;
 @property (nonatomic, strong) NSMutableArray *dataArray;
+@property (nonatomic, strong) NSMutableArray *dataSource;
+
+@property (nonatomic, strong) UITextField *cityinput;
+@property (nonatomic, strong) HYBCities *cities;
+@property (nonatomic, strong) NSMutableArray *sortCitiesArr;
+
+@property (nonatomic, strong) NSArray *citiesx;
 
 @end
 
@@ -68,18 +81,20 @@
         make.height.mas_equalTo(14.0f);
     }];
     
-    UITextField *cityinput = UITextField.new;
-    [cityinput setClearButtonMode:UITextFieldViewModeWhileEditing];//右侧删除按钮
-    cityinput.leftViewMode=UITextFieldViewModeAlways;
-    cityinput.placeholder=@"城市首字母/名称";//默认显示的字
-    cityinput.keyboardType=UIKeyboardTypeNumberPad;//设置键盘类型为默认的
-    cityinput.returnKeyType=UIReturnKeyDone;//返回键的类型
-    cityinput.font = [UIFont systemFontOfSize:12.0f];
-    cityinput.textColor = RGB(102, 102, 102);
-    cityinput.delegate=self;//设置委托
-    cityinput.tag = 30002;
-    [searchBtn addSubview:cityinput];
-    [cityinput makeConstraints:^(MASConstraintMaker *make) {
+    _cityinput = UITextField.new;
+    [_cityinput setClearButtonMode:UITextFieldViewModeWhileEditing];//右侧删除按钮
+    _cityinput.leftViewMode=UITextFieldViewModeAlways;
+    _cityinput.placeholder=@"城市首字母/名称";//默认显示的字
+    _cityinput.keyboardType=UIKeyboardTypeDefault;//设置键盘类型为默认的
+    _cityinput.returnKeyType=UIReturnKeyDone;//返回键的类型
+    _cityinput.font = [UIFont systemFontOfSize:12.0f];
+    _cityinput.textColor = RGB(102, 102, 102);
+    _cityinput.delegate=self;//设置委托
+    _cityinput.tag = 30002;
+    [_cityinput addTarget:self action:@selector(searchBegin) forControlEvents: UIControlEventTouchDown];
+    [_cityinput addTarget:self  action:@selector(valueChanged:)  forControlEvents:UIControlEventAllEditingEvents];
+    [searchBtn addSubview:_cityinput];
+    [_cityinput makeConstraints:^(MASConstraintMaker *make) {
         make.top.equalTo(searchBtn.top).offset(6);
         make.left.equalTo(searchicon.right).offset(6);
         make.right.equalTo(searchBtn.right).offset(2);
@@ -101,15 +116,36 @@
     
     //test data
     self.dataArray = [NSMutableArray array];
-    [self.dataArray addObject:[NSMutableArray array]];
-    HYBCityList *cities = HYBCityList.new;
-    NSMutableArray *arr = [[NSMutableArray alloc]init];
-    HYBCity *o1 = HYBCity.new;
-    HYBCity *o2 = HYBCity.new;
-    [arr addObject:o1];
-    [arr addObject:o2];
-    cities.cities = arr;
-    [_dataArray[0] addObjectsFromArray:cities.cities];
+//    [self.dataArray addObject:[NSMutableArray array]];
+//    HYBCityList *cities = HYBCityList.new;
+//    NSMutableArray *arr = [[NSMutableArray alloc]init];
+//    HYBCity *o1 = HYBCity.new;
+//    HYBCity *o2 = HYBCity.new;
+//    [arr addObject:o1];
+//    [arr addObject:o2];
+//    cities.cities = arr;
+//    [_dataArray[0] addObjectsFromArray:cities.cities];
+    
+    // 字母和联系人是重复可添加的，参照小金库的controller来
+    self.cities = [[HYBCities alloc] init];
+    //    [self.contacts addPeople];
+    NSMutableArray *citiesx = [self.cities getCities];
+    NSArray *cityArr = [citiesx mutableCopy];
+    NSMutableArray * array = [ChineseStringForCity IndexArray:cityArr];
+    NSMutableArray *letterResultArr = [ChineseStringForCity LetterSortArray:cityArr];
+    self.sortCitiesArr = letterResultArr;
+    
+    [_collectionView registerClass:[HYBCityCell class] forCellWithReuseIdentifier:@"HYBCityCell"];
+    
+    self.dataSource = [NSMutableArray array];
+    
+//        NSArray *arr = @[];
+//        [self.dataArray addObject:arr];
+//
+    [self.dataSource addObject:[NSMutableArray array]];
+    for(HYBCityNameList * obj in self.sortCitiesArr){
+        [self.dataSource[0] addObjectsFromArray:obj.cities];
+    }
 }
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
@@ -135,9 +171,9 @@
     if([array count]>0){
         obj = array[indexPath.row];
     }
-    if([obj isKindOfClass:[HYBCity class]]){
+    if([obj isKindOfClass:[HYBCityName class]]){
         HYBCityCell *cityCell = [collectionView dequeueReusableCellWithReuseIdentifier:@"HYBCityCell" forIndexPath:indexPath];
-        HYBCity *temp = (HYBCity *)obj;
+        HYBCityName *temp = (HYBCityName *)obj;
         cityCell.city = temp;
         cityCell.delegate = self;
         return cityCell;
@@ -191,8 +227,6 @@
 
 #pragma mark UICollectionViewDelegate
 - (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath {
-    NSMutableArray *array = self.dataArray[indexPath.section];
-    id object = array[indexPath.row];
 }
 
 - (void)viewWillAppear:(BOOL)animated
@@ -205,5 +239,70 @@
 -(void)cancel{
     [self.navigationController popViewControllerAnimated:YES];
 }
+
+-(void)valueChanged:(id)sender{
+//    [self.array removeAllObjects];
+    [self.dataArray removeAllObjects];
+    NSLog(@"dataArray1:%@",self.dataArray);
+//    NSLog(@"tempDataArray1:%@",self.tempDataArray);
+    if (_cityinput.text.length>0) {
+        for (int i=0; i<self.dataSource.count; i++) {
+//            if(i%2 == 1){
+                NSMutableArray *innerArray = self.dataSource[i];
+                NSMutableArray *tempInnerArray = [[NSMutableArray alloc]init];
+                for (int j=0; j<innerArray.count; j++) {
+                    NSString *keyStr = @"";
+                    if([innerArray[j] isKindOfClass:[HYBCityName class]]){
+                        HYBCityName *temp = innerArray[j];
+                        keyStr = temp.name;
+                    }else{
+                        keyStr = innerArray[j];
+                    }
+                    if (![ChineseInclude isIncludeChineseInString:_cityinput.text]){
+                        if ([ChineseInclude isIncludeChineseInString:keyStr]) {
+                            NSString *tempPinYinStr = [PinYinForObjc chineseConvertToPinYin:keyStr];
+                            NSRange titleResult=[tempPinYinStr rangeOfString:_cityinput.text options:NSCaseInsensitiveSearch];
+                            if (titleResult.length>0) {
+                                [tempInnerArray addObject:innerArray[j]];
+                            }
+                        }
+                        else {
+                            NSRange titleResult=[keyStr rangeOfString:_cityinput.text options:NSCaseInsensitiveSearch];
+                            if (titleResult.length>0) {
+                                [tempInnerArray addObject:innerArray[j]];
+                            }
+                        }
+                    }else{
+                        NSRange titleResult=[keyStr rangeOfString:_cityinput.text options:NSLiteralSearch];
+                        if (titleResult.length>0) {
+                            [tempInnerArray addObject:innerArray[j]];
+                        }
+                    }
+                    
+                }
+                if(tempInnerArray.count > 0){
+//                    [self.dataArray addObject:self.dataSource[i-1]];
+//                    [self.array addObject:self.tempDataArray[i-1][0]];
+                    [self.dataArray addObject:tempInnerArray];
+                }
+            }
+        
+//        }
+    }
+    NSLog(@"dataArray2:%@",self.dataArray);
+//    NSLog(@"tempDataArray2:%@",self.tempDataArray);
+    [self.collectionView reloadData];
+}
+
+-(void)searchBegin{
+    
+}
+
+-(void) gotoCity:(HYBCityCell *)cell withCity:(HYBCityName *)city{
+    [GVUserDefaults standardUserDefaults].citycode = city.code;
+    [GVUserDefaults standardUserDefaults].cityname = city.name;
+    [self.navigationController popToRootViewControllerAnimated:YES];
+}
+
 
 @end

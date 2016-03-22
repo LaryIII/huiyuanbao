@@ -15,4 +15,5 @@
 @property (nonatomic, strong) NSMutableArray *subList;
 @property (nonatomic, strong) NSString *type;
 @property (nonatomic, strong) NSString *logourl;
+@property (nonatomic, strong) NSString *pkmertype;
 @end

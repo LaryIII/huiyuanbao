@@ -18,5 +18,5 @@
 @end
 
 @protocol HYBCityNameCellDelegate <NSObject>
-
+-(void) setCity:(HYBCityNameCell *)cell withCity:(HYBCityName *)city;
 @end

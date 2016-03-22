@@ -9,5 +9,6 @@
 #import "CXResource.h"
 
 @interface HYBCity : CXResource
-
+@property (nonatomic, strong) NSString *name;
+@property (nonatomic, strong) NSString *code;
 @end

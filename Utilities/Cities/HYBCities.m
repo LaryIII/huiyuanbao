@@ -22,6 +22,7 @@
         for(int j=0;j<arr.count;j++){
             HYBCityName *city = [[HYBCityName alloc] init];
             city.name = [[arr objectAtIndex:j] objectForKey:@"CityName"];
+            city.code = [[arr objectAtIndex:j] objectForKey:@"code"];
             [self.cities addObject:city];
         }
     }

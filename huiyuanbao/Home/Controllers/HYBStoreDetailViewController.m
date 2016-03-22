@@ -23,6 +23,7 @@
 #import "HYBTradeRecordCell.h"
 #import "HYBHeadCell.h"
 #import "HYBTradeRecord.h"
+#import "HYBFirstStore.h"
 
 static const CGFloat heightWidthRatio = 7.0f / 16.0f;
 
@@ -49,6 +50,13 @@ static const CGFloat heightWidthRatio = 7.0f / 16.0f;
     [_traderecord removeObserver:self forKeyPath:kResourceLoadingStatusKeyPath];
 }
 - (instancetype)initWithStore:(HYBStore *)store {
+    self = [super init];
+    if (self) {
+        self.store = store;
+    }
+    return self;
+}
+- (instancetype)initWithFirstStore:(HYBFirstStore *)store {
     self = [super init];
     if (self) {
         self.store = store;

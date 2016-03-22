@@ -17,13 +17,17 @@
 @dynamic cpuid;
 @dynamic phoneno;
 @dynamic position;
+@dynamic citycode;
+@dynamic cityname;
 
 - (NSDictionary *)setupDefaults {
     return @{
              @"userId":@"ea47794a91d0401089539020b170db24",
              @"cpuid":@"099D035B-E748-4CCA-A019-94ED7BF9D6EB",
              @"phoneno":@"13236567035",
-             @"position":@""
+             @"position":@"",
+             @"citycode":@"320100",
+             @"cityname":@"南京"
              };
 }
 
