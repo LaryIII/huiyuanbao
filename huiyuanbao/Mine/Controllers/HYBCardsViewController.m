@@ -13,6 +13,7 @@
 #import "HYBCardList.h"
 #import "GVUserDefaults+HYBProperties.h"
 #import "HYBHuiyuanbaoViewController.h"
+#import "HYBQueryBalance.h"
 
 @interface HYBCardsViewController ()<UICollectionViewDelegate, UICollectionViewDataSource,HYBCardCellDelegate>
 @property (nonatomic, strong) UICollectionView *collectionView;
@@ -20,12 +21,15 @@
 
 @property (nonatomic, strong) HYBCardList *cardlist;
 
+@property (nonatomic, strong) HYBQueryBalance *querybalance;
+
 @end
 
 
 @implementation HYBCardsViewController
 - (void) dealloc{
     [_cardlist removeObserver:self forKeyPath:kResourceLoadingStatusKeyPath];
+    [_querybalance removeObserver:self forKeyPath:kResourceLoadingStatusKeyPath];
 }
 
 - (void)viewDidLoad {
@@ -96,6 +100,13 @@
                     options:NSKeyValueObservingOptionNew
                     context:nil];
     
+    self.querybalance = [[HYBQueryBalance alloc] initWithBaseURL:HYB_API_BASE_URL path:QUERY_BALANCE cachePolicyType:kCachePolicyTypeNone];
+    
+    [self.querybalance addObserver:self
+                    forKeyPath:kResourceLoadingStatusKeyPath
+                       options:NSKeyValueObservingOptionNew
+                       context:nil];
+    
     //test data
     self.dataArray = [NSMutableArray array];
 //    [self.dataArray addObject:[NSMutableArray array]];
@@ -111,14 +122,14 @@
 
 - (void) refreshData{
     [self showLoadingView];
-    [self.cardlist loadDataWithRequestMethodType:kHttpRequestMethodTypeGet parameters:@{
+    [self.querybalance loadDataWithRequestMethodType:kHttpRequestMethodTypeGet parameters:@{
                                                                                         @"userId":[GVUserDefaults standardUserDefaults].userId,
                                                                                         
                                                                                         @"phoneno":[GVUserDefaults standardUserDefaults].phoneno,
                                                                                         @"pageLength":@"10",
-                                                                                        @"current":@"0",
-                                                                                        @"muname":@""
+                                                                                        @"current":@"0"
                                                                                         }];
+    
 }
 
 - (void)didReceiveMemoryWarning {
@@ -137,15 +148,15 @@
             if (_cardlist.isLoaded) {
                 [self hideLoadingView];
                 HYBCard *huiyuanbaoCard = HYBCard.new;
-                huiyuanbaoCard.merchant_rechage = @"100000";
-                huiyuanbaoCard.interest = @"0";
-                huiyuanbaoCard.merchant_total = @"0";
+                huiyuanbaoCard.merchant_rechage = @"";
+                huiyuanbaoCard.interest = _querybalance.interest;
+                huiyuanbaoCard.merchant_total = _querybalance.wholebalance;
                 huiyuanbaoCard.merchant_img = @"hui";
                 huiyuanbaoCard.merchant_name = @"惠员包";
-                huiyuanbaoCard.pkmuser = @"ea506b76df234d348e9a8478ab7d2fe4";
-                huiyuanbaoCard.merchant_id = @"ea506b76df234d348e9a8478ab7d2fe4";
+                huiyuanbaoCard.pkmuser = _querybalance.pkmuser;
+                huiyuanbaoCard.merchant_id = _querybalance.pkmuser;
                 huiyuanbaoCard.logocheck = @"2";
-                huiyuanbaoCard.merchant_blance = @"9950";
+                huiyuanbaoCard.merchant_blance = _querybalance.balance;
                 [_cardlist.cards insertObject:huiyuanbaoCard atIndex:0];
                 [self.dataArray addObject:_cardlist.cards];
                 
@@ -153,6 +164,23 @@
             }
             else if (_cardlist.error) {
                 [self showErrorMessage:[_cardlist.error localizedFailureReason]];
+            }
+        }
+        if (object == _querybalance) {
+            if (_querybalance.isLoaded) {
+                [self hideLoadingView];
+                
+                [self.cardlist loadDataWithRequestMethodType:kHttpRequestMethodTypeGet parameters:@{
+                                                                                                    @"userId":[GVUserDefaults standardUserDefaults].userId,
+                                                                                                    
+                                                                                                    @"phoneno":[GVUserDefaults standardUserDefaults].phoneno,
+                                                                                                    @"pageLength":@"10",
+                                                                                                    @"current":@"0",
+                                                                                                    @"muname":@""
+                                                                                                    }];
+            }
+            else if (_querybalance.error) {
+                [self showErrorMessage:[_querybalance.error localizedFailureReason]];
             }
         }
     }

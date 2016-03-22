@@ -23,13 +23,23 @@
 #import "HYBQRCodeViewController.h"
 #import "QRCodeReader.h"
 #import "QRCodeReaderViewController.h"
+#import "GVUserDefaults+HYBProperties.h"
+#import "HYBImgUpload.h"
+#import "HYBSaveImg.h"
 
 @interface HYBMineViewController ()<QRCodeReaderDelegate>
 @property (nonatomic, strong) QRCodeReaderViewController *vc;
+@property (nonatomic, strong) UIImageView *avater;
+
+@property (nonatomic,strong) HYBImgUpload *imgupload;
+@property (nonatomic, strong) HYBSaveImg *saveimg;
 @end
 
 @implementation HYBMineViewController
-
+- (void) dealloc{
+    [_imgupload removeObserver:self forKeyPath:kResourceLoadingStatusKeyPath];
+    [_saveimg removeObserver:self forKeyPath:kResourceLoadingStatusKeyPath];
+}
 - (void)viewDidLoad {
     [super viewDidLoad];
     CGFloat width = CGRectGetWidth(self.view.bounds);
@@ -50,15 +60,20 @@
         make.height.mas_equalTo(142);
     }];
     
-    UIImageView *avater = UIImageView.new;
-    [avater setImage:[UIImage imageNamed:@"store_default"]];
-    avater.layer.cornerRadius = 30.0f;
-    avater.layer.borderWidth = 1.0f;
-    avater.layer.borderColor = [RGB(255, 255, 255) CGColor];
-    avater.backgroundColor = [UIColor whiteColor];
-    avater.layer.masksToBounds = YES;
-    [baseInfo addSubview:avater];
-    [avater makeConstraints:^(MASConstraintMaker *make) {
+    _avater = UIImageView.new;
+    if(![[GVUserDefaults standardUserDefaults].position isEqualToString:@""]){
+        [_avater setImage:[UIImage imageNamed:[IMG_PREFIX stringByAppendingString:[GVUserDefaults standardUserDefaults].position]]];
+    }else{
+        [_avater setImage:[UIImage imageNamed:@"store_default"]];
+    }
+    
+    _avater.layer.cornerRadius = 30.0f;
+    _avater.layer.borderWidth = 1.0f;
+    _avater.layer.borderColor = [RGB(255, 255, 255) CGColor];
+    _avater.backgroundColor = [UIColor whiteColor];
+    _avater.layer.masksToBounds = YES;
+    [baseInfo addSubview:_avater];
+    [_avater makeConstraints:^(MASConstraintMaker *make) {
         make.top.equalTo(baseInfo.top).offset(8);
         make.left.equalTo(baseInfo.left).offset((width-60)/2);
         make.width.mas_equalTo(60);
@@ -69,10 +84,10 @@
     phoneLabel.textAlignment = NSTextAlignmentCenter;
     phoneLabel.textColor = RGB(255, 255, 255);
     phoneLabel.font = [UIFont systemFontOfSize:14.0f];
-    phoneLabel.text = @"13236567035";
+    phoneLabel.text = [GVUserDefaults standardUserDefaults].phoneno;//@"13236567035";
     [baseInfo addSubview:phoneLabel];
     [phoneLabel makeConstraints:^(MASConstraintMaker *make) {
-        make.top.equalTo(avater.bottom).offset(10);
+        make.top.equalTo(_avater.bottom).offset(10);
         make.left.equalTo(baseInfo.left);
         make.width.mas_equalTo(width);
     }];
@@ -576,10 +591,51 @@
     [reader setCompletionWithBlock:^(NSString *resultAsString) {
         NSLog(@"%@", resultAsString);
     }];
+    
+    self.imgupload = [[HYBImgUpload alloc] initWithBaseURL:HYB_API_BASE_URL_F path:IMG_UPLOAD cachePolicyType:kCachePolicyTypeNone];
+    
+    [self.imgupload addObserver:self
+                     forKeyPath:kResourceLoadingStatusKeyPath
+                        options:NSKeyValueObservingOptionNew
+                        context:nil];
+    self.saveimg = [[HYBSaveImg alloc] initWithBaseURL:HYB_API_BASE_URL path:SAVE_HEAD cachePolicyType:kCachePolicyTypeNone];
+    
+    [self.saveimg addObserver:self
+                     forKeyPath:kResourceLoadingStatusKeyPath
+                        options:NSKeyValueObservingOptionNew
+                        context:nil];
 }
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+
+#pragma mark Key-value observing
+- (void)observeValueForKeyPath:(NSString *)keyPath
+                      ofObject:(id)object
+                        change:(NSDictionary *)change
+                       context:(void *)context
+{
+    if ([keyPath isEqualToString:kResourceLoadingStatusKeyPath]) {
+        if (object == _imgupload) {
+            if (_imgupload.isLoaded) {
+                [self hideLoadingView];
+                self.avater.image = [UIImage imageWithData:[NSData dataWithContentsOfURL:[NSURL URLWithString:[IMG_PREFIX stringByAppendingString: _imgupload.imgurl]]]];
+            }
+            else if (_imgupload.error) {
+                [self showErrorMessage:[_imgupload.error localizedFailureReason]];
+            }
+        }
+        if (object == _saveimg) {
+            if (_saveimg.isLoaded) {
+                [self hideLoadingView];
+                [GVUserDefaults standardUserDefaults].position = _saveimg.position;
+            }
+            else if (_saveimg.error) {
+                [self showErrorMessage:[_saveimg.error localizedFailureReason]];
+            }
+        }
+    }
 }
 
 - (void)addRightNavigatorButton
@@ -615,6 +671,76 @@
 }
 
 - (void)editAvater{
+    UIActionSheet *actionSheet = [[UIActionSheet alloc]
+                                  initWithTitle:nil
+                                  delegate:self
+                                  cancelButtonTitle:@"取消"
+                                  destructiveButtonTitle:nil
+                                  otherButtonTitles:@"拍照", @"从手机相册选择",nil];
+    actionSheet.actionSheetStyle = UIActionSheetStyleBlackOpaque;
+    actionSheet.tag = 10001;
+    [actionSheet showInView:self.view];
+}
+
+- (void)imagePickerController:(UIImagePickerController *)picker didFinishPickingImage:(UIImage *)image editingInfo:(NSDictionary *)editingInfo {
+    
+}
+- (void)imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary *)info{
+    [self dismissViewControllerAnimated:YES completion:nil];
+    NSLog(@"%@",info);
+    UIImage *image=[info objectForKey:UIImagePickerControllerOriginalImage];
+    
+    // 调上传接口开始上传
+    [self showLoadingViewWithText:@"上传中..."];
+    [self.imgupload loadDataWithRequestMethodType:kHttpRequestMethodTypePost parameters:@{@"image":image,
+                                                                                          @"userId":[GVUserDefaults standardUserDefaults].userId,
+                                                                                          @"phoneno":[GVUserDefaults standardUserDefaults].phoneno
+                                                                                          } dataType:kHttpRequestDataTypeMultipart];
+}
+- (void)imagePickerControllerDidCancel:(UIImagePickerController *)picker{
+    [self dismissViewControllerAnimated:YES completion:^{
+        
+    }];
+}
+
+- (void)actionSheet:(UIActionSheet *)actionSheet clickedButtonAtIndex:(NSInteger)buttonIndex
+{
+    if (buttonIndex == 0 && actionSheet.tag == 10001) {
+        UIImagePickerController *imagePicker=[[UIImagePickerController alloc] init];
+        imagePicker.delegate = self;
+        //    imagePicker.view.frame=s
+        if([UIImagePickerController isSourceTypeAvailable:UIImagePickerControllerSourceTypeCamera]){
+            imagePicker.sourceType=UIImagePickerControllerSourceTypeCamera;
+            
+        }
+        imagePicker.allowsEditing=YES;
+        //    [self.view addSubview:imagePicker.view];
+        [self presentViewController:imagePicker animated:YES completion:^{
+            
+        }];
+    }else if(buttonIndex == 1 && actionSheet.tag == 10001) {
+        UIImagePickerController *imagePicker=[[UIImagePickerController alloc] init];
+        imagePicker.delegate = self;
+        //    imagePicker.view.frame=s
+        if([UIImagePickerController isSourceTypeAvailable:UIImagePickerControllerSourceTypeSavedPhotosAlbum]){
+            imagePicker.sourceType=UIImagePickerControllerSourceTypeSavedPhotosAlbum;
+            
+        }
+        imagePicker.allowsEditing=YES;
+        //    [self.view addSubview:imagePicker.view];
+        [self presentViewController:imagePicker animated:YES completion:^{
+            
+        }];
+    }
+    
+}
+- (void)actionSheetCancel:(UIActionSheet *)actionSheet{
+    
+}
+-(void)actionSheet:(UIActionSheet *)actionSheet didDismissWithButtonIndex:(NSInteger)buttonIndex{
+    
+}
+-(void)actionSheet:(UIActionSheet *)actionSheet willDismissWithButtonIndex:(NSInteger)buttonIndex{
     
 }
 
@@ -689,5 +815,4 @@
     [[self rdv_tabBarController] setTabBarHidden:NO animated:NO];
     //    [self refreshData];
 }
-
 @end

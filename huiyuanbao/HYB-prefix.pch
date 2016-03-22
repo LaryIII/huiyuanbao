@@ -39,6 +39,7 @@
 
 #define HYB_API_BASE_URL1 [NSURL URLWithString:@"http://123.57.232.188:8080/hyb/S01/"]
 #define HYB_API_BASE_URL  [NSURL URLWithString:@"http://123.57.232.188:8080/hyb/S01/"]
+#define HYB_API_BASE_URL_F  [NSURL URLWithString:@"http://123.57.232.188:8080/hyb/S02/"]
 #define HYB_API_BASE_URL2  [NSURL URLWithString:@"http://123.57.232.188:8080/hyb/S01/"]
 #define HYB_API_BASE_URL3  [NSURL URLWithString:@"http://123.57.232.188:8080/hyb/S01/"]
 
@@ -46,6 +47,7 @@
 
 #define HYB_API_BASE_URL1 [NSURL URLWithString:@"http://123.57.232.188:8080/hyb/S01/"]
 #define HYB_API_BASE_URL  [NSURL URLWithString:@"http://123.57.232.188:8080/hyb/S01/"]
+#define HYB_API_BASE_URL_F  [NSURL URLWithString:@"http://123.57.232.188:8080/hyb/S02/"]
 #define HYB_API_BASE_URL2  [NSURL URLWithString:@"http://123.57.232.188:8080/hyb/S01//"]
 #define HYB_API_BASE_URL3  [NSURL URLWithString:@"http://123.57.232.188:8080/hyb/S01/"]
 

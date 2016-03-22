@@ -14,7 +14,12 @@
 #import "HYBHuiChargeRecordCell.h"
 #import "HYBHuiChargeRecord.h"
 #import "HYBHuiChargeRecordList.h"
+#import "HYBHuiTixianRecordCell.h"
+#import "HYBHuiTixianRecord.h"
+#import "HYBHuiTixianRecordList.h"
 #import "GVUserDefaults+HYBProperties.h"
+#import "HYBTixianViewController.h"
+#import "HYBQueryBalance.h"
 
 @interface HYBHuiyuanbaoViewController ()<UICollectionViewDelegate, UICollectionViewDataSource,HYBHuiTradeRecordCellDelegate,HYBHuiChargeRecordCellDelegate>
 @property (nonatomic, strong) UICollectionView *collectionView;
@@ -27,12 +32,23 @@
 
 @property (nonatomic, strong) HYBHuiTradeRecordList *huitradelist;
 @property (nonatomic, strong) HYBHuiChargeRecordList *huichargelist;
+@property (nonatomic, strong) HYBHuiTixianRecordList *huitixianlist;
+
+@property (nonatomic, strong) HYBQueryBalance *querybalance;
+
+@property (nonatomic, strong) UIButton *tixianBtn;
+
+@property (nonatomic, strong) UILabel *zhanghuValue;
+@property (nonatomic, strong) UILabel *zhangliValue;
+@property (nonatomic, strong) UILabel *xiaofeiValue;
 @end
 
 @implementation HYBHuiyuanbaoViewController
 - (void) dealloc{
     [_huitradelist removeObserver:self forKeyPath:kResourceLoadingStatusKeyPath];
     [_huichargelist removeObserver:self forKeyPath:kResourceLoadingStatusKeyPath];
+    [_huitixianlist removeObserver:self forKeyPath:kResourceLoadingStatusKeyPath];
+    [_querybalance removeObserver:self forKeyPath:kResourceLoadingStatusKeyPath];
 }
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -51,16 +67,16 @@
         make.height.mas_equalTo(120);
     }];
     
-    UILabel *zhanghuValue = UILabel.new;
-    zhanghuValue.textAlignment = NSTextAlignmentCenter;
-    zhanghuValue.textColor = RGB(255, 255, 255);
-    zhanghuValue.font = [UIFont systemFontOfSize:22.0f];
-    zhanghuValue.text = @"1200";
-    [board addSubview:zhanghuValue];
-    [zhanghuValue makeConstraints:^(MASConstraintMaker *make) {
+    _zhanghuValue = UILabel.new;
+    _zhanghuValue.textAlignment = NSTextAlignmentCenter;
+    _zhanghuValue.textColor = RGB(255, 255, 255);
+    _zhanghuValue.font = [UIFont systemFontOfSize:22.0f];
+    _zhanghuValue.text = @"1200";
+    [board addSubview:_zhanghuValue];
+    [_zhanghuValue makeConstraints:^(MASConstraintMaker *make) {
         make.top.equalTo(board.top).offset(36);
         make.left.equalTo(board.left);
-        make.width.mas_equalTo(width/2);
+        make.width.mas_equalTo(width/3);
     }];
     
     UILabel *zhanghuKey = UILabel.new;
@@ -72,19 +88,43 @@
     [zhanghuKey makeConstraints:^(MASConstraintMaker *make) {
         make.top.equalTo(board.top).offset(66);
         make.left.equalTo(board.left);
-        make.width.mas_equalTo(width/2);
+        make.width.mas_equalTo(width/3);
     }];
     
-    UILabel *xiaofeiValue = UILabel.new;
-    xiaofeiValue.textAlignment = NSTextAlignmentCenter;
-    xiaofeiValue.textColor = RGB(255, 255, 255);
-    xiaofeiValue.font = [UIFont systemFontOfSize:22.0f];
-    xiaofeiValue.text = @"800";
-    [board addSubview:xiaofeiValue];
-    [xiaofeiValue makeConstraints:^(MASConstraintMaker *make) {
+    _zhangliValue = UILabel.new;
+    _zhangliValue.textAlignment = NSTextAlignmentCenter;
+    _zhangliValue.textColor = RGB(255, 255, 255);
+    _zhangliValue.font = [UIFont systemFontOfSize:22.0f];
+    _zhangliValue.text = @"0.02";
+    [board addSubview:_zhangliValue];
+    [_zhangliValue makeConstraints:^(MASConstraintMaker *make) {
         make.top.equalTo(board.top).offset(36);
-        make.left.equalTo(zhanghuValue.right);
-        make.width.mas_equalTo(width/2);
+        make.left.equalTo(_zhanghuValue.right);
+        make.width.mas_equalTo(width/3);
+    }];
+    
+    UILabel *zhangliKey = UILabel.new;
+    zhangliKey.textAlignment = NSTextAlignmentCenter;
+    zhangliKey.textColor = RGB(255, 255, 255);
+    zhangliKey.font = [UIFont systemFontOfSize:11.0f];
+    zhangliKey.text = @"昨日涨利";
+    [board addSubview:zhangliKey];
+    [zhangliKey makeConstraints:^(MASConstraintMaker *make) {
+        make.top.equalTo(board.top).offset(66);
+        make.left.equalTo(zhanghuKey.right);
+        make.width.mas_equalTo(width/3);
+    }];
+    
+    _xiaofeiValue = UILabel.new;
+    _xiaofeiValue.textAlignment = NSTextAlignmentCenter;
+    _xiaofeiValue.textColor = RGB(255, 255, 255);
+    _xiaofeiValue.font = [UIFont systemFontOfSize:22.0f];
+    _xiaofeiValue.text = @"800";
+    [board addSubview:_xiaofeiValue];
+    [_xiaofeiValue makeConstraints:^(MASConstraintMaker *make) {
+        make.top.equalTo(board.top).offset(36);
+        make.left.equalTo(_zhangliValue.right);
+        make.width.mas_equalTo(width/3);
     }];
     
     UILabel *xiaofeiKey = UILabel.new;
@@ -95,8 +135,8 @@
     [board addSubview:xiaofeiKey];
     [xiaofeiKey makeConstraints:^(MASConstraintMaker *make) {
         make.top.equalTo(board.top).offset(66);
-        make.left.equalTo(zhanghuKey.right);
-        make.width.mas_equalTo(width/2);
+        make.left.equalTo(zhangliKey.right);
+        make.width.mas_equalTo(width/3);
     }];
     
     
@@ -176,6 +216,8 @@
     [_collectionView registerClass:[HYBHuiChargeRecordCell class] forCellWithReuseIdentifier:@"HYBHuiChargeRecordCell"];
     self.huitradelist = [[HYBHuiTradeRecordList alloc] initWithBaseURL:HYB_API_BASE_URL path:HUITRADE_RECORD cachePolicyType:kCachePolicyTypeNone];
     self.huichargelist = [[HYBHuiChargeRecordList alloc] initWithBaseURL:HYB_API_BASE_URL path:HUICHARGE_RECORD cachePolicyType:kCachePolicyTypeNone];
+    self.huitixianlist = [[HYBHuiTixianRecordList alloc] initWithBaseURL:HYB_API_BASE_URL path:HUITIXIAN_LIST cachePolicyType:kCachePolicyTypeNone];
+    self.querybalance = [[HYBQueryBalance alloc] initWithBaseURL:HYB_API_BASE_URL path:QUERY_BALANCE cachePolicyType:kCachePolicyTypeNone];
     
     [self.huitradelist addObserver:self
                      forKeyPath:kResourceLoadingStatusKeyPath
@@ -185,9 +227,40 @@
                         forKeyPath:kResourceLoadingStatusKeyPath
                            options:NSKeyValueObservingOptionNew
                            context:nil];
+    [self.huitixianlist addObserver:self
+                         forKeyPath:kResourceLoadingStatusKeyPath
+                            options:NSKeyValueObservingOptionNew
+                            context:nil];
+    [self.querybalance addObserver:self
+                         forKeyPath:kResourceLoadingStatusKeyPath
+                            options:NSKeyValueObservingOptionNew
+                            context:nil];
     
     //test data
     self.dataArray = [NSMutableArray array];
+    
+    _tixianBtn = UIButton.new;
+    _tixianBtn.backgroundColor = MAIN_COLOR;
+    [_tixianBtn setTitleColor:RGB(255, 255, 255) forState:UIControlStateNormal];
+    [_tixianBtn setTitle:@"余额提现" forState:UIControlStateNormal];
+    _tixianBtn.titleLabel.font = [UIFont systemFontOfSize:15.0f];
+    [_tixianBtn addTarget:self action:@selector(tixians) forControlEvents:UIControlEventTouchUpInside];
+    _tixianBtn.selected = NO;
+    [self.view addSubview:_tixianBtn];
+    [_tixianBtn makeConstraints:^(MASConstraintMaker *make) {
+        make.bottom.equalTo(self.view.bottom);
+        make.left.equalTo(self.view.left);
+        make.right.equalTo(self.view.right);
+        make.height.mas_equalTo(44);
+    }];
+    
+    [self.querybalance loadDataWithRequestMethodType:kHttpRequestMethodTypePost parameters:@{
+                                                                                             @"userId":[GVUserDefaults standardUserDefaults].userId,
+                                                                                             
+                                                                                             @"phoneno":[GVUserDefaults standardUserDefaults].phoneno,
+                                                                                             @"pageLength":@"10",
+                                                                                             @"current":@"0"
+                                                                                             }];
 }
 - (void) refreshData{
     [self showLoadingView];
@@ -215,6 +288,7 @@
         if (object == _huitradelist) {
             if (_huitradelist.isLoaded) {
                 [self hideLoadingView];
+                [self.dataArray removeAllObjects];
                 [self.dataArray addObject:_huitradelist.huiTradeRecords];
                 
                 [_collectionView reloadData];
@@ -225,12 +299,35 @@
         }else if (object == _huichargelist) {
             if (_huichargelist.isLoaded) {
                 [self hideLoadingView];
+                [self.dataArray removeAllObjects];
                 [self.dataArray addObject:_huichargelist.huiChargeRecords];
                 
                 [_collectionView reloadData];
             }
             else if (_huichargelist.error) {
                 [self showErrorMessage:[_huichargelist.error localizedFailureReason]];
+            }
+        }
+        else if (object == _huitixianlist) {
+            if (_huitixianlist.isLoaded) {
+                [self hideLoadingView];
+                [self.dataArray removeAllObjects];
+                [self.dataArray addObject:_huitixianlist.huiTixianRecords];
+                
+                [_collectionView reloadData];
+            }
+            else if (_huitixianlist.error) {
+                [self showErrorMessage:[_huitixianlist.error localizedFailureReason]];
+            }
+        }else if (object == _querybalance) {
+            if (_querybalance.isLoaded) {
+                [self hideLoadingView];
+                _zhanghuValue.text = _querybalance.balance;
+                _zhangliValue.text = _querybalance.interest;
+                _xiaofeiValue.text = _querybalance.wholebalance;
+            }
+            else if (_querybalance.error) {
+                [self showErrorMessage:[_querybalance.error localizedFailureReason]];
             }
         }
     }
@@ -266,6 +363,12 @@
         huiChargeRecordCell.huiChargeRecord = temp;
         huiChargeRecordCell.delegate = self;
         return huiChargeRecordCell;
+    }else if([obj isKindOfClass:[HYBHuiTixianRecord class]]){
+        HYBHuiTixianRecordCell *huiTixianRecordCell = [collectionView dequeueReusableCellWithReuseIdentifier:@"HYBHuiTixianRecordCell" forIndexPath:indexPath];
+        HYBHuiTixianRecord *temp = (HYBHuiTixianRecord *)obj;
+        huiTixianRecordCell.huiTixianRecord = temp;
+        huiTixianRecordCell.delegate = self;
+        return huiTixianRecordCell;
     }else{
         HYBHuiTradeRecordCell *huiTradeRecordCell = [collectionView dequeueReusableCellWithReuseIdentifier:@"HYBHuiTradeRecordCell" forIndexPath:indexPath];
         HYBHuiTradeRecord *temp = (HYBHuiTradeRecord *)obj;
@@ -323,12 +426,14 @@
     _btn1.selected = YES;
     _btn2.selected = NO;
     _btn3.selected = NO;
+    [self refreshData];
 }
 
 -(void)chongzhi{
     _btn1.selected = NO;
     _btn2.selected = YES;
     _btn3.selected = NO;
+    [self showLoadingView];
     [self.huichargelist loadDataWithRequestMethodType:kHttpRequestMethodTypePost parameters:@{
                                                                                              @"userId":[GVUserDefaults standardUserDefaults].userId,
                                                                                              
@@ -341,6 +446,19 @@
     _btn1.selected = NO;
     _btn2.selected = NO;
     _btn3.selected = YES;
+    [self showLoadingView];
+    [self.huitixianlist loadDataWithRequestMethodType:kHttpRequestMethodTypePost parameters:@{
+                                                                                              @"userId":[GVUserDefaults standardUserDefaults].userId,
+                                                                                              
+                                                                                              @"phoneno":[GVUserDefaults standardUserDefaults].phoneno,
+                                                                                              @"pageLength":@"10",
+                                                                                              @"current":@"0"
+                                                                                              }];
+}
+
+-(void)tixians{
+    HYBTixianViewController *pushController = [[HYBTixianViewController alloc] init];
+    [self.navigationController pushViewController:pushController animated:YES];
 }
 
 @end

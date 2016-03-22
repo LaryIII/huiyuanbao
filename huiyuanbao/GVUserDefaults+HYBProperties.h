@@ -19,4 +19,6 @@
 @property (nonatomic, weak) NSString *cpuid;
 @property (nonatomic, weak) NSString *phoneno;
 
+@property (nonatomic, weak) NSString *position;
+
 @end

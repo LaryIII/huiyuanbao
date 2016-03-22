@@ -154,7 +154,7 @@ NSString * const CXResourceErrorDomain = @"cx.resource.request.error.response";
                     
                     [formData appendPartWithFileData:imageData name:key fileName:@"file.jpg" mimeType:@"image/jpeg"];
                 }else if ([object isKindOfClass:[NSData class]]) {
-                    [formData appendPartWithFileData:object name:@"file" fileName:key mimeType:@"application/octet-stream"];
+                    [formData appendPartWithFileData:object name:@"image" fileName:key mimeType:@"application/octet-stream"];
                 }else {
                     [formData appendPartWithFormData:[[object description] dataUsingEncoding:((AFHTTPSessionManager *)[[CXClients sharedClients] clientWithBaseURL:self.baseURL]).requestSerializer.stringEncoding] name:key];
                 }
@@ -376,10 +376,16 @@ NSString * const CXResourceErrorDomain = @"cx.resource.request.error.response";
 //    allParameters[@"width"] =@(scale_screen*wid);
     
     for(NSString *key in allParameters) {    // 正确的字典遍历方式
-        NSString *value = [allParameters objectForKey:key];
-        CocoaSecurityResult *valuex = [CocoaSecurity aesEncrypt:value hexKey:HEXKEY hexIv:HEXIV];
-        
-        [allParameters2 setObject:valuex.hex forKey:key];
+        if([key isEqualToString:@"image"]){
+            NSString *value = [allParameters objectForKey:key];
+            
+            [allParameters2 setObject:value forKey:key];
+        }else{
+            NSString *value = [allParameters objectForKey:key];
+            CocoaSecurityResult *valuex = [CocoaSecurity aesEncrypt:value hexKey:HEXKEY hexIv:HEXIV];
+            
+            [allParameters2 setObject:valuex.hex forKey:key];
+        }
     }
 
 //    NSString *str = [[[ASIdentifierManager sharedManager] advertisingIdentifier] UUIDString];
