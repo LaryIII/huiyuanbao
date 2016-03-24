@@ -1,15 +1,26 @@
 PODS:
+  - BaiduMapKit (2.10.0)
   - CocoaSecurity (1.2.4)
+  - FMDB (2.6.2):
+    - FMDB/standard (= 2.6.2)
+  - FMDB/standard (2.6.2)
+  - INTULocationManager (4.2.0)
   - Masonry (0.6.4)
   - QRCodeReaderViewController (4.0.1)
 
 DEPENDENCIES:
+  - BaiduMapKit
   - CocoaSecurity
+  - FMDB
+  - INTULocationManager
   - Masonry
   - QRCodeReaderViewController (~> 4.0.1)
 
 SPEC CHECKSUMS:
+  BaiduMapKit: 5df028c6b455d29e68e89694adbcf9d37a4bcc99
   CocoaSecurity: d288a6f87e0f363823d2cb83e753814a6944f71a
+  FMDB: 854a0341b4726e53276f2a8996f06f1b80f9259a
+  INTULocationManager: 73f8254b3d05c897c56bb13c190e5b7c648c0998
   Masonry: 281802d04d787ea2973179ee8bcb50500579ede2
   QRCodeReaderViewController: 6538745c8f4ffa9407a26bd7f9489ea01739e7b0
 

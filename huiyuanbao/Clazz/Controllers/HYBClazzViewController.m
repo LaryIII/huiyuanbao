@@ -20,6 +20,8 @@
 #import "HYBCategoryInfo2.h"
 #import "GVUserDefaults+HYBProperties.h"
 
+#import "INTULocationManager.h"
+
 @interface HYBClazzViewController ()<UICollectionViewDelegate, UICollectionViewDataSource,HYBStore2CellDelegate>
 @property (nonatomic, strong) UICollectionView *collectionView;
 @property (nonatomic, strong) NSMutableArray *dataArray;
@@ -239,18 +241,60 @@
 
 - (void) refreshData{
     [self showLoadingView];
-    [self.store2list loadDataWithRequestMethodType:kHttpRequestMethodTypeGet parameters:@{
-                                                                                        @"userId":[GVUserDefaults standardUserDefaults].userId,
-                                                                                        @"longitude":@"116.322886",
-                                                                                        @"latitude":@"39.892176",
-                                                                                        @"phoneno":[GVUserDefaults standardUserDefaults].phoneno,
-                                                                                        @"pageLength":@"10",
-                                                                                        @"current":@"0",
-                                                                                        @"mtcode":_mtcode,
-                                                                                        @"mtlevel":_mtlevel,
-                                                                                        @"pkmertype":_pkmertype,
-                                                                                        @"ordertag":_ordertag
-                                                                                        }];
+    INTULocationManager *locMgr = [INTULocationManager sharedInstance];
+    [locMgr requestLocationWithDesiredAccuracy:INTULocationAccuracyHouse
+                                       timeout:10.0
+                          delayUntilAuthorized:YES  // This parameter is optional, defaults to NO if omitted
+                                         block:^(CLLocation *currentLocation, INTULocationAccuracy achievedAccuracy, INTULocationStatus status) {
+                                             if (status == INTULocationStatusSuccess) {
+                                                 // Request succeeded, meaning achievedAccuracy is at least the requested accuracy, and
+                                                 // currentLocation contains the device's current location.
+                                                 [self.store2list loadDataWithRequestMethodType:kHttpRequestMethodTypeGet parameters:@{
+                                                                                                                                       @"userId":[GVUserDefaults standardUserDefaults].userId,
+                                                                                                                                       @"longitude":[NSString stringWithFormat:@"%f", currentLocation.coordinate.longitude],
+                                                                                                                                       @"latitude":[NSString stringWithFormat:@"%f", currentLocation.coordinate.latitude],
+                                                                                                                                       @"phoneno":[GVUserDefaults standardUserDefaults].phoneno,
+                                                                                                                                       @"pageLength":@"10",
+                                                                                                                                       @"current":@"0",
+                                                                                                                                       @"mtcode":_mtcode,
+                                                                                                                                       @"mtlevel":_mtlevel,
+                                                                                                                                       @"pkmertype":_pkmertype,
+                                                                                                                                       @"ordertag":_ordertag
+                                                                                                                                       }];
+                                             }
+                                             else if (status == INTULocationStatusTimedOut) {
+                                                 // Wasn't able to locate the user with the requested accuracy within the timeout interval.
+                                                 // However, currentLocation contains the best location available (if any) as of right now,
+                                                 // and achievedAccuracy has info on the accuracy/recency of the location in currentLocation.
+                                                 [self.store2list loadDataWithRequestMethodType:kHttpRequestMethodTypeGet parameters:@{
+                                                                                                                                       @"userId":[GVUserDefaults standardUserDefaults].userId,
+                                                                                                                                       @"longitude":[NSString stringWithFormat:@"%f", currentLocation.coordinate.longitude],
+                                                                                                                                       @"latitude":[NSString stringWithFormat:@"%f", currentLocation.coordinate.latitude],
+                                                                                                                                       @"phoneno":[GVUserDefaults standardUserDefaults].phoneno,
+                                                                                                                                       @"pageLength":@"10",
+                                                                                                                                       @"current":@"0",
+                                                                                                                                       @"mtcode":_mtcode,
+                                                                                                                                       @"mtlevel":_mtlevel,
+                                                                                                                                       @"pkmertype":_pkmertype,
+                                                                                                                                       @"ordertag":_ordertag
+                                                                                                                                       }];
+                                             }
+                                             else {
+                                                 // An error occurred, more info is available by looking at the specific status returned.
+                                                 [self.store2list loadDataWithRequestMethodType:kHttpRequestMethodTypeGet parameters:@{
+                                                                                                                                       @"userId":[GVUserDefaults standardUserDefaults].userId,
+                                                                                                                                       @"longitude":[NSString stringWithFormat:@"%f", currentLocation.coordinate.longitude],
+                                                                                                                                       @"latitude":[NSString stringWithFormat:@"%f", currentLocation.coordinate.latitude],
+                                                                                                                                       @"phoneno":[GVUserDefaults standardUserDefaults].phoneno,
+                                                                                                                                       @"pageLength":@"10",
+                                                                                                                                       @"current":@"0",
+                                                                                                                                       @"mtcode":_mtcode,
+                                                                                                                                       @"mtlevel":_mtlevel,
+                                                                                                                                       @"pkmertype":_pkmertype,
+                                                                                                                                       @"ordertag":_ordertag
+                                                                                                                                       }];
+                                             }
+                                         }];
 }
 
 #pragma mark Key-value observing

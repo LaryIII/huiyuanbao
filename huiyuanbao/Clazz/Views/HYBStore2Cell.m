@@ -74,7 +74,10 @@ static const CGFloat imgWidth = 100.0f;
     storeImageView.image = storeImg;
     if(_store.imgurl && ![_store.imgurl isEqualToString:@""]){
         [[CXImageLoader sharedImageLoader] loadImageForURL:[NSURL URLWithString:[IMG_PREFIX stringByAppendingString:_store.imgurl]] image:^(UIImage *image, NSError *error) {
-            storeImageView.image = image;
+            if(!error){
+                storeImageView.image = image;
+            }
+            
         }];
     }
     [bottomView addSubview:storeImageView];

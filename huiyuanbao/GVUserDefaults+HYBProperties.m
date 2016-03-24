@@ -19,6 +19,8 @@
 @dynamic position;
 @dynamic citycode;
 @dynamic cityname;
+@dynamic longitude;
+@dynamic latitude;
 
 - (NSDictionary *)setupDefaults {
     return @{
@@ -27,7 +29,9 @@
              @"phoneno":@"13236567035",
              @"position":@"",
              @"citycode":@"320100",
-             @"cityname":@"南京"
+             @"cityname":@"南京",
+             @"longitude":@"",
+             @"latitude":@""
              };
 }
 

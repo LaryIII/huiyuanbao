@@ -9,6 +9,16 @@
 			<key>isShown</key>
 			<false/>
 		</dict>
+		<key>FMDB.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
+		<key>INTULocationManager.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
 		<key>Masonry.xcscheme</key>
 		<dict>
 			<key>isShown</key>
@@ -27,7 +37,7 @@
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
-		<key>3E39362305B9EA6D3E5219A7ADDDA9CC</key>
+		<key>3F16A7973D2511D75E02723E41D69082</key>
 		<dict>
 			<key>primary</key>
 			<true/>
@@ -42,7 +52,17 @@
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>F6666061157FF17455DC7EBF0B4D1272</key>
+		<key>9F12FB4A63E20F601CFB2E64A65B57C1</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>BAA5C2ECF618B91B0F36BF40D31EDF03</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>E07A1B93D0B5E99C6E979FACDA81D9B4</key>
 		<dict>
 			<key>primary</key>
 			<true/>

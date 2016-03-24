@@ -8,14 +8,14 @@
 		<key>code</key>
 		<string>110000</string>
 		<key>ProvinceName</key>
-		<string>北京市</string>
+		<string>北京</string>
 		<key>cities</key>
 		<array>
 			<dict>
 				<key>code</key>
 				<string>110000</string>
 				<key>CityName</key>
-				<string>北京市</string>
+				<string>北京</string>
 				<key>ID</key>
 				<string>1</string>
 				<key>PID</key>
@@ -31,14 +31,14 @@
 		<key>code</key>
 		<string>120000</string>
 		<key>ProvinceName</key>
-		<string>天津市</string>
+		<string>天津</string>
 		<key>cities</key>
 		<array>
 			<dict>
 				<key>code</key>
 				<string>120000</string>
 				<key>CityName</key>
-				<string>天津市</string>
+				<string>天津</string>
 				<key>ID</key>
 				<string>2</string>
 				<key>PID</key>
@@ -61,7 +61,7 @@
 				<key>code</key>
 				<string>130100</string>
 				<key>CityName</key>
-				<string>石家庄市</string>
+				<string>石家庄</string>
 				<key>ID</key>
 				<string>3</string>
 				<key>PID</key>
@@ -73,7 +73,7 @@
 				<key>code</key>
 				<string>130200</string>
 				<key>CityName</key>
-				<string>唐山市</string>
+				<string>唐山</string>
 				<key>ID</key>
 				<string>4</string>
 				<key>PID</key>
@@ -85,7 +85,7 @@
 				<key>code</key>
 				<string>130300</string>
 				<key>CityName</key>
-				<string>秦皇岛市</string>
+				<string>秦皇岛</string>
 				<key>ID</key>
 				<string>5</string>
 				<key>PID</key>
@@ -97,7 +97,7 @@
 				<key>code</key>
 				<string>130400</string>
 				<key>CityName</key>
-				<string>邯郸市</string>
+				<string>邯郸</string>
 				<key>ID</key>
 				<string>6</string>
 				<key>PID</key>
@@ -109,7 +109,7 @@
 				<key>code</key>
 				<string>130500</string>
 				<key>CityName</key>
-				<string>邢台市</string>
+				<string>邢台</string>
 				<key>ID</key>
 				<string>7</string>
 				<key>PID</key>
@@ -121,7 +121,7 @@
 				<key>code</key>
 				<string>130600</string>
 				<key>CityName</key>
-				<string>保定市</string>
+				<string>保定</string>
 				<key>ID</key>
 				<string>8</string>
 				<key>PID</key>
@@ -133,7 +133,7 @@
 				<key>code</key>
 				<string>130700</string>
 				<key>CityName</key>
-				<string>张家口市</string>
+				<string>张家口</string>
 				<key>ID</key>
 				<string>9</string>
 				<key>PID</key>
@@ -145,7 +145,7 @@
 				<key>code</key>
 				<string>130800</string>
 				<key>CityName</key>
-				<string>承德市</string>
+				<string>承德</string>
 				<key>ID</key>
 				<string>10</string>
 				<key>PID</key>
@@ -157,7 +157,7 @@
 				<key>code</key>
 				<string>130900</string>
 				<key>CityName</key>
-				<string>沧州市</string>
+				<string>沧州</string>
 				<key>ID</key>
 				<string>11</string>
 				<key>PID</key>
@@ -169,7 +169,7 @@
 				<key>code</key>
 				<string>131000</string>
 				<key>CityName</key>
-				<string>廊坊市</string>
+				<string>廊坊</string>
 				<key>ID</key>
 				<string>12</string>
 				<key>PID</key>
@@ -181,7 +181,7 @@
 				<key>code</key>
 				<string>131100</string>
 				<key>CityName</key>
-				<string>衡水市</string>
+				<string>衡水</string>
 				<key>ID</key>
 				<string>13</string>
 				<key>PID</key>
@@ -204,7 +204,7 @@
 				<key>code</key>
 				<string>140100</string>
 				<key>CityName</key>
-				<string>太原市</string>
+				<string>太原</string>
 				<key>ID</key>
 				<string>14</string>
 				<key>PID</key>
@@ -216,7 +216,7 @@
 				<key>code</key>
 				<string>140200</string>
 				<key>CityName</key>
-				<string>大同市</string>
+				<string>大同</string>
 				<key>ID</key>
 				<string>15</string>
 				<key>PID</key>
@@ -228,7 +228,7 @@
 				<key>code</key>
 				<string>140200</string>
 				<key>CityName</key>
-				<string>阳泉市</string>
+				<string>阳泉</string>
 				<key>ID</key>
 				<string>16</string>
 				<key>PID</key>
@@ -240,7 +240,7 @@
 				<key>code</key>
 				<string>140300</string>
 				<key>CityName</key>
-				<string>长治市</string>
+				<string>长治</string>
 				<key>ID</key>
 				<string>17</string>
 				<key>PID</key>
@@ -252,7 +252,7 @@
 				<key>code</key>
 				<string>140400</string>
 				<key>CityName</key>
-				<string>晋城市</string>
+				<string>晋城</string>
 				<key>ID</key>
 				<string>18</string>
 				<key>PID</key>
@@ -264,7 +264,7 @@
 				<key>code</key>
 				<string>140500</string>
 				<key>CityName</key>
-				<string>朔州市</string>
+				<string>朔州</string>
 				<key>ID</key>
 				<string>19</string>
 				<key>PID</key>
@@ -276,7 +276,7 @@
 				<key>code</key>
 				<string>140600</string>
 				<key>CityName</key>
-				<string>晋中市</string>
+				<string>晋中</string>
 				<key>ID</key>
 				<string>20</string>
 				<key>PID</key>
@@ -288,7 +288,7 @@
 				<key>code</key>
 				<string>140700</string>
 				<key>CityName</key>
-				<string>运城市</string>
+				<string>运城</string>
 				<key>ID</key>
 				<string>21</string>
 				<key>PID</key>
@@ -300,7 +300,7 @@
 				<key>code</key>
 				<string>140800</string>
 				<key>CityName</key>
-				<string>忻州市</string>
+				<string>忻州</string>
 				<key>ID</key>
 				<string>22</string>
 				<key>PID</key>
@@ -312,7 +312,7 @@
 				<key>code</key>
 				<string>140900</string>
 				<key>CityName</key>
-				<string>临汾市</string>
+				<string>临汾</string>
 				<key>ID</key>
 				<string>23</string>
 				<key>PID</key>
@@ -324,7 +324,7 @@
 				<key>code</key>
 				<string>141000</string>
 				<key>CityName</key>
-				<string>吕梁市</string>
+				<string>吕梁</string>
 				<key>ID</key>
 				<string>24</string>
 				<key>PID</key>
@@ -347,7 +347,7 @@
 				<key>code</key>
 				<string>150100</string>
 				<key>CityName</key>
-				<string>呼和浩特市</string>
+				<string>呼和浩特</string>
 				<key>ID</key>
 				<string>25</string>
 				<key>PID</key>
@@ -359,7 +359,7 @@
 				<key>code</key>
 				<string>150200</string>
 				<key>CityName</key>
-				<string>包头市</string>
+				<string>包头</string>
 				<key>ID</key>
 				<string>26</string>
 				<key>PID</key>
@@ -371,7 +371,7 @@
 				<key>code</key>
 				<string>150300</string>
 				<key>CityName</key>
-				<string>乌海市</string>
+				<string>乌海</string>
 				<key>ID</key>
 				<string>27</string>
 				<key>PID</key>
@@ -383,7 +383,7 @@
 				<key>code</key>
 				<string>150400</string>
 				<key>CityName</key>
-				<string>赤峰市</string>
+				<string>赤峰</string>
 				<key>ID</key>
 				<string>28</string>
 				<key>PID</key>
@@ -395,7 +395,7 @@
 				<key>code</key>
 				<string>150500</string>
 				<key>CityName</key>
-				<string>通辽市</string>
+				<string>通辽</string>
 				<key>ID</key>
 				<string>29</string>
 				<key>PID</key>
@@ -407,7 +407,7 @@
 				<key>code</key>
 				<string>150600</string>
 				<key>CityName</key>
-				<string>鄂尔多斯市</string>
+				<string>鄂尔多斯</string>
 				<key>ID</key>
 				<string>30</string>
 				<key>PID</key>
@@ -419,7 +419,7 @@
 				<key>code</key>
 				<string>150700</string>
 				<key>CityName</key>
-				<string>呼伦贝尔市</string>
+				<string>呼伦贝尔</string>
 				<key>ID</key>
 				<string>31</string>
 				<key>PID</key>
@@ -431,7 +431,7 @@
 				<key>code</key>
 				<string>150800</string>
 				<key>CityName</key>
-				<string>巴彦淖尔市</string>
+				<string>巴彦淖尔</string>
 				<key>ID</key>
 				<string>32</string>
 				<key>PID</key>
@@ -443,7 +443,7 @@
 				<key>code</key>
 				<string>150900</string>
 				<key>CityName</key>
-				<string>乌兰察布市</string>
+				<string>乌兰察布</string>
 				<key>ID</key>
 				<string>33</string>
 				<key>PID</key>
@@ -502,7 +502,7 @@
 				<key>code</key>
 				<string>210100</string>
 				<key>CityName</key>
-				<string>沈阳市</string>
+				<string>沈阳</string>
 				<key>ID</key>
 				<string>37</string>
 				<key>PID</key>
@@ -514,7 +514,7 @@
 				<key>code</key>
 				<string>210200</string>
 				<key>CityName</key>
-				<string>大连市</string>
+				<string>大连</string>
 				<key>ID</key>
 				<string>38</string>
 				<key>PID</key>
@@ -526,7 +526,7 @@
 				<key>code</key>
 				<string>210300</string>
 				<key>CityName</key>
-				<string>鞍山市</string>
+				<string>鞍山</string>
 				<key>ID</key>
 				<string>39</string>
 				<key>PID</key>
@@ -538,7 +538,7 @@
 				<key>code</key>
 				<string>210400</string>
 				<key>CityName</key>
-				<string>抚顺市</string>
+				<string>抚顺</string>
 				<key>ID</key>
 				<string>40</string>
 				<key>PID</key>
@@ -550,7 +550,7 @@
 				<key>code</key>
 				<string>210500</string>
 				<key>CityName</key>
-				<string>本溪市</string>
+				<string>本溪</string>
 				<key>ID</key>
 				<string>41</string>
 				<key>PID</key>
@@ -562,7 +562,7 @@
 				<key>code</key>
 				<string>210600</string>
 				<key>CityName</key>
-				<string>丹东市</string>
+				<string>丹东</string>
 				<key>ID</key>
 				<string>42</string>
 				<key>PID</key>
@@ -574,7 +574,7 @@
 				<key>code</key>
 				<string>210700</string>
 				<key>CityName</key>
-				<string>锦州市</string>
+				<string>锦州</string>
 				<key>ID</key>
 				<string>43</string>
 				<key>PID</key>
@@ -586,7 +586,7 @@
 				<key>code</key>
 				<string>210800</string>
 				<key>CityName</key>
-				<string>营口市</string>
+				<string>营口</string>
 				<key>ID</key>
 				<string>44</string>
 				<key>PID</key>
@@ -598,7 +598,7 @@
 				<key>code</key>
 				<string>210900</string>
 				<key>CityName</key>
-				<string>阜新市</string>
+				<string>阜新</string>
 				<key>ID</key>
 				<string>45</string>
 				<key>PID</key>
@@ -610,7 +610,7 @@
 				<key>code</key>
 				<string>211000</string>
 				<key>CityName</key>
-				<string>辽阳市</string>
+				<string>辽阳</string>
 				<key>ID</key>
 				<string>46</string>
 				<key>PID</key>
@@ -622,7 +622,7 @@
 				<key>code</key>
 				<string>211100</string>
 				<key>CityName</key>
-				<string>盘锦市</string>
+				<string>盘锦</string>
 				<key>ID</key>
 				<string>47</string>
 				<key>PID</key>
@@ -634,7 +634,7 @@
 				<key>code</key>
 				<string>211200</string>
 				<key>CityName</key>
-				<string>铁岭市</string>
+				<string>铁岭</string>
 				<key>ID</key>
 				<string>48</string>
 				<key>PID</key>
@@ -646,7 +646,7 @@
 				<key>code</key>
 				<string>211300</string>
 				<key>CityName</key>
-				<string>朝阳市</string>
+				<string>朝阳</string>
 				<key>ID</key>
 				<string>49</string>
 				<key>PID</key>
@@ -658,7 +658,7 @@
 				<key>code</key>
 				<string>211400</string>
 				<key>CityName</key>
-				<string>葫芦岛市</string>
+				<string>葫芦岛</string>
 				<key>ID</key>
 				<string>50</string>
 				<key>PID</key>
@@ -681,7 +681,7 @@
 				<key>code</key>
 				<string>220100</string>
 				<key>CityName</key>
-				<string>长春市</string>
+				<string>长春</string>
 				<key>ID</key>
 				<string>51</string>
 				<key>PID</key>
@@ -693,7 +693,7 @@
 				<key>code</key>
 				<string>220200</string>
 				<key>CityName</key>
-				<string>吉林市</string>
+				<string>吉林</string>
 				<key>ID</key>
 				<string>52</string>
 				<key>PID</key>
@@ -705,7 +705,7 @@
 				<key>code</key>
 				<string>220300</string>
 				<key>CityName</key>
-				<string>四平市</string>
+				<string>四平</string>
 				<key>ID</key>
 				<string>53</string>
 				<key>PID</key>
@@ -717,7 +717,7 @@
 				<key>code</key>
 				<string>220400</string>
 				<key>CityName</key>
-				<string>辽源市</string>
+				<string>辽源</string>
 				<key>ID</key>
 				<string>54</string>
 				<key>PID</key>
@@ -729,7 +729,7 @@
 				<key>code</key>
 				<string>220500</string>
 				<key>CityName</key>
-				<string>通化市</string>
+				<string>通化</string>
 				<key>ID</key>
 				<string>55</string>
 				<key>PID</key>
@@ -741,7 +741,7 @@
 				<key>code</key>
 				<string>220600</string>
 				<key>CityName</key>
-				<string>白山市</string>
+				<string>白山</string>
 				<key>ID</key>
 				<string>56</string>
 				<key>PID</key>
@@ -753,7 +753,7 @@
 				<key>code</key>
 				<string>220700</string>
 				<key>CityName</key>
-				<string>松原市</string>
+				<string>松原</string>
 				<key>ID</key>
 				<string>57</string>
 				<key>PID</key>
@@ -765,7 +765,7 @@
 				<key>code</key>
 				<string>220800</string>
 				<key>CityName</key>
-				<string>白城市</string>
+				<string>白城</string>
 				<key>ID</key>
 				<string>58</string>
 				<key>PID</key>
@@ -800,7 +800,7 @@
 				<key>code</key>
 				<string>230100</string>
 				<key>CityName</key>
-				<string>哈尔滨市</string>
+				<string>哈尔滨</string>
 				<key>ID</key>
 				<string>60</string>
 				<key>PID</key>
@@ -812,7 +812,7 @@
 				<key>code</key>
 				<string>230200</string>
 				<key>CityName</key>
-				<string>齐齐哈尔市</string>
+				<string>齐齐哈尔</string>
 				<key>ID</key>
 				<string>61</string>
 				<key>PID</key>
@@ -824,7 +824,7 @@
 				<key>code</key>
 				<string>230300</string>
 				<key>CityName</key>
-				<string>鸡西市</string>
+				<string>鸡西</string>
 				<key>ID</key>
 				<string>62</string>
 				<key>PID</key>
@@ -836,7 +836,7 @@
 				<key>code</key>
 				<string>230400</string>
 				<key>CityName</key>
-				<string>鹤岗市</string>
+				<string>鹤岗</string>
 				<key>ID</key>
 				<string>63</string>
 				<key>PID</key>
@@ -848,7 +848,7 @@
 				<key>code</key>
 				<string>230500</string>
 				<key>CityName</key>
-				<string>双鸭山市</string>
+				<string>双鸭山</string>
 				<key>ID</key>
 				<string>64</string>
 				<key>PID</key>
@@ -860,7 +860,7 @@
 				<key>code</key>
 				<string>230600</string>
 				<key>CityName</key>
-				<string>大庆市</string>
+				<string>大庆</string>
 				<key>ID</key>
 				<string>65</string>
 				<key>PID</key>
@@ -872,7 +872,7 @@
 				<key>code</key>
 				<string>230700</string>
 				<key>CityName</key>
-				<string>伊春市</string>
+				<string>伊春</string>
 				<key>ID</key>
 				<string>66</string>
 				<key>PID</key>
@@ -884,7 +884,7 @@
 				<key>code</key>
 				<string>230800</string>
 				<key>CityName</key>
-				<string>佳木斯市</string>
+				<string>佳木斯</string>
 				<key>ID</key>
 				<string>67</string>
 				<key>PID</key>
@@ -896,7 +896,7 @@
 				<key>code</key>
 				<string>230900</string>
 				<key>CityName</key>
-				<string>七台河市</string>
+				<string>七台河</string>
 				<key>ID</key>
 				<string>68</string>
 				<key>PID</key>
@@ -908,7 +908,7 @@
 				<key>code</key>
 				<string>231000</string>
 				<key>CityName</key>
-				<string>牡丹江市</string>
+				<string>牡丹江</string>
 				<key>ID</key>
 				<string>69</string>
 				<key>PID</key>
@@ -920,7 +920,7 @@
 				<key>code</key>
 				<string>231100</string>
 				<key>CityName</key>
-				<string>黑河市</string>
+				<string>黑河</string>
 				<key>ID</key>
 				<string>70</string>
 				<key>PID</key>
@@ -932,7 +932,7 @@
 				<key>code</key>
 				<string>231200</string>
 				<key>CityName</key>
-				<string>绥化市</string>
+				<string>绥化</string>
 				<key>ID</key>
 				<string>71</string>
 				<key>PID</key>
@@ -960,14 +960,14 @@
 		<key>code</key>
 		<string>310000</string>
 		<key>ProvinceName</key>
-		<string>上海市</string>
+		<string>上海</string>
 		<key>cities</key>
 		<array>
 			<dict>
 				<key>code</key>
 				<string>310000</string>
 				<key>CityName</key>
-				<string>上海市</string>
+				<string>上海</string>
 				<key>ID</key>
 				<string>73</string>
 				<key>PID</key>
@@ -990,7 +990,7 @@
 				<key>code</key>
 				<string>320100</string>
 				<key>CityName</key>
-				<string>南京市</string>
+				<string>南京</string>
 				<key>ID</key>
 				<string>74</string>
 				<key>PID</key>
@@ -1002,7 +1002,7 @@
 				<key>code</key>
 				<string>320200</string>
 				<key>CityName</key>
-				<string>无锡市</string>
+				<string>无锡</string>
 				<key>ID</key>
 				<string>75</string>
 				<key>PID</key>
@@ -1014,7 +1014,7 @@
 				<key>code</key>
 				<string>320300</string>
 				<key>CityName</key>
-				<string>徐州市</string>
+				<string>徐州</string>
 				<key>ID</key>
 				<string>76</string>
 				<key>PID</key>
@@ -1026,7 +1026,7 @@
 				<key>code</key>
 				<string>320400</string>
 				<key>CityName</key>
-				<string>常州市</string>
+				<string>常州</string>
 				<key>ID</key>
 				<string>77</string>
 				<key>PID</key>
@@ -1038,7 +1038,7 @@
 				<key>code</key>
 				<string>320500</string>
 				<key>CityName</key>
-				<string>苏州市</string>
+				<string>苏州</string>
 				<key>ID</key>
 				<string>78</string>
 				<key>PID</key>
@@ -1050,7 +1050,7 @@
 				<key>code</key>
 				<string>320600</string>
 				<key>CityName</key>
-				<string>南通市</string>
+				<string>南通</string>
 				<key>ID</key>
 				<string>79</string>
 				<key>PID</key>
@@ -1062,7 +1062,7 @@
 				<key>code</key>
 				<string>320700</string>
 				<key>CityName</key>
-				<string>连云港市</string>
+				<string>连云港</string>
 				<key>ID</key>
 				<string>80</string>
 				<key>PID</key>
@@ -1074,7 +1074,7 @@
 				<key>code</key>
 				<string>320800</string>
 				<key>CityName</key>
-				<string>淮安市</string>
+				<string>淮安</string>
 				<key>ID</key>
 				<string>81</string>
 				<key>PID</key>
@@ -1086,7 +1086,7 @@
 				<key>code</key>
 				<string>320900</string>
 				<key>CityName</key>
-				<string>盐城市</string>
+				<string>盐城</string>
 				<key>ID</key>
 				<string>82</string>
 				<key>PID</key>
@@ -1098,7 +1098,7 @@
 				<key>code</key>
 				<string>321000</string>
 				<key>CityName</key>
-				<string>扬州市</string>
+				<string>扬州</string>
 				<key>ID</key>
 				<string>83</string>
 				<key>PID</key>
@@ -1110,7 +1110,7 @@
 				<key>code</key>
 				<string>321100</string>
 				<key>CityName</key>
-				<string>镇江市</string>
+				<string>镇江</string>
 				<key>ID</key>
 				<string>84</string>
 				<key>PID</key>
@@ -1122,7 +1122,7 @@
 				<key>code</key>
 				<string>321200</string>
 				<key>CityName</key>
-				<string>泰州市</string>
+				<string>泰州</string>
 				<key>ID</key>
 				<string>85</string>
 				<key>PID</key>
@@ -1134,7 +1134,7 @@
 				<key>code</key>
 				<string>321300</string>
 				<key>CityName</key>
-				<string>宿迁市</string>
+				<string>宿迁</string>
 				<key>ID</key>
 				<string>86</string>
 				<key>PID</key>
@@ -1157,7 +1157,7 @@
 				<key>code</key>
 				<string>330100</string>
 				<key>CityName</key>
-				<string>杭州市</string>
+				<string>杭州</string>
 				<key>ID</key>
 				<string>87</string>
 				<key>PID</key>
@@ -1169,7 +1169,7 @@
 				<key>code</key>
 				<string>330200</string>
 				<key>CityName</key>
-				<string>宁波市</string>
+				<string>宁波</string>
 				<key>ID</key>
 				<string>88</string>
 				<key>PID</key>
@@ -1181,7 +1181,7 @@
 				<key>code</key>
 				<string>330300</string>
 				<key>CityName</key>
-				<string>温州市</string>
+				<string>温州</string>
 				<key>ID</key>
 				<string>89</string>
 				<key>PID</key>
@@ -1193,7 +1193,7 @@
 				<key>code</key>
 				<string>330400</string>
 				<key>CityName</key>
-				<string>嘉兴市</string>
+				<string>嘉兴</string>
 				<key>ID</key>
 				<string>90</string>
 				<key>PID</key>
@@ -1205,7 +1205,7 @@
 				<key>code</key>
 				<string>330500</string>
 				<key>CityName</key>
-				<string>湖州市</string>
+				<string>湖州</string>
 				<key>ID</key>
 				<string>91</string>
 				<key>PID</key>
@@ -1217,7 +1217,7 @@
 				<key>code</key>
 				<string>330600</string>
 				<key>CityName</key>
-				<string>绍兴市</string>
+				<string>绍兴</string>
 				<key>ID</key>
 				<string>92</string>
 				<key>PID</key>
@@ -1229,7 +1229,7 @@
 				<key>code</key>
 				<string>330700</string>
 				<key>CityName</key>
-				<string>金华市</string>
+				<string>金华</string>
 				<key>ID</key>
 				<string>93</string>
 				<key>PID</key>
@@ -1241,7 +1241,7 @@
 				<key>code</key>
 				<string>330800</string>
 				<key>CityName</key>
-				<string>衢州市</string>
+				<string>衢州</string>
 				<key>ID</key>
 				<string>94</string>
 				<key>PID</key>
@@ -1253,7 +1253,7 @@
 				<key>code</key>
 				<string>330900</string>
 				<key>CityName</key>
-				<string>舟山市</string>
+				<string>舟山</string>
 				<key>ID</key>
 				<string>95</string>
 				<key>PID</key>
@@ -1265,7 +1265,7 @@
 				<key>code</key>
 				<string>331000</string>
 				<key>CityName</key>
-				<string>台州市</string>
+				<string>台州</string>
 				<key>ID</key>
 				<string>96</string>
 				<key>PID</key>
@@ -1277,7 +1277,7 @@
 				<key>code</key>
 				<string>331100</string>
 				<key>CityName</key>
-				<string>丽水市</string>
+				<string>丽水</string>
 				<key>ID</key>
 				<string>97</string>
 				<key>PID</key>
@@ -1300,7 +1300,7 @@
 				<key>code</key>
 				<string>340100</string>
 				<key>CityName</key>
-				<string>合肥市</string>
+				<string>合肥</string>
 				<key>ID</key>
 				<string>98</string>
 				<key>PID</key>
@@ -1312,7 +1312,7 @@
 				<key>code</key>
 				<string>340200</string>
 				<key>CityName</key>
-				<string>芜湖市</string>
+				<string>芜湖</string>
 				<key>ID</key>
 				<string>99</string>
 				<key>PID</key>
@@ -1324,7 +1324,7 @@
 				<key>code</key>
 				<string>340300</string>
 				<key>CityName</key>
-				<string>蚌埠市</string>
+				<string>蚌埠</string>
 				<key>ID</key>
 				<string>100</string>
 				<key>PID</key>
@@ -1336,7 +1336,7 @@
 				<key>code</key>
 				<string>340400</string>
 				<key>CityName</key>
-				<string>淮南市</string>
+				<string>淮南</string>
 				<key>ID</key>
 				<string>101</string>
 				<key>PID</key>
@@ -1348,7 +1348,7 @@
 				<key>code</key>
 				<string>340500</string>
 				<key>CityName</key>
-				<string>马鞍山市</string>
+				<string>马鞍山</string>
 				<key>ID</key>
 				<string>102</string>
 				<key>PID</key>
@@ -1360,7 +1360,7 @@
 				<key>code</key>
 				<string>340600</string>
 				<key>CityName</key>
-				<string>淮北市</string>
+				<string>淮北</string>
 				<key>ID</key>
 				<string>103</string>
 				<key>PID</key>
@@ -1372,7 +1372,7 @@
 				<key>code</key>
 				<string>340700</string>
 				<key>CityName</key>
-				<string>铜陵市</string>
+				<string>铜陵</string>
 				<key>ID</key>
 				<string>104</string>
 				<key>PID</key>
@@ -1384,7 +1384,7 @@
 				<key>code</key>
 				<string>340800</string>
 				<key>CityName</key>
-				<string>安庆市</string>
+				<string>安庆</string>
 				<key>ID</key>
 				<string>105</string>
 				<key>PID</key>
@@ -1396,7 +1396,7 @@
 				<key>code</key>
 				<string>341000</string>
 				<key>CityName</key>
-				<string>黄山市</string>
+				<string>黄山</string>
 				<key>ID</key>
 				<string>106</string>
 				<key>PID</key>
@@ -1408,7 +1408,7 @@
 				<key>code</key>
 				<string>341100</string>
 				<key>CityName</key>
-				<string>滁州市</string>
+				<string>滁州</string>
 				<key>ID</key>
 				<string>107</string>
 				<key>PID</key>
@@ -1420,7 +1420,7 @@
 				<key>code</key>
 				<string>341200</string>
 				<key>CityName</key>
-				<string>阜阳市</string>
+				<string>阜阳</string>
 				<key>ID</key>
 				<string>108</string>
 				<key>PID</key>
@@ -1432,7 +1432,7 @@
 				<key>code</key>
 				<string>341300</string>
 				<key>CityName</key>
-				<string>宿州市</string>
+				<string>宿州</string>
 				<key>ID</key>
 				<string>109</string>
 				<key>PID</key>
@@ -1444,7 +1444,7 @@
 				<key>code</key>
 				<string>341500</string>
 				<key>CityName</key>
-				<string>六安市</string>
+				<string>六安</string>
 				<key>ID</key>
 				<string>111</string>
 				<key>PID</key>
@@ -1456,7 +1456,7 @@
 				<key>code</key>
 				<string>341600</string>
 				<key>CityName</key>
-				<string>亳州市</string>
+				<string>亳州</string>
 				<key>ID</key>
 				<string>112</string>
 				<key>PID</key>
@@ -1468,7 +1468,7 @@
 				<key>code</key>
 				<string>341700</string>
 				<key>CityName</key>
-				<string>池州市</string>
+				<string>池州</string>
 				<key>ID</key>
 				<string>113</string>
 				<key>PID</key>
@@ -1480,7 +1480,7 @@
 				<key>code</key>
 				<string>341800</string>
 				<key>CityName</key>
-				<string>宣城市</string>
+				<string>宣城</string>
 				<key>ID</key>
 				<string>114</string>
 				<key>PID</key>
@@ -1503,7 +1503,7 @@
 				<key>code</key>
 				<string>350100</string>
 				<key>CityName</key>
-				<string>福州市</string>
+				<string>福州</string>
 				<key>ID</key>
 				<string>115</string>
 				<key>PID</key>
@@ -1515,7 +1515,7 @@
 				<key>code</key>
 				<string>350200</string>
 				<key>CityName</key>
-				<string>厦门市</string>
+				<string>厦门</string>
 				<key>ID</key>
 				<string>116</string>
 				<key>PID</key>
@@ -1527,7 +1527,7 @@
 				<key>code</key>
 				<string>350300</string>
 				<key>CityName</key>
-				<string>莆田市</string>
+				<string>莆田</string>
 				<key>ID</key>
 				<string>117</string>
 				<key>PID</key>
@@ -1539,7 +1539,7 @@
 				<key>code</key>
 				<string>350400</string>
 				<key>CityName</key>
-				<string>三明市</string>
+				<string>三明</string>
 				<key>ID</key>
 				<string>118</string>
 				<key>PID</key>
@@ -1551,7 +1551,7 @@
 				<key>code</key>
 				<string>350500</string>
 				<key>CityName</key>
-				<string>泉州市</string>
+				<string>泉州</string>
 				<key>ID</key>
 				<string>119</string>
 				<key>PID</key>
@@ -1563,7 +1563,7 @@
 				<key>code</key>
 				<string>350600</string>
 				<key>CityName</key>
-				<string>漳州市</string>
+				<string>漳州</string>
 				<key>ID</key>
 				<string>120</string>
 				<key>PID</key>
@@ -1575,7 +1575,7 @@
 				<key>code</key>
 				<string>350700</string>
 				<key>CityName</key>
-				<string>南平市</string>
+				<string>南平</string>
 				<key>ID</key>
 				<string>121</string>
 				<key>PID</key>
@@ -1587,7 +1587,7 @@
 				<key>code</key>
 				<string>350800</string>
 				<key>CityName</key>
-				<string>龙岩市</string>
+				<string>龙岩</string>
 				<key>ID</key>
 				<string>122</string>
 				<key>PID</key>
@@ -1599,7 +1599,7 @@
 				<key>code</key>
 				<string>350900</string>
 				<key>CityName</key>
-				<string>宁德市</string>
+				<string>宁德</string>
 				<key>ID</key>
 				<string>123</string>
 				<key>PID</key>
@@ -1622,7 +1622,7 @@
 				<key>code</key>
 				<string>360100</string>
 				<key>CityName</key>
-				<string>南昌市</string>
+				<string>南昌</string>
 				<key>ID</key>
 				<string>124</string>
 				<key>PID</key>
@@ -1634,7 +1634,7 @@
 				<key>code</key>
 				<string>360200</string>
 				<key>CityName</key>
-				<string>景德镇市</string>
+				<string>景德镇</string>
 				<key>ID</key>
 				<string>125</string>
 				<key>PID</key>
@@ -1646,7 +1646,7 @@
 				<key>code</key>
 				<string>360300</string>
 				<key>CityName</key>
-				<string>萍乡市</string>
+				<string>萍乡</string>
 				<key>ID</key>
 				<string>126</string>
 				<key>PID</key>
@@ -1658,7 +1658,7 @@
 				<key>code</key>
 				<string>360400</string>
 				<key>CityName</key>
-				<string>九江市</string>
+				<string>九江</string>
 				<key>ID</key>
 				<string>127</string>
 				<key>PID</key>
@@ -1670,7 +1670,7 @@
 				<key>code</key>
 				<string>360500</string>
 				<key>CityName</key>
-				<string>新余市</string>
+				<string>新余</string>
 				<key>ID</key>
 				<string>128</string>
 				<key>PID</key>
@@ -1682,7 +1682,7 @@
 				<key>code</key>
 				<string>360600</string>
 				<key>CityName</key>
-				<string>鹰潭市</string>
+				<string>鹰潭</string>
 				<key>ID</key>
 				<string>129</string>
 				<key>PID</key>
@@ -1694,7 +1694,7 @@
 				<key>code</key>
 				<string>360700</string>
 				<key>CityName</key>
-				<string>赣州市</string>
+				<string>赣州</string>
 				<key>ID</key>
 				<string>130</string>
 				<key>PID</key>
@@ -1706,7 +1706,7 @@
 				<key>code</key>
 				<string>360800</string>
 				<key>CityName</key>
-				<string>吉安市</string>
+				<string>吉安</string>
 				<key>ID</key>
 				<string>131</string>
 				<key>PID</key>
@@ -1718,7 +1718,7 @@
 				<key>code</key>
 				<string>360900</string>
 				<key>CityName</key>
-				<string>宜春市</string>
+				<string>宜春</string>
 				<key>ID</key>
 				<string>132</string>
 				<key>PID</key>
@@ -1730,7 +1730,7 @@
 				<key>code</key>
 				<string>361000</string>
 				<key>CityName</key>
-				<string>抚州市</string>
+				<string>抚州</string>
 				<key>ID</key>
 				<string>133</string>
 				<key>PID</key>
@@ -1742,7 +1742,7 @@
 				<key>code</key>
 				<string>361100</string>
 				<key>CityName</key>
-				<string>上饶市</string>
+				<string>上饶</string>
 				<key>ID</key>
 				<string>134</string>
 				<key>PID</key>
@@ -1765,7 +1765,7 @@
 				<key>code</key>
 				<string>370100</string>
 				<key>CityName</key>
-				<string>济南市</string>
+				<string>济南</string>
 				<key>ID</key>
 				<string>135</string>
 				<key>PID</key>
@@ -1777,7 +1777,7 @@
 				<key>code</key>
 				<string>370200</string>
 				<key>CityName</key>
-				<string>青岛市</string>
+				<string>青岛</string>
 				<key>ID</key>
 				<string>136</string>
 				<key>PID</key>
@@ -1789,7 +1789,7 @@
 				<key>code</key>
 				<string>370300</string>
 				<key>CityName</key>
-				<string>淄博市</string>
+				<string>淄博</string>
 				<key>ID</key>
 				<string>137</string>
 				<key>PID</key>
@@ -1801,7 +1801,7 @@
 				<key>code</key>
 				<string>370400</string>
 				<key>CityName</key>
-				<string>枣庄市</string>
+				<string>枣庄</string>
 				<key>ID</key>
 				<string>138</string>
 				<key>PID</key>
@@ -1813,7 +1813,7 @@
 				<key>code</key>
 				<string>370500</string>
 				<key>CityName</key>
-				<string>东营市</string>
+				<string>东营</string>
 				<key>ID</key>
 				<string>139</string>
 				<key>PID</key>
@@ -1825,7 +1825,7 @@
 				<key>code</key>
 				<string>370600</string>
 				<key>CityName</key>
-				<string>烟台市</string>
+				<string>烟台</string>
 				<key>ID</key>
 				<string>140</string>
 				<key>PID</key>
@@ -1837,7 +1837,7 @@
 				<key>code</key>
 				<string>370700</string>
 				<key>CityName</key>
-				<string>潍坊市</string>
+				<string>潍坊</string>
 				<key>ID</key>
 				<string>141</string>
 				<key>PID</key>
@@ -1849,7 +1849,7 @@
 				<key>code</key>
 				<string>370800</string>
 				<key>CityName</key>
-				<string>济宁市</string>
+				<string>济宁</string>
 				<key>ID</key>
 				<string>142</string>
 				<key>PID</key>
@@ -1861,7 +1861,7 @@
 				<key>code</key>
 				<string>370900</string>
 				<key>CityName</key>
-				<string>泰安市</string>
+				<string>泰安</string>
 				<key>ID</key>
 				<string>143</string>
 				<key>PID</key>
@@ -1873,7 +1873,7 @@
 				<key>code</key>
 				<string>371000</string>
 				<key>CityName</key>
-				<string>威海市</string>
+				<string>威海</string>
 				<key>ID</key>
 				<string>144</string>
 				<key>PID</key>
@@ -1885,7 +1885,7 @@
 				<key>code</key>
 				<string>371100</string>
 				<key>CityName</key>
-				<string>日照市</string>
+				<string>日照</string>
 				<key>ID</key>
 				<string>145</string>
 				<key>PID</key>
@@ -1897,7 +1897,7 @@
 				<key>code</key>
 				<string>371200</string>
 				<key>CityName</key>
-				<string>莱芜市</string>
+				<string>莱芜</string>
 				<key>ID</key>
 				<string>146</string>
 				<key>PID</key>
@@ -1909,7 +1909,7 @@
 				<key>code</key>
 				<string>371300</string>
 				<key>CityName</key>
-				<string>临沂市</string>
+				<string>临沂</string>
 				<key>ID</key>
 				<string>147</string>
 				<key>PID</key>
@@ -1921,7 +1921,7 @@
 				<key>code</key>
 				<string>371400</string>
 				<key>CityName</key>
-				<string>德州市</string>
+				<string>德州</string>
 				<key>ID</key>
 				<string>148</string>
 				<key>PID</key>
@@ -1933,7 +1933,7 @@
 				<key>code</key>
 				<string>371500</string>
 				<key>CityName</key>
-				<string>聊城市</string>
+				<string>聊城</string>
 				<key>ID</key>
 				<string>149</string>
 				<key>PID</key>
@@ -1945,7 +1945,7 @@
 				<key>code</key>
 				<string>371600</string>
 				<key>CityName</key>
-				<string>滨州市</string>
+				<string>滨州</string>
 				<key>ID</key>
 				<string>150</string>
 				<key>PID</key>
@@ -1957,7 +1957,7 @@
 				<key>code</key>
 				<string>371700</string>
 				<key>CityName</key>
-				<string>荷泽市</string>
+				<string>荷泽</string>
 				<key>ID</key>
 				<string>151</string>
 				<key>PID</key>
@@ -1980,7 +1980,7 @@
 				<key>code</key>
 				<string>410100</string>
 				<key>CityName</key>
-				<string>郑州市</string>
+				<string>郑州</string>
 				<key>ID</key>
 				<string>152</string>
 				<key>PID</key>
@@ -1992,7 +1992,7 @@
 				<key>code</key>
 				<string>410200</string>
 				<key>CityName</key>
-				<string>开封市</string>
+				<string>开封</string>
 				<key>ID</key>
 				<string>153</string>
 				<key>PID</key>
@@ -2004,7 +2004,7 @@
 				<key>code</key>
 				<string>410300</string>
 				<key>CityName</key>
-				<string>洛阳市</string>
+				<string>洛阳</string>
 				<key>ID</key>
 				<string>154</string>
 				<key>PID</key>
@@ -2016,7 +2016,7 @@
 				<key>code</key>
 				<string>410400</string>
 				<key>CityName</key>
-				<string>平顶山市</string>
+				<string>平顶山</string>
 				<key>ID</key>
 				<string>155</string>
 				<key>PID</key>
@@ -2028,7 +2028,7 @@
 				<key>code</key>
 				<string>410500</string>
 				<key>CityName</key>
-				<string>安阳市</string>
+				<string>安阳</string>
 				<key>ID</key>
 				<string>156</string>
 				<key>PID</key>
@@ -2040,7 +2040,7 @@
 				<key>code</key>
 				<string>410600</string>
 				<key>CityName</key>
-				<string>鹤壁市</string>
+				<string>鹤壁</string>
 				<key>ID</key>
 				<string>157</string>
 				<key>PID</key>
@@ -2052,7 +2052,7 @@
 				<key>code</key>
 				<string>410700</string>
 				<key>CityName</key>
-				<string>新乡市</string>
+				<string>新乡</string>
 				<key>ID</key>
 				<string>158</string>
 				<key>PID</key>
@@ -2064,7 +2064,7 @@
 				<key>code</key>
 				<string>410800</string>
 				<key>CityName</key>
-				<string>焦作市</string>
+				<string>焦作</string>
 				<key>ID</key>
 				<string>159</string>
 				<key>PID</key>
@@ -2076,7 +2076,7 @@
 				<key>code</key>
 				<string>410900</string>
 				<key>CityName</key>
-				<string>濮阳市</string>
+				<string>濮阳</string>
 				<key>ID</key>
 				<string>160</string>
 				<key>PID</key>
@@ -2088,7 +2088,7 @@
 				<key>code</key>
 				<string>411000</string>
 				<key>CityName</key>
-				<string>许昌市</string>
+				<string>许昌</string>
 				<key>ID</key>
 				<string>161</string>
 				<key>PID</key>
@@ -2100,7 +2100,7 @@
 				<key>code</key>
 				<string>411100</string>
 				<key>CityName</key>
-				<string>漯河市</string>
+				<string>漯河</string>
 				<key>ID</key>
 				<string>162</string>
 				<key>PID</key>
@@ -2112,7 +2112,7 @@
 				<key>code</key>
 				<string>411200</string>
 				<key>CityName</key>
-				<string>三门峡市</string>
+				<string>三门峡</string>
 				<key>ID</key>
 				<string>163</string>
 				<key>PID</key>
@@ -2124,7 +2124,7 @@
 				<key>code</key>
 				<string>411300</string>
 				<key>CityName</key>
-				<string>南阳市</string>
+				<string>南阳</string>
 				<key>ID</key>
 				<string>164</string>
 				<key>PID</key>
@@ -2136,7 +2136,7 @@
 				<key>code</key>
 				<string>411400</string>
 				<key>CityName</key>
-				<string>商丘市</string>
+				<string>商丘</string>
 				<key>ID</key>
 				<string>165</string>
 				<key>PID</key>
@@ -2148,7 +2148,7 @@
 				<key>code</key>
 				<string>411500</string>
 				<key>CityName</key>
-				<string>信阳市</string>
+				<string>信阳</string>
 				<key>ID</key>
 				<string>166</string>
 				<key>PID</key>
@@ -2160,7 +2160,7 @@
 				<key>code</key>
 				<string>411600</string>
 				<key>CityName</key>
-				<string>周口市</string>
+				<string>周口</string>
 				<key>ID</key>
 				<string>167</string>
 				<key>PID</key>
@@ -2172,7 +2172,7 @@
 				<key>code</key>
 				<string>411700</string>
 				<key>CityName</key>
-				<string>驻马店市</string>
+				<string>驻马店</string>
 				<key>ID</key>
 				<string>168</string>
 				<key>PID</key>
@@ -2195,7 +2195,7 @@
 				<key>code</key>
 				<string>420100</string>
 				<key>CityName</key>
-				<string>武汉市</string>
+				<string>武汉</string>
 				<key>ID</key>
 				<string>169</string>
 				<key>PID</key>
@@ -2207,7 +2207,7 @@
 				<key>code</key>
 				<string>420200</string>
 				<key>CityName</key>
-				<string>黄石市</string>
+				<string>黄石</string>
 				<key>ID</key>
 				<string>170</string>
 				<key>PID</key>
@@ -2219,7 +2219,7 @@
 				<key>code</key>
 				<string>420300</string>
 				<key>CityName</key>
-				<string>十堰市</string>
+				<string>十堰</string>
 				<key>ID</key>
 				<string>171</string>
 				<key>PID</key>
@@ -2231,7 +2231,7 @@
 				<key>code</key>
 				<string>420500</string>
 				<key>CityName</key>
-				<string>宜昌市</string>
+				<string>宜昌</string>
 				<key>ID</key>
 				<string>172</string>
 				<key>PID</key>
@@ -2243,7 +2243,7 @@
 				<key>code</key>
 				<string>420600</string>
 				<key>CityName</key>
-				<string>襄樊市</string>
+				<string>襄樊</string>
 				<key>ID</key>
 				<string>173</string>
 				<key>PID</key>
@@ -2255,7 +2255,7 @@
 				<key>code</key>
 				<string>420700</string>
 				<key>CityName</key>
-				<string>鄂州市</string>
+				<string>鄂州</string>
 				<key>ID</key>
 				<string>174</string>
 				<key>PID</key>
@@ -2267,7 +2267,7 @@
 				<key>code</key>
 				<string>420800</string>
 				<key>CityName</key>
-				<string>荆门市</string>
+				<string>荆门</string>
 				<key>ID</key>
 				<string>175</string>
 				<key>PID</key>
@@ -2279,7 +2279,7 @@
 				<key>code</key>
 				<string>420900</string>
 				<key>CityName</key>
-				<string>孝感市</string>
+				<string>孝感</string>
 				<key>ID</key>
 				<string>176</string>
 				<key>PID</key>
@@ -2291,7 +2291,7 @@
 				<key>code</key>
 				<string>421000</string>
 				<key>CityName</key>
-				<string>荆州市</string>
+				<string>荆州</string>
 				<key>ID</key>
 				<string>177</string>
 				<key>PID</key>
@@ -2303,7 +2303,7 @@
 				<key>code</key>
 				<string>421100</string>
 				<key>CityName</key>
-				<string>黄冈市</string>
+				<string>黄冈</string>
 				<key>ID</key>
 				<string>178</string>
 				<key>PID</key>
@@ -2315,7 +2315,7 @@
 				<key>code</key>
 				<string>421200</string>
 				<key>CityName</key>
-				<string>咸宁市</string>
+				<string>咸宁</string>
 				<key>ID</key>
 				<string>179</string>
 				<key>PID</key>
@@ -2327,7 +2327,7 @@
 				<key>code</key>
 				<string>421300</string>
 				<key>CityName</key>
-				<string>随州市</string>
+				<string>随州</string>
 				<key>ID</key>
 				<string>180</string>
 				<key>PID</key>
@@ -2374,7 +2374,7 @@
 				<key>code</key>
 				<string>430100</string>
 				<key>CityName</key>
-				<string>长沙市</string>
+				<string>长沙</string>
 				<key>ID</key>
 				<string>183</string>
 				<key>PID</key>
@@ -2386,7 +2386,7 @@
 				<key>code</key>
 				<string>430200</string>
 				<key>CityName</key>
-				<string>株洲市</string>
+				<string>株洲</string>
 				<key>ID</key>
 				<string>184</string>
 				<key>PID</key>
@@ -2398,7 +2398,7 @@
 				<key>code</key>
 				<string>430300</string>
 				<key>CityName</key>
-				<string>湘潭市</string>
+				<string>湘潭</string>
 				<key>ID</key>
 				<string>185</string>
 				<key>PID</key>
@@ -2410,7 +2410,7 @@
 				<key>code</key>
 				<string>430400</string>
 				<key>CityName</key>
-				<string>衡阳市</string>
+				<string>衡阳</string>
 				<key>ID</key>
 				<string>186</string>
 				<key>PID</key>
@@ -2422,7 +2422,7 @@
 				<key>code</key>
 				<string>430500</string>
 				<key>CityName</key>
-				<string>邵阳市</string>
+				<string>邵阳</string>
 				<key>ID</key>
 				<string>187</string>
 				<key>PID</key>
@@ -2434,7 +2434,7 @@
 				<key>code</key>
 				<string>430600</string>
 				<key>CityName</key>
-				<string>岳阳市</string>
+				<string>岳阳</string>
 				<key>ID</key>
 				<string>188</string>
 				<key>PID</key>
@@ -2446,7 +2446,7 @@
 				<key>code</key>
 				<string>430700</string>
 				<key>CityName</key>
-				<string>常德市</string>
+				<string>常德</string>
 				<key>ID</key>
 				<string>189</string>
 				<key>PID</key>
@@ -2458,7 +2458,7 @@
 				<key>code</key>
 				<string>430800</string>
 				<key>CityName</key>
-				<string>张家界市</string>
+				<string>张家界</string>
 				<key>ID</key>
 				<string>190</string>
 				<key>PID</key>
@@ -2470,7 +2470,7 @@
 				<key>code</key>
 				<string>430900</string>
 				<key>CityName</key>
-				<string>益阳市</string>
+				<string>益阳</string>
 				<key>ID</key>
 				<string>191</string>
 				<key>PID</key>
@@ -2482,7 +2482,7 @@
 				<key>code</key>
 				<string>431000</string>
 				<key>CityName</key>
-				<string>郴州市</string>
+				<string>郴州</string>
 				<key>ID</key>
 				<string>192</string>
 				<key>PID</key>
@@ -2494,7 +2494,7 @@
 				<key>code</key>
 				<string>431100</string>
 				<key>CityName</key>
-				<string>永州市</string>
+				<string>永州</string>
 				<key>ID</key>
 				<string>193</string>
 				<key>PID</key>
@@ -2506,7 +2506,7 @@
 				<key>code</key>
 				<string>431200</string>
 				<key>CityName</key>
-				<string>怀化市</string>
+				<string>怀化</string>
 				<key>ID</key>
 				<string>194</string>
 				<key>PID</key>
@@ -2518,7 +2518,7 @@
 				<key>code</key>
 				<string>431300</string>
 				<key>CityName</key>
-				<string>娄底市</string>
+				<string>娄底</string>
 				<key>ID</key>
 				<string>195</string>
 				<key>PID</key>
@@ -2553,7 +2553,7 @@
 				<key>code</key>
 				<string>440100</string>
 				<key>CityName</key>
-				<string>广州市</string>
+				<string>广州</string>
 				<key>ID</key>
 				<string>197</string>
 				<key>PID</key>
@@ -2565,7 +2565,7 @@
 				<key>code</key>
 				<string>440200</string>
 				<key>CityName</key>
-				<string>韶关市</string>
+				<string>韶关</string>
 				<key>ID</key>
 				<string>198</string>
 				<key>PID</key>
@@ -2577,7 +2577,7 @@
 				<key>code</key>
 				<string>440300</string>
 				<key>CityName</key>
-				<string>深圳市</string>
+				<string>深圳</string>
 				<key>ID</key>
 				<string>199</string>
 				<key>PID</key>
@@ -2589,7 +2589,7 @@
 				<key>code</key>
 				<string>440400</string>
 				<key>CityName</key>
-				<string>珠海市</string>
+				<string>珠海</string>
 				<key>ID</key>
 				<string>200</string>
 				<key>PID</key>
@@ -2601,7 +2601,7 @@
 				<key>code</key>
 				<string>440500</string>
 				<key>CityName</key>
-				<string>汕头市</string>
+				<string>汕头</string>
 				<key>ID</key>
 				<string>201</string>
 				<key>PID</key>
@@ -2613,7 +2613,7 @@
 				<key>code</key>
 				<string>440600</string>
 				<key>CityName</key>
-				<string>佛山市</string>
+				<string>佛山</string>
 				<key>ID</key>
 				<string>202</string>
 				<key>PID</key>
@@ -2625,7 +2625,7 @@
 				<key>code</key>
 				<string>440700</string>
 				<key>CityName</key>
-				<string>江门市</string>
+				<string>江门</string>
 				<key>ID</key>
 				<string>203</string>
 				<key>PID</key>
@@ -2637,7 +2637,7 @@
 				<key>code</key>
 				<string>440800</string>
 				<key>CityName</key>
-				<string>湛江市</string>
+				<string>湛江</string>
 				<key>ID</key>
 				<string>204</string>
 				<key>PID</key>
@@ -2649,7 +2649,7 @@
 				<key>code</key>
 				<string>440900</string>
 				<key>CityName</key>
-				<string>茂名市</string>
+				<string>茂名</string>
 				<key>ID</key>
 				<string>205</string>
 				<key>PID</key>
@@ -2661,7 +2661,7 @@
 				<key>code</key>
 				<string>441200</string>
 				<key>CityName</key>
-				<string>肇庆市</string>
+				<string>肇庆</string>
 				<key>ID</key>
 				<string>206</string>
 				<key>PID</key>
@@ -2673,7 +2673,7 @@
 				<key>code</key>
 				<string>441300</string>
 				<key>CityName</key>
-				<string>惠州市</string>
+				<string>惠州</string>
 				<key>ID</key>
 				<string>207</string>
 				<key>PID</key>
@@ -2685,7 +2685,7 @@
 				<key>code</key>
 				<string>441400</string>
 				<key>CityName</key>
-				<string>梅州市</string>
+				<string>梅州</string>
 				<key>ID</key>
 				<string>208</string>
 				<key>PID</key>
@@ -2697,7 +2697,7 @@
 				<key>code</key>
 				<string>441500</string>
 				<key>CityName</key>
-				<string>汕尾市</string>
+				<string>汕尾</string>
 				<key>ID</key>
 				<string>209</string>
 				<key>PID</key>
@@ -2709,7 +2709,7 @@
 				<key>code</key>
 				<string>441600</string>
 				<key>CityName</key>
-				<string>河源市</string>
+				<string>河源</string>
 				<key>ID</key>
 				<string>210</string>
 				<key>PID</key>
@@ -2721,7 +2721,7 @@
 				<key>code</key>
 				<string>441700</string>
 				<key>CityName</key>
-				<string>阳江市</string>
+				<string>阳江</string>
 				<key>ID</key>
 				<string>211</string>
 				<key>PID</key>
@@ -2733,7 +2733,7 @@
 				<key>code</key>
 				<string>441800</string>
 				<key>CityName</key>
-				<string>清远市</string>
+				<string>清远</string>
 				<key>ID</key>
 				<string>212</string>
 				<key>PID</key>
@@ -2745,7 +2745,7 @@
 				<key>code</key>
 				<string>441900</string>
 				<key>CityName</key>
-				<string>东莞市</string>
+				<string>东莞</string>
 				<key>ID</key>
 				<string>213</string>
 				<key>PID</key>
@@ -2757,7 +2757,7 @@
 				<key>code</key>
 				<string>442000</string>
 				<key>CityName</key>
-				<string>中山市</string>
+				<string>中山</string>
 				<key>ID</key>
 				<string>214</string>
 				<key>PID</key>
@@ -2769,7 +2769,7 @@
 				<key>code</key>
 				<string>445100</string>
 				<key>CityName</key>
-				<string>潮州市</string>
+				<string>潮州</string>
 				<key>ID</key>
 				<string>215</string>
 				<key>PID</key>
@@ -2781,7 +2781,7 @@
 				<key>code</key>
 				<string>445200</string>
 				<key>CityName</key>
-				<string>揭阳市</string>
+				<string>揭阳</string>
 				<key>ID</key>
 				<string>216</string>
 				<key>PID</key>
@@ -2793,7 +2793,7 @@
 				<key>code</key>
 				<string>445300</string>
 				<key>CityName</key>
-				<string>云浮市</string>
+				<string>云浮</string>
 				<key>ID</key>
 				<string>217</string>
 				<key>PID</key>
@@ -2816,7 +2816,7 @@
 				<key>code</key>
 				<string>450100</string>
 				<key>CityName</key>
-				<string>南宁市</string>
+				<string>南宁</string>
 				<key>ID</key>
 				<string>218</string>
 				<key>PID</key>
@@ -2828,7 +2828,7 @@
 				<key>code</key>
 				<string>450200</string>
 				<key>CityName</key>
-				<string>柳州市</string>
+				<string>柳州</string>
 				<key>ID</key>
 				<string>219</string>
 				<key>PID</key>
@@ -2840,7 +2840,7 @@
 				<key>code</key>
 				<string>450300</string>
 				<key>CityName</key>
-				<string>桂林市</string>
+				<string>桂林</string>
 				<key>ID</key>
 				<string>220</string>
 				<key>PID</key>
@@ -2852,7 +2852,7 @@
 				<key>code</key>
 				<string>450400</string>
 				<key>CityName</key>
-				<string>梧州市</string>
+				<string>梧州</string>
 				<key>ID</key>
 				<string>221</string>
 				<key>PID</key>
@@ -2864,7 +2864,7 @@
 				<key>code</key>
 				<string>450500</string>
 				<key>CityName</key>
-				<string>北海市</string>
+				<string>北海</string>
 				<key>ID</key>
 				<string>222</string>
 				<key>PID</key>
@@ -2876,7 +2876,7 @@
 				<key>code</key>
 				<string>450600</string>
 				<key>CityName</key>
-				<string>防城港市</string>
+				<string>防城港</string>
 				<key>ID</key>
 				<string>223</string>
 				<key>PID</key>
@@ -2888,7 +2888,7 @@
 				<key>code</key>
 				<string>450700</string>
 				<key>CityName</key>
-				<string>钦州市</string>
+				<string>钦州</string>
 				<key>ID</key>
 				<string>224</string>
 				<key>PID</key>
@@ -2900,7 +2900,7 @@
 				<key>code</key>
 				<string>450800</string>
 				<key>CityName</key>
-				<string>贵港市</string>
+				<string>贵港</string>
 				<key>ID</key>
 				<string>225</string>
 				<key>PID</key>
@@ -2912,7 +2912,7 @@
 				<key>code</key>
 				<string>450900</string>
 				<key>CityName</key>
-				<string>玉林市</string>
+				<string>玉林</string>
 				<key>ID</key>
 				<string>226</string>
 				<key>PID</key>
@@ -2924,7 +2924,7 @@
 				<key>code</key>
 				<string>451000</string>
 				<key>CityName</key>
-				<string>百色市</string>
+				<string>百色</string>
 				<key>ID</key>
 				<string>227</string>
 				<key>PID</key>
@@ -2936,7 +2936,7 @@
 				<key>code</key>
 				<string>451100</string>
 				<key>CityName</key>
-				<string>贺州市</string>
+				<string>贺州</string>
 				<key>ID</key>
 				<string>228</string>
 				<key>PID</key>
@@ -2948,7 +2948,7 @@
 				<key>code</key>
 				<string>451200</string>
 				<key>CityName</key>
-				<string>河池市</string>
+				<string>河池</string>
 				<key>ID</key>
 				<string>229</string>
 				<key>PID</key>
@@ -2960,7 +2960,7 @@
 				<key>code</key>
 				<string>451300</string>
 				<key>CityName</key>
-				<string>来宾市</string>
+				<string>来宾</string>
 				<key>ID</key>
 				<string>230</string>
 				<key>PID</key>
@@ -2972,7 +2972,7 @@
 				<key>code</key>
 				<string>451400</string>
 				<key>CityName</key>
-				<string>崇左市</string>
+				<string>崇左</string>
 				<key>ID</key>
 				<string>231</string>
 				<key>PID</key>
@@ -2995,7 +2995,7 @@
 				<key>code</key>
 				<string>460100</string>
 				<key>CityName</key>
-				<string>海口市</string>
+				<string>海口</string>
 				<key>ID</key>
 				<string>232</string>
 				<key>PID</key>
@@ -3007,7 +3007,7 @@
 				<key>code</key>
 				<string>460200</string>
 				<key>CityName</key>
-				<string>三亚市</string>
+				<string>三亚</string>
 				<key>ID</key>
 				<string>233</string>
 				<key>PID</key>
@@ -3019,7 +3019,7 @@
 				<key>code</key>
 				<string>460300</string>
 				<key>CityName</key>
-				<string>三沙市</string>
+				<string>三沙</string>
 				<key>ID</key>
 				<string>233</string>
 				<key>PID</key>
@@ -3035,14 +3035,14 @@
 		<key>code</key>
 		<string>500000</string>
 		<key>ProvinceName</key>
-		<string>重庆市</string>
+		<string>重庆</string>
 		<key>cities</key>
 		<array>
 			<dict>
 				<key>code</key>
 				<string>500000</string>
 				<key>CityName</key>
-				<string>重庆市</string>
+				<string>重庆</string>
 				<key>ID</key>
 				<string>234</string>
 				<key>PID</key>
@@ -3065,7 +3065,7 @@
 				<key>code</key>
 				<string>510100</string>
 				<key>CityName</key>
-				<string>成都市</string>
+				<string>成都</string>
 				<key>ID</key>
 				<string>235</string>
 				<key>PID</key>
@@ -3077,7 +3077,7 @@
 				<key>code</key>
 				<string>510300</string>
 				<key>CityName</key>
-				<string>自贡市</string>
+				<string>自贡</string>
 				<key>ID</key>
 				<string>236</string>
 				<key>PID</key>
@@ -3089,7 +3089,7 @@
 				<key>code</key>
 				<string>510400</string>
 				<key>CityName</key>
-				<string>攀枝花市</string>
+				<string>攀枝花</string>
 				<key>ID</key>
 				<string>237</string>
 				<key>PID</key>
@@ -3101,7 +3101,7 @@
 				<key>code</key>
 				<string>510500</string>
 				<key>CityName</key>
-				<string>泸州市</string>
+				<string>泸州</string>
 				<key>ID</key>
 				<string>238</string>
 				<key>PID</key>
@@ -3113,7 +3113,7 @@
 				<key>code</key>
 				<string>510600</string>
 				<key>CityName</key>
-				<string>德阳市</string>
+				<string>德阳</string>
 				<key>ID</key>
 				<string>239</string>
 				<key>PID</key>
@@ -3125,7 +3125,7 @@
 				<key>code</key>
 				<string>510700</string>
 				<key>CityName</key>
-				<string>绵阳市</string>
+				<string>绵阳</string>
 				<key>ID</key>
 				<string>240</string>
 				<key>PID</key>
@@ -3137,7 +3137,7 @@
 				<key>code</key>
 				<string>510800</string>
 				<key>CityName</key>
-				<string>广元市</string>
+				<string>广元</string>
 				<key>ID</key>
 				<string>241</string>
 				<key>PID</key>
@@ -3149,7 +3149,7 @@
 				<key>code</key>
 				<string>510900</string>
 				<key>CityName</key>
-				<string>遂宁市</string>
+				<string>遂宁</string>
 				<key>ID</key>
 				<string>242</string>
 				<key>PID</key>
@@ -3161,7 +3161,7 @@
 				<key>code</key>
 				<string>511000</string>
 				<key>CityName</key>
-				<string>内江市</string>
+				<string>内江</string>
 				<key>ID</key>
 				<string>243</string>
 				<key>PID</key>
@@ -3173,7 +3173,7 @@
 				<key>code</key>
 				<string>511100</string>
 				<key>CityName</key>
-				<string>乐山市</string>
+				<string>乐山</string>
 				<key>ID</key>
 				<string>244</string>
 				<key>PID</key>
@@ -3185,7 +3185,7 @@
 				<key>code</key>
 				<string>511300</string>
 				<key>CityName</key>
-				<string>南充市</string>
+				<string>南充</string>
 				<key>ID</key>
 				<string>245</string>
 				<key>PID</key>
@@ -3197,7 +3197,7 @@
 				<key>code</key>
 				<string>511400</string>
 				<key>CityName</key>
-				<string>眉山市</string>
+				<string>眉山</string>
 				<key>ID</key>
 				<string>246</string>
 				<key>PID</key>
@@ -3209,7 +3209,7 @@
 				<key>code</key>
 				<string>511500</string>
 				<key>CityName</key>
-				<string>宜宾市</string>
+				<string>宜宾</string>
 				<key>ID</key>
 				<string>247</string>
 				<key>PID</key>
@@ -3221,7 +3221,7 @@
 				<key>code</key>
 				<string>511600</string>
 				<key>CityName</key>
-				<string>广安市</string>
+				<string>广安</string>
 				<key>ID</key>
 				<string>248</string>
 				<key>PID</key>
@@ -3233,7 +3233,7 @@
 				<key>code</key>
 				<string>511700</string>
 				<key>CityName</key>
-				<string>达州市</string>
+				<string>达州</string>
 				<key>ID</key>
 				<string>249</string>
 				<key>PID</key>
@@ -3245,7 +3245,7 @@
 				<key>code</key>
 				<string>511800</string>
 				<key>CityName</key>
-				<string>雅安市</string>
+				<string>雅安</string>
 				<key>ID</key>
 				<string>250</string>
 				<key>PID</key>
@@ -3257,7 +3257,7 @@
 				<key>code</key>
 				<string>511900</string>
 				<key>CityName</key>
-				<string>巴中市</string>
+				<string>巴中</string>
 				<key>ID</key>
 				<string>251</string>
 				<key>PID</key>
@@ -3269,7 +3269,7 @@
 				<key>code</key>
 				<string>512000</string>
 				<key>CityName</key>
-				<string>资阳市</string>
+				<string>资阳</string>
 				<key>ID</key>
 				<string>252</string>
 				<key>PID</key>
@@ -3328,7 +3328,7 @@
 				<key>code</key>
 				<string>520100</string>
 				<key>CityName</key>
-				<string>贵阳市</string>
+				<string>贵阳</string>
 				<key>ID</key>
 				<string>256</string>
 				<key>PID</key>
@@ -3340,7 +3340,7 @@
 				<key>code</key>
 				<string>520200</string>
 				<key>CityName</key>
-				<string>六盘水市</string>
+				<string>六盘水</string>
 				<key>ID</key>
 				<string>257</string>
 				<key>PID</key>
@@ -3352,7 +3352,7 @@
 				<key>code</key>
 				<string>520300</string>
 				<key>CityName</key>
-				<string>遵义市</string>
+				<string>遵义</string>
 				<key>ID</key>
 				<string>258</string>
 				<key>PID</key>
@@ -3364,7 +3364,7 @@
 				<key>code</key>
 				<string>520400</string>
 				<key>CityName</key>
-				<string>安顺市</string>
+				<string>安顺</string>
 				<key>ID</key>
 				<string>259</string>
 				<key>PID</key>
@@ -3447,7 +3447,7 @@
 				<key>code</key>
 				<string>530100</string>
 				<key>CityName</key>
-				<string>昆明市</string>
+				<string>昆明</string>
 				<key>ID</key>
 				<string>265</string>
 				<key>PID</key>
@@ -3459,7 +3459,7 @@
 				<key>code</key>
 				<string>530300</string>
 				<key>CityName</key>
-				<string>曲靖市</string>
+				<string>曲靖</string>
 				<key>ID</key>
 				<string>266</string>
 				<key>PID</key>
@@ -3471,7 +3471,7 @@
 				<key>code</key>
 				<string>530400</string>
 				<key>CityName</key>
-				<string>玉溪市</string>
+				<string>玉溪</string>
 				<key>ID</key>
 				<string>267</string>
 				<key>PID</key>
@@ -3483,7 +3483,7 @@
 				<key>code</key>
 				<string>530500</string>
 				<key>CityName</key>
-				<string>保山市</string>
+				<string>保山</string>
 				<key>ID</key>
 				<string>268</string>
 				<key>PID</key>
@@ -3495,7 +3495,7 @@
 				<key>code</key>
 				<string>530600</string>
 				<key>CityName</key>
-				<string>昭通市</string>
+				<string>昭通</string>
 				<key>ID</key>
 				<string>269</string>
 				<key>PID</key>
@@ -3507,7 +3507,7 @@
 				<key>code</key>
 				<string>530700</string>
 				<key>CityName</key>
-				<string>丽江市</string>
+				<string>丽江</string>
 				<key>ID</key>
 				<string>270</string>
 				<key>PID</key>
@@ -3519,7 +3519,7 @@
 				<key>code</key>
 				<string>530800</string>
 				<key>CityName</key>
-				<string>思茅市</string>
+				<string>思茅</string>
 				<key>ID</key>
 				<string>271</string>
 				<key>PID</key>
@@ -3531,7 +3531,7 @@
 				<key>code</key>
 				<string>530900</string>
 				<key>CityName</key>
-				<string>临沧市</string>
+				<string>临沧</string>
 				<key>ID</key>
 				<string>272</string>
 				<key>PID</key>
@@ -3650,7 +3650,7 @@
 				<key>code</key>
 				<string>540100</string>
 				<key>CityName</key>
-				<string>拉萨市</string>
+				<string>拉萨</string>
 				<key>ID</key>
 				<string>281</string>
 				<key>PID</key>
@@ -3745,7 +3745,7 @@
 				<key>code</key>
 				<string>610100</string>
 				<key>CityName</key>
-				<string>西安市</string>
+				<string>西安</string>
 				<key>ID</key>
 				<string>288</string>
 				<key>PID</key>
@@ -3757,7 +3757,7 @@
 				<key>code</key>
 				<string>610200</string>
 				<key>CityName</key>
-				<string>铜川市</string>
+				<string>铜川</string>
 				<key>ID</key>
 				<string>289</string>
 				<key>PID</key>
@@ -3769,7 +3769,7 @@
 				<key>code</key>
 				<string>610300</string>
 				<key>CityName</key>
-				<string>宝鸡市</string>
+				<string>宝鸡</string>
 				<key>ID</key>
 				<string>290</string>
 				<key>PID</key>
@@ -3781,7 +3781,7 @@
 				<key>code</key>
 				<string>610400</string>
 				<key>CityName</key>
-				<string>咸阳市</string>
+				<string>咸阳</string>
 				<key>ID</key>
 				<string>291</string>
 				<key>PID</key>
@@ -3793,7 +3793,7 @@
 				<key>code</key>
 				<string>610500</string>
 				<key>CityName</key>
-				<string>渭南市</string>
+				<string>渭南</string>
 				<key>ID</key>
 				<string>292</string>
 				<key>PID</key>
@@ -3805,7 +3805,7 @@
 				<key>code</key>
 				<string>610600</string>
 				<key>CityName</key>
-				<string>延安市</string>
+				<string>延安</string>
 				<key>ID</key>
 				<string>293</string>
 				<key>PID</key>
@@ -3817,7 +3817,7 @@
 				<key>code</key>
 				<string>610700</string>
 				<key>CityName</key>
-				<string>汉中市</string>
+				<string>汉中</string>
 				<key>ID</key>
 				<string>294</string>
 				<key>PID</key>
@@ -3829,7 +3829,7 @@
 				<key>code</key>
 				<string>610800</string>
 				<key>CityName</key>
-				<string>榆林市</string>
+				<string>榆林</string>
 				<key>ID</key>
 				<string>295</string>
 				<key>PID</key>
@@ -3841,7 +3841,7 @@
 				<key>code</key>
 				<string>610900</string>
 				<key>CityName</key>
-				<string>安康市</string>
+				<string>安康</string>
 				<key>ID</key>
 				<string>296</string>
 				<key>PID</key>
@@ -3853,7 +3853,7 @@
 				<key>code</key>
 				<string>611000</string>
 				<key>CityName</key>
-				<string>商洛市</string>
+				<string>商洛</string>
 				<key>ID</key>
 				<string>297</string>
 				<key>PID</key>
@@ -3876,7 +3876,7 @@
 				<key>code</key>
 				<string>620100</string>
 				<key>CityName</key>
-				<string>兰州市</string>
+				<string>兰州</string>
 				<key>ID</key>
 				<string>298</string>
 				<key>PID</key>
@@ -3888,7 +3888,7 @@
 				<key>code</key>
 				<string>620200</string>
 				<key>CityName</key>
-				<string>嘉峪关市</string>
+				<string>嘉峪关</string>
 				<key>ID</key>
 				<string>299</string>
 				<key>PID</key>
@@ -3900,7 +3900,7 @@
 				<key>code</key>
 				<string>620300</string>
 				<key>CityName</key>
-				<string>金昌市</string>
+				<string>金昌</string>
 				<key>ID</key>
 				<string>300</string>
 				<key>PID</key>
@@ -3912,7 +3912,7 @@
 				<key>code</key>
 				<string>620400</string>
 				<key>CityName</key>
-				<string>白银市</string>
+				<string>白银</string>
 				<key>ID</key>
 				<string>301</string>
 				<key>PID</key>
@@ -3924,7 +3924,7 @@
 				<key>code</key>
 				<string>620500</string>
 				<key>CityName</key>
-				<string>天水市</string>
+				<string>天水</string>
 				<key>ID</key>
 				<string>302</string>
 				<key>PID</key>
@@ -3936,7 +3936,7 @@
 				<key>code</key>
 				<string>620600</string>
 				<key>CityName</key>
-				<string>武威市</string>
+				<string>武威</string>
 				<key>ID</key>
 				<string>303</string>
 				<key>PID</key>
@@ -3948,7 +3948,7 @@
 				<key>code</key>
 				<string>620700</string>
 				<key>CityName</key>
-				<string>张掖市</string>
+				<string>张掖</string>
 				<key>ID</key>
 				<string>304</string>
 				<key>PID</key>
@@ -3960,7 +3960,7 @@
 				<key>code</key>
 				<string>620800</string>
 				<key>CityName</key>
-				<string>平凉市</string>
+				<string>平凉</string>
 				<key>ID</key>
 				<string>305</string>
 				<key>PID</key>
@@ -3972,7 +3972,7 @@
 				<key>code</key>
 				<string>620900</string>
 				<key>CityName</key>
-				<string>酒泉市</string>
+				<string>酒泉</string>
 				<key>ID</key>
 				<string>306</string>
 				<key>PID</key>
@@ -3984,7 +3984,7 @@
 				<key>code</key>
 				<string>621000</string>
 				<key>CityName</key>
-				<string>庆阳市</string>
+				<string>庆阳</string>
 				<key>ID</key>
 				<string>307</string>
 				<key>PID</key>
@@ -3996,7 +3996,7 @@
 				<key>code</key>
 				<string>621100</string>
 				<key>CityName</key>
-				<string>定西市</string>
+				<string>定西</string>
 				<key>ID</key>
 				<string>308</string>
 				<key>PID</key>
@@ -4008,7 +4008,7 @@
 				<key>code</key>
 				<string>621200</string>
 				<key>CityName</key>
-				<string>陇南市</string>
+				<string>陇南</string>
 				<key>ID</key>
 				<string>309</string>
 				<key>PID</key>
@@ -4055,7 +4055,7 @@
 				<key>code</key>
 				<string>630100</string>
 				<key>CityName</key>
-				<string>西宁市</string>
+				<string>西宁</string>
 				<key>ID</key>
 				<string>312</string>
 				<key>PID</key>
@@ -4162,7 +4162,7 @@
 				<key>code</key>
 				<string>640100</string>
 				<key>CityName</key>
-				<string>银川市</string>
+				<string>银川</string>
 				<key>ID</key>
 				<string>320</string>
 				<key>PID</key>
@@ -4174,7 +4174,7 @@
 				<key>code</key>
 				<string>640200</string>
 				<key>CityName</key>
-				<string>石嘴山市</string>
+				<string>石嘴山</string>
 				<key>ID</key>
 				<string>321</string>
 				<key>PID</key>
@@ -4186,7 +4186,7 @@
 				<key>code</key>
 				<string>640300</string>
 				<key>CityName</key>
-				<string>吴忠市</string>
+				<string>吴忠</string>
 				<key>ID</key>
 				<string>322</string>
 				<key>PID</key>
@@ -4198,7 +4198,7 @@
 				<key>code</key>
 				<string>640400</string>
 				<key>CityName</key>
-				<string>固原市</string>
+				<string>固原</string>
 				<key>ID</key>
 				<string>323</string>
 				<key>PID</key>
@@ -4210,7 +4210,7 @@
 				<key>code</key>
 				<string>640500</string>
 				<key>CityName</key>
-				<string>中卫市</string>
+				<string>中卫</string>
 				<key>ID</key>
 				<string>324</string>
 				<key>PID</key>
@@ -4233,7 +4233,7 @@
 				<key>code</key>
 				<string>650100</string>
 				<key>CityName</key>
-				<string>乌鲁木齐市</string>
+				<string>乌鲁木齐</string>
 				<key>ID</key>
 				<string>325</string>
 				<key>PID</key>
@@ -4245,7 +4245,7 @@
 				<key>code</key>
 				<string>650200</string>
 				<key>CityName</key>
-				<string>克拉玛依市</string>
+				<string>克拉玛依</string>
 				<key>ID</key>
 				<string>326</string>
 				<key>PID</key>
@@ -4401,7 +4401,7 @@
 				<key>code</key>
 				<string>659001</string>
 				<key>CityName</key>
-				<string>石河子市</string>
+				<string>石河子</string>
 				<key>ID</key>
 				<string>339</string>
 				<key>PID</key>
@@ -4413,7 +4413,7 @@
 				<key>code</key>
 				<string>659002</string>
 				<key>CityName</key>
-				<string>阿拉尔市</string>
+				<string>阿拉尔</string>
 				<key>ID</key>
 				<string>340</string>
 				<key>PID</key>
@@ -4425,7 +4425,7 @@
 				<key>code</key>
 				<string>659003</string>
 				<key>CityName</key>
-				<string>图木舒克市</string>
+				<string>图木舒克</string>
 				<key>ID</key>
 				<string>341</string>
 				<key>PID</key>
@@ -4437,7 +4437,7 @@
 				<key>code</key>
 				<string>659004</string>
 				<key>CityName</key>
-				<string>五家渠市</string>
+				<string>五家渠</string>
 				<key>ID</key>
 				<string>342</string>
 				<key>PID</key>

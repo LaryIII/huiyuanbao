@@ -206,8 +206,9 @@
         //        imageView.contentMode = UIViewContentModeScaleAspectFill;
         
         [[CXImageLoader sharedImageLoader] loadImageForURL:imageURL image:^(UIImage *image, NSError *error) {
-            
-            imageView.image = image;
+            if(!error){
+                imageView.image = image;
+            }
         }];
         
         [_scrollView addSubview:imageView];
@@ -223,7 +224,10 @@
         [self.imageItems addObject:firstImageItem];
         
         [[CXImageLoader sharedImageLoader] loadImageForURL:firstImageItem.imageURL image:^(UIImage *image, NSError *error) {
-            firstImageView.image = image;
+            if(!error){
+                firstImageView.image = image;
+            }
+            
         }];
         
         
@@ -238,8 +242,10 @@
         [self.imageItems addObject:lastImageItem];
         
         [[CXImageLoader sharedImageLoader] loadImageForURL:lastImageItem.imageURL image:^(UIImage *image, NSError *error) {
+            if(!error){
+                lastImageView.image = image;
+            }
             
-            lastImageView.image = image;
             
         }];
         [_scrollView addSubview:lastImageView];

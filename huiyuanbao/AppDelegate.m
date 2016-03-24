@@ -14,17 +14,20 @@
 #import "HYBLaunchViewController.h"
 #import "GVUserDefaults+HYBProperties.h"
 
+#import <BaiduMapAPI_Base/BMKBaseComponent.h>
+
 #define NotifyActionKey "NotifyAction"
 NSString* const NotificationCategoryIdent  = @"ACTIONABLE";
 NSString* const NotificationActionOneIdent = @"ACTION_ONE";
 NSString* const NotificationActionTwoIdent = @"ACTION_TWO";
 
-@interface AppDelegate ()<UIScrollViewDelegate>
+@interface AppDelegate ()<UIScrollViewDelegate,BMKGeneralDelegate>
 @property (nonatomic, strong) NSString *deviceToken;
 @property (nonatomic, strong) NSString *payloadId;
 @property (nonatomic, assign) int lastPaylodIndex;
 @property (nonatomic) BOOL isLaunchedByNotification;
 @property (nonatomic, strong) NSDictionary *userinfo;
+@property (nonatomic, strong) BMKMapManager *mapManager;
 
 //@property (nonatomic, strong) HDWRecruitDetail *recruitDetail;
 @end
@@ -49,6 +52,14 @@ NSString* const NotificationActionTwoIdent = @"ACTION_TWO";
         [[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleLightContent animated:NO];
         [application setStatusBarStyle:UIStatusBarStyleLightContent];//黑体白字
         [application setStatusBarStyle:UIStatusBarStyleDefault];//黑体黑字
+    }
+    
+    _mapManager = [[BMKMapManager alloc]init];
+    // 如果要关注网络及授权验证事件，请设定     generalDelegate参数
+    
+    BOOL ret = [_mapManager start:@"3hVSGhe0n1nbbdzKrnzeSGwK"  generalDelegate:self];
+    if (!ret) {
+        NSLog(@"manager start failed!");
     }
     
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];

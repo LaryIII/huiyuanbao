@@ -62,7 +62,10 @@
     UIImage *storeImg = [UIImage imageNamed:@"charge_default"];
     if(_huiChargeRecord.logo && ![_huiChargeRecord.logo isEqualToString:@""]){
         [[CXImageLoader sharedImageLoader] loadImageForURL:[NSURL URLWithString:[IMG_PREFIX stringByAppendingString:_huiChargeRecord.logo]] image:^(UIImage *image, NSError *error) {
-            storeImageView.image = image;
+            if(!error){
+                storeImageView.image = image;
+            }
+            
         }];
     }
     [storeImageView setImage:storeImg];

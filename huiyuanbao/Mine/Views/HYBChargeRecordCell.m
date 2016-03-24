@@ -66,7 +66,10 @@
     [storeImageView setImage:storeImg];
     if(_chargeRecord.logo && ![_chargeRecord.logo isEqualToString:@""]){
         [[CXImageLoader sharedImageLoader] loadImageForURL:[NSURL URLWithString:[IMG_PREFIX stringByAppendingString:_chargeRecord.logo]] image:^(UIImage *image, NSError *error) {
-            storeImageView.image = image;
+            if(!error){
+                storeImageView.image = image;
+            }
+            
         }];
     }
     [bottomView addSubview:storeImageView];

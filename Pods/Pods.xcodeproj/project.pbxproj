@@ -7,74 +7,113 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		17E3537D509336CA530546F28281EF66 /* Base64.h in Headers */ = {isa = PBXBuildFile; fileRef = 05446AFEA68562C3EF7CEDC04D939303 /* Base64.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		1E140C99EE7EDE89EBFF7C653D9EB773 /* CocoaSecurity.h in Headers */ = {isa = PBXBuildFile; fileRef = 3A5EBC836BE9D6B319A8FA6D3D43D1C6 /* CocoaSecurity.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		241D3E52094572AA17054D977CCBD1EE /* QRCodeReaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = 2D5ED73D748419E3E940D5DB80FC72D3 /* QRCodeReaderView.m */; };
-		2905381350CEFFBFFA9BC8B5D027F190 /* MASConstraint.h in Headers */ = {isa = PBXBuildFile; fileRef = 81264C09AD936A5A25D15068565420C0 /* MASConstraint.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		2979E54C4AFD27076576E82ADEED2F00 /* NSLayoutConstraint+MASDebugAdditions.h in Headers */ = {isa = PBXBuildFile; fileRef = 7297B103CFBB3304D640436906C0FC81 /* NSLayoutConstraint+MASDebugAdditions.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		0EF8E9AA652DBE2745A7D5C8CD2E3BDE /* FMDatabasePool.m in Sources */ = {isa = PBXBuildFile; fileRef = 853B88DC3A9B3C9032DBFA7EF4F1E7E9 /* FMDatabasePool.m */; settings = {COMPILER_FLAGS = "-DOS_OBJECT_USE_OBJC=0"; }; };
+		0F8A8E0D6FAEBF758E0B4D620335F094 /* FMDatabasePool.h in Headers */ = {isa = PBXBuildFile; fileRef = EB11F82B2DCEFC80E854E571C860CE26 /* FMDatabasePool.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		16EF33D6D8FCDBC6456A57AAB875171D /* QRCodeReader.m in Sources */ = {isa = PBXBuildFile; fileRef = D242BF7E4B27A03C95A92DE02F6B503E /* QRCodeReader.m */; };
+		17E3537D509336CA530546F28281EF66 /* Base64.h in Headers */ = {isa = PBXBuildFile; fileRef = D1FE474B17ADAD5EBFD12909776C88D0 /* Base64.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		1E140C99EE7EDE89EBFF7C653D9EB773 /* CocoaSecurity.h in Headers */ = {isa = PBXBuildFile; fileRef = 5B43A8186F8B82CC11B5EE19ECF0A0DA /* CocoaSecurity.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		1FB77A92B1D68ABB52FE94BEA7C9E108 /* QRToggleTorchButton.h in Headers */ = {isa = PBXBuildFile; fileRef = B2C2D634429F818981B73B7186F546B8 /* QRToggleTorchButton.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		23371D795BAEB0B44912667223328BD7 /* QRCodeReaderViewController.h in Headers */ = {isa = PBXBuildFile; fileRef = 6198C2B72630415539EB8FDB0E80FE34 /* QRCodeReaderViewController.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		282081E035E7A843068E8BCC2E07C217 /* FMDatabaseQueue.m in Sources */ = {isa = PBXBuildFile; fileRef = D98723BEC481FFE69E8B157785583E12 /* FMDatabaseQueue.m */; settings = {COMPILER_FLAGS = "-DOS_OBJECT_USE_OBJC=0"; }; };
+		2905381350CEFFBFFA9BC8B5D027F190 /* MASConstraint.h in Headers */ = {isa = PBXBuildFile; fileRef = A74673DDD98D938CEFF4D290AED0DE42 /* MASConstraint.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		2979E54C4AFD27076576E82ADEED2F00 /* NSLayoutConstraint+MASDebugAdditions.h in Headers */ = {isa = PBXBuildFile; fileRef = A680017107F389889B4B1475BFE7D0CB /* NSLayoutConstraint+MASDebugAdditions.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		2E0EF893B8843D4C7EA4E979F1CA60CC /* INTULocationRequest.h in Headers */ = {isa = PBXBuildFile; fileRef = 814610E5D73B5844D826B5448AF66C27 /* INTULocationRequest.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		2F85D170E76C661AB0D9E9A8B206C78D /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F866EA2B7D47D920CF64B0E05B695896 /* Foundation.framework */; };
-		31A378BF71DB8A24E119C0346FA8CF31 /* QRToggleTorchButton.m in Sources */ = {isa = PBXBuildFile; fileRef = F109B322B1DBB0AC3E9CA562F5FC0942 /* QRToggleTorchButton.m */; };
-		331718BFB4A91CFFE026492905231562 /* ViewController+MASAdditions.h in Headers */ = {isa = PBXBuildFile; fileRef = 1F013284270DECF85E6D3225AF3D075F /* ViewController+MASAdditions.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		335DCBC17D2469F228020EF6C7B41F7C /* MASConstraintMaker.m in Sources */ = {isa = PBXBuildFile; fileRef = CACF89F0F657D198C547F789B94E5CD7 /* MASConstraintMaker.m */; };
-		3F63C119F95A6735AE627BBB1BEBC4B1 /* MASViewAttribute.h in Headers */ = {isa = PBXBuildFile; fileRef = 04D28EED1BB26191BFA8BE46F74BD6A3 /* MASViewAttribute.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		432BD50F1E699EDF2EA007E850FFCEF7 /* View+MASShorthandAdditions.h in Headers */ = {isa = PBXBuildFile; fileRef = 69CC109ECCBFBFC07768DB0CE0799ACE /* View+MASShorthandAdditions.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		5205B8586D3DD756CF4F0702FD82776B /* QRCodeReaderViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 475740A65D5E695CEE1E0AC234C55808 /* QRCodeReaderViewController.m */; };
-		5457FCC2699281B5A4203BA1559F593F /* NSArray+MASAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = 3EF78DD61BC13CF12415BC16F7517CD9 /* NSArray+MASAdditions.m */; };
-		6D349FD56F3B93AD3DB8F9D5C803E1F4 /* Base64.m in Sources */ = {isa = PBXBuildFile; fileRef = 877035A1D239A21ED3C40B07A9D4B41D /* Base64.m */; settings = {COMPILER_FLAGS = "-DOS_OBJECT_USE_OBJC=0"; }; };
-		81403CAF6C4C1D3DC8B199289C3A6F59 /* View+MASAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = 52B07A24FAF3F28668AE8EAB4696D5E4 /* View+MASAdditions.m */; };
-		81599471BAB0420D54E1ADF8507A5113 /* Masonry-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 7C299F7705A2F64D834896BF240FEFDE /* Masonry-dummy.m */; };
+		313531CEDA0294311D87B4F4C3F073F4 /* FMDB.h in Headers */ = {isa = PBXBuildFile; fileRef = 6A80DCD6F43CD7132E27B5E156F009BA /* FMDB.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		331718BFB4A91CFFE026492905231562 /* ViewController+MASAdditions.h in Headers */ = {isa = PBXBuildFile; fileRef = 450ABF7E78015CB43EE6E8FA7F2BF975 /* ViewController+MASAdditions.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		335DCBC17D2469F228020EF6C7B41F7C /* MASConstraintMaker.m in Sources */ = {isa = PBXBuildFile; fileRef = 232F6ADC6BF6F74D286B91C9DF2DBB20 /* MASConstraintMaker.m */; };
+		3B82995079DE01914342BFB502877E4E /* QRCameraSwitchButton.h in Headers */ = {isa = PBXBuildFile; fileRef = CB76C1762DC1CC8A6374FC97C2421B3B /* QRCameraSwitchButton.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		3B842DF9C7552A3F6AEF2852F4BBF767 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F866EA2B7D47D920CF64B0E05B695896 /* Foundation.framework */; };
+		3D0F69C4CA35EB6A1F686BA88B19B4F6 /* FMDB-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 10A5E8AAFF4163721D12727D42C8ABFB /* FMDB-dummy.m */; };
+		3E815F7542506E7F239FFACB92D83DE4 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8E770E649A751F6E16D0553FA719AEE0 /* AVFoundation.framework */; };
+		3F62CF9641AF6727FF7A5950DA81153F /* QRToggleTorchButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 7D78038AF7EE9E0C9A92CD1CB826A579 /* QRToggleTorchButton.m */; };
+		3F63C119F95A6735AE627BBB1BEBC4B1 /* MASViewAttribute.h in Headers */ = {isa = PBXBuildFile; fileRef = 5A749A6ED32C573E2B1A48F176CC4B72 /* MASViewAttribute.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		432BD50F1E699EDF2EA007E850FFCEF7 /* View+MASShorthandAdditions.h in Headers */ = {isa = PBXBuildFile; fileRef = 605711DE28E9660933B215D4F8BD6AF4 /* View+MASShorthandAdditions.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		47203760BB9DF52FD65477D97268A3AA /* INTULocationManager.m in Sources */ = {isa = PBXBuildFile; fileRef = B7A0FAEBC3E3628397367D1373CDB52C /* INTULocationManager.m */; };
+		5457FCC2699281B5A4203BA1559F593F /* NSArray+MASAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = B791F889E496F47A3FEB8559F4DD647B /* NSArray+MASAdditions.m */; };
+		587B76A3E381AF7C3EFFDF6754D39288 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F866EA2B7D47D920CF64B0E05B695896 /* Foundation.framework */; };
+		66D0583075C56B7024826FB9D8FAEDC2 /* INTUHeadingRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 8D06910BC695FDFFDFC396DC9CF47AA0 /* INTUHeadingRequest.m */; };
+		6D349FD56F3B93AD3DB8F9D5C803E1F4 /* Base64.m in Sources */ = {isa = PBXBuildFile; fileRef = 008CEE10DF36F09A3D12EB06F3478D9B /* Base64.m */; settings = {COMPILER_FLAGS = "-DOS_OBJECT_USE_OBJC=0"; }; };
+		76F90EE2D28AB19554A0D10E43462370 /* INTULocationManager+Internal.h in Headers */ = {isa = PBXBuildFile; fileRef = 8387D30501A0100D3D8E4E3B60B6D08C /* INTULocationManager+Internal.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		7B1E429845B9563A9F5EA367C3758411 /* INTURequestIDGenerator.h in Headers */ = {isa = PBXBuildFile; fileRef = F9B7E8BC0016DE2E5F298D8C6E1955B8 /* INTURequestIDGenerator.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		7E764400A51B54640156205F3D2BD799 /* QRCodeReaderDelegate.h in Headers */ = {isa = PBXBuildFile; fileRef = EEAA6D645286264E967967E8668E2AD2 /* QRCodeReaderDelegate.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		81403CAF6C4C1D3DC8B199289C3A6F59 /* View+MASAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = 8122AE0DA50C2C42AF6C90E808A8343B /* View+MASAdditions.m */; };
+		81599471BAB0420D54E1ADF8507A5113 /* Masonry-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = E9E81B19274C35DD3EE46EA2583FFE1F /* Masonry-dummy.m */; };
 		887382196A477357C9E2C7FD5695423C /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F866EA2B7D47D920CF64B0E05B695896 /* Foundation.framework */; };
-		8933F3D48076387F60E6B29D56C7A126 /* QRCodeReader.m in Sources */ = {isa = PBXBuildFile; fileRef = 81062E34A9E381D2AFE149CD50D69757 /* QRCodeReader.m */; };
-		8B25685DDD0CE95D87DCB86E998AC13D /* QRToggleTorchButton.h in Headers */ = {isa = PBXBuildFile; fileRef = CE320CF90077AA0E6A1C0CED3BBECB4E /* QRToggleTorchButton.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		904825A968764DD570766F10E17698B8 /* QRCodeReader.h in Headers */ = {isa = PBXBuildFile; fileRef = 797365203C4F65085F0E462DC93414CC /* QRCodeReader.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		9205037BA8C22574B33FC96C5EA829A3 /* Masonry.h in Headers */ = {isa = PBXBuildFile; fileRef = C512F3456F636A176DCA2102A0502717 /* Masonry.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		92C7CFBA2E48ADB7A0FDD10D35A1EB14 /* CocoaSecurity-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = E6CC66867313A9DAEADBBAE3BFA31811 /* CocoaSecurity-dummy.m */; };
-		98F6A433124E55F488C2043C5E3A316B /* Pods-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 272643F56613CA0D336AE3DBF19DC404 /* Pods-dummy.m */; };
-		99D8C610BC84BE231C5D3D280F3B12AF /* MASCompositeConstraint.h in Headers */ = {isa = PBXBuildFile; fileRef = 54D7493DC805FB84B4CEA38C0677F1AF /* MASCompositeConstraint.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		8CA375263F006199765F4C65A556DC8B /* QRCameraSwitchButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 0DBDFA2833847B5EF36C0F29C9A76C23 /* QRCameraSwitchButton.m */; };
+		9205037BA8C22574B33FC96C5EA829A3 /* Masonry.h in Headers */ = {isa = PBXBuildFile; fileRef = 9E640A53E6FC98D9FEA6BB2884A1F204 /* Masonry.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		925E924BC33E3F1DB4F7AD66EA4D7BE3 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F866EA2B7D47D920CF64B0E05B695896 /* Foundation.framework */; };
+		92C7CFBA2E48ADB7A0FDD10D35A1EB14 /* CocoaSecurity-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 70BD95C64D59B2EE1AA41D7995EADC33 /* CocoaSecurity-dummy.m */; };
+		99D8C610BC84BE231C5D3D280F3B12AF /* MASCompositeConstraint.h in Headers */ = {isa = PBXBuildFile; fileRef = 9B49E66B66A12269FA924728EBB4CE1A /* MASCompositeConstraint.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		9A6AE1EF2E94AEB6912BE845583E7D57 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D6F15F6B7457ECAED15F41149D90E8E4 /* UIKit.framework */; };
-		9E7519E098D977E7537711E9BE063751 /* QRCameraSwitchButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 17A27DFA81DBA6693FA5157DD803E6ED /* QRCameraSwitchButton.m */; };
-		A44AF130E4C5313CD193D9BF68853026 /* MASViewAttribute.m in Sources */ = {isa = PBXBuildFile; fileRef = EADC452FE155BA59C0D4C8C11C563B1D /* MASViewAttribute.m */; };
-		A7D31BD1F3AD4ED4612467FAD332F388 /* NSArray+MASShorthandAdditions.h in Headers */ = {isa = PBXBuildFile; fileRef = E9BB6335F169E0441DA37C5B0B797205 /* NSArray+MASShorthandAdditions.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		AF62B956405F7734F5A9B8F3FD4B1B96 /* ViewController+MASAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = 1D66305AF5D1216C4BCFBE0F3A1C1EF1 /* ViewController+MASAdditions.m */; };
-		B2B7C90BA9C4DBD9851C75AC801B0E8E /* MASConstraint+Private.h in Headers */ = {isa = PBXBuildFile; fileRef = B42BC2B817564A62EF0BD5EA941D5A3A /* MASConstraint+Private.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		B70C1DDBC3C84E2D4DD4721B3039953E /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F866EA2B7D47D920CF64B0E05B695896 /* Foundation.framework */; };
-		BCD4B362C6194513150915437754E2D4 /* MASCompositeConstraint.m in Sources */ = {isa = PBXBuildFile; fileRef = D5D6CA50627525178D5670F2DBD07611 /* MASCompositeConstraint.m */; };
-		BDD210D7537DD15CFE59AE126005E5F8 /* MASLayoutConstraint.m in Sources */ = {isa = PBXBuildFile; fileRef = F591DC56BCCE3293C5F7DC46237954D1 /* MASLayoutConstraint.m */; };
-		BE024118D329F8F566BD1811A1DC16CB /* MASConstraint.m in Sources */ = {isa = PBXBuildFile; fileRef = 456314F77E0329BFEF2FFC8C7F39F039 /* MASConstraint.m */; };
-		C6EE194D232E9FE87097C0F1DF91B9FA /* MASLayoutConstraint.h in Headers */ = {isa = PBXBuildFile; fileRef = 8AB274EE68FF671CB775F81729318D8A /* MASLayoutConstraint.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		CB4EB2DBEA32436D1FB3258D676F18DA /* QRCodeReaderViewController-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = AB8CE763C65DFB54B21E6867126B9F97 /* QRCodeReaderViewController-dummy.m */; };
-		CBC9E2CE9B881F0501CD59E7547B4A77 /* QRCodeReaderDelegate.h in Headers */ = {isa = PBXBuildFile; fileRef = 0BC77C5B8BF6C5CD845BF4F2F25DECD1 /* QRCodeReaderDelegate.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		CFED7C1F03A3E49F00A4B46231438DDB /* QRCodeReaderView.h in Headers */ = {isa = PBXBuildFile; fileRef = 143EA0C91FF5506BB592D51BA897E106 /* QRCodeReaderView.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		D3D9F12613E23AD64C1FA5F7081A3668 /* NSLayoutConstraint+MASDebugAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = 136509360C739543FF3CFF774E7C060F /* NSLayoutConstraint+MASDebugAdditions.m */; };
-		D3F0FA83EAA5ACA72E141A6CE0F11426 /* CocoaSecurity.m in Sources */ = {isa = PBXBuildFile; fileRef = AEC03FF285689E3D333D2151D9EFE8C4 /* CocoaSecurity.m */; settings = {COMPILER_FLAGS = "-DOS_OBJECT_USE_OBJC=0"; }; };
-		DBA0CF15F3044738F9E1F025A446C926 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F866EA2B7D47D920CF64B0E05B695896 /* Foundation.framework */; };
-		DD1F717B0527C71229B3339324E35E55 /* View+MASAdditions.h in Headers */ = {isa = PBXBuildFile; fileRef = 8473B7CD9F03A0F34923E0953AD95909 /* View+MASAdditions.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		E6B49FBCE3957DB67F691ACCC4CAF4BE /* MASViewConstraint.m in Sources */ = {isa = PBXBuildFile; fileRef = F4167A1D873B14523657C478D3F578CB /* MASViewConstraint.m */; };
-		E7AE1351843B27A335ABC5138027B346 /* QRCameraSwitchButton.h in Headers */ = {isa = PBXBuildFile; fileRef = 49C1D7448A79146ED3CEE4490EACD982 /* QRCameraSwitchButton.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		EB02AEF303313F801392DE8D90AFF0F7 /* MASViewConstraint.h in Headers */ = {isa = PBXBuildFile; fileRef = BA22A09EFEE574E9664B9EF563B9E87A /* MASViewConstraint.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		EC6CCC98505D2067BC98B4E6223C9DF8 /* MASConstraintMaker.h in Headers */ = {isa = PBXBuildFile; fileRef = 02A301CF8BC759EDE794863F2010DF30 /* MASConstraintMaker.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		F254B8692A8F7F3ADFDFBE1699005FD7 /* QRCodeReaderViewController.h in Headers */ = {isa = PBXBuildFile; fileRef = 1A975A472A211B5D719DF5A4DE3B40A9 /* QRCodeReaderViewController.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		FC3B7CADF7F2D63C2C9F745D01A10B14 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8E770E649A751F6E16D0553FA719AEE0 /* AVFoundation.framework */; };
-		FD39EBE3398E1A99965AC003B273450D /* NSArray+MASAdditions.h in Headers */ = {isa = PBXBuildFile; fileRef = 07777573B5BA320AC061695DA68A4E85 /* NSArray+MASAdditions.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		FF682E8B083BAEBBDF38C52D89D45E37 /* MASUtilities.h in Headers */ = {isa = PBXBuildFile; fileRef = E20A6262CAEBD5B0F02D3D5815077B9E /* MASUtilities.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		A350C5704A1F233DAD830E081E00F8C1 /* FMDatabaseAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = 07D33242E1E4BEBCBEBD0EDD60E1B064 /* FMDatabaseAdditions.m */; settings = {COMPILER_FLAGS = "-DOS_OBJECT_USE_OBJC=0"; }; };
+		A36E68C4CEDFC13260228BAE7F57881C /* INTUHeadingRequest.h in Headers */ = {isa = PBXBuildFile; fileRef = 231F56961F69A8ECDFB376FEADC6D895 /* INTUHeadingRequest.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		A44AF130E4C5313CD193D9BF68853026 /* MASViewAttribute.m in Sources */ = {isa = PBXBuildFile; fileRef = 5AADF1D426F599E4391FA30E81949B9C /* MASViewAttribute.m */; };
+		A7D31BD1F3AD4ED4612467FAD332F388 /* NSArray+MASShorthandAdditions.h in Headers */ = {isa = PBXBuildFile; fileRef = E344B49B523E062D50619533AD7BCEC7 /* NSArray+MASShorthandAdditions.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		AF62B956405F7734F5A9B8F3FD4B1B96 /* ViewController+MASAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = EE508560FB330AC66006937BE5324B19 /* ViewController+MASAdditions.m */; };
+		B2B7C90BA9C4DBD9851C75AC801B0E8E /* MASConstraint+Private.h in Headers */ = {isa = PBXBuildFile; fileRef = 20B02269893C02E58802CC77E85B8D2E /* MASConstraint+Private.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		B418C9BDCF8C6BAC2E3942F157BB6D4C /* FMDatabaseAdditions.h in Headers */ = {isa = PBXBuildFile; fileRef = 718323F7769499B66E93AFD6BD23A190 /* FMDatabaseAdditions.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		B94B56B836DA079EE6F98300E9EF97C8 /* INTURequestIDGenerator.m in Sources */ = {isa = PBXBuildFile; fileRef = 2E0786545166F8277EC54684503FF1E4 /* INTURequestIDGenerator.m */; };
+		BB8840C11EDC92B798C16B2008503345 /* INTULocationRequestDefines.h in Headers */ = {isa = PBXBuildFile; fileRef = 41F23519820D0AF37056741164B175F8 /* INTULocationRequestDefines.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		BCD4B362C6194513150915437754E2D4 /* MASCompositeConstraint.m in Sources */ = {isa = PBXBuildFile; fileRef = 15AED65872156788B6519FAEAB345D94 /* MASCompositeConstraint.m */; };
+		BD1813F02ECA5EFED1BE90F9D341D614 /* QRCodeReader.h in Headers */ = {isa = PBXBuildFile; fileRef = C3D0363ED2AB8B4EE276D2E785611FB3 /* QRCodeReader.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		BDD210D7537DD15CFE59AE126005E5F8 /* MASLayoutConstraint.m in Sources */ = {isa = PBXBuildFile; fileRef = 09BDC854683AF9B3A157F22E62DD2ADC /* MASLayoutConstraint.m */; };
+		BE024118D329F8F566BD1811A1DC16CB /* MASConstraint.m in Sources */ = {isa = PBXBuildFile; fileRef = ACB751B223F3F183D2EE88E263FC19A7 /* MASConstraint.m */; };
+		C6562106E1D3EFA65701DB0C32D65BCA /* QRCodeReaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = B380FE50F41E0891F050B3FF59883EE4 /* QRCodeReaderView.m */; };
+		C6EE194D232E9FE87097C0F1DF91B9FA /* MASLayoutConstraint.h in Headers */ = {isa = PBXBuildFile; fileRef = 81F8C65D65D87569B6C699F33108FCBD /* MASLayoutConstraint.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		CA027706DD6805766F1F4EC548E72440 /* FMDatabase.m in Sources */ = {isa = PBXBuildFile; fileRef = 90CFC451A06484551FDD722B26010443 /* FMDatabase.m */; settings = {COMPILER_FLAGS = "-DOS_OBJECT_USE_OBJC=0"; }; };
+		CCEA118DC196D0CC8441E141CB2D7E3D /* Pods-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 272643F56613CA0D336AE3DBF19DC404 /* Pods-dummy.m */; };
+		CFFC1D97C028CC13F8C712173BEC6367 /* INTULocationManager.h in Headers */ = {isa = PBXBuildFile; fileRef = F347D098CAB9762EEED88474296560E7 /* INTULocationManager.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		D0C3E9B513CBD10BF34F44A380DCEB77 /* INTULocationRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 69FE6F28D1AC2EC807812E170507AB68 /* INTULocationRequest.m */; };
+		D0C5FF5485EAA2CDA03E9796B407697A /* FMDatabaseQueue.h in Headers */ = {isa = PBXBuildFile; fileRef = 7A41593741248906409D1C1B7A196AD1 /* FMDatabaseQueue.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		D0D5FFE53407F16C9CD3D0ECF43ACE93 /* FMDatabase.h in Headers */ = {isa = PBXBuildFile; fileRef = 45A9AEF749BF0F9A2C5B786F4A2DC4B2 /* FMDatabase.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		D3D9F12613E23AD64C1FA5F7081A3668 /* NSLayoutConstraint+MASDebugAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = 5C38353122F6C70F3C7B35797AD8F503 /* NSLayoutConstraint+MASDebugAdditions.m */; };
+		D3F0FA83EAA5ACA72E141A6CE0F11426 /* CocoaSecurity.m in Sources */ = {isa = PBXBuildFile; fileRef = 6B07D6A2A6B211FDCA1D7084F07C46FA /* CocoaSecurity.m */; settings = {COMPILER_FLAGS = "-DOS_OBJECT_USE_OBJC=0"; }; };
+		DD1F717B0527C71229B3339324E35E55 /* View+MASAdditions.h in Headers */ = {isa = PBXBuildFile; fileRef = A6C624845B8C6CB61A16323734DB945F /* View+MASAdditions.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		DEFA3504695E9DFDE1177DAB22884470 /* FMResultSet.m in Sources */ = {isa = PBXBuildFile; fileRef = FB3DF12302D302117758530032851338 /* FMResultSet.m */; settings = {COMPILER_FLAGS = "-DOS_OBJECT_USE_OBJC=0"; }; };
+		E29CFD1DE48962B20C1B96304693F85B /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F866EA2B7D47D920CF64B0E05B695896 /* Foundation.framework */; };
+		E6B49FBCE3957DB67F691ACCC4CAF4BE /* MASViewConstraint.m in Sources */ = {isa = PBXBuildFile; fileRef = 4D5057F9F09E3D5679F31F8B73266B14 /* MASViewConstraint.m */; };
+		EB02AEF303313F801392DE8D90AFF0F7 /* MASViewConstraint.h in Headers */ = {isa = PBXBuildFile; fileRef = 8B35F8F40BF5A5F1542349046BFA1FE0 /* MASViewConstraint.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		EBD62913DF820ACA89C22D134C37D9AE /* QRCodeReaderViewController-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = D9D2130546734EA31DABE27E8E762943 /* QRCodeReaderViewController-dummy.m */; };
+		EC6CCC98505D2067BC98B4E6223C9DF8 /* MASConstraintMaker.h in Headers */ = {isa = PBXBuildFile; fileRef = 92AC7371CE926D1EF92A5CE7807EFCD7 /* MASConstraintMaker.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		ED6DDD282335752E8ED55FFC723DDBBC /* QRCodeReaderView.h in Headers */ = {isa = PBXBuildFile; fileRef = 7249F537832C5611B5A4ECA42A221DA9 /* QRCodeReaderView.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		EF3A8F43B6CDD074BF2F0EB8111315BF /* QRCodeReaderViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 07B5C10851F052073CB8BBC8BC6E0ACA /* QRCodeReaderViewController.m */; };
+		F180C99A07A325C35BCF659770E61140 /* INTULocationManager-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 376E7BA9950D95DB95B0CAE7C1C9D14A /* INTULocationManager-dummy.m */; };
+		F977B243321331B58666E9284634101A /* FMResultSet.h in Headers */ = {isa = PBXBuildFile; fileRef = FB94E5D79EA8B39604CB30D2E4A95AB8 /* FMResultSet.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		FD39EBE3398E1A99965AC003B273450D /* NSArray+MASAdditions.h in Headers */ = {isa = PBXBuildFile; fileRef = 6AC9DCD1C5FDD4C8FC06E756D1D0CC33 /* NSArray+MASAdditions.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		FF682E8B083BAEBBDF38C52D89D45E37 /* MASUtilities.h in Headers */ = {isa = PBXBuildFile; fileRef = 7E3F0E26D6D18EA718AEA223E26C3390 /* MASUtilities.h */; settings = {ATTRIBUTES = (Public, ); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
-		561916DDEC28CB1DB96F6FB29D99B2FD /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = D41D8CD98F00B204E9800998ECF8427E /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = F6666061157FF17455DC7EBF0B4D1272;
-			remoteInfo = QRCodeReaderViewController;
-		};
-		609F5E9E292CABAA272A6D7B8F1897BD /* PBXContainerItemProxy */ = {
+		3EA8E0DF789B23D0908B60A76D50F31F /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = D41D8CD98F00B204E9800998ECF8427E /* Project object */;
 			proxyType = 1;
 			remoteGlobalIDString = 53480ED0BE09FF49E34B1702D485CAAB;
 			remoteInfo = Masonry;
 		};
-		AD5AE7561DECCC83A57046EFA69D64A7 /* PBXContainerItemProxy */ = {
+		56442A61BCBD4713EA928523E6F2CCE2 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = D41D8CD98F00B204E9800998ECF8427E /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = E07A1B93D0B5E99C6E979FACDA81D9B4;
+			remoteInfo = INTULocationManager;
+		};
+		70A55577A167F15157639EF1897273C9 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = D41D8CD98F00B204E9800998ECF8427E /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 9F12FB4A63E20F601CFB2E64A65B57C1;
+			remoteInfo = FMDB;
+		};
+		82667FDBC26C8CED6C772D69DB82CBE4 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = D41D8CD98F00B204E9800998ECF8427E /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = BAA5C2ECF618B91B0F36BF40D31EDF03;
+			remoteInfo = QRCodeReaderViewController;
+		};
+		9B1C25FE72E2596151838B7CC41615BE /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = D41D8CD98F00B204E9800998ECF8427E /* Project object */;
 			proxyType = 1;
@@ -84,78 +123,140 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		02A301CF8BC759EDE794863F2010DF30 /* MASConstraintMaker.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = MASConstraintMaker.h; path = Masonry/MASConstraintMaker.h; sourceTree = "<group>"; };
-		04D28EED1BB26191BFA8BE46F74BD6A3 /* MASViewAttribute.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = MASViewAttribute.h; path = Masonry/MASViewAttribute.h; sourceTree = "<group>"; };
-		05446AFEA68562C3EF7CEDC04D939303 /* Base64.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = Base64.h; path = submodules/Base64/Base64/Base64.h; sourceTree = "<group>"; };
-		07777573B5BA320AC061695DA68A4E85 /* NSArray+MASAdditions.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "NSArray+MASAdditions.h"; path = "Masonry/NSArray+MASAdditions.h"; sourceTree = "<group>"; };
-		0BC77C5B8BF6C5CD845BF4F2F25DECD1 /* QRCodeReaderDelegate.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = QRCodeReaderDelegate.h; path = QRCodeReaderViewController/QRCodeReaderDelegate.h; sourceTree = "<group>"; };
+		008CEE10DF36F09A3D12EB06F3478D9B /* Base64.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = Base64.m; path = submodules/Base64/Base64/Base64.m; sourceTree = "<group>"; };
+		07B5C10851F052073CB8BBC8BC6E0ACA /* QRCodeReaderViewController.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = QRCodeReaderViewController.m; path = QRCodeReaderViewController/QRCodeReaderViewController.m; sourceTree = "<group>"; };
+		07D33242E1E4BEBCBEBD0EDD60E1B064 /* FMDatabaseAdditions.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = FMDatabaseAdditions.m; path = src/fmdb/FMDatabaseAdditions.m; sourceTree = "<group>"; };
+		09BDC854683AF9B3A157F22E62DD2ADC /* MASLayoutConstraint.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = MASLayoutConstraint.m; path = Masonry/MASLayoutConstraint.m; sourceTree = "<group>"; };
+		0DBDFA2833847B5EF36C0F29C9A76C23 /* QRCameraSwitchButton.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = QRCameraSwitchButton.m; path = QRCodeReaderViewController/QRCameraSwitchButton.m; sourceTree = "<group>"; };
+		105B4813B551BE09F5B6CF3D81112134 /* CocoaSecurity.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = CocoaSecurity.xcconfig; sourceTree = "<group>"; };
 		10834806BD7B412BC24F347361FA2C8E /* Pods-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-acknowledgements.plist"; sourceTree = "<group>"; };
-		136509360C739543FF3CFF774E7C060F /* NSLayoutConstraint+MASDebugAdditions.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "NSLayoutConstraint+MASDebugAdditions.m"; path = "Masonry/NSLayoutConstraint+MASDebugAdditions.m"; sourceTree = "<group>"; };
-		143EA0C91FF5506BB592D51BA897E106 /* QRCodeReaderView.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = QRCodeReaderView.h; path = QRCodeReaderViewController/QRCodeReaderView.h; sourceTree = "<group>"; };
-		144F8E92F8257D356E6A8A6D4D2474A4 /* QRCodeReaderViewController.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = QRCodeReaderViewController.xcconfig; sourceTree = "<group>"; };
-		17A27DFA81DBA6693FA5157DD803E6ED /* QRCameraSwitchButton.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = QRCameraSwitchButton.m; path = QRCodeReaderViewController/QRCameraSwitchButton.m; sourceTree = "<group>"; };
-		1A975A472A211B5D719DF5A4DE3B40A9 /* QRCodeReaderViewController.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = QRCodeReaderViewController.h; path = QRCodeReaderViewController/QRCodeReaderViewController.h; sourceTree = "<group>"; };
-		1D66305AF5D1216C4BCFBE0F3A1C1EF1 /* ViewController+MASAdditions.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "ViewController+MASAdditions.m"; path = "Masonry/ViewController+MASAdditions.m"; sourceTree = "<group>"; };
-		1F013284270DECF85E6D3225AF3D075F /* ViewController+MASAdditions.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "ViewController+MASAdditions.h"; path = "Masonry/ViewController+MASAdditions.h"; sourceTree = "<group>"; };
-		1F0D3B9E1EE44C77A005F05A4C2EEDC3 /* Masonry-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Masonry-prefix.pch"; sourceTree = "<group>"; };
+		10A5E8AAFF4163721D12727D42C8ABFB /* FMDB-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "FMDB-dummy.m"; sourceTree = "<group>"; };
+		10E962CC774369064F3206D82236778E /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		15AED65872156788B6519FAEAB345D94 /* MASCompositeConstraint.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = MASCompositeConstraint.m; path = Masonry/MASCompositeConstraint.m; sourceTree = "<group>"; };
+		15FD6CD8BB6834CF1035FDC61E676105 /* QRCodeReaderViewController.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = QRCodeReaderViewController.xcconfig; sourceTree = "<group>"; };
+		20B02269893C02E58802CC77E85B8D2E /* MASConstraint+Private.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "MASConstraint+Private.h"; path = "Masonry/MASConstraint+Private.h"; sourceTree = "<group>"; };
+		231F56961F69A8ECDFB376FEADC6D895 /* INTUHeadingRequest.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = INTUHeadingRequest.h; path = LocationManager/INTULocationManager/INTUHeadingRequest.h; sourceTree = "<group>"; };
+		232F6ADC6BF6F74D286B91C9DF2DBB20 /* MASConstraintMaker.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = MASConstraintMaker.m; path = Masonry/MASConstraintMaker.m; sourceTree = "<group>"; };
 		272643F56613CA0D336AE3DBF19DC404 /* Pods-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-dummy.m"; sourceTree = "<group>"; };
-		2D5ED73D748419E3E940D5DB80FC72D3 /* QRCodeReaderView.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = QRCodeReaderView.m; path = QRCodeReaderViewController/QRCodeReaderView.m; sourceTree = "<group>"; };
+		2E0786545166F8277EC54684503FF1E4 /* INTURequestIDGenerator.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = INTURequestIDGenerator.m; path = LocationManager/INTULocationManager/INTURequestIDGenerator.m; sourceTree = "<group>"; };
+		311F58AD58E0441AA932F43513BC3080 /* BaiduMapAPI_Base.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = BaiduMapAPI_Base.framework; path = BaiduMapKit/BaiduMapAPI_Base.framework; sourceTree = "<group>"; };
+		33DE6B7A3C5CE0A28EF5CB5787F658A0 /* libMasonry.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libMasonry.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		376E7BA9950D95DB95B0CAE7C1C9D14A /* INTULocationManager-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "INTULocationManager-dummy.m"; sourceTree = "<group>"; };
 		37DB56D75062CC75FCB0966E1C6E8A8E /* Pods-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-acknowledgements.markdown"; sourceTree = "<group>"; };
-		3A5EBC836BE9D6B319A8FA6D3D43D1C6 /* CocoaSecurity.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = CocoaSecurity.h; path = CocoaSecurity/CocoaSecurity.h; sourceTree = "<group>"; };
-		3EF78DD61BC13CF12415BC16F7517CD9 /* NSArray+MASAdditions.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "NSArray+MASAdditions.m"; path = "Masonry/NSArray+MASAdditions.m"; sourceTree = "<group>"; };
-		456314F77E0329BFEF2FFC8C7F39F039 /* MASConstraint.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = MASConstraint.m; path = Masonry/MASConstraint.m; sourceTree = "<group>"; };
-		475740A65D5E695CEE1E0AC234C55808 /* QRCodeReaderViewController.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = QRCodeReaderViewController.m; path = QRCodeReaderViewController/QRCodeReaderViewController.m; sourceTree = "<group>"; };
-		49C1D7448A79146ED3CEE4490EACD982 /* QRCameraSwitchButton.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = QRCameraSwitchButton.h; path = QRCodeReaderViewController/QRCameraSwitchButton.h; sourceTree = "<group>"; };
+		3F816A0F5389CE281D072A98C211245A /* BaiduMapAPI_Location.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = BaiduMapAPI_Location.framework; path = BaiduMapKit/BaiduMapAPI_Location.framework; sourceTree = "<group>"; };
+		41F23519820D0AF37056741164B175F8 /* INTULocationRequestDefines.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = INTULocationRequestDefines.h; path = LocationManager/INTULocationManager/INTULocationRequestDefines.h; sourceTree = "<group>"; };
+		450ABF7E78015CB43EE6E8FA7F2BF975 /* ViewController+MASAdditions.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "ViewController+MASAdditions.h"; path = "Masonry/ViewController+MASAdditions.h"; sourceTree = "<group>"; };
+		45A9AEF749BF0F9A2C5B786F4A2DC4B2 /* FMDatabase.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = FMDatabase.h; path = src/fmdb/FMDatabase.h; sourceTree = "<group>"; };
+		4D5057F9F09E3D5679F31F8B73266B14 /* MASViewConstraint.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = MASViewConstraint.m; path = Masonry/MASViewConstraint.m; sourceTree = "<group>"; };
 		4E762F23EC34ED4A6FF3312D84E33A40 /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = Pods.debug.xcconfig; sourceTree = "<group>"; };
-		52B07A24FAF3F28668AE8EAB4696D5E4 /* View+MASAdditions.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "View+MASAdditions.m"; path = "Masonry/View+MASAdditions.m"; sourceTree = "<group>"; };
-		5405B34220CE4F972BF5DAE8AD088EA9 /* libMasonry.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libMasonry.a; sourceTree = BUILT_PRODUCTS_DIR; };
-		54D7493DC805FB84B4CEA38C0677F1AF /* MASCompositeConstraint.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = MASCompositeConstraint.h; path = Masonry/MASCompositeConstraint.h; sourceTree = "<group>"; };
-		587583B206E3BADB6ED166A65D07D99E /* Masonry.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = Masonry.xcconfig; sourceTree = "<group>"; };
+		5A749A6ED32C573E2B1A48F176CC4B72 /* MASViewAttribute.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = MASViewAttribute.h; path = Masonry/MASViewAttribute.h; sourceTree = "<group>"; };
+		5AADF1D426F599E4391FA30E81949B9C /* MASViewAttribute.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = MASViewAttribute.m; path = Masonry/MASViewAttribute.m; sourceTree = "<group>"; };
+		5B43A8186F8B82CC11B5EE19ECF0A0DA /* CocoaSecurity.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = CocoaSecurity.h; path = CocoaSecurity/CocoaSecurity.h; sourceTree = "<group>"; };
+		5C38353122F6C70F3C7B35797AD8F503 /* NSLayoutConstraint+MASDebugAdditions.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "NSLayoutConstraint+MASDebugAdditions.m"; path = "Masonry/NSLayoutConstraint+MASDebugAdditions.m"; sourceTree = "<group>"; };
+		5E51253F9C9CF18408AB24C479BBD49D /* BaiduMapAPI_Search.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = BaiduMapAPI_Search.framework; path = BaiduMapKit/BaiduMapAPI_Search.framework; sourceTree = "<group>"; };
+		605711DE28E9660933B215D4F8BD6AF4 /* View+MASShorthandAdditions.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "View+MASShorthandAdditions.h"; path = "Masonry/View+MASShorthandAdditions.h"; sourceTree = "<group>"; };
+		6198C2B72630415539EB8FDB0E80FE34 /* QRCodeReaderViewController.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = QRCodeReaderViewController.h; path = QRCodeReaderViewController/QRCodeReaderViewController.h; sourceTree = "<group>"; };
+		66788D7F340BF6B1D1C1E0C740D0C0CA /* INTULocationManager.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = INTULocationManager.xcconfig; sourceTree = "<group>"; };
 		6911BECA35E7518D864239B7E898EEF3 /* Pods-frameworks.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-frameworks.sh"; sourceTree = "<group>"; };
-		69CC109ECCBFBFC07768DB0CE0799ACE /* View+MASShorthandAdditions.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "View+MASShorthandAdditions.h"; path = "Masonry/View+MASShorthandAdditions.h"; sourceTree = "<group>"; };
-		6CEFE9F5BAED4C41C9EFDE2BCAA1A929 /* QRCodeReaderViewController-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "QRCodeReaderViewController-prefix.pch"; sourceTree = "<group>"; };
-		7297B103CFBB3304D640436906C0FC81 /* NSLayoutConstraint+MASDebugAdditions.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "NSLayoutConstraint+MASDebugAdditions.h"; path = "Masonry/NSLayoutConstraint+MASDebugAdditions.h"; sourceTree = "<group>"; };
-		797365203C4F65085F0E462DC93414CC /* QRCodeReader.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = QRCodeReader.h; path = QRCodeReaderViewController/QRCodeReader.h; sourceTree = "<group>"; };
-		7C299F7705A2F64D834896BF240FEFDE /* Masonry-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Masonry-dummy.m"; sourceTree = "<group>"; };
-		81062E34A9E381D2AFE149CD50D69757 /* QRCodeReader.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = QRCodeReader.m; path = QRCodeReaderViewController/QRCodeReader.m; sourceTree = "<group>"; };
-		81264C09AD936A5A25D15068565420C0 /* MASConstraint.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = MASConstraint.h; path = Masonry/MASConstraint.h; sourceTree = "<group>"; };
-		8473B7CD9F03A0F34923E0953AD95909 /* View+MASAdditions.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "View+MASAdditions.h"; path = "Masonry/View+MASAdditions.h"; sourceTree = "<group>"; };
-		877035A1D239A21ED3C40B07A9D4B41D /* Base64.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = Base64.m; path = submodules/Base64/Base64/Base64.m; sourceTree = "<group>"; };
-		8AB274EE68FF671CB775F81729318D8A /* MASLayoutConstraint.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = MASLayoutConstraint.h; path = Masonry/MASLayoutConstraint.h; sourceTree = "<group>"; };
+		69FE6F28D1AC2EC807812E170507AB68 /* INTULocationRequest.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = INTULocationRequest.m; path = LocationManager/INTULocationManager/INTULocationRequest.m; sourceTree = "<group>"; };
+		6A80DCD6F43CD7132E27B5E156F009BA /* FMDB.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = FMDB.h; path = src/fmdb/FMDB.h; sourceTree = "<group>"; };
+		6AC9DCD1C5FDD4C8FC06E756D1D0CC33 /* NSArray+MASAdditions.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "NSArray+MASAdditions.h"; path = "Masonry/NSArray+MASAdditions.h"; sourceTree = "<group>"; };
+		6B07D6A2A6B211FDCA1D7084F07C46FA /* CocoaSecurity.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = CocoaSecurity.m; path = CocoaSecurity/CocoaSecurity.m; sourceTree = "<group>"; };
+		6F8DAD724CAF583AD6AE3A43CA34E34B /* CocoaSecurity-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "CocoaSecurity-prefix.pch"; sourceTree = "<group>"; };
+		70BD95C64D59B2EE1AA41D7995EADC33 /* CocoaSecurity-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "CocoaSecurity-dummy.m"; sourceTree = "<group>"; };
+		718323F7769499B66E93AFD6BD23A190 /* FMDatabaseAdditions.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = FMDatabaseAdditions.h; path = src/fmdb/FMDatabaseAdditions.h; sourceTree = "<group>"; };
+		7249F537832C5611B5A4ECA42A221DA9 /* QRCodeReaderView.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = QRCodeReaderView.h; path = QRCodeReaderViewController/QRCodeReaderView.h; sourceTree = "<group>"; };
+		7A41593741248906409D1C1B7A196AD1 /* FMDatabaseQueue.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = FMDatabaseQueue.h; path = src/fmdb/FMDatabaseQueue.h; sourceTree = "<group>"; };
+		7D78038AF7EE9E0C9A92CD1CB826A579 /* QRToggleTorchButton.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = QRToggleTorchButton.m; path = QRCodeReaderViewController/QRToggleTorchButton.m; sourceTree = "<group>"; };
+		7E3F0E26D6D18EA718AEA223E26C3390 /* MASUtilities.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = MASUtilities.h; path = Masonry/MASUtilities.h; sourceTree = "<group>"; };
+		7E6FF2890F12E774BBFBD8EE570EBFB1 /* mapapi.bundle */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = "wrapper.plug-in"; name = mapapi.bundle; path = BaiduMapKit/BaiduMapAPI_Map.framework/Resources/mapapi.bundle; sourceTree = "<group>"; };
+		7EBDAE05FC7ED514EE6DDF9178C1BF88 /* QRCodeReaderViewController-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "QRCodeReaderViewController-prefix.pch"; sourceTree = "<group>"; };
+		8122AE0DA50C2C42AF6C90E808A8343B /* View+MASAdditions.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "View+MASAdditions.m"; path = "Masonry/View+MASAdditions.m"; sourceTree = "<group>"; };
+		814610E5D73B5844D826B5448AF66C27 /* INTULocationRequest.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = INTULocationRequest.h; path = LocationManager/INTULocationManager/INTULocationRequest.h; sourceTree = "<group>"; };
+		81F8C65D65D87569B6C699F33108FCBD /* MASLayoutConstraint.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = MASLayoutConstraint.h; path = Masonry/MASLayoutConstraint.h; sourceTree = "<group>"; };
+		8387D30501A0100D3D8E4E3B60B6D08C /* INTULocationManager+Internal.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "INTULocationManager+Internal.h"; path = "LocationManager/INTULocationManager/INTULocationManager+Internal.h"; sourceTree = "<group>"; };
+		853B88DC3A9B3C9032DBFA7EF4F1E7E9 /* FMDatabasePool.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = FMDatabasePool.m; path = src/fmdb/FMDatabasePool.m; sourceTree = "<group>"; };
+		8831FB179F749B335683D49DEB00C699 /* libFMDB.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libFMDB.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		8B35F8F40BF5A5F1542349046BFA1FE0 /* MASViewConstraint.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = MASViewConstraint.h; path = Masonry/MASViewConstraint.h; sourceTree = "<group>"; };
+		8D06910BC695FDFFDFC396DC9CF47AA0 /* INTUHeadingRequest.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = INTUHeadingRequest.m; path = LocationManager/INTULocationManager/INTUHeadingRequest.m; sourceTree = "<group>"; };
 		8E770E649A751F6E16D0553FA719AEE0 /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS9.0.sdk/System/Library/Frameworks/AVFoundation.framework; sourceTree = DEVELOPER_DIR; };
+		90CFC451A06484551FDD722B26010443 /* FMDatabase.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = FMDatabase.m; path = src/fmdb/FMDatabase.m; sourceTree = "<group>"; };
+		90D8B7C7EA408BF6A17B574B3B57F2C8 /* libQRCodeReaderViewController.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libQRCodeReaderViewController.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		92AC7371CE926D1EF92A5CE7807EFCD7 /* MASConstraintMaker.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = MASConstraintMaker.h; path = Masonry/MASConstraintMaker.h; sourceTree = "<group>"; };
+		930913E3C4A1FCE54B869259C9A0337B /* BaiduMapAPI_Radar.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = BaiduMapAPI_Radar.framework; path = BaiduMapKit/BaiduMapAPI_Radar.framework; sourceTree = "<group>"; };
+		93DF3A94ED7E818BB9DD8AFE11AF1086 /* INTULocationManager-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "INTULocationManager-prefix.pch"; sourceTree = "<group>"; };
 		98C98CDFB3F20F2925F6CD1F141BB14F /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = Pods.release.xcconfig; sourceTree = "<group>"; };
+		9B49E66B66A12269FA924728EBB4CE1A /* MASCompositeConstraint.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = MASCompositeConstraint.h; path = Masonry/MASCompositeConstraint.h; sourceTree = "<group>"; };
+		9E640A53E6FC98D9FEA6BB2884A1F204 /* Masonry.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = Masonry.h; path = Masonry/Masonry.h; sourceTree = "<group>"; };
 		A1A36D34413696BE466E2CA0AFF194DA /* Pods-resources.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-resources.sh"; sourceTree = "<group>"; };
-		AB8CE763C65DFB54B21E6867126B9F97 /* QRCodeReaderViewController-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "QRCodeReaderViewController-dummy.m"; sourceTree = "<group>"; };
-		AEC03FF285689E3D333D2151D9EFE8C4 /* CocoaSecurity.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = CocoaSecurity.m; path = CocoaSecurity/CocoaSecurity.m; sourceTree = "<group>"; };
-		AFBDC5E399E59F515CD75257629F9826 /* CocoaSecurity-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "CocoaSecurity-prefix.pch"; sourceTree = "<group>"; };
-		B42BC2B817564A62EF0BD5EA941D5A3A /* MASConstraint+Private.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "MASConstraint+Private.h"; path = "Masonry/MASConstraint+Private.h"; sourceTree = "<group>"; };
-		BA22A09EFEE574E9664B9EF563B9E87A /* MASViewConstraint.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = MASViewConstraint.h; path = Masonry/MASViewConstraint.h; sourceTree = "<group>"; };
+		A680017107F389889B4B1475BFE7D0CB /* NSLayoutConstraint+MASDebugAdditions.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "NSLayoutConstraint+MASDebugAdditions.h"; path = "Masonry/NSLayoutConstraint+MASDebugAdditions.h"; sourceTree = "<group>"; };
+		A6C624845B8C6CB61A16323734DB945F /* View+MASAdditions.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "View+MASAdditions.h"; path = "Masonry/View+MASAdditions.h"; sourceTree = "<group>"; };
+		A74673DDD98D938CEFF4D290AED0DE42 /* MASConstraint.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = MASConstraint.h; path = Masonry/MASConstraint.h; sourceTree = "<group>"; };
+		A8654BE46E441516104F2F87510DE885 /* BaiduMapAPI_Utils.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = BaiduMapAPI_Utils.framework; path = BaiduMapKit/BaiduMapAPI_Utils.framework; sourceTree = "<group>"; };
+		AA964926FB28F518C3C08DA75AEDE0FB /* BaiduMapAPI_Cloud.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = BaiduMapAPI_Cloud.framework; path = BaiduMapKit/BaiduMapAPI_Cloud.framework; sourceTree = "<group>"; };
+		ACB751B223F3F183D2EE88E263FC19A7 /* MASConstraint.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = MASConstraint.m; path = Masonry/MASConstraint.m; sourceTree = "<group>"; };
+		B2C2D634429F818981B73B7186F546B8 /* QRToggleTorchButton.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = QRToggleTorchButton.h; path = QRCodeReaderViewController/QRToggleTorchButton.h; sourceTree = "<group>"; };
+		B380FE50F41E0891F050B3FF59883EE4 /* QRCodeReaderView.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = QRCodeReaderView.m; path = QRCodeReaderViewController/QRCodeReaderView.m; sourceTree = "<group>"; };
+		B791F889E496F47A3FEB8559F4DD647B /* NSArray+MASAdditions.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "NSArray+MASAdditions.m"; path = "Masonry/NSArray+MASAdditions.m"; sourceTree = "<group>"; };
+		B7A0FAEBC3E3628397367D1373CDB52C /* INTULocationManager.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = INTULocationManager.m; path = LocationManager/INTULocationManager/INTULocationManager.m; sourceTree = "<group>"; };
 		BA6428E9F66FD5A23C0A2E06ED26CD2F /* Podfile */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
-		C512F3456F636A176DCA2102A0502717 /* Masonry.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = Masonry.h; path = Masonry/Masonry.h; sourceTree = "<group>"; };
-		C6A7E6C0764406987E2D84716F3A68B3 /* CocoaSecurity.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = CocoaSecurity.xcconfig; sourceTree = "<group>"; };
-		CACF89F0F657D198C547F789B94E5CD7 /* MASConstraintMaker.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = MASConstraintMaker.m; path = Masonry/MASConstraintMaker.m; sourceTree = "<group>"; };
-		CE320CF90077AA0E6A1C0CED3BBECB4E /* QRToggleTorchButton.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = QRToggleTorchButton.h; path = QRCodeReaderViewController/QRToggleTorchButton.h; sourceTree = "<group>"; };
-		D5D6CA50627525178D5670F2DBD07611 /* MASCompositeConstraint.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = MASCompositeConstraint.m; path = Masonry/MASCompositeConstraint.m; sourceTree = "<group>"; };
+		C137A2F38D156EAEFE1526EFF90BA6EA /* FMDB.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = FMDB.xcconfig; sourceTree = "<group>"; };
+		C3D0363ED2AB8B4EE276D2E785611FB3 /* QRCodeReader.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = QRCodeReader.h; path = QRCodeReaderViewController/QRCodeReader.h; sourceTree = "<group>"; };
+		CB76C1762DC1CC8A6374FC97C2421B3B /* QRCameraSwitchButton.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = QRCameraSwitchButton.h; path = QRCodeReaderViewController/QRCameraSwitchButton.h; sourceTree = "<group>"; };
+		D1FE474B17ADAD5EBFD12909776C88D0 /* Base64.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = Base64.h; path = submodules/Base64/Base64/Base64.h; sourceTree = "<group>"; };
+		D242BF7E4B27A03C95A92DE02F6B503E /* QRCodeReader.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = QRCodeReader.m; path = QRCodeReaderViewController/QRCodeReader.m; sourceTree = "<group>"; };
 		D6F15F6B7457ECAED15F41149D90E8E4 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS9.0.sdk/System/Library/Frameworks/UIKit.framework; sourceTree = DEVELOPER_DIR; };
-		D8692DDE596FEDB6CC83AB33B91144A5 /* libCocoaSecurity.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libCocoaSecurity.a; sourceTree = BUILT_PRODUCTS_DIR; };
-		D87DA18375E80D90598E8B6A38A1E88C /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
-		E20A6262CAEBD5B0F02D3D5815077B9E /* MASUtilities.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = MASUtilities.h; path = Masonry/MASUtilities.h; sourceTree = "<group>"; };
-		E6CC66867313A9DAEADBBAE3BFA31811 /* CocoaSecurity-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "CocoaSecurity-dummy.m"; sourceTree = "<group>"; };
-		E9BB6335F169E0441DA37C5B0B797205 /* NSArray+MASShorthandAdditions.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "NSArray+MASShorthandAdditions.h"; path = "Masonry/NSArray+MASShorthandAdditions.h"; sourceTree = "<group>"; };
-		EADC452FE155BA59C0D4C8C11C563B1D /* MASViewAttribute.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = MASViewAttribute.m; path = Masonry/MASViewAttribute.m; sourceTree = "<group>"; };
-		EE2C1E981333494B7E643E0C46212DA8 /* libQRCodeReaderViewController.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libQRCodeReaderViewController.a; sourceTree = BUILT_PRODUCTS_DIR; };
-		F109B322B1DBB0AC3E9CA562F5FC0942 /* QRToggleTorchButton.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = QRToggleTorchButton.m; path = QRCodeReaderViewController/QRToggleTorchButton.m; sourceTree = "<group>"; };
-		F4167A1D873B14523657C478D3F578CB /* MASViewConstraint.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = MASViewConstraint.m; path = Masonry/MASViewConstraint.m; sourceTree = "<group>"; };
-		F591DC56BCCE3293C5F7DC46237954D1 /* MASLayoutConstraint.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = MASLayoutConstraint.m; path = Masonry/MASLayoutConstraint.m; sourceTree = "<group>"; };
+		D90CB1733E62F5B6008D70B077631B28 /* libINTULocationManager.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libINTULocationManager.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		D98723BEC481FFE69E8B157785583E12 /* FMDatabaseQueue.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = FMDatabaseQueue.m; path = src/fmdb/FMDatabaseQueue.m; sourceTree = "<group>"; };
+		D9D2130546734EA31DABE27E8E762943 /* QRCodeReaderViewController-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "QRCodeReaderViewController-dummy.m"; sourceTree = "<group>"; };
+		DBCEA2CB18DD7C635DED08C1389D4F27 /* FMDB-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "FMDB-prefix.pch"; sourceTree = "<group>"; };
+		E2D775C82385C317101511F47F275719 /* Masonry.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = Masonry.xcconfig; sourceTree = "<group>"; };
+		E344B49B523E062D50619533AD7BCEC7 /* NSArray+MASShorthandAdditions.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "NSArray+MASShorthandAdditions.h"; path = "Masonry/NSArray+MASShorthandAdditions.h"; sourceTree = "<group>"; };
+		E7BF3A9376DC381EAF2429CA7B3B6D24 /* BaiduMapAPI_Map.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = BaiduMapAPI_Map.framework; path = BaiduMapKit/BaiduMapAPI_Map.framework; sourceTree = "<group>"; };
+		E9E81B19274C35DD3EE46EA2583FFE1F /* Masonry-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Masonry-dummy.m"; sourceTree = "<group>"; };
+		EB11F82B2DCEFC80E854E571C860CE26 /* FMDatabasePool.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = FMDatabasePool.h; path = src/fmdb/FMDatabasePool.h; sourceTree = "<group>"; };
+		EE508560FB330AC66006937BE5324B19 /* ViewController+MASAdditions.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "ViewController+MASAdditions.m"; path = "Masonry/ViewController+MASAdditions.m"; sourceTree = "<group>"; };
+		EEAA6D645286264E967967E8668E2AD2 /* QRCodeReaderDelegate.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = QRCodeReaderDelegate.h; path = QRCodeReaderViewController/QRCodeReaderDelegate.h; sourceTree = "<group>"; };
+		F347D098CAB9762EEED88474296560E7 /* INTULocationManager.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = INTULocationManager.h; path = LocationManager/INTULocationManager/INTULocationManager.h; sourceTree = "<group>"; };
+		F47178E03131DDF5511EEE4BE4EA925B /* Masonry-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Masonry-prefix.pch"; sourceTree = "<group>"; };
 		F866EA2B7D47D920CF64B0E05B695896 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS9.0.sdk/System/Library/Frameworks/Foundation.framework; sourceTree = DEVELOPER_DIR; };
+		F9B7E8BC0016DE2E5F298D8C6E1955B8 /* INTURequestIDGenerator.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = INTURequestIDGenerator.h; path = LocationManager/INTULocationManager/INTURequestIDGenerator.h; sourceTree = "<group>"; };
+		FB22F38969D54A3B0C8E6CB87804238A /* libCocoaSecurity.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libCocoaSecurity.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		FB3DF12302D302117758530032851338 /* FMResultSet.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = FMResultSet.m; path = src/fmdb/FMResultSet.m; sourceTree = "<group>"; };
+		FB94E5D79EA8B39604CB30D2E4A95AB8 /* FMResultSet.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = FMResultSet.h; path = src/fmdb/FMResultSet.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
-		3EB94CC4B3C19A5DCED7099B6F552BFA /* Frameworks */ = {
+		45A429CEE5ACBDB5F3C00668EA86C89C /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				DBA0CF15F3044738F9E1F025A446C926 /* Foundation.framework in Frameworks */,
+				E29CFD1DE48962B20C1B96304693F85B /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		6004BA25730BA76F75BF297DE2B2A37C /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				3E815F7542506E7F239FFACB92D83DE4 /* AVFoundation.framework in Frameworks */,
+				925E924BC33E3F1DB4F7AD66EA4D7BE3 /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		84AF63084FFE4472EFC6131BD113B13D /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				587B76A3E381AF7C3EFFDF6754D39288 /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		8F6EA8DF4AA2C91F2E86882DAB0D7CEB /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				3B842DF9C7552A3F6AEF2852F4BBF767 /* Foundation.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -164,15 +265,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				887382196A477357C9E2C7FD5695423C /* Foundation.framework in Frameworks */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		CACCB1480D7B7E9EEB3FA4CA56B9CF1E /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				FC3B7CADF7F2D63C2C9F745D01A10B14 /* AVFoundation.framework in Frameworks */,
-				B70C1DDBC3C84E2D4DD4721B3039953E /* Foundation.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -196,6 +288,58 @@
 			name = "Targets Support Files";
 			sourceTree = "<group>";
 		};
+		071B416D0A8814280E1DB8C9AC51DCB3 /* QRCodeReaderViewController */ = {
+			isa = PBXGroup;
+			children = (
+				CB76C1762DC1CC8A6374FC97C2421B3B /* QRCameraSwitchButton.h */,
+				0DBDFA2833847B5EF36C0F29C9A76C23 /* QRCameraSwitchButton.m */,
+				C3D0363ED2AB8B4EE276D2E785611FB3 /* QRCodeReader.h */,
+				D242BF7E4B27A03C95A92DE02F6B503E /* QRCodeReader.m */,
+				EEAA6D645286264E967967E8668E2AD2 /* QRCodeReaderDelegate.h */,
+				7249F537832C5611B5A4ECA42A221DA9 /* QRCodeReaderView.h */,
+				B380FE50F41E0891F050B3FF59883EE4 /* QRCodeReaderView.m */,
+				6198C2B72630415539EB8FDB0E80FE34 /* QRCodeReaderViewController.h */,
+				07B5C10851F052073CB8BBC8BC6E0ACA /* QRCodeReaderViewController.m */,
+				B2C2D634429F818981B73B7186F546B8 /* QRToggleTorchButton.h */,
+				7D78038AF7EE9E0C9A92CD1CB826A579 /* QRToggleTorchButton.m */,
+				BAB312AF91108A6B776DF8881CA37625 /* Support Files */,
+			);
+			path = QRCodeReaderViewController;
+			sourceTree = "<group>";
+		};
+		0A5EA6077E35826E5AF608B3D26895CF /* Masonry */ = {
+			isa = PBXGroup;
+			children = (
+				9B49E66B66A12269FA924728EBB4CE1A /* MASCompositeConstraint.h */,
+				15AED65872156788B6519FAEAB345D94 /* MASCompositeConstraint.m */,
+				A74673DDD98D938CEFF4D290AED0DE42 /* MASConstraint.h */,
+				ACB751B223F3F183D2EE88E263FC19A7 /* MASConstraint.m */,
+				20B02269893C02E58802CC77E85B8D2E /* MASConstraint+Private.h */,
+				92AC7371CE926D1EF92A5CE7807EFCD7 /* MASConstraintMaker.h */,
+				232F6ADC6BF6F74D286B91C9DF2DBB20 /* MASConstraintMaker.m */,
+				81F8C65D65D87569B6C699F33108FCBD /* MASLayoutConstraint.h */,
+				09BDC854683AF9B3A157F22E62DD2ADC /* MASLayoutConstraint.m */,
+				9E640A53E6FC98D9FEA6BB2884A1F204 /* Masonry.h */,
+				7E3F0E26D6D18EA718AEA223E26C3390 /* MASUtilities.h */,
+				5A749A6ED32C573E2B1A48F176CC4B72 /* MASViewAttribute.h */,
+				5AADF1D426F599E4391FA30E81949B9C /* MASViewAttribute.m */,
+				8B35F8F40BF5A5F1542349046BFA1FE0 /* MASViewConstraint.h */,
+				4D5057F9F09E3D5679F31F8B73266B14 /* MASViewConstraint.m */,
+				6AC9DCD1C5FDD4C8FC06E756D1D0CC33 /* NSArray+MASAdditions.h */,
+				B791F889E496F47A3FEB8559F4DD647B /* NSArray+MASAdditions.m */,
+				E344B49B523E062D50619533AD7BCEC7 /* NSArray+MASShorthandAdditions.h */,
+				A680017107F389889B4B1475BFE7D0CB /* NSLayoutConstraint+MASDebugAdditions.h */,
+				5C38353122F6C70F3C7B35797AD8F503 /* NSLayoutConstraint+MASDebugAdditions.m */,
+				A6C624845B8C6CB61A16323734DB945F /* View+MASAdditions.h */,
+				8122AE0DA50C2C42AF6C90E808A8343B /* View+MASAdditions.m */,
+				605711DE28E9660933B215D4F8BD6AF4 /* View+MASShorthandAdditions.h */,
+				450ABF7E78015CB43EE6E8FA7F2BF975 /* ViewController+MASAdditions.h */,
+				EE508560FB330AC66006937BE5324B19 /* ViewController+MASAdditions.m */,
+				E5ED2CA61D832C8068ECC1AA241EC81B /* Support Files */,
+			);
+			path = Masonry;
+			sourceTree = "<group>";
+		};
 		122DA2E5084A4393C29BE363C764795C /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
@@ -204,45 +348,15 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
-		26C46DD086E996C2280BA59687A22235 /* Support Files */ = {
+		25E4B1DF6ED8F2CCFBBE1C72A642DEFF /* Pods */ = {
 			isa = PBXGroup;
 			children = (
-				144F8E92F8257D356E6A8A6D4D2474A4 /* QRCodeReaderViewController.xcconfig */,
-				AB8CE763C65DFB54B21E6867126B9F97 /* QRCodeReaderViewController-dummy.m */,
-				6CEFE9F5BAED4C41C9EFDE2BCAA1A929 /* QRCodeReaderViewController-prefix.pch */,
-			);
-			name = "Support Files";
-			path = "../Target Support Files/QRCodeReaderViewController";
-			sourceTree = "<group>";
-		};
-		27C5B3D4B9BCECCBF9F3EF00D652BCAD /* Support Files */ = {
-			isa = PBXGroup;
-			children = (
-				C6A7E6C0764406987E2D84716F3A68B3 /* CocoaSecurity.xcconfig */,
-				E6CC66867313A9DAEADBBAE3BFA31811 /* CocoaSecurity-dummy.m */,
-				AFBDC5E399E59F515CD75257629F9826 /* CocoaSecurity-prefix.pch */,
-			);
-			name = "Support Files";
-			path = "../Target Support Files/CocoaSecurity";
-			sourceTree = "<group>";
-		};
-		4F110690774263F207A134E119B5BDD8 /* Support Files */ = {
-			isa = PBXGroup;
-			children = (
-				587583B206E3BADB6ED166A65D07D99E /* Masonry.xcconfig */,
-				7C299F7705A2F64D834896BF240FEFDE /* Masonry-dummy.m */,
-				1F0D3B9E1EE44C77A005F05A4C2EEDC3 /* Masonry-prefix.pch */,
-			);
-			name = "Support Files";
-			path = "../Target Support Files/Masonry";
-			sourceTree = "<group>";
-		};
-		78C61D7529448AE096D7D440FF59F422 /* Pods */ = {
-			isa = PBXGroup;
-			children = (
-				955B708CD7CAD6B6DBF8D380E1135F4E /* CocoaSecurity */,
-				C8A2DAD927013FB8AF337F33856F10B4 /* Masonry */,
-				C7B0343531672EE15541FA618214685A /* QRCodeReaderViewController */,
+				E34E4EBD138ED4841A023E624B43E3E7 /* BaiduMapKit */,
+				E71F17FD59EA8E4B138836CBA06AF635 /* CocoaSecurity */,
+				E09AB79164C0FBFAFB396AAE010978CB /* FMDB */,
+				865BBA4D67DB3CAA70B2E78F4F88E0C9 /* INTULocationManager */,
+				0A5EA6077E35826E5AF608B3D26895CF /* Masonry */,
+				071B416D0A8814280E1DB8C9AC51DCB3 /* QRCodeReaderViewController */,
 			);
 			name = Pods;
 			sourceTree = "<group>";
@@ -252,8 +366,8 @@
 			children = (
 				BA6428E9F66FD5A23C0A2E06ED26CD2F /* Podfile */,
 				122DA2E5084A4393C29BE363C764795C /* Frameworks */,
-				78C61D7529448AE096D7D440FF59F422 /* Pods */,
-				E6CA661727C4B18386BC321ED264C5BF /* Products */,
+				25E4B1DF6ED8F2CCFBBE1C72A642DEFF /* Pods */,
+				966571FC0C5FA895E6D99257F818892A /* Products */,
 				037C0CA694176A3C0915F62C9D20B3E6 /* Targets Support Files */,
 			);
 			sourceTree = "<group>";
@@ -268,16 +382,72 @@
 			name = iOS;
 			sourceTree = "<group>";
 		};
-		955B708CD7CAD6B6DBF8D380E1135F4E /* CocoaSecurity */ = {
+		865BBA4D67DB3CAA70B2E78F4F88E0C9 /* INTULocationManager */ = {
 			isa = PBXGroup;
 			children = (
-				05446AFEA68562C3EF7CEDC04D939303 /* Base64.h */,
-				877035A1D239A21ED3C40B07A9D4B41D /* Base64.m */,
-				3A5EBC836BE9D6B319A8FA6D3D43D1C6 /* CocoaSecurity.h */,
-				AEC03FF285689E3D333D2151D9EFE8C4 /* CocoaSecurity.m */,
-				27C5B3D4B9BCECCBF9F3EF00D652BCAD /* Support Files */,
+				231F56961F69A8ECDFB376FEADC6D895 /* INTUHeadingRequest.h */,
+				8D06910BC695FDFFDFC396DC9CF47AA0 /* INTUHeadingRequest.m */,
+				F347D098CAB9762EEED88474296560E7 /* INTULocationManager.h */,
+				B7A0FAEBC3E3628397367D1373CDB52C /* INTULocationManager.m */,
+				8387D30501A0100D3D8E4E3B60B6D08C /* INTULocationManager+Internal.h */,
+				814610E5D73B5844D826B5448AF66C27 /* INTULocationRequest.h */,
+				69FE6F28D1AC2EC807812E170507AB68 /* INTULocationRequest.m */,
+				41F23519820D0AF37056741164B175F8 /* INTULocationRequestDefines.h */,
+				F9B7E8BC0016DE2E5F298D8C6E1955B8 /* INTURequestIDGenerator.h */,
+				2E0786545166F8277EC54684503FF1E4 /* INTURequestIDGenerator.m */,
+				FE2B4F89DD2FB185CA11D17685FADB1B /* Support Files */,
 			);
-			path = CocoaSecurity;
+			path = INTULocationManager;
+			sourceTree = "<group>";
+		};
+		966571FC0C5FA895E6D99257F818892A /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				FB22F38969D54A3B0C8E6CB87804238A /* libCocoaSecurity.a */,
+				8831FB179F749B335683D49DEB00C699 /* libFMDB.a */,
+				D90CB1733E62F5B6008D70B077631B28 /* libINTULocationManager.a */,
+				33DE6B7A3C5CE0A28EF5CB5787F658A0 /* libMasonry.a */,
+				10E962CC774369064F3206D82236778E /* libPods.a */,
+				90D8B7C7EA408BF6A17B574B3B57F2C8 /* libQRCodeReaderViewController.a */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		9C9DE27F376625EDB12B0E8C213A2482 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				7E6FF2890F12E774BBFBD8EE570EBFB1 /* mapapi.bundle */,
+			);
+			name = Resources;
+			sourceTree = "<group>";
+		};
+		A104121E17A1B94F87CB7F8742995718 /* Support Files */ = {
+			isa = PBXGroup;
+			children = (
+				C137A2F38D156EAEFE1526EFF90BA6EA /* FMDB.xcconfig */,
+				10A5E8AAFF4163721D12727D42C8ABFB /* FMDB-dummy.m */,
+				DBCEA2CB18DD7C635DED08C1389D4F27 /* FMDB-prefix.pch */,
+			);
+			name = "Support Files";
+			path = "../Target Support Files/FMDB";
+			sourceTree = "<group>";
+		};
+		AC6E6CD4E20D06B340B4257862AD0DFF /* standard */ = {
+			isa = PBXGroup;
+			children = (
+				45A9AEF749BF0F9A2C5B786F4A2DC4B2 /* FMDatabase.h */,
+				90CFC451A06484551FDD722B26010443 /* FMDatabase.m */,
+				718323F7769499B66E93AFD6BD23A190 /* FMDatabaseAdditions.h */,
+				07D33242E1E4BEBCBEBD0EDD60E1B064 /* FMDatabaseAdditions.m */,
+				EB11F82B2DCEFC80E854E571C860CE26 /* FMDatabasePool.h */,
+				853B88DC3A9B3C9032DBFA7EF4F1E7E9 /* FMDatabasePool.m */,
+				7A41593741248906409D1C1B7A196AD1 /* FMDatabaseQueue.h */,
+				D98723BEC481FFE69E8B157785583E12 /* FMDatabaseQueue.m */,
+				6A80DCD6F43CD7132E27B5E156F009BA /* FMDB.h */,
+				FB94E5D79EA8B39604CB30D2E4A95AB8 /* FMResultSet.h */,
+				FB3DF12302D302117758530032851338 /* FMResultSet.m */,
+			);
+			name = standard;
 			sourceTree = "<group>";
 		};
 		B3D1D13E0C6553800746CB8FD61CF946 /* Pods */ = {
@@ -295,67 +465,92 @@
 			path = "Target Support Files/Pods";
 			sourceTree = "<group>";
 		};
-		C7B0343531672EE15541FA618214685A /* QRCodeReaderViewController */ = {
+		BAB312AF91108A6B776DF8881CA37625 /* Support Files */ = {
 			isa = PBXGroup;
 			children = (
-				49C1D7448A79146ED3CEE4490EACD982 /* QRCameraSwitchButton.h */,
-				17A27DFA81DBA6693FA5157DD803E6ED /* QRCameraSwitchButton.m */,
-				797365203C4F65085F0E462DC93414CC /* QRCodeReader.h */,
-				81062E34A9E381D2AFE149CD50D69757 /* QRCodeReader.m */,
-				0BC77C5B8BF6C5CD845BF4F2F25DECD1 /* QRCodeReaderDelegate.h */,
-				143EA0C91FF5506BB592D51BA897E106 /* QRCodeReaderView.h */,
-				2D5ED73D748419E3E940D5DB80FC72D3 /* QRCodeReaderView.m */,
-				1A975A472A211B5D719DF5A4DE3B40A9 /* QRCodeReaderViewController.h */,
-				475740A65D5E695CEE1E0AC234C55808 /* QRCodeReaderViewController.m */,
-				CE320CF90077AA0E6A1C0CED3BBECB4E /* QRToggleTorchButton.h */,
-				F109B322B1DBB0AC3E9CA562F5FC0942 /* QRToggleTorchButton.m */,
-				26C46DD086E996C2280BA59687A22235 /* Support Files */,
+				15FD6CD8BB6834CF1035FDC61E676105 /* QRCodeReaderViewController.xcconfig */,
+				D9D2130546734EA31DABE27E8E762943 /* QRCodeReaderViewController-dummy.m */,
+				7EBDAE05FC7ED514EE6DDF9178C1BF88 /* QRCodeReaderViewController-prefix.pch */,
 			);
-			path = QRCodeReaderViewController;
+			name = "Support Files";
+			path = "../Target Support Files/QRCodeReaderViewController";
 			sourceTree = "<group>";
 		};
-		C8A2DAD927013FB8AF337F33856F10B4 /* Masonry */ = {
+		DDD082C1829CAFCC407707A13A0F2025 /* Support Files */ = {
 			isa = PBXGroup;
 			children = (
-				54D7493DC805FB84B4CEA38C0677F1AF /* MASCompositeConstraint.h */,
-				D5D6CA50627525178D5670F2DBD07611 /* MASCompositeConstraint.m */,
-				81264C09AD936A5A25D15068565420C0 /* MASConstraint.h */,
-				456314F77E0329BFEF2FFC8C7F39F039 /* MASConstraint.m */,
-				B42BC2B817564A62EF0BD5EA941D5A3A /* MASConstraint+Private.h */,
-				02A301CF8BC759EDE794863F2010DF30 /* MASConstraintMaker.h */,
-				CACF89F0F657D198C547F789B94E5CD7 /* MASConstraintMaker.m */,
-				8AB274EE68FF671CB775F81729318D8A /* MASLayoutConstraint.h */,
-				F591DC56BCCE3293C5F7DC46237954D1 /* MASLayoutConstraint.m */,
-				C512F3456F636A176DCA2102A0502717 /* Masonry.h */,
-				E20A6262CAEBD5B0F02D3D5815077B9E /* MASUtilities.h */,
-				04D28EED1BB26191BFA8BE46F74BD6A3 /* MASViewAttribute.h */,
-				EADC452FE155BA59C0D4C8C11C563B1D /* MASViewAttribute.m */,
-				BA22A09EFEE574E9664B9EF563B9E87A /* MASViewConstraint.h */,
-				F4167A1D873B14523657C478D3F578CB /* MASViewConstraint.m */,
-				07777573B5BA320AC061695DA68A4E85 /* NSArray+MASAdditions.h */,
-				3EF78DD61BC13CF12415BC16F7517CD9 /* NSArray+MASAdditions.m */,
-				E9BB6335F169E0441DA37C5B0B797205 /* NSArray+MASShorthandAdditions.h */,
-				7297B103CFBB3304D640436906C0FC81 /* NSLayoutConstraint+MASDebugAdditions.h */,
-				136509360C739543FF3CFF774E7C060F /* NSLayoutConstraint+MASDebugAdditions.m */,
-				8473B7CD9F03A0F34923E0953AD95909 /* View+MASAdditions.h */,
-				52B07A24FAF3F28668AE8EAB4696D5E4 /* View+MASAdditions.m */,
-				69CC109ECCBFBFC07768DB0CE0799ACE /* View+MASShorthandAdditions.h */,
-				1F013284270DECF85E6D3225AF3D075F /* ViewController+MASAdditions.h */,
-				1D66305AF5D1216C4BCFBE0F3A1C1EF1 /* ViewController+MASAdditions.m */,
-				4F110690774263F207A134E119B5BDD8 /* Support Files */,
+				105B4813B551BE09F5B6CF3D81112134 /* CocoaSecurity.xcconfig */,
+				70BD95C64D59B2EE1AA41D7995EADC33 /* CocoaSecurity-dummy.m */,
+				6F8DAD724CAF583AD6AE3A43CA34E34B /* CocoaSecurity-prefix.pch */,
 			);
-			path = Masonry;
+			name = "Support Files";
+			path = "../Target Support Files/CocoaSecurity";
 			sourceTree = "<group>";
 		};
-		E6CA661727C4B18386BC321ED264C5BF /* Products */ = {
+		E09AB79164C0FBFAFB396AAE010978CB /* FMDB */ = {
 			isa = PBXGroup;
 			children = (
-				D8692DDE596FEDB6CC83AB33B91144A5 /* libCocoaSecurity.a */,
-				5405B34220CE4F972BF5DAE8AD088EA9 /* libMasonry.a */,
-				D87DA18375E80D90598E8B6A38A1E88C /* libPods.a */,
-				EE2C1E981333494B7E643E0C46212DA8 /* libQRCodeReaderViewController.a */,
+				AC6E6CD4E20D06B340B4257862AD0DFF /* standard */,
+				A104121E17A1B94F87CB7F8742995718 /* Support Files */,
 			);
-			name = Products;
+			path = FMDB;
+			sourceTree = "<group>";
+		};
+		E34E4EBD138ED4841A023E624B43E3E7 /* BaiduMapKit */ = {
+			isa = PBXGroup;
+			children = (
+				FE3106F0E0580E74D966E669E34EDF49 /* Frameworks */,
+				9C9DE27F376625EDB12B0E8C213A2482 /* Resources */,
+			);
+			path = BaiduMapKit;
+			sourceTree = "<group>";
+		};
+		E5ED2CA61D832C8068ECC1AA241EC81B /* Support Files */ = {
+			isa = PBXGroup;
+			children = (
+				E2D775C82385C317101511F47F275719 /* Masonry.xcconfig */,
+				E9E81B19274C35DD3EE46EA2583FFE1F /* Masonry-dummy.m */,
+				F47178E03131DDF5511EEE4BE4EA925B /* Masonry-prefix.pch */,
+			);
+			name = "Support Files";
+			path = "../Target Support Files/Masonry";
+			sourceTree = "<group>";
+		};
+		E71F17FD59EA8E4B138836CBA06AF635 /* CocoaSecurity */ = {
+			isa = PBXGroup;
+			children = (
+				D1FE474B17ADAD5EBFD12909776C88D0 /* Base64.h */,
+				008CEE10DF36F09A3D12EB06F3478D9B /* Base64.m */,
+				5B43A8186F8B82CC11B5EE19ECF0A0DA /* CocoaSecurity.h */,
+				6B07D6A2A6B211FDCA1D7084F07C46FA /* CocoaSecurity.m */,
+				DDD082C1829CAFCC407707A13A0F2025 /* Support Files */,
+			);
+			path = CocoaSecurity;
+			sourceTree = "<group>";
+		};
+		FE2B4F89DD2FB185CA11D17685FADB1B /* Support Files */ = {
+			isa = PBXGroup;
+			children = (
+				66788D7F340BF6B1D1C1E0C740D0C0CA /* INTULocationManager.xcconfig */,
+				376E7BA9950D95DB95B0CAE7C1C9D14A /* INTULocationManager-dummy.m */,
+				93DF3A94ED7E818BB9DD8AFE11AF1086 /* INTULocationManager-prefix.pch */,
+			);
+			name = "Support Files";
+			path = "../Target Support Files/INTULocationManager";
+			sourceTree = "<group>";
+		};
+		FE3106F0E0580E74D966E669E34EDF49 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				311F58AD58E0441AA932F43513BC3080 /* BaiduMapAPI_Base.framework */,
+				AA964926FB28F518C3C08DA75AEDE0FB /* BaiduMapAPI_Cloud.framework */,
+				3F816A0F5389CE281D072A98C211245A /* BaiduMapAPI_Location.framework */,
+				E7BF3A9376DC381EAF2429CA7B3B6D24 /* BaiduMapAPI_Map.framework */,
+				930913E3C4A1FCE54B869259C9A0337B /* BaiduMapAPI_Radar.framework */,
+				5E51253F9C9CF18408AB24C479BBD49D /* BaiduMapAPI_Search.framework */,
+				A8654BE46E441516104F2F87510DE885 /* BaiduMapAPI_Utils.framework */,
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -383,16 +578,16 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		69A1F967264E424F5AD64D5085FA66D3 /* Headers */ = {
+		8B2D82357BE4C2A10AB2CD4724B8E654 /* Headers */ = {
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				E7AE1351843B27A335ABC5138027B346 /* QRCameraSwitchButton.h in Headers */,
-				904825A968764DD570766F10E17698B8 /* QRCodeReader.h in Headers */,
-				CBC9E2CE9B881F0501CD59E7547B4A77 /* QRCodeReaderDelegate.h in Headers */,
-				CFED7C1F03A3E49F00A4B46231438DDB /* QRCodeReaderView.h in Headers */,
-				F254B8692A8F7F3ADFDFBE1699005FD7 /* QRCodeReaderViewController.h in Headers */,
-				8B25685DDD0CE95D87DCB86E998AC13D /* QRToggleTorchButton.h in Headers */,
+				D0D5FFE53407F16C9CD3D0ECF43ACE93 /* FMDatabase.h in Headers */,
+				B418C9BDCF8C6BAC2E3942F157BB6D4C /* FMDatabaseAdditions.h in Headers */,
+				0F8A8E0D6FAEBF758E0B4D620335F094 /* FMDatabasePool.h in Headers */,
+				D0C5FF5485EAA2CDA03E9796B407697A /* FMDatabaseQueue.h in Headers */,
+				313531CEDA0294311D87B4F4C3F073F4 /* FMDB.h in Headers */,
+				F977B243321331B58666E9284634101A /* FMResultSet.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -405,26 +600,54 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		A7BFF4DA9922F4EFBE6491AD9797C4E6 /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				3B82995079DE01914342BFB502877E4E /* QRCameraSwitchButton.h in Headers */,
+				BD1813F02ECA5EFED1BE90F9D341D614 /* QRCodeReader.h in Headers */,
+				7E764400A51B54640156205F3D2BD799 /* QRCodeReaderDelegate.h in Headers */,
+				ED6DDD282335752E8ED55FFC723DDBBC /* QRCodeReaderView.h in Headers */,
+				23371D795BAEB0B44912667223328BD7 /* QRCodeReaderViewController.h in Headers */,
+				1FB77A92B1D68ABB52FE94BEA7C9E108 /* QRToggleTorchButton.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		E32A6A27F2976714C0D47AF442F7C8E0 /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A36E68C4CEDFC13260228BAE7F57881C /* INTUHeadingRequest.h in Headers */,
+				76F90EE2D28AB19554A0D10E43462370 /* INTULocationManager+Internal.h in Headers */,
+				CFFC1D97C028CC13F8C712173BEC6367 /* INTULocationManager.h in Headers */,
+				2E0EF893B8843D4C7EA4E979F1CA60CC /* INTULocationRequest.h in Headers */,
+				BB8840C11EDC92B798C16B2008503345 /* INTULocationRequestDefines.h in Headers */,
+				7B1E429845B9563A9F5EA367C3758411 /* INTURequestIDGenerator.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXHeadersBuildPhase section */
 
 /* Begin PBXNativeTarget section */
-		3E39362305B9EA6D3E5219A7ADDDA9CC /* Pods */ = {
+		3F16A7973D2511D75E02723E41D69082 /* Pods */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = D8680BFB7EDFA59052ED8CE2ED4A935B /* Build configuration list for PBXNativeTarget "Pods" */;
+			buildConfigurationList = EB5EF23CCA6483F5FCE0FC2835C26C89 /* Build configuration list for PBXNativeTarget "Pods" */;
 			buildPhases = (
-				3DDA12CB035345A9591E2C9B1D534137 /* Sources */,
-				3EB94CC4B3C19A5DCED7099B6F552BFA /* Frameworks */,
+				93F52B2F5C8E209BE2CB57707F1D3326 /* Sources */,
+				45A429CEE5ACBDB5F3C00668EA86C89C /* Frameworks */,
 			);
 			buildRules = (
 			);
 			dependencies = (
-				459C696125BB4045A3647BB10457DF4E /* PBXTargetDependency */,
-				A3B9402664D13C1745CC9359CD444E6A /* PBXTargetDependency */,
-				9FA1B2A0751B75494BF7C8CCFA56D237 /* PBXTargetDependency */,
+				58238FEF8D9BBDD36D8519E978A6CA88 /* PBXTargetDependency */,
+				FBB806AEB8248D2E8D7DE79E73262A39 /* PBXTargetDependency */,
+				44DCBA8319E0A4EB9E67C3C06D24DD42 /* PBXTargetDependency */,
+				B8F3F48792E1BAC5CB1498602E5E99B4 /* PBXTargetDependency */,
+				6F4C6CF07A1FAC6EBF3E6362D1C82B4D /* PBXTargetDependency */,
 			);
 			name = Pods;
 			productName = Pods;
-			productReference = D87DA18375E80D90598E8B6A38A1E88C /* libPods.a */;
+			productReference = 10E962CC774369064F3206D82236778E /* libPods.a */;
 			productType = "com.apple.product-type.library.static";
 		};
 		53480ED0BE09FF49E34B1702D485CAAB /* Masonry */ = {
@@ -441,7 +664,7 @@
 			);
 			name = Masonry;
 			productName = Masonry;
-			productReference = 5405B34220CE4F972BF5DAE8AD088EA9 /* libMasonry.a */;
+			productReference = 33DE6B7A3C5CE0A28EF5CB5787F658A0 /* libMasonry.a */;
 			productType = "com.apple.product-type.library.static";
 		};
 		5B205F50A9EF0B3FE80E849510A05096 /* CocoaSecurity */ = {
@@ -458,16 +681,33 @@
 			);
 			name = CocoaSecurity;
 			productName = CocoaSecurity;
-			productReference = D8692DDE596FEDB6CC83AB33B91144A5 /* libCocoaSecurity.a */;
+			productReference = FB22F38969D54A3B0C8E6CB87804238A /* libCocoaSecurity.a */;
 			productType = "com.apple.product-type.library.static";
 		};
-		F6666061157FF17455DC7EBF0B4D1272 /* QRCodeReaderViewController */ = {
+		9F12FB4A63E20F601CFB2E64A65B57C1 /* FMDB */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = EB7960C4067932E12A49FE88BF07EE6E /* Build configuration list for PBXNativeTarget "QRCodeReaderViewController" */;
+			buildConfigurationList = 3AC899FD215914230EB9D8B57AD910D0 /* Build configuration list for PBXNativeTarget "FMDB" */;
 			buildPhases = (
-				6542E1E02D110E9C0069AB018644EA1F /* Sources */,
-				CACCB1480D7B7E9EEB3FA4CA56B9CF1E /* Frameworks */,
-				69A1F967264E424F5AD64D5085FA66D3 /* Headers */,
+				050B66E154969A68944942A22BD9B314 /* Sources */,
+				84AF63084FFE4472EFC6131BD113B13D /* Frameworks */,
+				8B2D82357BE4C2A10AB2CD4724B8E654 /* Headers */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = FMDB;
+			productName = FMDB;
+			productReference = 8831FB179F749B335683D49DEB00C699 /* libFMDB.a */;
+			productType = "com.apple.product-type.library.static";
+		};
+		BAA5C2ECF618B91B0F36BF40D31EDF03 /* QRCodeReaderViewController */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = BBDCEEC78775FB662164705BA3FB93B3 /* Build configuration list for PBXNativeTarget "QRCodeReaderViewController" */;
+			buildPhases = (
+				35FC9EBDA2EDE1A4FE3401645925F775 /* Sources */,
+				6004BA25730BA76F75BF297DE2B2A37C /* Frameworks */,
+				A7BFF4DA9922F4EFBE6491AD9797C4E6 /* Headers */,
 			);
 			buildRules = (
 			);
@@ -475,7 +715,24 @@
 			);
 			name = QRCodeReaderViewController;
 			productName = QRCodeReaderViewController;
-			productReference = EE2C1E981333494B7E643E0C46212DA8 /* libQRCodeReaderViewController.a */;
+			productReference = 90D8B7C7EA408BF6A17B574B3B57F2C8 /* libQRCodeReaderViewController.a */;
+			productType = "com.apple.product-type.library.static";
+		};
+		E07A1B93D0B5E99C6E979FACDA81D9B4 /* INTULocationManager */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = FF87CB73FE66AAA5CF4BB9A7A158023D /* Build configuration list for PBXNativeTarget "INTULocationManager" */;
+			buildPhases = (
+				B08A1078AC5AFE1A86CEDA533FB8B88E /* Sources */,
+				8F6EA8DF4AA2C91F2E86882DAB0D7CEB /* Frameworks */,
+				E32A6A27F2976714C0D47AF442F7C8E0 /* Headers */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = INTULocationManager;
+			productName = INTULocationManager;
+			productReference = D90CB1733E62F5B6008D70B077631B28 /* libINTULocationManager.a */;
 			productType = "com.apple.product-type.library.static";
 		};
 /* End PBXNativeTarget section */
@@ -495,37 +752,64 @@
 				en,
 			);
 			mainGroup = 7DB346D0F39D3F0E887471402A8071AB;
-			productRefGroup = E6CA661727C4B18386BC321ED264C5BF /* Products */;
+			productRefGroup = 966571FC0C5FA895E6D99257F818892A /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
 				5B205F50A9EF0B3FE80E849510A05096 /* CocoaSecurity */,
+				9F12FB4A63E20F601CFB2E64A65B57C1 /* FMDB */,
+				E07A1B93D0B5E99C6E979FACDA81D9B4 /* INTULocationManager */,
 				53480ED0BE09FF49E34B1702D485CAAB /* Masonry */,
-				3E39362305B9EA6D3E5219A7ADDDA9CC /* Pods */,
-				F6666061157FF17455DC7EBF0B4D1272 /* QRCodeReaderViewController */,
+				3F16A7973D2511D75E02723E41D69082 /* Pods */,
+				BAA5C2ECF618B91B0F36BF40D31EDF03 /* QRCodeReaderViewController */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXSourcesBuildPhase section */
-		3DDA12CB035345A9591E2C9B1D534137 /* Sources */ = {
+		050B66E154969A68944942A22BD9B314 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				98F6A433124E55F488C2043C5E3A316B /* Pods-dummy.m in Sources */,
+				CA027706DD6805766F1F4EC548E72440 /* FMDatabase.m in Sources */,
+				A350C5704A1F233DAD830E081E00F8C1 /* FMDatabaseAdditions.m in Sources */,
+				0EF8E9AA652DBE2745A7D5C8CD2E3BDE /* FMDatabasePool.m in Sources */,
+				282081E035E7A843068E8BCC2E07C217 /* FMDatabaseQueue.m in Sources */,
+				3D0F69C4CA35EB6A1F686BA88B19B4F6 /* FMDB-dummy.m in Sources */,
+				DEFA3504695E9DFDE1177DAB22884470 /* FMResultSet.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		6542E1E02D110E9C0069AB018644EA1F /* Sources */ = {
+		35FC9EBDA2EDE1A4FE3401645925F775 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				9E7519E098D977E7537711E9BE063751 /* QRCameraSwitchButton.m in Sources */,
-				8933F3D48076387F60E6B29D56C7A126 /* QRCodeReader.m in Sources */,
-				241D3E52094572AA17054D977CCBD1EE /* QRCodeReaderView.m in Sources */,
-				CB4EB2DBEA32436D1FB3258D676F18DA /* QRCodeReaderViewController-dummy.m in Sources */,
-				5205B8586D3DD756CF4F0702FD82776B /* QRCodeReaderViewController.m in Sources */,
-				31A378BF71DB8A24E119C0346FA8CF31 /* QRToggleTorchButton.m in Sources */,
+				8CA375263F006199765F4C65A556DC8B /* QRCameraSwitchButton.m in Sources */,
+				16EF33D6D8FCDBC6456A57AAB875171D /* QRCodeReader.m in Sources */,
+				C6562106E1D3EFA65701DB0C32D65BCA /* QRCodeReaderView.m in Sources */,
+				EBD62913DF820ACA89C22D134C37D9AE /* QRCodeReaderViewController-dummy.m in Sources */,
+				EF3A8F43B6CDD074BF2F0EB8111315BF /* QRCodeReaderViewController.m in Sources */,
+				3F62CF9641AF6727FF7A5950DA81153F /* QRToggleTorchButton.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		93F52B2F5C8E209BE2CB57707F1D3326 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				CCEA118DC196D0CC8441E141CB2D7E3D /* Pods-dummy.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		B08A1078AC5AFE1A86CEDA533FB8B88E /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				66D0583075C56B7024826FB9D8FAEDC2 /* INTUHeadingRequest.m in Sources */,
+				F180C99A07A325C35BCF659770E61140 /* INTULocationManager-dummy.m in Sources */,
+				47203760BB9DF52FD65477D97268A3AA /* INTULocationManager.m in Sources */,
+				D0C3E9B513CBD10BF34F44A380DCEB77 /* INTULocationRequest.m in Sources */,
+				B94B56B836DA079EE6F98300E9EF97C8 /* INTURequestIDGenerator.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -560,23 +844,35 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
-		459C696125BB4045A3647BB10457DF4E /* PBXTargetDependency */ = {
+		44DCBA8319E0A4EB9E67C3C06D24DD42 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = INTULocationManager;
+			target = E07A1B93D0B5E99C6E979FACDA81D9B4 /* INTULocationManager */;
+			targetProxy = 56442A61BCBD4713EA928523E6F2CCE2 /* PBXContainerItemProxy */;
+		};
+		58238FEF8D9BBDD36D8519E978A6CA88 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			name = CocoaSecurity;
 			target = 5B205F50A9EF0B3FE80E849510A05096 /* CocoaSecurity */;
-			targetProxy = AD5AE7561DECCC83A57046EFA69D64A7 /* PBXContainerItemProxy */;
+			targetProxy = 9B1C25FE72E2596151838B7CC41615BE /* PBXContainerItemProxy */;
 		};
-		9FA1B2A0751B75494BF7C8CCFA56D237 /* PBXTargetDependency */ = {
+		6F4C6CF07A1FAC6EBF3E6362D1C82B4D /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			name = QRCodeReaderViewController;
-			target = F6666061157FF17455DC7EBF0B4D1272 /* QRCodeReaderViewController */;
-			targetProxy = 561916DDEC28CB1DB96F6FB29D99B2FD /* PBXContainerItemProxy */;
+			target = BAA5C2ECF618B91B0F36BF40D31EDF03 /* QRCodeReaderViewController */;
+			targetProxy = 82667FDBC26C8CED6C772D69DB82CBE4 /* PBXContainerItemProxy */;
 		};
-		A3B9402664D13C1745CC9359CD444E6A /* PBXTargetDependency */ = {
+		B8F3F48792E1BAC5CB1498602E5E99B4 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			name = Masonry;
 			target = 53480ED0BE09FF49E34B1702D485CAAB /* Masonry */;
-			targetProxy = 609F5E9E292CABAA272A6D7B8F1897BD /* PBXContainerItemProxy */;
+			targetProxy = 3EA8E0DF789B23D0908B60A76D50F31F /* PBXContainerItemProxy */;
+		};
+		FBB806AEB8248D2E8D7DE79E73262A39 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = FMDB;
+			target = 9F12FB4A63E20F601CFB2E64A65B57C1 /* FMDB */;
+			targetProxy = 70A55577A167F15157639EF1897273C9 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
@@ -615,14 +911,14 @@
 			};
 			name = Release;
 		};
-		11ACA6B6DD0FD28520CDDAA435502E3D /* Release */ = {
+		2F13DB6590197BE91406D7F20B931D3E /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 144F8E92F8257D356E6A8A6D4D2474A4 /* QRCodeReaderViewController.xcconfig */;
+			baseConfigurationReference = 66788D7F340BF6B1D1C1E0C740D0C0CA /* INTULocationManager.xcconfig */;
 			buildSettings = {
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
-				GCC_PREFIX_HEADER = "Target Support Files/QRCodeReaderViewController/QRCodeReaderViewController-prefix.pch";
+				GCC_PREFIX_HEADER = "Target Support Files/INTULocationManager/INTULocationManager-prefix.pch";
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
-				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_ENABLE_DEBUG_INFO = YES;
 				OTHER_LDFLAGS = "";
 				OTHER_LIBTOOLFLAGS = "";
 				PRIVATE_HEADERS_FOLDER_PATH = "";
@@ -631,9 +927,9 @@
 				SDKROOT = iphoneos;
 				SKIP_INSTALL = YES;
 			};
-			name = Release;
+			name = Debug;
 		};
-		1C2719DDCA4701BA64352E87A4BDFCAD /* Debug */ = {
+		3713C082A5979D2532B37E801E5898D9 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 4E762F23EC34ED4A6FF3312D84E33A40 /* Pods.debug.xcconfig */;
 			buildSettings = {
@@ -652,7 +948,7 @@
 		};
 		3A2A3C95E1EDF73DEF947480F6B2FCC9 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 587583B206E3BADB6ED166A65D07D99E /* Masonry.xcconfig */;
+			baseConfigurationReference = E2D775C82385C317101511F47F275719 /* Masonry.xcconfig */;
 			buildSettings = {
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				GCC_PREFIX_HEADER = "Target Support Files/Masonry/Masonry-prefix.pch";
@@ -668,14 +964,14 @@
 			};
 			name = Release;
 		};
-		426C985C3E94E51E0F33B2E4FFD1BE20 /* Debug */ = {
+		40B82CFD85145EF35DBD81E7326C4246 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 144F8E92F8257D356E6A8A6D4D2474A4 /* QRCodeReaderViewController.xcconfig */;
+			baseConfigurationReference = 15FD6CD8BB6834CF1035FDC61E676105 /* QRCodeReaderViewController.xcconfig */;
 			buildSettings = {
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				GCC_PREFIX_HEADER = "Target Support Files/QRCodeReaderViewController/QRCodeReaderViewController-prefix.pch";
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
-				MTL_ENABLE_DEBUG_INFO = YES;
+				MTL_ENABLE_DEBUG_INFO = NO;
 				OTHER_LDFLAGS = "";
 				OTHER_LIBTOOLFLAGS = "";
 				PRIVATE_HEADERS_FOLDER_PATH = "";
@@ -684,9 +980,9 @@
 				SDKROOT = iphoneos;
 				SKIP_INSTALL = YES;
 			};
-			name = Debug;
+			name = Release;
 		};
-		426D08B91C0F6D9EE446F5B512C6F783 /* Release */ = {
+		4CD585D2588B1F197E90EE0632FF42DA /* Release */ = {
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 98C98CDFB3F20F2925F6CD1F141BB14F /* Pods.release.xcconfig */;
 			buildSettings = {
@@ -705,7 +1001,7 @@
 		};
 		63F37E067C0C2B215ACA688ED9288564 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = C6A7E6C0764406987E2D84716F3A68B3 /* CocoaSecurity.xcconfig */;
+			baseConfigurationReference = 105B4813B551BE09F5B6CF3D81112134 /* CocoaSecurity.xcconfig */;
 			buildSettings = {
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				GCC_PREFIX_HEADER = "Target Support Files/CocoaSecurity/CocoaSecurity-prefix.pch";
@@ -721,12 +1017,66 @@
 			};
 			name = Release;
 		};
+		641F071BD177C0FD805ECAF1D202F7CB /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = C137A2F38D156EAEFE1526EFF90BA6EA /* FMDB.xcconfig */;
+			buildSettings = {
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_PREFIX_HEADER = "Target Support Files/FMDB/FMDB-prefix.pch";
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PRIVATE_HEADERS_FOLDER_PATH = "";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				PUBLIC_HEADERS_FOLDER_PATH = "";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+			};
+			name = Release;
+		};
 		84175F366087A68F69F28B6840B43F66 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = C6A7E6C0764406987E2D84716F3A68B3 /* CocoaSecurity.xcconfig */;
+			baseConfigurationReference = 105B4813B551BE09F5B6CF3D81112134 /* CocoaSecurity.xcconfig */;
 			buildSettings = {
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				GCC_PREFIX_HEADER = "Target Support Files/CocoaSecurity/CocoaSecurity-prefix.pch";
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PRIVATE_HEADERS_FOLDER_PATH = "";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				PUBLIC_HEADERS_FOLDER_PATH = "";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+			};
+			name = Debug;
+		};
+		8E22345807C46884D17DD8C2728A6201 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = C137A2F38D156EAEFE1526EFF90BA6EA /* FMDB.xcconfig */;
+			buildSettings = {
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_PREFIX_HEADER = "Target Support Files/FMDB/FMDB-prefix.pch";
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PRIVATE_HEADERS_FOLDER_PATH = "";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				PUBLIC_HEADERS_FOLDER_PATH = "";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+			};
+			name = Debug;
+		};
+		9D0E33BCE6C5A27CD8F7C0BB0E6C93C3 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 15FD6CD8BB6834CF1035FDC61E676105 /* QRCodeReaderViewController.xcconfig */;
+			buildSettings = {
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_PREFIX_HEADER = "Target Support Files/QRCodeReaderViewController/QRCodeReaderViewController-prefix.pch";
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				OTHER_LDFLAGS = "";
@@ -778,9 +1128,27 @@
 			};
 			name = Debug;
 		};
+		DD1E22E457BCA2ED4BEDF0626D89564E /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 66788D7F340BF6B1D1C1E0C740D0C0CA /* INTULocationManager.xcconfig */;
+			buildSettings = {
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_PREFIX_HEADER = "Target Support Files/INTULocationManager/INTULocationManager-prefix.pch";
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PRIVATE_HEADERS_FOLDER_PATH = "";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				PUBLIC_HEADERS_FOLDER_PATH = "";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+			};
+			name = Release;
+		};
 		EE43A56420D041C473C78C19CD1B0EDB /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 587583B206E3BADB6ED166A65D07D99E /* Masonry.xcconfig */;
+			baseConfigurationReference = E2D775C82385C317101511F47F275719 /* Masonry.xcconfig */;
 			buildSettings = {
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				GCC_PREFIX_HEADER = "Target Support Files/Masonry/Masonry-prefix.pch";
@@ -817,6 +1185,15 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
+		3AC899FD215914230EB9D8B57AD910D0 /* Build configuration list for PBXNativeTarget "FMDB" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				8E22345807C46884D17DD8C2728A6201 /* Debug */,
+				641F071BD177C0FD805ECAF1D202F7CB /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 		B6653DB75D219E078020C341A7D83ECE /* Build configuration list for PBXNativeTarget "Masonry" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
@@ -826,20 +1203,29 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		D8680BFB7EDFA59052ED8CE2ED4A935B /* Build configuration list for PBXNativeTarget "Pods" */ = {
+		BBDCEEC78775FB662164705BA3FB93B3 /* Build configuration list for PBXNativeTarget "QRCodeReaderViewController" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				1C2719DDCA4701BA64352E87A4BDFCAD /* Debug */,
-				426D08B91C0F6D9EE446F5B512C6F783 /* Release */,
+				9D0E33BCE6C5A27CD8F7C0BB0E6C93C3 /* Debug */,
+				40B82CFD85145EF35DBD81E7326C4246 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		EB7960C4067932E12A49FE88BF07EE6E /* Build configuration list for PBXNativeTarget "QRCodeReaderViewController" */ = {
+		EB5EF23CCA6483F5FCE0FC2835C26C89 /* Build configuration list for PBXNativeTarget "Pods" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				426C985C3E94E51E0F33B2E4FFD1BE20 /* Debug */,
-				11ACA6B6DD0FD28520CDDAA435502E3D /* Release */,
+				3713C082A5979D2532B37E801E5898D9 /* Debug */,
+				4CD585D2588B1F197E90EE0632FF42DA /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		FF87CB73FE66AAA5CF4BB9A7A158023D /* Build configuration list for PBXNativeTarget "INTULocationManager" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				2F13DB6590197BE91406D7F20B931D3E /* Debug */,
+				DD1E22E457BCA2ED4BEDF0626D89564E /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

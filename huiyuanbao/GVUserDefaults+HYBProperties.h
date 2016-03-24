@@ -23,5 +23,7 @@
 
 @property (nonatomic, weak) NSString *citycode;// 城市编码
 @property (nonatomic, weak) NSString *cityname;// 城市名称
+@property (nonatomic, weak) NSString *longitude;
+@property (nonatomic, weak) NSString *latitude;
 
 @end

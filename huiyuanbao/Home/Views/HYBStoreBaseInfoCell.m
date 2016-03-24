@@ -59,7 +59,10 @@
     [storeImageView setImage:storeImg];
     if(_storeBaseInfo.merchant_img && ![_storeBaseInfo.merchant_img isEqualToString:@""]){
         [[CXImageLoader sharedImageLoader] loadImageForURL:[NSURL URLWithString:[IMG_PREFIX stringByAppendingString:_storeBaseInfo.merchant_img]] image:^(UIImage *image, NSError *error) {
-            storeImageView.image = image;
+            if(!error){
+                storeImageView.image = image;
+            }
+            
         }];
     }
     [bottomView addSubview:storeImageView];
